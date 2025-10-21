@@ -1,0 +1,82 @@
+---
+import type { Servicio } from '../data/services';
+
+export interface Props {
+  servicio: Servicio;
+  showCategory?: boolean;
+  class?: string;
+}
+
+const { servicio, showCategory = false, class: className = '' } = Astro.props;
+---
+
+<div class={`service-card group cursor-pointer ${className}`}>
+  <a href={`/services/${servicio.slug}`} class="block">
+    <!-- Imagen del servicio -->
+    <div class="relative overflow-hidden rounded-t-lg bg-soft">
+      <img 
+        src={servicio.image} 
+        alt={servicio.t}
+        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+        loading="lazy"
+        width="400"
+        height="192"
+      />
+      
+      <!-- Overlay con precio -->
+      <div class="absolute top-4 right-4">
+        <span class="bg-white/90 backdrop-blur-sm text-dark font-semibold px-3 py-1 rounded-full text-sm shadow-sm">
+          {servicio.precio}
+        </span>
+      </div>
+      
+      <!-- Overlay hover -->
+      <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div class="bg-white rounded-full p-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contenido de la tarjeta -->
+    <div class="p-6 bg-white rounded-b-lg">
+      <!-- Título del servicio -->
+      <h3 class="font-display font-semibold text-lg text-dark mb-2 group-hover:text-primary transition-colors duration-300">
+        {servicio.t}
+      </h3>
+      
+      <!-- Descripción -->
+      <p class="text-graytxt text-sm leading-relaxed mb-4">
+        {servicio.excerpt}
+      </p>
+      
+      <!-- Información adicional -->
+      <div class="flex items-center justify-between">
+        {servicio.duration && (
+          <div class="flex items-center text-graytxt text-xs">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            {servicio.duration}
+          </div>
+        )}
+        
+        <!-- Botón de acción -->
+        <div class="flex items-center text-primary text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">
+          Ver detalles
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<style>
+  .service-card {
+    @apply bg-white rounded-lg shadow-sm hover:shadow-card transition-all duration-300 transform hover:-translate-y-1;
+  }
+</style>

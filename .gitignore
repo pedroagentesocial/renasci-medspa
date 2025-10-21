@@ -22,3 +22,22 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# VSCode settings (opcional - mantener configuración local)
+.vscode/settings.json
+
+# Vercel
+.vercel
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+
+# Editor directories and files
+.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json

@@ -1,0 +1,452 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTAButton from '../../components/CTAButton.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import { getServicioBySlug, categorias } from '../../data/services';
+
+export async function getStaticPaths() {
+  const paths = [];
+  
+  categorias.forEach(categoria => {
+    categoria.servicios.forEach(servicio => {
+      paths.push({
+        params: { slug: servicio.slug },
+        props: { servicio, categoria }
+      });
+    });
+  });
+  
+  return paths;
+}
+
+const { slug } = Astro.params;
+const { servicio, categoria } = Astro.props;
+
+if (!servicio) {
+  return Astro.redirect('/services');
+}
+
+// Servicios relacionados (misma categoría, excluyendo el actual)
+const serviciosRelacionados = categoria.servicios
+  .filter(s => s.slug !== servicio.slug)
+  .slice(0, 3);
+---
+
+<BaseLayout 
+  title={`${servicio.t} - Renasci Medical Spa`}
+  description={`${servicio.excerpt} Precio: ${servicio.precio}. Agenda tu cita en Renasci Medical Spa y descubre los beneficios de este tratamiento.`}
+>
+  <!-- Breadcrumb -->
+  <nav class="bg-soft py-4">
+    <div class="container mx-auto px-4">
+      <ol class="flex items-center space-x-2 text-sm">
+        <li>
+          <a href="/" class="text-graytxt hover:text-primary transition-colors">Inicio</a>
+        </li>
+        <li class="text-graytxt">/</li>
+        <li>
+          <a href="/services" class="text-graytxt hover:text-primary transition-colors">Servicios</a>
+        </li>
+        <li class="text-graytxt">/</li>
+        <li class="text-dark font-medium">{servicio.t}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero del Servicio -->
+  <section class="py-20 bg-gradient-to-br from-soft via-white to-soft">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Contenido -->
+        <div>
+          <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            {categoria.nombre}
+          </div>
+          
+          <h1 class="font-display font-bold text-4xl lg:text-5xl text-dark mb-6">
+            {servicio.t}
+          </h1>
+          
+          <p class="text-xl text-graytxt mb-8 leading-relaxed">
+            {servicio.excerpt}
+          </p>
+          
+          <!-- Precio destacado -->
+          <div class="bg-white rounded-2xl p-6 shadow-card mb-8 inline-block">
+            <div class="text-sm text-graytxt mb-1">Precio desde</div>
+            <div class="font-display font-bold text-3xl text-primary">{servicio.precio}</div>
+            {servicio.duracion && (
+              <div class="text-sm text-graytxt mt-1">Duración: {servicio.duracion}</div>
+            )}
+          </div>
+          
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <CTAButton 
+              href="#agendar" 
+              variant="primary" 
+              size="lg"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              Agendar Cita
+            </CTAButton>
+            
+            <CTAButton 
+              href="tel:+1234567890" 
+              variant="outline" 
+              size="lg"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+              Consulta Gratis
+            </CTAButton>
+          </div>
+        </div>
+        
+        <!-- Imagen -->
+        <div class="relative">
+          <div class="aspect-square rounded-2xl overflow-hidden shadow-card">
+            <img 
+              src={servicio.image} 
+              alt={`Tratamiento ${servicio.t} en Renasci Medical Spa`}
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              loading="eager"
+            />
+          </div>
+          
+          <!-- Badge flotante -->
+          <div class="absolute -top-4 -right-4 bg-primary text-white px-6 py-3 rounded-full font-semibold shadow-lg">
+            ¡Popular!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detalles del Tratamiento -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Beneficios -->
+          <div>
+            <h2 class="font-display font-bold text-3xl text-dark mb-8">
+              Beneficios del Tratamiento
+            </h2>
+            
+            <div class="space-y-4">
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-dark mb-2">Resultados Naturales</h3>
+                  <p class="text-graytxt">Obtén resultados que realzan tu belleza natural sin verse artificial.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-dark mb-2">Procedimiento Seguro</h3>
+                  <p class="text-graytxt">Realizado por especialistas certificados con productos FDA aprobados.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-dark mb-2">Mínimo Tiempo de Recuperación</h3>
+                  <p class="text-graytxt">Regresa a tus actividades normales el mismo día del tratamiento.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-dark mb-2">Resultados Duraderos</h3>
+                  <p class="text-graytxt">Disfruta de resultados que perduran por meses con el cuidado adecuado.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Proceso -->
+          <div>
+            <h2 class="font-display font-bold text-3xl text-dark mb-8">
+              ¿Cómo Funciona?
+            </h2>
+            
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                  1
+                </div>
+                <div>
+                  <h3 class="font-semibold text-dark mb-2">Consulta Inicial</h3>
+                  <p class="text-graytxt">Evaluamos tu piel y discutimos tus objetivos estéticos.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                  2
+                </div>
+                <div>
+                  <h3 class="font-semibold text-dark mb-2">Preparación</h3>
+                  <p class="text-graytxt">Limpiamos y preparamos el área de tratamiento para el procedimiento.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                  3
+                </div>
+                <div>
+                  <h3 class="font-semibold text-dark mb-2">Aplicación</h3>
+                  <p class="text-graytxt">Realizamos el tratamiento con precisión y cuidado profesional.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                  4
+                </div>
+                <div>
+                  <h3 class="font-semibold text-dark mb-2">Cuidados Post-Tratamiento</h3>
+                  <p class="text-graytxt">Te damos instrucciones detalladas para optimizar tus resultados.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Específicas del Servicio -->
+  <section class="py-20 bg-soft">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="font-display font-bold text-3xl text-dark mb-4">
+            Preguntas Frecuentes
+          </h2>
+          <p class="text-xl text-graytxt">
+            Resolvemos tus dudas sobre {servicio.t}
+          </p>
+        </div>
+        
+        <div class="space-y-4">
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <button class="faq-trigger w-full text-left flex justify-between items-center">
+              <h3 class="font-semibold text-dark">¿Cuánto tiempo duran los resultados?</h3>
+              <svg class="w-5 h-5 text-graytxt transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-content hidden mt-4 text-graytxt">
+              Los resultados típicamente duran entre 3-6 meses, dependiendo del área tratada y tu metabolismo individual. Te recomendaremos un plan de mantenimiento personalizado.
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <button class="faq-trigger w-full text-left flex justify-between items-center">
+              <h3 class="font-semibold text-dark">¿Es doloroso el procedimiento?</h3>
+              <svg class="w-5 h-5 text-graytxt transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-content hidden mt-4 text-graytxt">
+              La mayoría de nuestros pacientes describen la sensación como una pequeña molestia. Utilizamos técnicas para minimizar cualquier incomodidad durante el tratamiento.
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <button class="faq-trigger w-full text-left flex justify-between items-center">
+              <h3 class="font-semibold text-dark">¿Cuándo veré los resultados?</h3>
+              <svg class="w-5 h-5 text-graytxt transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-content hidden mt-4 text-graytxt">
+              Los resultados iniciales son visibles inmediatamente, con mejoras continuas durante las primeras 2 semanas. Los resultados completos se aprecian después de 2-4 semanas.
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <button class="faq-trigger w-full text-left flex justify-between items-center">
+              <h3 class="font-semibold text-dark">¿Hay efectos secundarios?</h3>
+              <svg class="w-5 h-5 text-graytxt transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-content hidden mt-4 text-graytxt">
+              Los efectos secundarios son mínimos y temporales: ligero enrojecimiento o hinchazón que desaparece en 24-48 horas. Te daremos instrucciones detalladas de cuidado post-tratamiento.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Relacionados -->
+  {serviciosRelacionados.length > 0 && (
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="font-display font-bold text-3xl text-dark mb-4">
+            Servicios Relacionados
+          </h2>
+          <p class="text-xl text-graytxt">
+            Otros tratamientos que podrían interesarte
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {serviciosRelacionados.map((servicioRelacionado) => (
+            <ServiceCard servicio={servicioRelacionado} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA Final -->
+  <section id="agendar" class="py-20 bg-gradient-to-br from-primary to-primary/90">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-3xl mx-auto text-white">
+        <h2 class="font-display font-bold text-4xl mb-6">
+          ¿Listo para Transformar tu Belleza?
+        </h2>
+        
+        <p class="text-xl mb-8 opacity-90">
+          Agenda tu consulta gratuita hoy y descubre cómo {servicio.t} puede ayudarte a alcanzar tus objetivos estéticos.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <CTAButton 
+            href="tel:+1234567890" 
+            variant="secondary" 
+            size="lg"
+            class="bg-white text-primary hover:bg-gray-50"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            Llamar Ahora
+          </CTAButton>
+          
+          <CTAButton 
+            href="/services" 
+            variant="outline" 
+            size="lg"
+            class="border-white text-white hover:bg-white hover:text-primary"
+          >
+            Ver Más Servicios
+          </CTAButton>
+        </div>
+        
+        <!-- Información de contacto -->
+        <div class="mt-12 pt-8 border-t border-white/20">
+          <div class="grid md:grid-cols-3 gap-6 text-center">
+            <div>
+              <div class="text-sm opacity-75 mb-1">Teléfono</div>
+              <div class="font-semibold">(555) 123-4567</div>
+            </div>
+            <div>
+              <div class="text-sm opacity-75 mb-1">Horarios</div>
+              <div class="font-semibold">Lun-Vie 9AM-7PM</div>
+            </div>
+            <div>
+              <div class="text-sm opacity-75 mb-1">Ubicación</div>
+              <div class="font-semibold">Miami, FL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // FAQ Accordion
+  function setupFAQ() {
+    const faqTriggers = document.querySelectorAll('.faq-trigger');
+    
+    faqTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const content = trigger.nextElementSibling;
+        const icon = trigger.querySelector('svg');
+        
+        // Toggle content
+        content.classList.toggle('hidden');
+        
+        // Rotate icon
+        if (content.classList.contains('hidden')) {
+          icon.style.transform = 'rotate(0deg)';
+        } else {
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  }
+  
+  // Smooth scroll para anchors
+  function setupSmoothScroll() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  }
+  
+  // Inicializar
+  document.addEventListener('DOMContentLoaded', () => {
+    setupFAQ();
+    setupSmoothScroll();
+  });
+  
+  // Re-inicializar en navegación de Astro
+  document.addEventListener('astro:page-load', () => {
+    setupFAQ();
+    setupSmoothScroll();
+  });
+</script>
+
+<style>
+  .faq-content {
+    transition: all 0.3s ease;
+  }
+  
+  .faq-trigger svg {
+    transition: transform 0.3s ease;
+  }
+</style>

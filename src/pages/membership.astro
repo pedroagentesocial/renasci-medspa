@@ -1,0 +1,473 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TierCard from '../components/TierCard.astro';
+import CTAButton from '../components/CTAButton.astro';
+import FAQItem from '../components/FAQItem.astro';
+---
+
+<BaseLayout 
+  title="Membresías - Renasci Medical Spa"
+  description="Descubre nuestros planes de membresía: Rack, Glow y Elite. Obtén descuentos exclusivos y beneficios especiales en todos nuestros tratamientos estéticos."
+>
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-soft via-white to-soft">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-4xl mx-auto">
+        <h1 class="font-display font-bold text-5xl lg:text-6xl text-dark mb-6">
+          Planes de <span class="text-primary">Membresía</span>
+        </h1>
+        
+        <p class="text-xl text-graytxt mb-8 leading-relaxed">
+          Únete a nuestra comunidad exclusiva y disfruta de descuentos especiales, 
+          tratamientos prioritarios y beneficios únicos diseñados para tu bienestar.
+        </p>
+        
+        <!-- Estadísticas -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          <div class="text-center">
+            <div class="font-display font-bold text-3xl text-primary mb-2">500+</div>
+            <div class="text-sm text-graytxt">Miembros Activos</div>
+          </div>
+          <div class="text-center">
+            <div class="font-display font-bold text-3xl text-primary mb-2">25%</div>
+            <div class="text-sm text-graytxt">Descuento Promedio</div>
+          </div>
+          <div class="text-center">
+            <div class="font-display font-bold text-3xl text-primary mb-2">12</div>
+            <div class="text-sm text-graytxt">Meses de Beneficios</div>
+          </div>
+          <div class="text-center">
+            <div class="font-display font-bold text-3xl text-primary mb-2">24/7</div>
+            <div class="text-sm text-graytxt">Soporte Exclusivo</div>
+          </div>
+        </div>
+        
+        <div class="inline-block bg-primary/10 text-primary px-6 py-3 rounded-full font-semibold">
+          ✨ Promoción Especial: Primer mes GRATIS en plan Glow
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Planes de Membresía -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="font-display font-bold text-4xl text-dark mb-4">
+          Elige tu Plan Perfecto
+        </h2>
+        <p class="text-xl text-graytxt max-w-2xl mx-auto">
+          Cada plan está diseñado para diferentes necesidades y presupuestos. 
+          Todos incluyen beneficios exclusivos y atención personalizada.
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Plan Rack -->
+        <TierCard
+          title="Rack"
+          price="$99"
+          period="/mes"
+          description="Perfecto para comenzar tu journey de belleza con beneficios básicos"
+          features={[
+            "10% descuento en todos los servicios",
+            "Consultas gratuitas ilimitadas", 
+            "Acceso a promociones exclusivas",
+            "1 facial básico gratis al mes",
+            "Soporte por email",
+            "Cancelación flexible"
+          ]}
+          ctaText="Comenzar Plan Rack"
+          ctaHref="#contacto"
+        />
+        
+        <!-- Plan Glow (Destacado) -->
+        <TierCard
+          title="Glow"
+          price="$199"
+          period="/mes"
+          description="Nuestro plan más popular con beneficios premium y tratamientos incluidos"
+          features={[
+            "20% descuento en todos los servicios",
+            "2 tratamientos premium incluidos",
+            "Consultas y seguimientos gratuitos",
+            "Acceso prioritario a citas",
+            "Productos para el hogar incluidos",
+            "Soporte telefónico 24/7",
+            "Invitaciones a eventos exclusivos",
+            "Plan de tratamiento personalizado"
+          ]}
+          ctaText="Elegir Plan Glow"
+          ctaHref="#contacto"
+          highlight={true}
+        />
+        
+        <!-- Plan Elite -->
+        <TierCard
+          title="Elite"
+          price="$399"
+          period="/mes"
+          description="La experiencia más exclusiva con acceso VIP y tratamientos ilimitados"
+          features={[
+            "30% descuento en todos los servicios",
+            "Tratamientos ilimitados básicos",
+            "3 tratamientos premium incluidos",
+            "Concierge personal dedicado",
+            "Acceso VIP sin esperas",
+            "Kit completo de productos premium",
+            "Consultas en casa disponibles",
+            "Acceso a tratamientos experimentales",
+            "Garantía de satisfacción 100%"
+          ]}
+          ctaText="Experiencia Elite"
+          ctaHref="#contacto"
+        />
+      </div>
+      
+      <!-- Comparación rápida -->
+      <div class="mt-16 bg-soft rounded-2xl p-8">
+        <h3 class="font-display font-bold text-2xl text-dark text-center mb-8">
+          Comparación de Beneficios
+        </h3>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-gray-200">
+                <th class="text-left py-4 px-4 font-semibold text-dark">Beneficio</th>
+                <th class="text-center py-4 px-4 font-semibold text-dark">Rack</th>
+                <th class="text-center py-4 px-4 font-semibold text-primary">Glow</th>
+                <th class="text-center py-4 px-4 font-semibold text-dark">Elite</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm">
+              <tr class="border-b border-gray-100">
+                <td class="py-3 px-4 text-graytxt">Descuento en servicios</td>
+                <td class="py-3 px-4 text-center">10%</td>
+                <td class="py-3 px-4 text-center font-semibold text-primary">20%</td>
+                <td class="py-3 px-4 text-center">30%</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-3 px-4 text-graytxt">Tratamientos incluidos</td>
+                <td class="py-3 px-4 text-center">1 básico</td>
+                <td class="py-3 px-4 text-center font-semibold text-primary">2 premium</td>
+                <td class="py-3 px-4 text-center">Ilimitados básicos + 3 premium</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-3 px-4 text-graytxt">Soporte</td>
+                <td class="py-3 px-4 text-center">Email</td>
+                <td class="py-3 px-4 text-center font-semibold text-primary">24/7 Teléfono</td>
+                <td class="py-3 px-4 text-center">Concierge Personal</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-3 px-4 text-graytxt">Productos incluidos</td>
+                <td class="py-3 px-4 text-center">-</td>
+                <td class="py-3 px-4 text-center font-semibold text-primary">Kit básico</td>
+                <td class="py-3 px-4 text-center">Kit premium completo</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 text-graytxt">Acceso prioritario</td>
+                <td class="py-3 px-4 text-center">-</td>
+                <td class="py-3 px-4 text-center font-semibold text-primary">✓</td>
+                <td class="py-3 px-4 text-center">VIP Sin esperas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios de Miembros -->
+  <section class="py-20 bg-soft">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="font-display font-bold text-4xl text-dark mb-4">
+          Lo que Dicen Nuestros Miembros
+        </h2>
+        <p class="text-xl text-graytxt">
+          Historias reales de transformación y satisfacción
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Testimonio 1 -->
+        <div class="bg-white rounded-2xl p-8 shadow-card">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+              M
+            </div>
+            <div>
+              <div class="font-semibold text-dark">María González</div>
+              <div class="text-sm text-graytxt">Miembro Glow - 8 meses</div>
+            </div>
+          </div>
+          
+          <div class="flex mb-4">
+            {[...Array(5)].map(() => (
+              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+            ))}
+          </div>
+          
+          <p class="text-graytxt italic">
+            "El plan Glow ha sido increíble. Los descuentos me han permitido probar tratamientos que antes no podía costear, y el servicio prioritario es fantástico."
+          </p>
+        </div>
+        
+        <!-- Testimonio 2 -->
+        <div class="bg-white rounded-2xl p-8 shadow-card">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+              A
+            </div>
+            <div>
+              <div class="font-semibold text-dark">Ana Rodríguez</div>
+              <div class="text-sm text-graytxt">Miembro Elite - 1 año</div>
+            </div>
+          </div>
+          
+          <div class="flex mb-4">
+            {[...Array(5)].map(() => (
+              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+            ))}
+          </div>
+          
+          <p class="text-graytxt italic">
+            "La experiencia Elite es incomparable. Mi concierge personal hace que todo sea perfecto, y los tratamientos ilimitados han transformado completamente mi piel."
+          </p>
+        </div>
+        
+        <!-- Testimonio 3 -->
+        <div class="bg-white rounded-2xl p-8 shadow-card">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+              C
+            </div>
+            <div>
+              <div class="font-semibold text-dark">Carmen López</div>
+              <div class="text-sm text-graytxt">Miembro Rack - 4 meses</div>
+            </div>
+          </div>
+          
+          <div class="flex mb-4">
+            {[...Array(5)].map(() => (
+              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+            ))}
+          </div>
+          
+          <p class="text-graytxt italic">
+            "Perfecto para empezar. El plan Rack me dio la confianza para probar Renasci, y ahora estoy considerando actualizar al Glow. ¡Los resultados hablan por sí solos!"
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ de Membresías -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="font-display font-bold text-4xl text-dark mb-4">
+            Preguntas Frecuentes
+          </h2>
+          <p class="text-xl text-graytxt">
+            Todo lo que necesitas saber sobre nuestras membresías
+          </p>
+        </div>
+        
+        <div class="space-y-4">
+          <FAQItem 
+            question="¿Puedo cambiar de plan en cualquier momento?"
+            answer="Sí, puedes actualizar tu plan en cualquier momento. Los downgrades se aplican al siguiente ciclo de facturación para que no pierdas beneficios ya pagados."
+          />
+          
+          <FAQItem 
+            question="¿Qué pasa si no uso todos mis tratamientos incluidos?"
+            answer="Los tratamientos incluidos se acumulan hasta por 3 meses. Después de este período, se renuevan automáticamente. También puedes transferir tratamientos a familiares directos."
+          />
+          
+          <FAQItem 
+            question="¿Hay compromiso de permanencia?"
+            answer="No requerimos contratos a largo plazo. Puedes cancelar tu membresía en cualquier momento con 30 días de aviso previo."
+          />
+          
+          <FAQItem 
+            question="¿Los descuentos se aplican a productos también?"
+            answer="Sí, todos los descuentos de membresía se aplican tanto a servicios como a productos de nuestra línea exclusiva de cuidado de la piel."
+          />
+          
+          <FAQItem 
+            question="¿Puedo pausar mi membresía temporalmente?"
+            answer="Sí, ofrecemos pausas de membresía por hasta 3 meses por año por razones médicas, viajes o circunstancias especiales."
+          />
+          
+          <FAQItem 
+            question="¿Hay beneficios adicionales para miembros de larga duración?"
+            answer="Absolutamente. Después de 6 meses, recibes beneficios de lealtad adicionales, y después de 1 año, acceso a tratamientos exclusivos y eventos especiales."
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA de Membresía -->
+  <section id="contacto" class="py-20 bg-gradient-to-br from-primary to-primary/90">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center text-white">
+        <h2 class="font-display font-bold text-4xl lg:text-5xl mb-6">
+          ¿Listo para Unirte a Nuestra Comunidad?
+        </h2>
+        
+        <p class="text-xl mb-8 opacity-90">
+          Comienza tu transformación hoy con una consulta gratuita y descubre 
+          qué plan de membresía es perfecto para ti.
+        </p>
+        
+        <!-- Formulario de contacto para membresía -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
+          <form class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-4">
+              <input 
+                type="text" 
+                placeholder="Nombre completo"
+                class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:border-white focus:ring-2 focus:ring-white/20 outline-none"
+                required
+              />
+              <input 
+                type="tel" 
+                placeholder="Teléfono"
+                class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:border-white focus:ring-2 focus:ring-white/20 outline-none"
+                required
+              />
+            </div>
+            
+            <input 
+              type="email" 
+              placeholder="Email"
+              class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:border-white focus:ring-2 focus:ring-white/20 outline-none"
+              required
+            />
+            
+            <select 
+              class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:border-white focus:ring-2 focus:ring-white/20 outline-none"
+              required
+            >
+              <option value="" class="text-gray-800">Selecciona tu plan de interés</option>
+              <option value="rack" class="text-gray-800">Plan Rack - $99/mes</option>
+              <option value="glow" class="text-gray-800">Plan Glow - $199/mes (Recomendado)</option>
+              <option value="elite" class="text-gray-800">Plan Elite - $399/mes</option>
+              <option value="consulta" class="text-gray-800">Solo consulta informativa</option>
+            </select>
+            
+            <textarea 
+              placeholder="¿Qué tratamientos te interesan más? ¿Tienes alguna pregunta específica?"
+              rows="3"
+              class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:border-white focus:ring-2 focus:ring-white/20 outline-none resize-none"
+            ></textarea>
+            
+            <CTAButton 
+              type="submit"
+              variant="secondary" 
+              size="lg"
+              class="w-full bg-white text-primary hover:bg-gray-50"
+            >
+              Solicitar Consulta Gratuita
+            </CTAButton>
+          </form>
+        </div>
+        
+        <!-- Contacto directo -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <CTAButton 
+            href="tel:+1234567890" 
+            variant="outline" 
+            size="lg"
+            class="border-white text-white hover:bg-white hover:text-primary"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            Llamar Ahora
+          </CTAButton>
+          
+          <CTAButton 
+            href="/services" 
+            variant="outline" 
+            size="lg"
+            class="border-white text-white hover:bg-white hover:text-primary"
+          >
+            Ver Todos los Servicios
+          </CTAButton>
+        </div>
+        
+        <!-- Garantía -->
+        <div class="mt-12 pt-8 border-t border-white/20">
+          <div class="flex items-center justify-center space-x-2 text-sm opacity-90">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+            <span>Garantía de satisfacción de 30 días en todos los planes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Animaciones de entrada para las tarjetas
+  function setupAnimations() {
+    const cards = document.querySelectorAll('[data-animate]');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fadeInUp');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    cards.forEach(card => observer.observe(card));
+  }
+  
+  // Smooth scroll para formulario
+  function setupSmoothScroll() {
+    const links = document.querySelectorAll('a[href="#contacto"]');
+    
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector('#contacto');
+        
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  }
+  
+  // Inicializar
+  document.addEventListener('DOMContentLoaded', () => {
+    setupAnimations();
+    setupSmoothScroll();
+  });
+  
+  // Re-inicializar en navegación de Astro
+  document.addEventListener('astro:page-load', () => {
+    setupAnimations();
+    setupSmoothScroll();
+  });
+</script>

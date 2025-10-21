@@ -1,0 +1,49 @@
+:root {
+  --color-logo: #C8A08C;
+  --color-primary: #E94594;
+  --color-bg-soft: #FFF8F6;
+  --color-dark: #1A1A1A;
+  --color-gray: #5E5E5E;
+  --color-white: #FFFFFF;
+}
+
+.bg-soft {
+  background-color: var(--color-bg-soft);
+}
+
+.text-logo {
+  color: var(--color-logo);
+}
+
+.text-dark {
+  color: var(--color-dark);
+}
+
+.text-graytxt {
+  color: var(--color-gray);
+}
+
+/* Additional utility classes */
+.bg-logo {
+  background-color: var(--color-logo);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-dark {
+  background-color: var(--color-dark);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.border-primary {
+  border-color: var(--color-primary);
+}
+
+.border-logo {
+  border-color: var(--color-logo);
+}

@@ -1,0 +1,330 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTAButton from '../../components/CTAButton.astro';
+import { categorias } from '../../data/services';
+---
+
+<BaseLayout 
+  title="Servicios - Renasci Medical Spa"
+  description="Descubre todos nuestros tratamientos estéticos: Botox, rellenos, sculptra, contorno facial y más. Encuentra el tratamiento perfecto para ti."
+>
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-soft via-white to-soft">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-4xl mx-auto">
+        <h1 class="font-display font-bold text-5xl lg:text-6xl text-dark mb-6">
+          Nuestros <span class="text-primary">Servicios</span>
+        </h1>
+        
+        <p class="text-xl text-graytxt mb-8 leading-relaxed">
+          Explora nuestra amplia gama de tratamientos estéticos diseñados para realzar tu belleza natural. 
+          Cada servicio está respaldado por la más alta tecnología y años de experiencia.
+        </p>
+        
+        <!-- Filtros rápidos -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+          <button 
+            class="filter-btn active px-6 py-2 rounded-full border-2 border-primary bg-primary text-white font-medium transition-all duration-300 hover:shadow-lg"
+            data-filter="all"
+          >
+            Todos
+          </button>
+          <button 
+            class="filter-btn px-6 py-2 rounded-full border-2 border-gray-200 bg-white text-graytxt font-medium transition-all duration-300 hover:border-primary hover:text-primary"
+            data-filter="popular"
+          >
+            Más Populares
+          </button>
+          <button 
+            class="filter-btn px-6 py-2 rounded-full border-2 border-gray-200 bg-white text-graytxt font-medium transition-all duration-300 hover:border-primary hover:text-primary"
+            data-filter="facial"
+          >
+            Faciales
+          </button>
+          <button 
+            class="filter-btn px-6 py-2 rounded-full border-2 border-gray-200 bg-white text-graytxt font-medium transition-all duration-300 hover:border-primary hover:text-primary"
+            data-filter="body"
+          >
+            Corporales
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios por Categorías -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      {categorias.map((categoria, index) => (
+        <div class="mb-20 last:mb-0" data-category={categoria.slug}>
+          <!-- Header de categoría -->
+          <div class="text-center mb-12">
+            <h2 class="font-display font-bold text-3xl text-dark mb-4">
+              {categoria.nombre}
+            </h2>
+            <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+          </div>
+          
+          <!-- Grid de servicios -->
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+            {categoria.servicios.map((servicio) => (
+              <ServiceCard 
+                servicio={servicio} 
+                class="service-item"
+                data-tags={`${categoria.slug} ${servicio.slug}`}
+              />
+            ))}
+          </div>
+          
+          <!-- Separador -->
+          {index < categorias.length - 1 && (
+            <div class="border-t border-gray-100 pt-8"></div>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-soft">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-display font-bold text-4xl text-dark mb-6">
+          ¿No encuentras lo que buscas?
+        </h2>
+        
+        <p class="text-xl text-graytxt mb-8">
+          Nuestro equipo de especialistas está aquí para ayudarte a encontrar el tratamiento perfecto 
+          para tus necesidades específicas.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <CTAButton 
+            href="#agendar" 
+            variant="primary" 
+            size="lg"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            Agendar Consulta
+          </CTAButton>
+          
+          <CTAButton 
+            href="tel:+1234567890" 
+            variant="outline" 
+            size="lg"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            Llamar Ahora
+          </CTAButton>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto/Agendar -->
+  <section id="agendar" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="font-display font-bold text-4xl text-dark mb-4">
+            Agenda tu Consulta
+          </h2>
+          <p class="text-xl text-graytxt">
+            Completa el formulario y nos pondremos en contacto contigo
+          </p>
+        </div>
+        
+        <!-- Formulario de contacto -->
+        <div class="bg-soft rounded-2xl p-8">
+          <form class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label for="nombre" class="block text-sm font-semibold text-dark mb-2">Nombre Completo</label>
+                <input 
+                  type="text" 
+                  id="nombre" 
+                  name="nombre"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors"
+                  required
+                />
+              </div>
+              <div>
+                <label for="telefono" class="block text-sm font-semibold text-dark mb-2">Teléfono</label>
+                <input 
+                  type="tel" 
+                  id="telefono" 
+                  name="telefono"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors"
+                  required
+                />
+              </div>
+            </div>
+            
+            <div>
+              <label for="email" class="block text-sm font-semibold text-dark mb-2">Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors"
+                required
+              />
+            </div>
+            
+            <div>
+              <label for="servicio" class="block text-sm font-semibold text-dark mb-2">Servicio de Interés</label>
+              <select 
+                id="servicio" 
+                name="servicio"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors"
+              >
+                <option value="">Selecciona un servicio</option>
+                {categorias.map((categoria) => (
+                  <optgroup label={categoria.nombre}>
+                    {categoria.servicios.map((servicio) => (
+                      <option value={servicio.slug}>{servicio.t}</option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+            </div>
+            
+            <div>
+              <label for="mensaje" class="block text-sm font-semibold text-dark mb-2">Mensaje Adicional</label>
+              <textarea 
+                id="mensaje" 
+                name="mensaje"
+                rows="4"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors resize-none"
+                placeholder="Cuéntanos sobre tus objetivos, experiencias previas o cualquier pregunta específica..."
+              ></textarea>
+            </div>
+            
+            <CTAButton 
+              type="submit"
+              variant="primary" 
+              size="lg"
+              class="w-full"
+            >
+              Enviar Solicitud de Consulta
+            </CTAButton>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Filtrado de servicios
+  function setupServiceFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const serviceItems = document.querySelectorAll('.service-item');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        
+        // Actualizar botones activos
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-primary', 'text-white');
+          btn.classList.add('bg-white', 'text-graytxt', 'border-gray-200');
+        });
+        
+        button.classList.add('active', 'bg-primary', 'text-white');
+        button.classList.remove('bg-white', 'text-graytxt', 'border-gray-200');
+        
+        // Filtrar servicios
+        serviceItems.forEach(item => {
+          const tags = item.getAttribute('data-tags') || '';
+          
+          if (filter === 'all') {
+            item.style.display = 'block';
+            item.classList.remove('hidden');
+          } else if (filter === 'popular') {
+            // Mostrar servicios populares (puedes definir cuáles son)
+            const popularServices = ['tox-neurotoxina', 'sculptra-colageno', 'relleno-labios', 'cheekbone-pop'];
+            const isPopular = popularServices.some(service => tags.includes(service));
+            
+            if (isPopular) {
+              item.style.display = 'block';
+              item.classList.remove('hidden');
+            } else {
+              item.style.display = 'none';
+              item.classList.add('hidden');
+            }
+          } else if (filter === 'facial') {
+            // Servicios faciales
+            const facialCategories = ['inyecciones-neurotoxinas', 'contorno-facial-corporal', 'sculptra-y-rellenos', 'especializados'];
+            const isFacial = facialCategories.some(cat => tags.includes(cat));
+            
+            if (isFacial) {
+              item.style.display = 'block';
+              item.classList.remove('hidden');
+            } else {
+              item.style.display = 'none';
+              item.classList.add('hidden');
+            }
+          } else if (filter === 'body') {
+            // Servicios corporales
+            const bodyCategories = ['peso-bienestar', 'avanzados-corporales'];
+            const isBody = bodyCategories.some(cat => tags.includes(cat)) || tags.includes('bella');
+            
+            if (isBody) {
+              item.style.display = 'block';
+              item.classList.remove('hidden');
+            } else {
+              item.style.display = 'none';
+              item.classList.add('hidden');
+            }
+          }
+        });
+        
+        // Animación suave
+        serviceItems.forEach((item, index) => {
+          if (!item.classList.contains('hidden')) {
+            setTimeout(() => {
+              item.style.opacity = '0';
+              item.style.transform = 'translateY(20px)';
+              
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+              }, 50);
+            }, index * 50);
+          }
+        });
+      });
+    });
+  }
+  
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', setupServiceFilters);
+  
+  // Re-inicializar si se cargan nuevos servicios dinámicamente
+  document.addEventListener('astro:page-load', setupServiceFilters);
+</script>
+
+<style>
+  .service-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .filter-btn {
+    transition: all 0.3s ease;
+  }
+  
+  .filter-btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  .filter-btn.active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(233, 69, 148, 0.3);
+  }
+</style>

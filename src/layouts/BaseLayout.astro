@@ -1,0 +1,61 @@
+---
+import HeaderNav from '../components/HeaderNav.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+  currentPath?: string;
+}
+
+const { 
+  title = "Renasci Medical Spa - Renueva tu piel", 
+  description = "Tratamientos estéticos avanzados en Renasci Medical Spa. Botox, rellenos, sculptra y más. Renueva tu piel con los mejores especialistas.",
+  lang = "es",
+  currentPath = Astro.url.pathname
+} = Astro.props;
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.ico" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="es" href={`${Astro.site}es${Astro.url.pathname}`} />
+    <link rel="alternate" hreflang="en" href={`${Astro.site}en${Astro.url.pathname}`} />
+    <link rel="alternate" hreflang="x-default" href={`${Astro.site}${Astro.url.pathname}`} />
+  </head>
+  <body class="font-body text-dark bg-white antialiased">
+    <HeaderNav currentPath={currentPath} />
+    <main class="pt-20">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    font-family: system-ui, sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+</style>
