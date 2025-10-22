@@ -1,0 +1,88 @@
+---
+// Hero B - Video de fondo siguiendo el patrón de beautylablaser.com
+---
+
+<section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+  <!-- Video de fondo -->
+  <video 
+    autoplay 
+    muted 
+    loop 
+    playsinline 
+    poster="/img/hero-fallback.jpg"
+    class="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/video/hero.mp4" type="video/mp4">
+    Su navegador no soporta el elemento video.
+  </video>
+  
+  <!-- Overlay sólido -->
+  <div class="absolute inset-0 bg-black/40"></div>
+  
+  <!-- Contenido centrado -->
+  <div class="relative z-10 px-6 max-w-3xl">
+    <h1 class="font-poppins text-white text-4xl md:text-6xl font-bold tracking-tight mb-6">
+      Renueva tu piel<br>
+      <span class="text-primary">Renew your glow</span>
+    </h1>
+    <p class="mt-4 text-white/90 text-lg md:text-xl font-dm-sans mb-8">
+      Tratamientos estéticos de vanguardia para realzar tu belleza natural
+    </p>
+    
+    <!-- CTAs centrados -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <!-- Botón Agendar -->
+      <a 
+        href="/#booking" 
+        class="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-semibold bg-[#E94594] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-primary/50 min-h-[44px]"
+      >
+        Agendar Ahora
+      </a>
+      
+      <!-- Botón Llamar con pulso -->
+      <a 
+        href="tel:+13855550123" 
+        id="callBtn" 
+        class="relative inline-flex items-center justify-center px-8 py-4 rounded-2xl font-semibold bg-[#1DD1A1] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-call/50 animate-pulseSoft overflow-hidden min-h-[44px]"
+      >
+        📞 (385) 555-0123
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Ripple effect para el botón Llamar
+  const btn = document.getElementById('callBtn');
+  btn?.addEventListener('click', (e) => {
+    location.href = 'tel:+13855550123';
+    
+    // Respetar prefers-reduced-motion
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    
+    const r = document.createElement('span');
+    const b = btn.getBoundingClientRect();
+    const m = Math.max(b.width, b.height);
+    
+    Object.assign(r.style, {
+      position: 'absolute',
+      left: (e.clientX - b.left - m/2) + 'px',
+      top: (e.clientY - b.top - m/2) + 'px',
+      width: m + 'px',
+      height: m + 'px',
+      borderRadius: '9999px',
+      background: 'rgba(255,255,255,.35)',
+      transform: 'scale(0)',
+      opacity: '.35',
+      pointerEvents: 'none',
+      transition: 'transform .45s ease-out, opacity .45s'
+    });
+    
+    btn.appendChild(r);
+    requestAnimationFrame(() => {
+      r.style.transform = 'scale(2.75)';
+      r.style.opacity = '0';
+    });
+    setTimeout(() => r.remove(), 480);
+  });
+</script>

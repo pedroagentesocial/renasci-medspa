@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { t } from '../i18n/config';
+import { dict } from '../i18n/dict';
+import { getLocaleFromUrl } from '../i18n/config';
+
+const currentLocale = getLocaleFromUrl(Astro.url);
+
+const title = t(currentLocale, "pages.not_found", dict);
+const description = currentLocale === "es" 
+  ? "La página que buscas no existe. Regresa al inicio para explorar nuestros tratamientos estéticos."
+  : "The page you're looking for doesn't exist. Return to home to explore our aesthetic treatments.";
+---
+
+<BaseLayout 
+  title={title}
+  description={description}
+  seoTitle={`404 - ${title} | Renasci Medical Spa`}
+  seoDescription={description}
+  lang={currentLocale}
+>
+  <div class="min-h-screen flex items-center justify-center px-4 py-20">
+    <div class="max-w-md mx-auto text-center">
+      <!-- 404 Illustration -->
+      <div class="mb-8">
+        <div class="text-8xl font-bold text-primary/20 mb-4">404</div>
+        <div class="w-24 h-24 mx-auto bg-soft rounded-full flex items-center justify-center">
+          <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.674-2.64"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-4 mb-8">
+        <h1 class="text-2xl font-heading font-bold text-dark">
+          {currentLocale === "es" ? "Página no encontrada" : "Page not found"}
+        </h1>
+        
+        <p class="text-dark/70 leading-relaxed">
+          {currentLocale === "es" 
+            ? "Lo sentimos, la página que buscas no existe o ha sido movida. Te invitamos a explorar nuestros tratamientos estéticos y servicios de spa médico."
+            : "Sorry, the page you're looking for doesn't exist or has been moved. We invite you to explore our aesthetic treatments and medical spa services."
+          }
+        </p>
+      </div>
+
+      <!-- Actions -->
+      <div class="space-y-4">
+        <CTAButton 
+          href="/"
+          variant="primary"
+          size="lg"
+          className="w-full"
+        >
+          {t(currentLocale, "cta.back_home", dict)}
+        </CTAButton>
+
+        <CTAButton 
+          href="/services"
+          variant="outline"
+          size="md"
+          className="w-full"
+        >
+          {t(currentLocale, "cta.view_services", dict)}
+        </CTAButton>
+      </div>
+
+      <!-- Help Links -->
+      <div class="mt-8 pt-6 border-t border-soft">
+        <p class="text-sm text-dark/60 mb-3">
+          {currentLocale === "es" ? "¿Necesitas ayuda?" : "Need help?"}
+        </p>
+        
+        <div class="flex justify-center space-x-6 text-sm">
+          <a 
+            href="/services" 
+            class="text-primary hover:text-primary/80 transition-colors"
+            aria-label={currentLocale === "es" ? "Ver servicios" : "View services"}
+          >
+            {currentLocale === "es" ? "Servicios" : "Services"}
+          </a>
+          
+          <a 
+            href="/membership" 
+            class="text-primary hover:text-primary/80 transition-colors"
+            aria-label={currentLocale === "es" ? "Ver membresías" : "View memberships"}
+          >
+            {currentLocale === "es" ? "Membresías" : "Memberships"}
+          </a>
+          
+          <a 
+            href="#booking" 
+            class="text-primary hover:text-primary/80 transition-colors"
+            aria-label={t(currentLocale, "cta.contact_us", dict)}
+          >
+            {currentLocale === "es" ? "Contacto" : "Contact"}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Add subtle animation to the illustration */
+  .text-8xl {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Ensure proper focus states */
+  a:focus-visible {
+    outline: 2px solid #E94594;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+</style>

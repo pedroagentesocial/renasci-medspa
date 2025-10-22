@@ -24,8 +24,9 @@ Nuestros requerimientos del sitio web de Renasci Medical Spa consisten en las si
 
 1. **Página de Inicio**: sección hero, navegación principal, catálogo de servicios destacados, galería antes/después, sección de membresías, testimonios.
 2. **Página de Servicios**: filtros por categoría, grid de servicios, búsqueda, información de precios.
-3. **Página de Detalle de Servicio**: descripción completa, beneficios, proceso, precios, botón de reserva, servicios relacionados.
-4. **Página de Membresías**: comparación de planes (Rack, Glow, Elite), beneficios, precios, registro.
+3. **Páginas de Categorías de Servicios**: páginas individuales para cada una de las 9 categorías, mostrando todos los servicios de esa categoría específica.
+4. **Página de Detalle de Servicio**: descripción completa, beneficios, proceso, precios, botón de reserva, servicios relacionados.
+5. **Página de Membresías**: comparación de planes (Rack, Glow, Elite), beneficios, precios, registro.
 
 ### 2.3 Detalles de Páginas
 
@@ -37,6 +38,10 @@ Nuestros requerimientos del sitio web de Renasci Medical Spa consisten en las si
 | Página de Inicio | Sección Membresías | Preview de 3 planes con TierCard (Glow destacado con scale-105 + border-primary) |
 | Página de Servicios | Sistema de Filtros | Filtrar por 9 categorías: Inyecciones, Contorno, Sculptra, Especializados, Peso, Cabello, Íntimo, Faciales, Avanzados |
 | Página de Servicios | Grid de Servicios | Mostrar ServiceCard con título, descripción breve, precio, botón "Ver más" |
+| Página de Servicios | Dropdown Mejorado | Mega menú con flecha visual, máximo 3 servicios por categoría + botón "Ver más", enlaces a páginas de categorías |
+| Páginas de Categorías | Header de Categoría | Título de categoría, descripción, breadcrumbs, contador de servicios |
+| Páginas de Categorías | Grid Completo | Mostrar todos los servicios de la categoría con ServiceCard expandido, filtros secundarios |
+| Páginas de Categorías | Navegación Entre Categorías | Enlaces a categorías relacionadas, botón "Ver todas las categorías" |
 | Detalle de Servicio | Información Completa | Descripción detallada, beneficios, proceso paso a paso, duración, cuidados post-tratamiento |
 | Detalle de Servicio | Reserva Directa | Botón prominente "Agendar ahora" con integración a sistema de citas |
 | Página de Membresías | Comparación de Planes | Tabla comparativa Rack/Glow/Elite con precios, beneficios, descuentos |
@@ -59,13 +64,19 @@ Nuestros requerimientos del sitio web de Renasci Medical Spa consisten en las si
 graph TD
     A[Página de Inicio] --> B[Servicios]
     A --> C[Membresías]
-    B --> D[Detalle de Servicio]
-    D --> E[Agendar Cita]
+    B --> D[Dropdown Servicios]
+    D --> H[Página de Categoría]
+    B --> I[Detalle de Servicio]
+    H --> I
+    I --> E[Agendar Cita]
     C --> F[Registro Membresía]
     A --> G[Cambio de Idioma ES/EN]
     B --> G
     C --> G
-    D --> G
+    H --> G
+    I --> G
+    H --> J[Otras Categorías]
+    J --> H
 ```
 
 ## 4. Diseño de Interfaz de Usuario
@@ -95,6 +106,9 @@ graph TD
 | Página de Inicio | Sección Hero | Fondo gradiente soft, título Poppins 48px, botones primary con hover scale-105, imagen hero optimizada WebP |
 | Página de Inicio | ServiceCard | Card blanco con shadow-soft, hover zoom + shadow-card, imagen 16:9, título 20px, precio destacado |
 | Página de Servicios | Filtros | Pills horizontales, active state con bg-primary, smooth transitions, responsive collapse en móvil |
+| Página de Servicios | Dropdown Mejorado | Mega menú con flecha CSS apuntando al botón, ancho expandido (max-w-7xl), sombra profunda, animación suave |
+| Páginas de Categorías | Header Principal | Fondo gradiente suave, título grande centrado, breadcrumbs estilo pills, descripción categoría |
+| Páginas de Categorías | Grid de Servicios | Cards expandidos con más información, hover effects, botones CTA prominentes |
 | Detalle de Servicio | Layout Principal | Grid 2 columnas desktop, stack móvil, galería izquierda, info derecha, sticky CTA button |
 | Página de Membresías | TierCard | 3 columnas desktop, Glow destacado con border-primary + scale-105, precios grandes, lista de beneficios |
 | HeaderNav | Navegación | Sticky con bg-white + shadow-card al scroll, logo centrado 120px, menú horizontal, botón CTA derecha |

@@ -24,12 +24,12 @@ const {
 } = Astro.props;
 ---
 
-<div class={`tier-card group ${highlight ? 'tier-card--highlight' : ''} ${className}`}>
+<div class={`tier-card ${highlight ? 'tier-card-highlight' : 'bg-white'} rounded-2xl shadow-card border border-gray-100 p-8 flex flex-col h-full ${className}`}>
   <!-- Badge destacado -->
   {highlight && (
     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
       <span class="bg-primary text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
-        Más Popular
+        Mejor Valor
       </span>
     </div>
   )}
@@ -78,10 +78,10 @@ const {
     <div class="mt-auto">
       <a 
         href={ctaHref}
-        class={`block w-full text-center py-4 px-6 rounded-lg font-semibold transition-all duration-300 ${
+        class={`block w-full text-center py-4 px-4 md:px-6 rounded-lg font-semibold transition-all duration-300 min-h-[44px] flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
           highlight 
-            ? 'bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl transform hover:scale-105' 
-            : 'bg-soft text-dark hover:bg-primary hover:text-white border-2 border-transparent hover:border-primary'
+            ? 'bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl transform hover:scale-105 focus-visible:ring-white focus-visible:ring-offset-primary' 
+            : 'bg-soft text-dark hover:bg-primary hover:text-white border-2 border-transparent hover:border-primary focus-visible:ring-primary focus-visible:ring-offset-white'
         }`}
       >
         {ctaText}
@@ -95,17 +95,58 @@ const {
     @apply relative bg-white rounded-xl shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-card;
   }
   
-  .tier-card--highlight {
-    @apply border-primary/30 shadow-lg;
-    transform: scale(1.05);
+  .tier-card-highlight {
+    @apply border-primary shadow-lg;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    color: white;
   }
   
-  .tier-card--highlight:hover {
+  .tier-card-highlight h3,
+  .tier-card-highlight .text-dark {
+    color: white !important;
+  }
+  
+  .tier-card {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-card;
+  }
+  
+  .tier-card-highlight .text-graytxt {
+    color: #e5e7eb !important;
+  }
+  
+  .tier-card-highlight:hover {
     @apply shadow-xl;
-    transform: scale(1.08);
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(233, 69, 148, 0.25);
   }
   
-  .tier-card:not(.tier-card--highlight):hover {
+  .tier-card:not(.tier-card-highlight):hover {
     @apply -translate-y-2 shadow-card;
+  }
+
+  /* Glow effect for highlighted card */
+  .tier-card-highlight::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #E94594, #C8A08C, #E94594);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(8px);
+  }
+  
+  /* Desktop scale effect */
+  @media (min-width: 1024px) {
+    .tier-card-highlight {
+      transform: scale(1.05);
+    }
+    
+    .tier-card-highlight:hover {
+      transform: scale(1.08);
+    }
   }
 </style>

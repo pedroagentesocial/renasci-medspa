@@ -1,0 +1,553 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTAButton from '../../components/CTAButton.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+---
+
+<BaseLayout 
+  title="Botox / Dysport - Renasci Medical Spa"
+  description="Tratamientos de Botox y Dysport para reducir arrugas y líneas de expresión. Resultados naturales y duraderos. Agenda tu cita en Renasci Medical Spa."
+>
+  <!-- Hero del Servicio -->
+  <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+    <!-- Background Image -->
+    <img 
+      src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="Botox Dysport treatment at medical spa"
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+    />
+    
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/45"></div>
+    
+    <!-- Floating decorative elements -->
+    <div class="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full blur-xl animate-float-slow"></div>
+    <div class="absolute bottom-32 right-16 w-32 h-32 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-full blur-2xl animate-float-slow" style="animation-delay: -2s;"></div>
+    <div class="absolute top-1/3 right-20 w-16 h-16 bg-gradient-to-br from-primary/40 to-pink-400/40 rounded-full blur-lg animate-pulse-gentle"></div>
+    
+    <!-- Content -->
+    <div class="relative z-10 px-6 max-w-4xl mx-auto">
+      <!-- Category Badge -->
+      <div class="inline-block bg-gradient-to-r from-primary/30 to-pink-500/30 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-white/30 animate-fade-in-up">
+        Tratamientos Faciales
+      </div>
+      
+      <h1 class="font-display font-bold text-4xl md:text-6xl text-white mb-6 text-shadow-lg animate-fade-in-up" style="animation-delay: 0.2s;">
+        Botox / Dysport
+      </h1>
+      
+      <p class="text-lg md:text-xl text-white/90 mb-8 leading-relaxed text-shadow max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
+        Tratamientos de neurotoxina botulínica para reducir arrugas y líneas de expresión con resultados naturales y duraderos
+      </p>
+      
+      <!-- Precio destacado -->
+      <div class="bg-gradient-to-r from-white/15 to-pink-100/15 backdrop-blur-sm rounded-2xl p-6 shadow-card mb-8 inline-block border border-white/30 animate-scale-in" style="animation-delay: 0.6s;">
+        <div class="text-sm text-white/80 mb-1">Precio desde</div>
+        <div class="font-display font-bold text-2xl md:text-3xl bg-gradient-to-r from-primary to-pink-400 bg-clip-text text-transparent">$350</div>
+        <div class="text-sm text-white/80 mt-1">Duración: 30-45 min</div>
+      </div>
+      
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style="animation-delay: 0.8s;">
+        <a 
+          href="#detalles"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-pink-500 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:opacity-90 hover:-translate-y-[2px] hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 animate-pulse-gentle"
+        >
+          Ver Detalles
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </a>
+        
+        <a 
+          href="tel:+13855550123"
+          class="call-hero-button inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-call to-emerald-500 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:opacity-90 hover:-translate-y-[2px] hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-call/50 animate-bounce-subtle"
+          aria-label="Llamar Renasci"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+          (385) 555-0123
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="bg-background py-6 border-b border-gray-100">
+    <div class="container mx-auto px-6">
+      <ol class="flex items-center space-x-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-primary transition-colors">Inicio</a></li>
+        <li class="text-gray-400">/</li>
+        <li><a href="/services" class="hover:text-primary transition-colors">Servicios</a></li>
+        <li class="text-gray-400">/</li>
+        <li class="text-gray-900 font-medium">Botox / Dysport</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Detalles del Servicio -->
+  <section id="detalles" class="py-16 lg:py-24 bg-background">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Imagen -->
+        <div class="relative group animate-slide-in-left">
+          <img 
+            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Botox Dysport treatment procedure"
+            class="w-full h-[400px] lg:h-[500px] object-cover rounded-3xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+            loading="lazy"
+          />
+          
+        </div>
+
+        <!-- Contenido -->
+        <div class="animate-slide-in-right">
+          <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl p-8 lg:p-10 shadow-xl">
+            <h2 class="font-display font-bold text-3xl lg:text-4xl bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-6">
+              Botox / Dysport
+            </h2>
+            <div class="prose prose-lg text-gray-700 leading-relaxed">
+              <p class="mb-4">
+                Los tratamientos con <strong>Botox y Dysport</strong> son las opciones más populares y efectivas para reducir las arrugas dinámicas y líneas de expresión. Estas neurotoxinas botulínicas purificadas relajan temporalmente los músculos faciales responsables de las arrugas.
+              </p>
+              <p class="mb-4">
+                Nuestros especialistas se enfocan en áreas específicas como las líneas de expresión alrededor de los ojos (patas de gallo), frente, entrecejo y otras zonas donde las contracciones musculares repetitivas han formado arrugas visibles.
+              </p>
+              <p>
+                Con décadas de investigación y millones de tratamientos realizados mundialmente, Botox y Dysport han demostrado ser seguros y efectivos cuando son aplicados por profesionales certificados.
+              </p>
+            </div>
+          </div>
+
+          <!-- Precio destacado -->
+          <div class="bg-gradient-to-r from-primary/5 to-pink-500/5 rounded-2xl p-6 border border-primary/10 mt-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-display font-bold text-xl bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-2">Precio del Tratamiento</h3>
+                <p class="text-gray-600">Consulta personalizada incluida</p>
+              </div>
+              <div class="text-right">
+                <div class="font-display font-bold text-2xl lg:text-3xl bg-gradient-to-r from-primary to-pink-500 bg-clip-text text-transparent">$350</div>
+                <div class="text-sm text-gray-500">desde</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="py-16 lg:py-20 bg-background">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-4">
+          Beneficios del Tratamiento
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Descubre las ventajas de los tratamientos con Botox y Dysport
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Beneficio 1 -->
+        <div class="group bg-gradient-to-br from-white to-pink-50/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up border border-pink-100/50" style="animation-delay: 0.1s;">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary to-pink-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Reducción de Arrugas</h3>
+          <p class="text-gray-600 leading-relaxed">Elimina efectivamente las líneas de expresión y arrugas dinámicas para un aspecto más joven y fresco.</p>
+        </div>
+
+        <!-- Beneficio 2 -->
+        <div class="group bg-gradient-to-br from-white to-purple-50/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up border border-purple-100/50" style="animation-delay: 0.2s;">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Resultados Rápidos</h3>
+          <p class="text-gray-600 leading-relaxed">Los efectos comienzan a notarse en 3-5 días, con resultados completos en 2 semanas.</p>
+        </div>
+
+        <!-- Beneficio 3 -->
+        <div class="group bg-gradient-to-br from-white to-indigo-50/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up border border-indigo-100/50" style="animation-delay: 0.3s;">
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Mínimamente Invasivo</h3>
+          <p class="text-gray-600 leading-relaxed">Procedimiento rápido y cómodo sin tiempo de recuperación significativo.</p>
+        </div>
+
+        <!-- Beneficio 4 -->
+        <div class="group bg-gradient-to-br from-white to-emerald-50/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up border border-emerald-100/50" style="animation-delay: 0.4s;">
+          <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Duración Prolongada</h3>
+          <p class="text-gray-600 leading-relaxed">Los efectos duran entre 3-6 meses, manteniendo una apariencia rejuvenecida.</p>
+        </div>
+
+        <!-- Beneficio 5 -->
+        <div class="group bg-gradient-to-br from-white to-rose-50/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up border border-rose-100/50" style="animation-delay: 0.5s;">
+          <div class="w-12 h-12 bg-gradient-to-br from-rose-500 to-pink-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Resultados Naturales</h3>
+          <p class="text-gray-600 leading-relaxed">Mantiene la expresividad facial natural mientras suaviza las líneas no deseadas.</p>
+        </div>
+
+        <!-- Beneficio 6 -->
+        <div class="group bg-gradient-to-br from-white to-amber-50/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up border border-amber-100/50" style="animation-delay: 0.6s;">
+          <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Seguridad Comprobada</h3>
+          <p class="text-gray-600 leading-relaxed">Tratamientos FDA aprobados con décadas de investigación y uso clínico seguro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proceso del Tratamiento -->
+  <section class="py-16 lg:py-20 bg-background">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-4">
+          Proceso del Tratamiento
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Un proceso simple y profesional para obtener los mejores resultados
+        </p>
+      </div>
+
+      <div class="relative">
+        <!-- Línea conectora -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary via-pink-400 to-purple-500 rounded-full opacity-30 hidden lg:block"></div>
+        
+        <div class="space-y-12">
+          <!-- Paso 1 -->
+          <div class="flex flex-col lg:flex-row items-center gap-8 animate-slide-in-left">
+            <div class="lg:w-1/2 lg:pr-8">
+              <div class="bg-gradient-to-br from-primary/10 to-pink-500/10 rounded-2xl p-6 border border-primary/20">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-primary to-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-4">1</div>
+                  <h3 class="font-display font-bold text-xl text-gray-900">Consulta Inicial</h3>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                  Evaluación completa de tu rostro y discusión de tus objetivos estéticos. Nuestro especialista determinará las áreas de tratamiento y la cantidad de producto necesaria.
+                </p>
+              </div>
+            </div>
+            <div class="lg:w-1/2 lg:pl-8">
+              <img 
+                src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Consulta inicial Botox"
+                class="w-full h-64 object-cover rounded-2xl shadow-xl"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="flex flex-col lg:flex-row-reverse items-center gap-8 animate-slide-in-right">
+            <div class="lg:w-1/2 lg:pl-8">
+              <div class="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-500/20">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-4">2</div>
+                  <h3 class="font-display font-bold text-xl text-gray-900">Preparación</h3>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                  Limpieza del área de tratamiento y aplicación de anestesia tópica si es necesario. Marcado de los puntos de inyección para precisión óptima.
+                </p>
+              </div>
+            </div>
+            <div class="lg:w-1/2 lg:pr-8">
+              <img 
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Preparación tratamiento"
+                class="w-full h-64 object-cover rounded-2xl shadow-xl"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="flex flex-col lg:flex-row items-center gap-8 animate-slide-in-left">
+            <div class="lg:w-1/2 lg:pr-8">
+              <div class="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-2xl p-6 border border-emerald-500/20">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold mr-4">3</div>
+                  <h3 class="font-display font-bold text-xl text-gray-900">Aplicación</h3>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                  Inyección precisa del Botox o Dysport en los músculos objetivo. El procedimiento es rápido y prácticamente indoloro, durando aproximadamente 15-30 minutos.
+                </p>
+              </div>
+            </div>
+            <div class="lg:w-1/2 lg:pl-8">
+              <img 
+                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Aplicación Botox"
+                class="w-full h-64 object-cover rounded-2xl shadow-xl"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Paso 4 -->
+          <div class="flex flex-col lg:flex-row-reverse items-center gap-8 animate-slide-in-right">
+            <div class="lg:w-1/2 lg:pl-8">
+              <div class="bg-gradient-to-br from-rose-500/10 to-pink-500/10 rounded-2xl p-6 border border-rose-500/20">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-4">4</div>
+                  <h3 class="font-display font-bold text-xl text-gray-900">Cuidados Post-Tratamiento</h3>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                  Instrucciones detalladas para el cuidado posterior y seguimiento. Los resultados comienzan a verse en 3-5 días y alcanzan su máximo efecto en 2 semanas.
+                </p>
+              </div>
+            </div>
+            <div class="lg:w-1/2 lg:pr-8">
+              <img 
+                src="https://images.unsplash.com/photo-1594824804732-ca8db7d1457c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Cuidados post-tratamiento"
+                class="w-full h-64 object-cover rounded-2xl shadow-xl"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preguntas Frecuentes -->
+  <section class="py-16 lg:py-20 bg-background">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-4">
+          Preguntas Frecuentes
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Resolvemos las dudas más comunes sobre los tratamientos con Botox y Dysport
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-6">
+        <!-- FAQ 1 -->
+        <div class="bg-gradient-to-r from-white to-pink-50/30 rounded-2xl p-6 shadow-lg border border-pink-100/50 animate-fade-in-up" style="animation-delay: 0.1s;">
+          <h3 class="font-display font-bold text-lg text-gray-900 mb-3 flex items-center">
+            <div class="w-8 h-8 bg-gradient-to-br from-primary to-pink-500 rounded-full flex items-center justify-center mr-3">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            ¿Cuál es la diferencia entre Botox y Dysport?
+          </h3>
+          <p class="text-gray-600 leading-relaxed pl-11">
+            Ambos son neurotoxinas botulínicas tipo A que funcionan de manera similar. Dysport tiende a difundirse más y puede mostrar resultados ligeramente más rápidos, mientras que Botox es más preciso para áreas específicas. Nuestro especialista determinará cuál es mejor para ti.
+          </p>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-gradient-to-r from-white to-purple-50/30 rounded-2xl p-6 shadow-lg border border-purple-100/50 animate-fade-in-up" style="animation-delay: 0.2s;">
+          <h3 class="font-display font-bold text-lg text-gray-900 mb-3 flex items-center">
+            <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-3">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            ¿Cuánto duran los efectos?
+          </h3>
+          <p class="text-gray-600 leading-relaxed pl-11">
+            Los efectos típicamente duran entre 3-6 meses, dependiendo del área tratada, la cantidad de producto utilizada y tu metabolismo individual. Con tratamientos regulares, los efectos pueden durar más tiempo.
+          </p>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-gradient-to-r from-white to-emerald-50/30 rounded-2xl p-6 shadow-lg border border-emerald-100/50 animate-fade-in-up" style="animation-delay: 0.3s;">
+          <h3 class="font-display font-bold text-lg text-gray-900 mb-3 flex items-center">
+            <div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mr-3">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            ¿Es doloroso el tratamiento?
+          </h3>
+          <p class="text-gray-600 leading-relaxed pl-11">
+            La mayoría de los pacientes describen la sensación como un pequeño pinchazo. Utilizamos agujas muy finas y podemos aplicar anestesia tópica si es necesario. El procedimiento es muy tolerable y rápido.
+          </p>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-gradient-to-r from-white to-rose-50/30 rounded-2xl p-6 shadow-lg border border-rose-100/50 animate-fade-in-up" style="animation-delay: 0.4s;">
+          <h3 class="font-display font-bold text-lg text-gray-900 mb-3 flex items-center">
+            <div class="w-8 h-8 bg-gradient-to-br from-rose-500 to-pink-500 rounded-full flex items-center justify-center mr-3">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            ¿Cuándo veré los resultados?
+          </h3>
+          <p class="text-gray-600 leading-relaxed pl-11">
+            Los primeros efectos comienzan a notarse entre 3-5 días después del tratamiento, con resultados completos visibles en aproximadamente 2 semanas. Es importante ser paciente durante este período inicial.
+          </p>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="bg-gradient-to-r from-white to-indigo-50/30 rounded-2xl p-6 shadow-lg border border-indigo-100/50 animate-fade-in-up" style="animation-delay: 0.5s;">
+          <h3 class="font-display font-bold text-lg text-gray-900 mb-3 flex items-center">
+            <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mr-3">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            ¿Es seguro el tratamiento?
+          </h3>
+          <p class="text-gray-600 leading-relaxed pl-11">
+            Sí, tanto Botox como Dysport están aprobados por la FDA y tienen décadas de investigación respaldándolos. Cuando son aplicados por profesionales certificados, son tratamientos muy seguros con efectos secundarios mínimos y temporales.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="py-16 lg:py-20 bg-background">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-4">
+          Lo Que Dicen Nuestros Pacientes
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Experiencias reales de pacientes satisfechos con sus tratamientos de Botox y Dysport
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Testimonio 1 -->
+        <div class="bg-gradient-to-br from-white to-pink-50/50 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-pink-100/50 animate-fade-in-up" style="animation-delay: 0.1s;">
+          <div class="flex items-center mb-4">
+            <img 
+              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="María González"
+              class="w-12 h-12 rounded-full object-cover mr-4"
+              loading="lazy"
+            />
+            <div>
+              <h4 class="font-semibold text-gray-900">María González</h4>
+              <div class="flex text-yellow-400">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 italic">
+            "Increíble experiencia con Botox en Renasci. Los resultados son exactamente lo que esperaba - natural pero notablemente más joven. El equipo es muy profesional."
+          </p>
+        </div>
+
+        <!-- Testimonio 2 -->
+        <div class="bg-gradient-to-br from-white to-purple-50/50 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-purple-100/50 animate-fade-in-up" style="animation-delay: 0.2s;">
+          <div class="flex items-center mb-4">
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Carlos Mendoza"
+              class="w-12 h-12 rounded-full object-cover mr-4"
+              loading="lazy"
+            />
+            <div>
+              <h4 class="font-semibold text-gray-900">Carlos Mendoza</h4>
+              <div class="flex text-yellow-400">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 italic">
+            "Dysport fue la mejor decisión. Las líneas de mi frente desaparecieron completamente y aún puedo expresarme naturalmente. Excelente atención médica."
+          </p>
+        </div>
+
+        <!-- Testimonio 3 -->
+        <div class="bg-gradient-to-br from-white to-emerald-50/50 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-emerald-100/50 animate-fade-in-up" style="animation-delay: 0.3s;">
+          <div class="flex items-center mb-4">
+            <img 
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Ana Rodríguez"
+              class="w-12 h-12 rounded-full object-cover mr-4"
+              loading="lazy"
+            />
+            <div>
+              <h4 class="font-semibold text-gray-900">Ana Rodríguez</h4>
+              <div class="flex text-yellow-400">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 italic">
+            "Las patas de gallo eran mi mayor preocupación. Después del tratamiento con Botox, mi mirada se ve mucho más fresca y descansada. ¡Súper recomendado!"
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-16 lg:py-20 bg-gradient-to-br from-primary/5 via-pink-500/5 to-purple-500/5 relative overflow-hidden">
+    <!-- Elementos decorativos de fondo -->
+    <div class="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-primary/20 to-pink-500/20 rounded-full blur-3xl animate-float-slow"></div>
+    <div class="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-pink-

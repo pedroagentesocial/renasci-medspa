@@ -60,6 +60,10 @@ graph TD
 | /es           | Página de inicio en español (explícito)          |
 | /es/servicios | Página de servicios detallados en español        |
 | /en/services  | Página de servicios detallados en inglés         |
+| /es/servicios/[categoria] | Páginas individuales de categorías en español |
+| /en/services/[category] | Páginas individuales de categorías en inglés |
+| /es/servicios/[categoria]/[servicio] | Detalle de servicio específico en español |
+| /en/services/[category]/[service] | Detalle de servicio específico en inglés |
 | /es/contacto  | Página de contacto en español                    |
 | /en/contact   | Página de contacto en inglés                     |
 | /es/blog      | Blog/educación en español                        |

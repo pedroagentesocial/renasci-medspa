@@ -17,57 +17,151 @@ body {
 *:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
-/* Custom component styles */
+/* Enhanced focus for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Custom component styles with logical animations */
 .btn-primary {
-  @apply bg-primary text-white px-6 py-3 rounded-2xl font-semibold hover:opacity-90 transition-all duration-300;
+  @apply bg-primary text-white px-6 py-3 rounded-2xl font-semibold transition-all;
+  transition-duration: 180ms;
+  transition-timing-function: ease-out;
 }
 
-.btn-secondary {
-  @apply border border-primary text-primary px-6 py-3 rounded-2xl font-semibold hover:bg-primary hover:text-white transition-all duration-300;
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(233, 69, 148, 0.25);
 }
 
-.card {
-  @apply bg-white rounded-2xl shadow-card;
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(233, 69, 148, 0.5);
 }
 
+/* Animated underlines for links */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+  transition: color 200ms ease-out;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 200ms ease-out;
+}
+
+.link-underline:hover::after,
+.link-underline:focus::after {
+  width: 100%;
+}
+
+/* Card hover effects */
 .card-hover {
-  @apply hover:scale-[1.02] transition-all duration-300;
+  transition: all 200ms ease-out;
 }
 
-/* Navbar scroll effect */
-.navbar-scrolled {
-  @apply bg-white/95 backdrop-blur-md shadow-card;
+.card-hover:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Animation utilities */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+/* Button hover effects without layout shift */
+.btn-hover {
+  transition: all 180ms ease-out;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+.btn-hover:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.btn-hover:active {
+  transform: translateY(0) scale(1);
+  transition-duration: 100ms;
+}
+
+/* Smooth transitions for all interactive elements */
+.smooth-transition {
+  transition: all 200ms ease-out;
+}
+
+/* Prevent layout shift on hover */
+.no-layout-shift {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Pulse animation for call buttons */
+@keyframes pulse-soft {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
   }
+  50% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s infinite;
+}
+
+/* Ripple animation */
+@keyframes ripple {
   to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
+    transform: scale(2);
     opacity: 0;
   }
-  to {
-    opacity: 1;
-  }
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+/* Shadow utilities */
+.shadow-card {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out;
+.shadow-card-hover {
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 15px 20px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* Text shadow for hero text legibility */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure proper aspect ratios */
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+/* Backdrop blur utilities */
+.backdrop-blur-soft {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* Smooth scrolling for anchor links */
@@ -75,20 +169,18 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-logo);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-pulse-soft {
+    animation: none;
+  }
 }

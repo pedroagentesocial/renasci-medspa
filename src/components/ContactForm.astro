@@ -1,0 +1,188 @@
+---
+import { t } from '../i18n/config';
+import { dict } from '../i18n/dict';
+
+export interface Props {
+  locale?: string;
+  title?: string;
+  subtitle?: string;
+  className?: string;
+}
+
+const {
+  locale = "es",
+  title = locale === "es" ? "Agenda tu consulta" : "Schedule your consultation",
+  subtitle = locale === "es" ? "Completa el formulario y nos pondremos en contacto contigo" : "Fill out the form and we'll get in touch with you",
+  className = ""
+} = Astro.props;
+---
+
+<div class={`contact-form-container ${className}`} id="booking">
+  <div class="max-w-md mx-auto bg-white rounded-2xl shadow-card p-6">
+    <div class="text-center mb-6">
+      <h3 class="text-xl font-heading font-semibold text-dark mb-2">{title}</h3>
+      <p class="text-dark/70 text-sm">{subtitle}</p>
+    </div>
+
+    <form method="post" action="/api/contact" class="space-y-4" id="contact-form">
+      <!-- Name Field -->
+      <div>
+        <label for="name" class="block text-sm font-medium text-dark mb-1">
+          {t(locale, "form.name", dict)} *
+        </label>
+        <input 
+          type="text"
+          id="name"
+          name="name" 
+          required 
+          class="w-full px-4 py-3 border border-soft rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+          placeholder={t(locale, "form.name", dict)}
+        />
+      </div>
+
+      <!-- Phone Field -->
+      <div>
+        <label for="phone" class="block text-sm font-medium text-dark mb-1">
+          {t(locale, "form.phone", dict)}
+        </label>
+        <input 
+          type="tel"
+          id="phone"
+          name="phone" 
+          class="w-full px-4 py-3 border border-soft rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+          placeholder={t(locale, "form.phone", dict)}
+        />
+      </div>
+
+      <!-- Email Field -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-dark mb-1">
+          {t(locale, "form.email", dict)} *
+        </label>
+        <input 
+          type="email"
+          id="email"
+          name="email" 
+          required 
+          class="w-full px-4 py-3 border border-soft rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+          placeholder={t(locale, "form.email", dict)}
+        />
+      </div>
+
+      <!-- Service Interest -->
+      <div>
+        <label for="service" class="block text-sm font-medium text-dark mb-1">
+          {t(locale, "form.service", dict)}
+        </label>
+        <select 
+          id="service"
+          name="service"
+          class="w-full px-4 py-3 border border-soft rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-white"
+        >
+          <option value="">{locale === "es" ? "Selecciona un servicio" : "Select a service"}</option>
+          <option value="botox">Botox</option>
+          <option value="fillers">{locale === "es" ? "Rellenos Dérmicos" : "Dermal Fillers"}</option>
+          <option value="sculptra">Sculptra</option>
+          <option value="skincare">{locale === "es" ? "Cuidado de la Piel" : "Skincare"}</option>
+          <option value="laser">{locale === "es" ? "Tratamientos Láser" : "Laser Treatments"}</option>
+          <option value="other">{locale === "es" ? "Otro" : "Other"}</option>
+        </select>
+      </div>
+
+      <!-- Message Field -->
+      <div>
+        <label for="message" class="block text-sm font-medium text-dark mb-1">
+          {t(locale, "form.message", dict)}
+        </label>
+        <textarea 
+          id="message"
+          name="message" 
+          rows="4"
+          class="w-full px-4 py-3 border border-soft rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none"
+          placeholder={t(locale, "form.message", dict)}
+        ></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button 
+        type="submit"
+        class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        aria-label={t(locale, "cta.send", dict)}
+      >
+        {t(locale, "cta.send", dict)}
+      </button>
+
+      <!-- Success/Error Messages -->
+      <div id="form-message" class="hidden p-3 rounded-lg text-sm text-center"></div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .contact-form-container input:focus,
+  .contact-form-container textarea:focus,
+  .contact-form-container select:focus {
+    box-shadow: 0 0 0 3px rgba(233, 69, 148, 0.1);
+  }
+
+  .contact-form-container input::placeholder,
+  .contact-form-container textarea::placeholder {
+    color: #9CA3AF;
+  }
+
+  /* Form validation styles */
+  .contact-form-container input:invalid:not(:placeholder-shown),
+  .contact-form-container textarea:invalid:not(:placeholder-shown) {
+    border-color: #EF4444;
+  }
+
+  .contact-form-container input:valid:not(:placeholder-shown),
+  .contact-form-container textarea:valid:not(:placeholder-shown) {
+    border-color: #10B981;
+  }
+</style>
+
+<script>
+  // Form submission handling
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const messageDiv = document.getElementById('form-message') as HTMLDivElement;
+
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+        
+        // Disable submit button
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+        
+        try {
+          const response = await fetch('/api/contact', {
+            method: 'POST',
+            body: formData
+          });
+          
+          if (response.ok) {
+            messageDiv.className = 'p-3 rounded-lg text-sm text-center bg-green-100 text-green-800';
+            messageDiv.textContent = 'Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.';
+            messageDiv.classList.remove('hidden');
+            form.reset();
+          } else {
+            throw new Error('Error en el envío');
+          }
+        } catch (error) {
+          messageDiv.className = 'p-3 rounded-lg text-sm text-center bg-red-100 text-red-800';
+          messageDiv.textContent = 'Error al enviar el mensaje. Por favor, inténtalo de nuevo.';
+          messageDiv.classList.remove('hidden');
+        } finally {
+          // Re-enable submit button
+          submitButton.disabled = false;
+          submitButton.textContent = 'Enviar';
+        }
+      });
+    }
+  });
+</script>

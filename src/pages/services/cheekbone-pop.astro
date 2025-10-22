@@ -1,0 +1,304 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTAButton from '../../components/CTAButton.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import { serviciosUnificados } from '../../data/services-unified';
+
+// Datos específicos del servicio
+const servicio = {
+  id: 'cheekbone-pop',
+  slug: 'cheekbone-pop',
+  title: { es: 'Elevación de Pómulos (Cheekbone Pop)', en: 'Cheekbone Pop Enhancement' },
+  description: { es: 'Tratamiento especializado para elevar y definir los pómulos, creando un efecto lifting natural y juvenil.', en: 'Specialized treatment to lift and define cheekbones, creating a natural and youthful lifting effect.' },
+  excerpt: { es: 'Eleva y define tus pómulos para un rostro más esculpido.', en: 'Lift and define your cheekbones for a more sculpted face.' },
+  category: 'contorno',
+  precio: '$850',
+  image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&h=300&fit=crop&crop=center',
+  benefits: ['Pómulos más definidos', 'Efecto lifting natural', 'Rostro más juvenil', 'Resultados inmediatos'],
+  duracion: '45 minutos'
+};
+
+// Servicios relacionados
+const serviciosRelacionados = serviciosUnificados
+  .filter(s => s.category === 'contorno' && s.slug !== servicio.slug)
+  .slice(0, 3);
+---
+
+<BaseLayout 
+  title={`${servicio.title.es} - Renasci Medical Spa`}
+  description={`${servicio.excerpt.es} Precio: ${servicio.precio}. Agenda tu cita en Renasci Medical Spa y descubre los beneficios de este tratamiento.`}
+>
+  <main class="min-h-screen bg-gradient-to-br from-pink-50 via-white to-rose-50">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-20 lg:py-32">
+      <div class="absolute inset-0 bg-gradient-to-r from-pink-600/10 to-rose-600/10"></div>
+      <div class="absolute top-0 left-0 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+      <div class="absolute top-0 right-0 w-72 h-72 bg-rose-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+      <div class="absolute -bottom-8 left-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-8">
+            <div class="space-y-4">
+              <div class="inline-flex items-center px-4 py-2 bg-pink-100 rounded-full text-pink-800 text-sm font-medium">
+                <span class="w-2 h-2 bg-pink-500 rounded-full mr-2"></span>
+                Contorno Facial
+              </div>
+              <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                <span class="bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">
+                  Elevación de Pómulos
+                </span>
+                <br />
+                <span class="text-gray-700">(Cheekbone Pop)</span>
+              </h1>
+              <p class="text-xl text-gray-600 leading-relaxed">
+                {servicio.description.es}
+              </p>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+              <div class="flex items-center space-x-2 text-gray-600">
+                <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>{servicio.duracion}</span>
+              </div>
+              <div class="flex items-center space-x-2 text-gray-600">
+                <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                </svg>
+                <span class="text-2xl font-bold text-pink-600">{servicio.precio}</span>
+              </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <CTAButton 
+                text="Agendar Consulta" 
+                href="/contact" 
+                variant="primary"
+                class="transform hover:scale-105 transition-all duration-300"
+              />
+              <CTAButton 
+                text="Más Información" 
+                href="/contact" 
+                variant="secondary"
+                class="transform hover:scale-105 transition-all duration-300"
+              />
+            </div>
+          </div>
+          
+          <div class="relative">
+            <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+              <img 
+                src={servicio.image} 
+                alt={servicio.title.es}
+                class="w-full h-96 object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-pink-900/50 to-transparent"></div>
+            </div>
+            <div class="absolute -top-4 -right-4 w-24 h-24 bg-pink-200 rounded-full opacity-60 animate-pulse"></div>
+            <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-rose-200 rounded-full opacity-40 animate-pulse animation-delay-1000"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            Beneficios del <span class="text-pink-600">Cheekbone Pop</span>
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Descubre cómo este tratamiento puede transformar tu rostro
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {servicio.benefits.map((benefit, index) => (
+            <div class="group relative">
+              <div class="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-300"></div>
+              <div class="relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl flex items-center justify-center mb-4">
+                  <span class="text-white font-bold text-lg">{index + 1}</span>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">{benefit}</h3>
+                <p class="text-gray-600">Resultados visibles y duraderos</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 bg-gradient-to-r from-pink-50 to-rose-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="order-2 lg:order-1">
+            <div class="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop&crop=center" 
+                alt="Proceso de tratamiento"
+                class="rounded-2xl shadow-2xl w-full h-80 object-cover"
+              />
+              <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
+                <div class="text-2xl font-bold text-pink-600">45min</div>
+                <div class="text-sm text-gray-600">Duración</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="order-1 lg:order-2 space-y-8">
+            <div>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                Nuestro <span class="text-pink-600">Proceso</span>
+              </h2>
+              <p class="text-lg text-gray-600 mb-8">
+                Un enfoque personalizado para realzar la belleza natural de tus pómulos
+              </p>
+            </div>
+            
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
+                  <span class="text-white text-sm font-bold">1</span>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Consulta Personalizada</h3>
+                  <p class="text-gray-600">Evaluamos la estructura facial y diseñamos el tratamiento ideal</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
+                  <span class="text-white text-sm font-bold">2</span>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Aplicación Precisa</h3>
+                  <p class="text-gray-600">Técnica especializada para elevar y definir los pómulos</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
+                  <span class="text-white text-sm font-bold">3</span>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Resultados Inmediatos</h3>
+                  <p class="text-gray-600">Disfruta de pómulos más definidos al instante</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            Preguntas <span class="text-pink-600">Frecuentes</span>
+          </h2>
+        </div>
+        
+        <div class="space-y-8">
+          <div class="bg-gray-50 rounded-2xl p-8 hover:bg-pink-50 transition-colors duration-300">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">¿Cuánto duran los resultados?</h3>
+            <p class="text-gray-600">Los resultados del Cheekbone Pop pueden durar entre 12-18 meses, dependiendo del tipo de producto utilizado y las características individuales.</p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-2xl p-8 hover:bg-pink-50 transition-colors duration-300">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">¿Es doloroso el procedimiento?</h3>
+            <p class="text-gray-600">El tratamiento es mínimamente invasivo. Utilizamos técnicas de anestesia local para garantizar tu comodidad durante todo el proceso.</p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-2xl p-8 hover:bg-pink-50 transition-colors duration-300">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">¿Cuándo veré los resultados?</h3>
+            <p class="text-gray-600">Los resultados son visibles inmediatamente después del tratamiento, con la apariencia final estableciéndose en 1-2 semanas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Services -->
+    {serviciosRelacionados.length > 0 && (
+      <section class="py-20 bg-gradient-to-r from-pink-50 to-rose-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Servicios <span class="text-pink-600">Relacionados</span>
+            </h2>
+            <p class="text-xl text-gray-600">
+              Descubre otros tratamientos que podrían interesarte
+            </p>
+          </div>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {serviciosRelacionados.map((servicio) => (
+              <ServiceCard servicio={servicio} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-pink-600 to-rose-600 relative overflow-hidden">
+      <div class="absolute inset-0 bg-black/10"></div>
+      <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full -translate-x-48 -translate-y-48"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-48 translate-y-48"></div>
+      
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+          ¿Lista para Realzar tus Pómulos?
+        </h2>
+        <p class="text-xl text-pink-100 mb-8 max-w-2xl mx-auto">
+          Agenda tu consulta personalizada y descubre cómo el Cheekbone Pop puede transformar tu rostro
+        </p>
+        <CTAButton 
+          text="Agendar Consulta Ahora" 
+          href="/contact" 
+          variant="secondary"
+          class="bg-white text-pink-600 hover:bg-pink-50 transform hover:scale-105 transition-all duration-300"
+        />
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+  
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+</style>

@@ -1,0 +1,138 @@
+---
+// LanguageToggle.astro - Botón flotante de idioma
+---
+
+<div 
+  id="languageToggle" 
+  class="fixed bottom-6 left-6 z-50 group"
+  role="button"
+  tabindex="0"
+  aria-label="Cambiar idioma"
+>
+  <button 
+    class="relative w-16 h-16 bg-white/95 backdrop-blur-md border border-white/20 rounded-full shadow-lg hover:shadow-2xl transition-all duration-500 ease-out flex items-center justify-center text-sm font-bold text-gray-700 hover:bg-white hover:scale-110 hover:rotate-3 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/30 animate-pulse-gentle group-hover:animate-none"
+    id="langBtn"
+  >
+    <!-- Efecto de brillo -->
+    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-call/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    
+    <!-- Contenido -->
+    <div class="relative flex items-center">
+      <span id="currentLangDisplay" class="text-gray-800 font-bold">ES</span>
+      <span class="mx-1.5 text-gray-400 font-light">|</span>
+      <span id="altLangDisplay" class="text-gray-400 font-medium">EN</span>
+    </div>
+    
+    <!-- Ripple effect -->
+    <div class="absolute inset-0 rounded-full bg-primary/20 scale-0 group-active:scale-100 transition-transform duration-200"></div>
+  </button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const langBtn = document.getElementById('langBtn');
+  const currentLangDisplay = document.getElementById('currentLangDisplay');
+  const altLangDisplay = document.getElementById('altLangDisplay');
+  
+  let currentLanguage = 'es'; // Default
+  
+  // Check URL parameter or localStorage for current language
+  const urlParams = new URLSearchParams(window.location.search);
+  const langParam = urlParams.get('lang');
+  
+  if (langParam === 'en') {
+    currentLanguage = 'en';
+  } else if (langParam === 'es') {
+    currentLanguage = 'es';
+  } else {
+    // Check both localStorage keys for compatibility
+    const savedLang = localStorage.getItem('language') || localStorage.getItem('renasci-language');
+    if (savedLang === 'en') {
+      currentLanguage = 'en';
+    }
+  }
+  
+  function updateLanguageDisplay() {
+    if (currentLanguage === 'es') {
+      if (currentLangDisplay) currentLangDisplay.textContent = 'ES';
+      if (altLangDisplay) altLangDisplay.textContent = 'EN';
+      if (currentLangDisplay) currentLangDisplay.className = 'text-gray-700';
+      if (altLangDisplay) altLangDisplay.className = 'text-gray-400';
+    } else {
+      if (currentLangDisplay) currentLangDisplay.textContent = 'EN';
+      if (altLangDisplay) altLangDisplay.textContent = 'ES';
+      if (currentLangDisplay) currentLangDisplay.className = 'text-gray-700';
+      if (altLangDisplay) altLangDisplay.className = 'text-gray-400';
+    }
+  }
+  
+  function toggleLanguage() {
+    currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+    
+    // Save to localStorage (both keys for compatibility)
+    localStorage.setItem('language', currentLanguage);
+    localStorage.setItem('renasci-language', currentLanguage);
+    
+    // Update URL parameter
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', currentLanguage);
+    window.history.replaceState({}, '', url.toString());
+    
+    // Update display
+    updateLanguageDisplay();
+    
+    // Dispatch custom event for i18n system
+    window.dispatchEvent(new CustomEvent('languageChanged', {
+      detail: { language: currentLanguage }
+    }));
+    
+    // If there's existing i18n system, trigger it
+    if ((window as any).i18nManager) {
+      (window as any).i18nManager.switchLanguage(currentLanguage);
+    }
+  }
+  
+  // Initialize display
+  updateLanguageDisplay();
+  
+  // Add event listeners
+  langBtn?.addEventListener('click', toggleLanguage);
+  
+  // Keyboard support
+  const languageToggle = document.getElementById('languageToggle');
+  languageToggle?.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleLanguage();
+    }
+  });
+});
+</script>
+
+<style>
+  @keyframes pulse-gentle {
+    0%, 100% { 
+      transform: scale(1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    50% { 
+      transform: scale(1.02);
+      box-shadow: 0 8px 30px rgba(233,69,148,0.15);
+    }
+  }
+  
+  .animate-pulse-gentle {
+    animation: pulse-gentle 3s ease-in-out infinite;
+  }
+  
+  #languageToggle:hover .animate-pulse-gentle {
+    animation: none;
+  }
+  
+  @media (max-width: 640px) {
+    #languageToggle {
+      bottom: 1rem;
+      left: 1rem;
+    }
+  }
+</style>

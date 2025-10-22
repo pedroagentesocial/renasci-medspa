@@ -19,7 +19,7 @@ const faqId = `faq-${Math.random().toString(36).substr(2, 9)}`;
 
 <div class={`faq-item border-b border-gray-100 ${className}`}>
   <button 
-    class="faq-trigger w-full py-6 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg"
+    class="faq-trigger w-full py-6 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-lg"
     aria-expanded={isOpen}
     aria-controls={`${faqId}-content`}
     data-faq-trigger

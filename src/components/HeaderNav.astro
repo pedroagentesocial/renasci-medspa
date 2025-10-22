@@ -1,224 +1,876 @@
 ---
+import CTAButton from './CTAButton.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { categoriasUnificadas } from '../data/services-unified.ts';
+
 export interface Props {
   currentPath?: string;
 }
 
 const { currentPath = "/" } = Astro.props;
 
-const menuItems = [
-  { name: "Inicio", href: "/", nameEn: "Home" },
-  { name: "Servicios", href: "/services", nameEn: "Services" },
-  { name: "Membresía", href: "/membership", nameEn: "Membership" },
-  { name: "Contacto", href: "/contact", nameEn: "Contact" }
+// Helper function to generate category URLs
+function generateCategoryUrl(categoryGroup) {
+  const replacements = { 'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u' };
+  return `/services/category/${categoryGroup
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[áéíóú]/g, (match) => replacements[match] || match)}`;
+}
+
+const links = [
+  { href: "/membership", label: "Membresía", key: "nav.membership" },
+  { href: "/about", label: "Nosotros", key: "nav.about" },
+  { href: "/services", label: "Servicios", key: "nav.services", hasDropdown: true },
+  { href: "/contact", label: "Contacto", key: "nav.contact" }
+];
+
+const services = [
+  { 
+    group: "Inyecciones", 
+    items: [
+      { t: "Inyecciones de Neurotoxina Tox", href: "/services/tox-neurotoxina", price: "$12/unidad" },
+      { t: "Tratamiento Botox No-Sweat (sudoración)", href: "/services/botox-no-sweat", price: "$850" },
+      { t: "Botox Lip Flip (giro de labio)", href: "/services/botox-lip-flip", price: "$75" },
+      { t: "Mini Aumento de Labios", href: "/services/mini-aumento-labios", price: "$375" },
+      { t: "Aumento Completo de Labios", href: "/services/aumento-completo-labios", price: "$650" },
+      { t: "Mega Aumento de Labios", href: "/services/mega-aumento-labios", price: "$850" }
+    ]
+  },
+  { 
+    group: "Inyecciones y Neurotoxinas", 
+    items: [
+      { t: "Xeomin", href: "/services/xeomin", price: "" },
+      { t: "Dysport", href: "/services/dysport", price: "" },
+      { t: "Botox para Adelgazar los Hombros", href: "/services/botox-hombros", price: "" },
+      { t: "Baby Botox", href: "/services/baby-botox", price: "" },
+      { t: "Botox para Migrañas", href: "/services/botox-migranas", price: "" }
+    ]
+  },
+  { 
+    group: "Skin & Laser", 
+    items: [
+      { t: "Microneedling + PRP", href: "/services/microneedling-prp", price: "" },
+      { t: "Faciales PRF", href: "/services/facial-prp", price: "" },
+      { t: "Restauración Capilar", href: "/services/capilar-prf", price: "" }
+    ]
+  },
+  { 
+    group: "Tratamientos con Sculptra y Rellenos", 
+    items: [
+      { t: "BananaBella (zona del bikini)", href: "/services/bananabella", price: "" },
+      { t: "Estimulación de Colágeno con Sculptra", href: "/services/sculptra-colageno", price: "" },
+      { t: "Mini Chin Up (reducción de papada)", href: "/services/mini-chin-up", price: "" },
+      { t: "Doble Sculptra", href: "/services/doble-sculptra", price: "" },
+      { t: "Brazilian Butt Lift", href: "/services/brazilian-butt-lift", price: "" },
+      { t: "PRF-Ection (gel PRF)", href: "/services/prf-ection", price: "" }
+    ]
+  },
+  { 
+    group: "Contorno Facial y Corporal", 
+    items: [
+      { t: "Contorno Facial Personalizado", href: "/services/contorno-facial-personalizado", price: "" },
+      { t: "Elevación de Pómulos (Cheekbone Pop)", href: "/services/cheekbone-pop", price: "" },
+      { t: "Inyección Check Your Bags (ojeras/bolsas)", href: "/services/check-your-bags", price: "" },
+      { t: "ChinBella (papada/doble mentón)", href: "/services/chinbella", price: "" },
+      { t: "ThighBella (muslos)", href: "/services/thighbella", price: "" },
+      { t: "BraBella (rollito de brasier)", href: "/services/brabella", price: "" }
+    ]
+  },
+  { 
+    group: "Tratamientos Especializados", 
+    items: [
+      { t: "Restauración Capilar con PRF", href: "/services/restauracion-capilar-prf", price: "" },
+      { t: "O-Shot Terapia con Plaquetas", href: "/services/o-shot-terapia", price: "" },
+      { t: "Inyecciones PuppetMaster (líneas faciales)", href: "/services/puppetmaster", price: "" },
+      { t: "Lifting de Cuello Nefertiti", href: "/services/lifting-nefertiti", price: "" },
+      { t: "Tratamiento Botox Lip Flip (giro de labio)", href: "/services/botox-lip-flip-especializado", price: "" }
+    ]
+  },
+  { 
+    group: "Body & Intimate", 
+    items: [
+      { t: "O-Shot", href: "/services/o-shot-prp", price: "" },
+      { t: "Brazilian Butt Lift", href: "/services/bbl", price: "" }
+    ]
+  },
+  { 
+    group: "Terapias de Medicina Regenerativa", 
+    items: [
+      { t: "Semaglutide", href: "/services/semaglutide", price: "" },
+      { t: "Ozempic", href: "/services/ozempic", price: "" },
+      { t: "Ozonoterapia", href: "/services/ozonoterapia", price: "" },
+      { t: "Exosomas", href: "/services/exosomas", price: "" },
+      { t: "Terapia de Reemplazo Hormonal", href: "/services/terapia-reemplazo-hormonal", price: "" }
+    ]
+  },
+  { 
+    group: "Tratamientos de Cabello y Piel", 
+    items: [
+      { t: "Tratamiento de Restauración Capilar con PRP", href: "/services/restauracion-capilar-prp", price: "" },
+      { t: "Tratamiento Microneedling", href: "/services/microneedling", price: "" },
+      { t: "Microneedling con PRP", href: "/services/microneedling-prp", price: "" }
+    ]
+  },
+  { 
+    group: "Rellenos Faciales y Corporales", 
+    items: [
+      { t: "Relleno Dérmico", href: "/services/relleno-dermico", price: "" },
+      { t: "Relleno de Labios", href: "/services/relleno-labios", price: "" },
+      { t: "Relleno de Mejillas", href: "/services/relleno-mejillas", price: "" },
+      { t: "Relleno para Debajo de los Ojos", href: "/services/relleno-debajo-ojos", price: "" },
+      { t: "Relleno de Mandíbula", href: "/services/relleno-mandibula", price: "" },
+      { t: "Relleno de Mano", href: "/services/relleno-mano", price: "" }
+    ]
+  },
+  { 
+    group: "Faciales Especializados", 
+    items: [
+      { t: "Faciales con PRP", href: "/services/faciales-prp", price: "" },
+      { t: "Faciales con Células Madre", href: "/services/faciales-celulas-madre", price: "" }
+    ]
+  },
+  { 
+    group: "Tratamientos Avanzados", 
+    items: [
+      { t: "EZ Gel PRF", href: "/services/ez-gel-prf", price: "" },
+      { t: "Disolvente de Grasa Kybella", href: "/services/kybella", price: "" },
+      { t: "Inyección de Cortisona / Acné Quístico", href: "/services/cortisona-acne-quistico", price: "" },
+      { t: "Inyecciones de PRP", href: "/services/inyecciones-prp", price: "" }
+    ]
+  },
+  { 
+    group: "Rejuvenecimiento Intimo", 
+    items: [
+      { t: "Rejuvenecimiento Vaginal con PRP", href: "/services/rejuvenecimiento-vaginal-prp", price: "" },
+      { t: "Rejuvenecimiento Vaginal con Células Madre", href: "/services/rejuvenecimiento-vaginal-celulas-madre", price: "" }
+    ]
+  }
 ];
 ---
 
-<header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm">
-  <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
-    <!-- Menú izquierda -->
-    <div class="hidden md:flex items-center space-x-8">
-      {menuItems.slice(0, 2).map((item) => (
-        <a 
-          href={item.href}
-          class={`text-dark hover:text-primary transition-colors duration-200 font-medium ${
-            currentPath === item.href ? 'text-primary border-b-2 border-primary' : ''
-          }`}
-        >
-          {item.name}
-        </a>
-      ))}
+<header id="siteHeader" class="fixed top-0 inset-x-0 z-[100] transition-all duration-300 ease-out bg-white/20 backdrop-blur-xl border-b border-white/10 shadow-lg" data-scrolled="false">
+  <nav class="mx-auto max-w-full px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <!-- Sección Izquierda: Menú Desktop + Mobile Button -->
+    <div class="flex items-center">
+      <!-- Mobile menu button -->
+      <button 
+        id="mobile-menu-button"
+        class="lg:hidden mobile-menu-btn p-2 text-white hover:text-white/80 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded mr-4"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Abrir menú de navegación"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <!-- Menú Desktop (Izquierda) -->
+      <div class="hidden lg:flex items-center">
+        <ul class="flex items-center gap-3 text-sm font-medium">
+          {links.map((link) => (
+            <li class="relative group">
+              {link.hasDropdown ? (
+                <div class="services-dropdown-container">
+                  <button 
+                    class="services-dropdown-trigger nav-link text-white hover:text-white/80 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded px-2 py-1 flex items-center gap-1"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                  >
+                    {link.label}
+                    <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                  
+                  <!-- Dropdown Menu -->
+                  <div class="services-dropdown fixed top-full left-0 right-0 mt-2 opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50">
+                    <div class="dropdown-content bg-white/90 backdrop-blur-md shadow-2xl border-t border-white/20 overflow-hidden">
+                      <div class="max-w-7xl mx-auto px-6 py-8 max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                          {categoriasUnificadas.map((categoria) => (
+                            <div class="category-section">
+                              <h3 class="text-sm font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2 flex items-center gap-2">
+                                <span class="text-pink-500">{categoria.nombre.es}</span>
+                                <span class="text-xs text-gray-500">({categoria.servicios.length})</span>
+                              </h3>
+                              <ul class="space-y-2">
+                                {categoria.servicios.slice(0, 3).map((servicio) => (
+                                  <li>
+                                    <a 
+                                      href={servicio.href}
+                                      class="group block px-3 py-2 text-sm text-black hover:bg-pink-50 rounded-lg transition-all duration-200 border border-transparent hover:border-pink-200"
+                                    >
+                                      <div class="flex items-start gap-2">
+                                        {servicio.icon && (
+                                          <span class="text-base flex-shrink-0 mt-0.5 text-black">{servicio.icon}</span>
+                                        )}
+                                        <div class="flex-1 min-w-0">
+                                          <div class="font-medium truncate text-black">
+                                            {servicio.title.es}
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </a>
+                                  </li>
+                                ))}
+                                {categoria.servicios.length > 3 && (
+                                  <li>
+                                    <a 
+                                      href={`/services/${categoria.slug}`}
+                                      class="group block px-3 py-2 text-sm text-pink-600 hover:bg-pink-50 hover:text-pink-700 rounded-lg transition-all duration-200 border border-pink-200 hover:border-pink-300 font-medium"
+                                    >
+                                      <div class="flex items-center justify-center gap-2">
+                                        <span>Ver más</span>
+                                        <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                      </div>
+                                    </a>
+                                  </li>
+                                )}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <a 
+                  href={link.href}
+                  class="nav-link text-white hover:text-white/80 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded px-2 py-1"
+                >
+                  {link.label}
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
 
-    <!-- Logo centrado -->
-    <div class="flex-1 md:flex-none flex justify-center">
-      <a href="/" class="flex items-center">
+    <!-- Logo Centrado -->
+    <div class="absolute left-1/2 transform -translate-x-1/2">
+      <a href="/" class="flex items-center transition-transform duration-300 hover:scale-105">
         <img 
-          src="/logo-renasci.svg" 
+          id="brandLogo"
+          src="/images/Renasci logo.png" 
           alt="Renasci Medical Spa" 
-          class="h-12 w-auto"
-          width="120"
-          height="48"
+          class="h-12 w-auto transition-all duration-300 filter drop-shadow-lg"
         />
       </a>
     </div>
 
-    <!-- Menú derecha + Botones -->
-    <div class="hidden md:flex items-center space-x-8">
-      {menuItems.slice(2).map((item) => (
-        <a 
-          href={item.href}
-          class={`text-dark hover:text-primary transition-colors duration-200 font-medium ${
-            currentPath === item.href ? 'text-primary border-b-2 border-primary' : ''
-          }`}
+    <!-- Sección Derecha: Acciones -->
+    <div class="flex items-center gap-3">
+      <!-- Botón Llamar (Desktop) -->
+      <a 
+        href="tel:+13855550123"
+        class="hidden md:flex items-center gap-2 bg-[#1DD1A1] text-white rounded-2xl px-3 md:px-4 py-2 md:py-2.5 font-semibold text-xs md:text-sm transition-all duration-200 hover:opacity-90 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1DD1A1]/50 animate-pulseSoft overflow-hidden relative min-h-[44px]"
+        aria-label="Llamar Renasci"
+        id="call-button"
+      >
+        <svg class="w-3 md:w-4 h-3 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+        </svg>
+        <span class="hidden lg:inline">(385) 555-0123</span>
+        <span class="lg:hidden">Llamar</span>
+      </a>
+
+      <!-- CTA Agendar -->
+      <div class="hidden md:inline-flex">
+        <CTAButton 
+          href="/contact"
+          variant="primary"
+          className="px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm"
         >
-          {item.name}
+          Agendar Ahora
+        </CTAButton>
+      </div>
+
+      <!-- Redes Sociales -->
+      <div class="hidden md:flex items-center gap-1 md:gap-2">
+        <a 
+          href="https://instagram.com/renasci" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="social-link text-white hover:text-[#E94594] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded p-1 md:p-1.5"
+          aria-label="Instagram"
+        >
+          <svg class="w-4 md:w-5 h-4 md:h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
         </a>
-      ))}
-      
-      <!-- Botones CTA -->
-      <div class="flex items-center space-x-3">
         <a 
-          href="tel:+1234567890" 
-          class="btn-secondary text-sm px-4 py-2"
+          href="https://facebook.com/renasci" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="social-link text-white hover:text-[#E94594] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded p-1 md:p-1.5"
+          aria-label="Facebook"
         >
-          Llamar
-        </a>
-        <a 
-          href="#agendar" 
-          class="btn-primary text-sm px-6 py-2"
-        >
-          Agendar Cita
+          <svg class="w-4 md:w-5 h-4 md:h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
         </a>
       </div>
-    </div>
 
-    <!-- Menú móvil hamburguesa -->
-    <button 
-      id="mobile-menu-button"
-      class="md:hidden flex flex-col items-center justify-center w-8 h-8 space-y-1"
-      aria-label="Abrir menú"
-    >
-      <span class="w-6 h-0.5 bg-dark transition-all duration-300"></span>
-      <span class="w-6 h-0.5 bg-dark transition-all duration-300"></span>
-      <span class="w-6 h-0.5 bg-dark transition-all duration-300"></span>
-    </button>
+
+    </div>
   </nav>
 
-  <!-- Menú móvil desplegable -->
+  <!-- Mobile Off-Canvas Menu -->
   <div 
-    id="mobile-menu" 
-    class="md:hidden bg-white border-t border-gray-100 shadow-lg transform -translate-y-full opacity-0 transition-all duration-300"
+    id="mobile-menu"
+    class="lg:hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm opacity-0 invisible transition-all duration-300 ease-out"
+    aria-hidden="true"
   >
-    <div class="container mx-auto px-4 py-6 space-y-4">
-      {menuItems.map((item) => (
-        <a 
-          href={item.href}
-          class={`block text-dark hover:text-primary transition-colors duration-200 font-medium py-2 ${
-            currentPath === item.href ? 'text-primary' : ''
-          }`}
-        >
-          {item.name}
-        </a>
-      ))}
-      
-      <div class="pt-4 border-t border-gray-100 space-y-3">
-        <a 
-          href="tel:+1234567890" 
-          class="btn-secondary w-full text-center block py-3"
-        >
-          Llamar Ahora
-        </a>
-        <a 
-          href="#agendar" 
-          class="btn-primary w-full text-center block py-3"
-        >
-          Agendar Cita
-        </a>
+    <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-out">
+      <div class="flex flex-col h-full">
+        <!-- Header -->
+        <div class="flex items-center justify-between p-6 border-b border-gray-100">
+          <img src="/images/Renasci logo.png" alt="Renasci Medical Spa" class="h-8 w-auto" />
+          <button 
+            id="mobile-menu-close"
+            class="text-gray-600 hover:text-gray-900 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded p-2"
+            aria-label="Cerrar menú"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 overflow-y-auto p-6">
+          <ul class="space-y-4">
+            {links.map((link) => (
+              <li>
+                <a 
+                  href={link.href}
+                  class="block text-gray-900 font-medium py-2 hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Mobile Social Links -->
+          <div class="mt-8 pt-6 border-t border-gray-100">
+            <h4 class="font-semibold text-gray-900 mb-4">Síguenos</h4>
+            <div class="flex gap-4">
+              <a 
+                href="https://instagram.com/renasci" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-gray-600 hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded p-2"
+                aria-label="Instagram"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <a 
+                href="https://facebook.com/renasci" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-gray-600 hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded p-2"
+                aria-label="Facebook"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile CTA Buttons -->
+          <div class="mt-6 space-y-3">
+            <a 
+              href="tel:+13855550123"
+              class="flex items-center justify-center gap-2 bg-[#1DD1A1] text-white rounded-2xl px-4 py-3 font-semibold text-sm transition-all duration-200 hover:opacity-90 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1DD1A1]/50"
+              aria-label="Llamar Renasci"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+              (385) 555-0123
+            </a>
+            <CTAButton 
+              href="/contact"
+              variant="primary"
+              className="w-full px-4 py-3 text-sm"
+            >
+              Agendar Ahora
+            </CTAButton>
+          </div>
+        </nav>
       </div>
     </div>
   </div>
 </header>
 
-<!-- Botón persistente de agendar (móvil) -->
-<div class="fixed bottom-4 right-4 z-40 md:hidden">
-  <a 
-    href="#agendar"
-    class="btn-primary shadow-lg px-6 py-3 rounded-full flex items-center space-x-2"
-  >
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-    </svg>
-    <span>Agendar</span>
-  </a>
-</div>
-
 <script>
-  // Navbar scroll effect
-  function handleNavbarScroll() {
-    const header = document.getElementById('main-header');
-    if (!header) return;
+  // Navbar scroll behavior
+  function initNavbarScroll() {
+    const header = document.getElementById('siteHeader');
+    const logo = document.getElementById('brandLogo');
     
-    if (window.scrollY > 50) {
-      header.classList.add('navbar-scrolled');
-    } else {
-      header.classList.remove('navbar-scrolled');
+    if (!header || !logo) return;
+    
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    
+    function updateNavbar() {
+      const scrollY = window.scrollY;
+      const isScrolled = scrollY > 50;
+      
+      header.setAttribute('data-scrolled', isScrolled.toString());
+      
+      // Update logo filter based on scroll state
+      if (isScrolled) {
+        logo.style.filter = 'none';
+      } else {
+        logo.style.filter = 'brightness(0) invert(1)';
+      }
+      
+      lastScrollY = scrollY;
+      ticking = false;
     }
+    
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateNavbar);
+        ticking = true;
+      }
+    }
+    
+    window.addEventListener('scroll', requestTick, { passive: true });
+    
+    // Initial call
+    updateNavbar();
   }
 
-  // Mobile menu toggle
-  function setupMobileMenu() {
-    const button = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
+  // Call button ripple effect
+  function initCallButtonRipple() {
+    const callButton = document.getElementById('call-button');
+    if (!callButton) return;
     
-    if (!button || !menu) return;
-    
-    button.addEventListener('click', () => {
-      const isOpen = menu.classList.contains('translate-y-0');
+    callButton.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
       
-      if (isOpen) {
-        // Cerrar menú
-        menu.classList.remove('translate-y-0', 'opacity-100');
-        menu.classList.add('-translate-y-full', 'opacity-0');
-        button.classList.remove('open');
-      } else {
-        // Abrir menú
-        menu.classList.remove('-translate-y-full', 'opacity-0');
-        menu.classList.add('translate-y-0', 'opacity-100');
-        button.classList.add('open');
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      ripple.classList.add('ripple');
+      
+      this.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  }
+
+  // Mobile menu functionality
+  function initMobileMenu() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const accordionTriggers = document.querySelectorAll('.mobile-accordion-trigger');
+    
+    if (!mobileMenuButton || !mobileMenu || !mobileMenuClose) return;
+    
+    function openMobileMenu() {
+      mobileMenu.classList.remove('opacity-0', 'invisible');
+      mobileMenu.classList.add('opacity-100', 'visible');
+      mobileMenu.querySelector('.fixed').classList.remove('translate-x-full');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      mobileMenuButton.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMobileMenu() {
+      mobileMenu.classList.add('opacity-0', 'invisible');
+      mobileMenu.classList.remove('opacity-100', 'visible');
+      mobileMenu.querySelector('.fixed').classList.add('translate-x-full');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      mobileMenuButton.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    
+    mobileMenuButton.addEventListener('click', openMobileMenu);
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    
+    // Close on backdrop click
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        closeMobileMenu();
       }
     });
-
-    // Cerrar menú al hacer click en enlaces
-    const menuLinks = menu.querySelectorAll('a');
-    menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('translate-y-0', 'opacity-100');
-        menu.classList.add('-translate-y-full', 'opacity-0');
-        button.classList.remove('open');
-      });
+    
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('invisible')) {
+        closeMobileMenu();
+      }
     });
-  }
-
-  // Smooth scroll para enlaces internos
-  function setupSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+    
+    // Accordion functionality
+    accordionTriggers.forEach(trigger => {
+      trigger.addEventListener('click', function() {
+        const content = this.parentElement.querySelector('.mobile-accordion-content');
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        
+        // Close all other accordions
+        accordionTriggers.forEach(otherTrigger => {
+          if (otherTrigger !== this) {
+            otherTrigger.setAttribute('aria-expanded', 'false');
+            otherTrigger.querySelector('svg').style.transform = 'rotate(0deg)';
+            otherTrigger.parentElement.querySelector('.mobile-accordion-content').classList.add('hidden');
+          }
+        });
+        
+        // Toggle current accordion
+        if (isExpanded) {
+          this.setAttribute('aria-expanded', 'false');
+          this.querySelector('svg').style.transform = 'rotate(0deg)';
+          content.classList.add('hidden');
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          this.querySelector('svg').style.transform = 'rotate(180deg)';
+          content.classList.remove('hidden');
         }
       });
     });
   }
 
-  // Inicializar cuando el DOM esté listo
-  document.addEventListener('DOMContentLoaded', () => {
-    setupMobileMenu();
-    setupSmoothScroll();
-  });
+  // Services dropdown functionality
+  function initServicesDropdown() {
+    const dropdownTriggers = document.querySelectorAll('.services-dropdown-trigger');
+    let timeoutId;
+    
+    dropdownTriggers.forEach(trigger => {
+      const container = trigger.closest('.services-dropdown-container');
+      const dropdown = container?.querySelector('.services-dropdown');
+      if (!dropdown || !container) return;
+      
+      const showDropdown = () => {
+        clearTimeout(timeoutId);
+        container.classList.add('active');
+        trigger.setAttribute('aria-expanded', 'true');
+      };
+      
+      const hideDropdown = () => {
+        timeoutId = setTimeout(() => {
+          container.classList.remove('active');
+          trigger.setAttribute('aria-expanded', 'false');
+        }, 150);
+      };
+      
+      // Mouse events
+      container.addEventListener('mouseenter', showDropdown);
+      container.addEventListener('mouseleave', hideDropdown);
+      
+      // Keyboard events
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+          if (isExpanded) {
+            hideDropdown();
+          } else {
+            showDropdown();
+          }
+        }
+        if (e.key === 'Escape') {
+          hideDropdown();
+        }
+      });
+    });
+  }
 
-  // Scroll listener
-  window.addEventListener('scroll', handleNavbarScroll);
-  
-  // Ejecutar una vez al cargar
-  handleNavbarScroll();
+  // Mega menu functionality
+  function initMegaMenu() {
+    const megaTriggers = document.querySelectorAll('[data-mega-trigger]');
+    let timeoutId;
+    
+    megaTriggers.forEach(trigger => {
+      const megaMenu = trigger.parentElement?.querySelector('.mega-menu');
+      if (!megaMenu) return;
+      
+      const showMegaMenu = () => {
+        clearTimeout(timeoutId);
+        megaMenu.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+        megaMenu.classList.add('opacity-100', 'visible', 'translate-y-0');
+        trigger.setAttribute('aria-expanded', 'true');
+      };
+      
+      const hideMegaMenu = () => {
+        timeoutId = setTimeout(() => {
+          megaMenu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+          megaMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+          trigger.setAttribute('aria-expanded', 'false');
+        }, 150);
+      };
+      
+      trigger.addEventListener('mouseenter', showMegaMenu);
+      trigger.addEventListener('mouseleave', hideMegaMenu);
+      megaMenu.addEventListener('mouseenter', () => clearTimeout(timeoutId));
+      megaMenu.addEventListener('mouseleave', hideMegaMenu);
+      
+      // Keyboard navigation
+      trigger.addEventListener('focus', showMegaMenu);
+      trigger.addEventListener('blur', hideMegaMenu);
+    });
+  }
+
+  // Initialize all functionality when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    initNavbarScroll();
+    initCallButtonRipple();
+    initMobileMenu();
+    initServicesDropdown();
+    initMegaMenu();
+  });
 </script>
 
 <style>
-  /* Animación del botón hamburguesa */
-  #mobile-menu-button.open span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+  /* Pulse animation for call button */
+  @keyframes pulseSoft {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(29, 209, 161, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(29, 209, 161, 0);
+    }
   }
-  
-  #mobile-menu-button.open span:nth-child(2) {
+
+  .animate-pulseSoft {
+    animation: pulseSoft 2s infinite;
+  }
+
+  /* Ripple effect */
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+  }
+
+  /* Ripple animation */
+  @keyframes ripple {
+    to {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  /* Mega menu positioning */
+  .mega-menu {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Line clamp utility for text truncation */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Backdrop blur support */
+  @supports (backdrop-filter: blur(12px)) {
+    .supports-\[backdrop-filter\]\:bg-white\/55 {
+      backdrop-filter: blur(12px);
+    }
+  }
+
+  /* Navbar scroll states */
+  #siteHeader[data-scrolled="false"] {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  #siteHeader[data-scrolled="true"] {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+  }
+
+  /* Navigation links states */
+  #siteHeader[data-scrolled="false"] .nav-link {
+    color: white;
+  }
+
+  #siteHeader[data-scrolled="true"] .nav-link {
+    color: #1A1A1A;
+  }
+
+  #siteHeader[data-scrolled="true"] .nav-link:hover {
+    color: #E94594;
+  }
+
+  /* Mobile menu button states */
+  #siteHeader[data-scrolled="false"] .mobile-menu-btn {
+    color: white;
+  }
+
+  #siteHeader[data-scrolled="true"] .mobile-menu-btn {
+    color: #1A1A1A;
+  }
+
+  #siteHeader[data-scrolled="true"] .mobile-menu-btn:hover {
+    color: #E94594;
+  }
+
+  /* Social links states */
+  #siteHeader[data-scrolled="false"] .social-link {
+    color: white;
+  }
+
+  #siteHeader[data-scrolled="true"] .social-link {
+    color: #1A1A1A;
+  }
+
+  #siteHeader[data-scrolled="true"] .social-link:hover {
+    color: #E94594;
+  }
+
+
+
+  /* Logo states */
+  #siteHeader[data-scrolled="false"] #brandLogo {
+    filter: brightness(0) invert(1);
+  }
+
+  #siteHeader[data-scrolled="true"] #brandLogo {
+    filter: none;
+  }
+
+  /* Scrollbar styling */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thumb-gray-300::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+  }
+
+  .scrollbar-track-gray-100::-webkit-scrollbar-track {
+    background-color: #f3f4f6;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Services Dropdown Styles */
+  .services-dropdown-container {
+    position: relative;
+  }
+
+  .services-dropdown {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0;
     opacity: 0;
+    visibility: hidden;
+    transform: translateY(0.5rem);
+    transition: all 0.3s ease-out;
+    z-index: 50;
   }
-  
-  #mobile-menu-button.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
+
+  .services-dropdown-container:hover .services-dropdown,
+  .services-dropdown-container.active .services-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-content {
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  /* Dropdown background change on scroll */
+  #siteHeader[data-scrolled="true"] .dropdown-content {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  }
+
+  .services-dropdown-trigger svg {
+    transition: transform 0.2s ease;
+  }
+
+  .services-dropdown-container:hover .services-dropdown-trigger svg,
+  .services-dropdown-container.active .services-dropdown-trigger svg {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown arrow states for scrolled header */
+  #siteHeader[data-scrolled="true"] .services-dropdown-trigger {
+    color: #1A1A1A;
+  }
+
+  #siteHeader[data-scrolled="true"] .services-dropdown-trigger:hover {
+    color: #E94594;
+  }
+
+  /* Grid responsive adjustments */
+  @media (max-width: 1024px) {
+    .services-dropdown .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .services-dropdown .max-w-7xl {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-dropdown .grid {
+      grid-template-columns: 1fr;
+    }
+    .services-dropdown .max-w-7xl {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  /* Enhanced hover effects for service items */
+  .services-dropdown .group:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(233, 69, 148, 0.15);
+  }
+
+  /* Category section styling */
+  .category-section h3 {
+    position: sticky;
+    top: 0;
+    background: inherit;
+    z-index: 10;
   }
 </style>

@@ -1,18 +1,32 @@
 ---
 import HeaderNav from '../components/HeaderNav.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+import LanguageToggle from '../components/LanguageToggle.astro';
+import { getLocaleFromUrl } from '../i18n/config';
 
 export interface Props {
   title?: string;
   description?: string;
   lang?: string;
   currentPath?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  seoImage?: string;
+  seoKeywords?: string;
 }
+
+const currentLocale = getLocaleFromUrl(Astro.url);
 
 const { 
   title = "Renasci Medical Spa - Renueva tu piel", 
   description = "Tratamientos estéticos avanzados en Renasci Medical Spa. Botox, rellenos, sculptra y más. Renueva tu piel con los mejores especialistas.",
-  lang = "es",
-  currentPath = Astro.url.pathname
+  lang = currentLocale,
+  currentPath = Astro.url.pathname,
+  seoTitle = title,
+  seoDescription = description,
+  seoImage = "/og-image.jpg",
+  seoKeywords = "medical spa, tratamientos estéticos, belleza, Utah, botox, rellenos"
 } = Astro.props;
 ---
 
@@ -20,32 +34,39 @@ const {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
     
-    <!-- Google Fonts -->
+    <!-- SEO Component with comprehensive meta tags -->
+    <SEO 
+      title={seoTitle}
+      description={seoDescription}
+      url={Astro.url.pathname}
+      image={seoImage}
+      locale={lang}
+      keywords={seoKeywords}
+    />
+    
+    <!-- Google Fonts with display=swap for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- SEO Meta Tags -->
-    <meta name="generator" content={Astro.generator} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
-    <!-- Hreflang -->
-    <link rel="alternate" hreflang="es" href={`${Astro.site}es${Astro.url.pathname}`} />
-    <link rel="alternate" hreflang="en" href={`${Astro.site}en${Astro.url.pathname}`} />
-    <link rel="alternate" hreflang="x-default" href={`${Astro.site}${Astro.url.pathname}`} />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/images/Renasci logo.png" as="image" type="image/png">
+    
+    <!-- Dynamic i18n script -->
+    <script src="/src/scripts/i18n.js" type="module"></script>
   </head>
-  <body class="font-body text-dark bg-white antialiased">
+  <body>
     <HeaderNav currentPath={currentPath} />
-    <main class="pt-20">
+    <main>
       <slot />
     </main>
+    <Footer />
+    <LanguageToggle />
   </body>
 </html>
 

@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { categorias } from '../data/services';
+
+// Generar todas las rutas de servicios
+const serviciosRoutes = categorias.flatMap(categoria => 
+  categoria.servicios.map(servicio => ({
+    url: `/services/${servicio.slug}`,
+    title: servicio.titulo,
+    category: categoria.nombre
+  }))
+);
+
+// Rutas principales del sitio
+const mainRoutes = [
+  { url: '/', title: 'Inicio', description: 'Página principal de Renasci® Medical Spa' },
+  { url: '/services', title: 'Servicios', description: 'Todos nuestros tratamientos estéticos' },
+  { url: '/membership', title: 'Membresía', description: 'Planes de membresía y beneficios exclusivos' },
+  { url: '/about', title: 'Nosotros', description: 'Conoce nuestro equipo y filosofía' },
+  { url: '/blog', title: 'Blog', description: 'Artículos y consejos de belleza' },
+  { url: '/contact', title: 'Contacto', description: 'Agenda tu cita y contáctanos' },
+];
+
+// Rutas legales
+const legalRoutes = [
+  { url: '/privacy', title: 'Política de Privacidad', description: 'Cómo protegemos tu información personal' },
+  { url: '/terms', title: 'Términos y Condiciones', description: 'Términos de uso y políticas de servicio' },
+];
+
+// Agrupar servicios por categoría
+const servicesByCategory = categorias.map(categoria => ({
+  name: categoria.nombre,
+  services: categoria.servicios.map(servicio => ({
+    url: `/services/${servicio.slug}`,
+    title: servicio.titulo
+  }))
+}));
+---
+
+<BaseLayout 
+  title="Mapa del Sitio - Renasci® Medical Spa"
+  description="Mapa completo del sitio web de Renasci® Medical Spa. Encuentra fácilmente todas nuestras páginas, servicios y recursos."
+>
+  <div class="py-12 sm:py-16 lg:py-20 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-dark mb-6 tracking-tight">
+          Mapa del <span class="text-primary">Sitio</span>
+        </h1>
+        <p class="text-lg text-graytxt max-w-3xl mx-auto">
+          Encuentra fácilmente todas las páginas y servicios disponibles en <strong>Renasci®</strong> Medical Spa. 
+          Navega por nuestro sitio web de manera eficiente y descubre todo lo que tenemos para ofrecerte.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Páginas Principales -->
+        <div>
+          <h2 class="font-display font-bold text-2xl text-dark mb-6 flex items-center">
+            <svg class="w-6 h-6 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
+            </svg>
+            Páginas Principales
+          </h2>
+          
+          <div class="space-y-4">
+            {mainRoutes.map((route) => (
+              <div class="bg-soft rounded-xl p-6 hover:shadow-card transition-shadow duration-200">
+                <a href={route.url} class="block group">
+                  <h3 class="font-semibold text-lg text-dark group-hover:text-primary transition-colors mb-2">
+                    {route.title}
+                  </h3>
+                  <p class="text-graytxt text-sm leading-relaxed">
+                    {route.description}
+                  </p>
+                  <div class="flex items-center mt-3 text-primary text-sm font-medium">
+                    <span>Visitar página</span>
+                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Servicios por Categoría -->
+        <div>
+          <h2 class="font-display font-bold text-2xl text-dark mb-6 flex items-center">
+            <svg class="w-6 h-6 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+            Servicios por Categoría
+          </h2>
+          
+          <div class="space-y-6">
+            {servicesByCategory.map((category) => (
+              <div class="bg-soft rounded-xl p-6">
+                <h3 class="font-semibold text-lg text-dark mb-4 flex items-center">
+                  <div class="w-3 h-3 bg-primary rounded-full mr-3"></div>
+                  {category.name}
+                </h3>
+                
+                <div class="grid gap-2">
+                  {category.services.map((service) => (
+                    <a 
+                      href={service.url} 
+                      class="flex items-center justify-between p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200 group"
+                    >
+                      <span class="text-graytxt group-hover:text-dark transition-colors">
+                        {service.title}
+                      </span>
+                      <svg class="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Páginas Legales -->
+      <div class="mt-12">
+        <h2 class="font-display font-bold text-2xl text-dark mb-6 flex items-center">
+          <svg class="w-6 h-6 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          Información Legal
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          {legalRoutes.map((route) => (
+            <div class="bg-soft rounded-xl p-6 hover:shadow-card transition-shadow duration-200">
+              <a href={route.url} class="block group">
+                <h3 class="font-semibold text-lg text-dark group-hover:text-primary transition-colors mb-2">
+                  {route.title}
+                </h3>
+                <p class="text-graytxt text-sm leading-relaxed">
+                  {route.description}
+                </p>
+                <div class="flex items-center mt-3 text-primary text-sm font-medium">
+                  <span>Leer documento</span>
+                  <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Información Adicional -->
+      <div class="mt-12 bg-gradient-to-br from-primary/5 via-white to-primary/5 rounded-2xl p-8">
+        <div class="text-center">
+          <h2 class="font-display font-bold text-2xl text-dark mb-4">
+            ¿No encuentras lo que buscas?
+          </h2>
+          <p class="text-graytxt mb-6 max-w-2xl mx-auto">
+            Si no puedes encontrar la información que necesitas en nuestro mapa del sitio, 
+            no dudes en contactarnos directamente. Nuestro equipo estará encantado de ayudarte.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="/contact"
+              class="px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:opacity-90 hover:-translate-y-[1px] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+            >
+              Contáctanos
+            </a>
+            <a 
+              href="tel:+1-555-123-4567"
+              class="px-6 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+            >
+              Llamar Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- XML Sitemap Link -->
+      <div class="mt-8 text-center">
+        <p class="text-sm text-graytxt">
+          Para motores de búsqueda: 
+          <a href="/sitemap-index.xml" class="text-primary hover:underline font-medium">
+            Sitemap XML
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Smooth hover animations */
+  .hover\:shadow-card:hover {
+    box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Ensure proper spacing */
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1.5rem;
+  }
+</style>

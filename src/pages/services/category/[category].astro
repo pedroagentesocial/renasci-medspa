@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTAButton from '../../../components/CTAButton.astro';
+import { categoriasUnificadas } from '../../../data/services-unified';
+
+// Obtener parámetros de la URL
+export async function getStaticPaths() {
+  // Usar las categorías unificadas del sistema
+  const services = categoriasUnificadas.map(categoria => ({
+    group: categoria.nombre.es,
+    slug: categoria.slug,
+    items: categoria.servicios.map(servicio => ({
+      t: servicio.title.es,
+      href: servicio.href,
+      price: servicio.precio
+    }))
+  }));
+
+  return services.map((category) => ({
+    params: { 
+      category: category.slug
+    },
+    props: { categoryData: category }
+  }));
+}
+
+const { categoryData } = Astro.props;
+const { category } = Astro.params;
+
+// Título de la página
+const pageTitle = `${categoryData.group} - Renasci Medical Spa`;
+const pageDescription = `Descubre todos nuestros servicios de ${categoryData.group.toLowerCase()} en Renasci Medical Spa. Tratamientos profesionales con la más alta calidad.`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="relative min-h-[60vh] flex items-center justify-center text-center overflow-hidden">
+    <!-- Background Image -->
+    <img 
+      src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="Modern medical spa interior"
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+    />
+    
+    <!-- Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-pink-900/40 via-purple-900/30 to-pink-800/40"></div>
+    
+    <!-- Content -->
+    <div class="relative z-10 max-w-4xl mx-auto px-6">
+      <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+        {categoryData.group}
+      </h1>
+      <p class="text-xl md:text-2xl text-pink-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+        Descubre todos nuestros servicios especializados en {categoryData.group.toLowerCase()}
+      </p>
+    </div>
+  </section>
+
+  <main class="py-16 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2 text-sm text-gray-500">
+          <li><a href="/" class="hover:text-[#E94594] transition-colors">Inicio</a></li>
+          <li><span class="mx-2">/</span></li>
+          <li><a href="/services" class="hover:text-[#E94594] transition-colors">Servicios</a></li>
+          <li><span class="mx-2">/</span></li>
+          <li class="text-gray-900 font-medium">{categoryData.group}</li>
+        </ol>
+      </nav>
+
+      <!-- Título de la categoría -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          {categoryData.group}
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Explora nuestra completa gama de tratamientos especializados en {categoryData.group.toLowerCase()}. 
+          Cada servicio está diseñado para brindarte los mejores resultados con la más alta calidad y seguridad.
+        </p>
+      </div>
+
+      <!-- Grid de servicios -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {categoryData.items.map((service) => (
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group hover:scale-105">
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-[#E94594] transition-colors">
+                {service.t}
+              </h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                Tratamiento profesional de {service.t.toLowerCase()} con tecnología avanzada y resultados garantizados.
+              </p>
+              <div class="flex items-center justify-between">
+                <CTAButton 
+                  href={service.href}
+                  variant="primary"
+                  className="text-sm px-4 py-2"
+                >
+                  Ver Detalles
+                </CTAButton>
+                <CTAButton 
+                  href="/contact"
+                  variant="ghost"
+                  className="text-sm px-4 py-2"
+                >
+                  Agendar
+                </CTAButton>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA Section -->
+      <div class="bg-gradient-to-r from-[#E94594] to-[#1DD1A1] rounded-2xl p-8 md:p-12 text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          ¿Listo para transformar tu belleza?
+        </h2>
+        <p class="text-xl mb-8 opacity-90">
+          Agenda tu consulta gratuita y descubre cómo podemos ayudarte a alcanzar tus objetivos estéticos.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <CTAButton 
+            href="/contact"
+            variant="ghost"
+            className="px-8 py-3 text-lg font-semibold bg-white text-pink-600"
+          >
+            Agendar Consulta Gratuita
+          </CTAButton>
+          <a 
+            href="tel:+13855550123"
+            class="inline-flex items-center justify-center gap-2 bg-white/20 text-white rounded-2xl px-8 py-3 font-semibold text-lg transition-all duration-200 hover:bg-white/30 backdrop-blur-sm"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            (385) 555-0123
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

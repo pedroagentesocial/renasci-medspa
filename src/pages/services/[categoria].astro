@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { categoriasUnificadas, getCategoriaUnificadaBySlug } from '../../data/services-unified';
+
+export async function getStaticPaths() {
+  return categoriasUnificadas.map((categoria) => ({
+    params: { categoria: categoria.slug },
+    props: { categoria }
+  }));
+}
+
+const { categoria } = Astro.props;
+
+if (!categoria) {
+  return Astro.redirect('/404');
+}
+---
+
+<BaseLayout title={`${categoria.nombre.es} - Renasci Medical Spa`}>
+  <main class="min-h-screen bg-gray-50">
+    <!-- Hero Section -->
+    <section class="relative py-20 px-4 sm:px-6 lg:px-8 min-h-[60vh] flex items-center">
+      <!-- Background Image -->
+      <img 
+        src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
+        alt="Medical spa treatments"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-black/50"></div>
+      
+      <!-- Content -->
+      <div class="relative z-10 max-w-7xl mx-auto">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            {categoria.nombre.es}
+          </h1>
+          <p class="text-xl text-white/90 max-w-3xl mx-auto mb-8">
+            Descubre todos nuestros servicios especializados en {categoria.nombre.es.toLowerCase()}
+          </p>
+          <div class="flex items-center justify-center gap-2 text-sm text-white/80">
+            <span>{categoria.servicios.length} servicios disponibles</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {categoria.servicios.map((servicio) => (
+            <div class="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-pink-200">
+              <div class="relative overflow-hidden">
+                <img 
+                  src={servicio.image} 
+                  alt={servicio.title.es}
+                  class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                />
+                {servicio.icon && (
+                  <div class="absolute top-4 left-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl shadow-lg">
+                    {servicio.icon}
+                  </div>
+                )}
+              </div>
+              
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-pink-600 transition-colors">
+                  {servicio.title.es}
+                </h3>
+                
+                <p class="text-gray-600 mb-4 line-clamp-3">
+                  {servicio.excerpt.es}
+                </p>
+                
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-lg font-semibold text-pink-600">
+                    {servicio.precio}
+                  </span>
+                  {servicio.duracion && (
+                    <span class="text-sm text-gray-500 flex items-center gap-1">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      {servicio.duracion}
+                    </span>
+                  )}
+                </div>
+                
+                {servicio.benefits && servicio.benefits.length > 0 && (
+                  <div class="mb-6">
+                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Beneficios:</h4>
+                    <ul class="space-y-1">
+                      {servicio.benefits.slice(0, 3).map((benefit) => (
+                        <li class="text-sm text-gray-600 flex items-center gap-2">
+                          <svg class="w-3 h-3 text-pink-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                          </svg>
+                          {benefit}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                
+                <a 
+                  href={servicio.href}
+                  class="block w-full bg-pink-600 text-white text-center py-3 px-6 rounded-xl font-semibold hover:bg-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  Ver Detalles
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-pink-600">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          ¿Listo para transformar tu belleza?
+        </h2>
+        <p class="text-xl text-white/90 mb-8">
+          Agenda tu consulta gratuita y descubre el tratamiento perfecto para ti
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/contact" 
+            class="bg-white text-pink-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg"
+          >
+            Agendar Consulta
+          </a>
+          <a 
+            href="/services" 
+            class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-pink-600 transition-all duration-300"
+          >
+            Ver Todos los Servicios
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

@@ -1,0 +1,286 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTAButton from '../../components/CTAButton.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import { serviciosUnificados } from '../../data/services-unified';
+
+// Datos específicos del servicio
+const servicio = {
+  id: 'semaglutide',
+  slug: 'semaglutide',
+  title: { es: 'Semaglutide', en: 'Semaglutide' },
+  description: { es: 'Tratamiento avanzado de medicina regenerativa para el control de peso y mejora metabólica con resultados duraderos y seguros.', en: 'Advanced regenerative medicine treatment for weight control and metabolic improvement with lasting and safe results.' },
+  excerpt: { es: 'Medicina regenerativa para control de peso y mejora metabólica.', en: 'Regenerative medicine for weight control and metabolic improvement.' },
+  category: 'medicina-regenerativa',
+  precio: 'Por definir',
+  image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop&crop=center',
+  benefits: ['Control efectivo del peso', 'Mejora metabólica', 'Reducción del apetito', 'Resultados duraderos'],
+  duracion: '30 minutos'
+};
+
+// Servicios relacionados
+const serviciosRelacionados = serviciosUnificados
+  .filter(s => s.category === 'medicina-regenerativa' && s.slug !== servicio.slug)
+  .slice(0, 3);
+---
+
+<BaseLayout 
+  title={`${servicio.title.es} - Renasci Medical Spa`}
+  description={`${servicio.excerpt.es} Precio: ${servicio.precio}. Agenda tu cita en Renasci Medical Spa y descubre los beneficios de este tratamiento.`}
+>
+  <!-- Hero del Servicio -->
+  <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+    <!-- Background Image -->
+    <img 
+      src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt={`${servicio.title.es} treatment at medical spa`}
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+    />
+    
+    <!-- Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-pink-900/40 via-purple-900/30 to-pink-800/40"></div>
+    
+    <!-- Floating Elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <!-- Animated circles -->
+      <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-pink-400/20 rounded-full blur-xl animate-pulse"></div>
+      <div class="absolute top-3/4 right-1/4 w-24 h-24 bg-purple-400/20 rounded-full blur-lg animate-bounce"></div>
+      <div class="absolute bottom-1/4 left-1/3 w-40 h-40 bg-pink-300/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Category Badge -->
+      <div class="inline-flex items-center px-4 py-2 rounded-full bg-pink-500/20 backdrop-blur-sm border border-pink-300/30 mb-6">
+        <span class="text-pink-200 text-sm font-medium uppercase tracking-wider">Medicina Regenerativa</span>
+      </div>
+      
+      <!-- Title -->
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        <span class="bg-gradient-to-r from-pink-200 via-white to-pink-200 bg-clip-text text-transparent">
+          {servicio.title.es}
+        </span>
+      </h1>
+      
+      <!-- Description -->
+      <p class="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+        {servicio.description.es}
+      </p>
+      
+      <!-- Price Highlight -->
+      <div class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl shadow-2xl mb-8 transform hover:scale-105 transition-all duration-300">
+        <span class="text-2xl md:text-3xl font-bold text-white">{servicio.precio}</span>
+      </div>
+      
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <CTAButton 
+          href="/contact" 
+          variant="primary"
+          class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+        >
+          Agenda tu Cita
+        </CTAButton>
+        <CTAButton 
+          href="/contact" 
+          variant="secondary"
+          class="bg-white/10 backdrop-blur-sm text-white border border-white/30 hover:bg-white/20 px-8 py-4 rounded-xl font-semibold text-lg transform hover:scale-105 transition-all duration-300"
+        >
+          Más Información
+        </CTAButton>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Detalles del Servicio -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Imagen -->
+        <div class="relative">
+          <div class="absolute -inset-4 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-3xl blur-xl"></div>
+          <img 
+            src={servicio.image}
+            alt={servicio.title.es}
+            class="relative w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-2xl"
+            loading="lazy"
+          />
+        </div>
+        
+        <!-- Contenido -->
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
+              ¿Qué es {servicio.title.es}?
+            </h2>
+            <div class="prose prose-lg text-gray-600 space-y-4">
+              <p>
+                <strong>Semaglutide</strong> es un medicamento innovador de medicina regenerativa que actúa como agonista del receptor GLP-1, ayudando a regular el azúcar en sangre y promoviendo la pérdida de peso de manera natural y efectiva.
+              </p>
+              <p>
+                Este tratamiento revolucionario no solo ayuda en el control del peso, sino que también mejora la función metabólica general, reduciendo el riesgo de complicaciones relacionadas con la diabetes y el síndrome metabólico.
+              </p>
+              <p>
+                En Renasci Medical Spa, ofrecemos Semaglutide como parte de nuestro enfoque integral de medicina regenerativa, combinando la ciencia más avanzada con un cuidado personalizado para cada paciente.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Precio destacado -->
+          <div class="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-8 border border-pink-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Precio del Tratamiento</h3>
+                <p class="text-gray-600">Consulta personalizada incluida</p>
+              </div>
+              <div class="text-right">
+                <div class="text-3xl font-bold text-pink-600">{servicio.precio}</div>
+                <p class="text-sm text-gray-500 mt-1">Evaluación médica incluida</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
+          Beneficios de <span class="text-pink-600">Semaglutide</span>
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Descubre cómo este tratamiento de medicina regenerativa puede transformar tu salud y bienestar
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {servicio.benefits.map((benefit, index) => (
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">{benefit}</h3>
+            <p class="text-gray-600">
+              {index === 0 && "Pérdida de peso significativa y sostenible a través de la regulación del apetito"}
+              {index === 1 && "Mejora en la sensibilidad a la insulina y control glucémico"}
+              {index === 2 && "Disminución natural del apetito y sensación de saciedad prolongada"}
+              {index === 3 && "Efectos duraderos que se mantienen con el tratamiento adecuado"}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Proceso del Tratamiento -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
+          Proceso del <span class="text-pink-600">Tratamiento</span>
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Un enfoque médico integral para tu transformación de salud
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-12">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8">
+            <span class="text-3xl font-bold text-white">1</span>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">Evaluación Médica</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Realizamos una evaluación médica completa, incluyendo análisis de laboratorio y revisión de tu historial médico para determinar si eres candidato ideal para Semaglutide.
+          </p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8">
+            <span class="text-3xl font-bold text-white">2</span>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">Plan Personalizado</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Desarrollamos un plan de tratamiento personalizado con la dosis adecuada y un programa de seguimiento médico continuo para optimizar tus resultados.
+          </p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8">
+            <span class="text-3xl font-bold text-white">3</span>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">Seguimiento Continuo</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Monitoreamos tu progreso regularmente con citas de seguimiento, ajustes de dosis según sea necesario y apoyo continuo para maximizar tus resultados.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Relacionados -->
+  {serviciosRelacionados.length > 0 && (
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
+            Servicios <span class="text-pink-600">Relacionados</span>
+          </h2>
+          <p class="text-xl text-gray-600">
+            Descubre otros tratamientos que podrían interesarte
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {serviciosRelacionados.map((servicio) => (
+            <ServiceCard servicio={servicio} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-pink-600 to-rose-600 relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/10"></div>
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full -translate-x-48 -translate-y-48"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-48 translate-y-48"></div>
+    
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+        ¿Lista para Transformar tu Salud?
+      </h2>
+      <p class="text-xl text-pink-100 mb-8 max-w-2xl mx-auto">
+        Agenda tu consulta médica hoy y descubre cómo Semaglutide puede ayudarte a alcanzar tus objetivos de salud y bienestar.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <CTAButton 
+          text="Agenda tu Consulta" 
+          href="/contacto"
+          variant="secondary"
+          class="bg-white text-pink-600 hover:bg-pink-50 transform hover:scale-105 transition-all duration-300"
+        />
+        <CTAButton 
+          text="Llama Ahora" 
+          href="tel:+1234567890"
+          variant="outline"
+          class="border-white text-white hover:bg-white hover:text-pink-600 transform hover:scale-105 transition-all duration-300"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,319 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTAButton from '../../components/CTAButton.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+---
+
+<BaseLayout 
+  title="Disolvente de Grasa Kybella - Renasci Medical Spa"
+  description="Tratamiento Kybella para eliminar grasa submentoniana. Reduce la papada de forma no quirúrgica. Agenda tu cita en Renasci Medical Spa."
+>
+  <!-- Hero del Servicio -->
+  <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+    <!-- Background Image -->
+    <img 
+      src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="Kybella treatment at medical spa"
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+    />
+    
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/45"></div>
+    
+    <!-- Floating decorative elements -->
+    <div class="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full blur-xl animate-float-slow"></div>
+    <div class="absolute bottom-32 right-16 w-32 h-32 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-full blur-2xl animate-float-slow" style="animation-delay: -2s;"></div>
+    <div class="absolute top-1/3 right-20 w-16 h-16 bg-gradient-to-br from-primary/40 to-pink-400/40 rounded-full blur-lg animate-pulse-gentle"></div>
+    
+    <!-- Content -->
+    <div class="relative z-10 px-6 max-w-4xl mx-auto">
+      <!-- Category Badge -->
+      <div class="inline-block bg-gradient-to-r from-primary/30 to-pink-500/30 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-white/30 animate-fade-in-up">
+        Tratamientos Avanzados
+      </div>
+      
+      <h1 class="font-display font-bold text-4xl md:text-6xl text-white mb-6 text-shadow-lg animate-fade-in-up" style="animation-delay: 0.2s;">
+        Disolvente de Grasa Kybella
+      </h1>
+      
+      <p class="text-lg md:text-xl text-white/90 mb-8 leading-relaxed text-shadow max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
+        Tratamiento no quirúrgico para eliminar la grasa submentoniana y reducir la papada de forma permanente
+      </p>
+      
+      <!-- Precio destacado -->
+      <div class="bg-gradient-to-r from-white/15 to-pink-100/15 backdrop-blur-sm rounded-2xl p-6 shadow-card mb-8 inline-block border border-white/30 animate-scale-in" style="animation-delay: 0.6s;">
+        <div class="text-sm text-white/80 mb-1">Precio</div>
+        <div class="font-display font-bold text-2xl md:text-3xl bg-gradient-to-r from-primary to-pink-400 bg-clip-text text-transparent">Por definir</div>
+        <div class="text-sm text-white/80 mt-1">Duración: 30-45 min</div>
+      </div>
+      
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style="animation-delay: 0.8s;">
+        <a 
+          href="#detalles"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-pink-500 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:opacity-90 hover:-translate-y-[2px] hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 animate-pulse-gentle"
+        >
+          Ver Detalles
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </a>
+        
+        <a 
+          href="tel:+13855550123"
+          class="call-hero-button inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-call to-emerald-500 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:opacity-90 hover:-translate-y-[2px] hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-call/50 animate-bounce-subtle"
+          aria-label="Llamar Renasci"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+          (385) 555-0123
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="bg-background py-6 border-b border-gray-100">
+    <div class="container mx-auto px-6">
+      <ol class="flex items-center space-x-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-primary transition-colors">Inicio</a></li>
+        <li class="text-gray-400">/</li>
+        <li><a href="/services" class="hover:text-primary transition-colors">Servicios</a></li>
+        <li class="text-gray-400">/</li>
+        <li class="text-gray-900 font-medium">Disolvente de Grasa Kybella</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Detalles del Servicio -->
+  <section id="detalles" class="py-16 lg:py-24 bg-background">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Imagen -->
+        <div class="relative group animate-slide-in-left">
+          <img 
+            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Kybella treatment procedure"
+            class="w-full h-[400px] lg:h-[500px] object-cover rounded-3xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+            loading="lazy"
+          />
+          
+          <!-- Floating card -->
+          <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-2xl border border-gray-100 animate-float-gentle">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-gradient-to-br from-primary to-pink-500 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">FDA Aprobado</div>
+                <div class="text-sm text-gray-600">Resultados permanentes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contenido -->
+        <div class="space-y-8 animate-slide-in-right">
+          <div>
+            <h2 class="font-display font-bold text-3xl lg:text-4xl text-text mb-6">
+              Kybella: Elimina la Papada sin Cirugía
+            </h2>
+            
+            <div class="prose prose-lg text-gray-700 space-y-4">
+              <p>
+                <strong>Kybella</strong> es el único tratamiento no quirúrgico aprobado por la FDA para eliminar la grasa submentoniana (papada) de forma permanente. Utiliza ácido desoxicólico sintético para destruir las células grasas.
+              </p>
+              <p>
+                Este tratamiento revolucionario ofrece una alternativa segura y efectiva a la cirugía, permitiendo contornear el perfil facial y mejorar la definición del cuello sin tiempo de inactividad prolongado.
+              </p>
+              <p>
+                Ideal para personas que desean eliminar la grasa debajo del mentón que no responde a dieta ni ejercicio, proporcionando resultados permanentes y naturales.
+              </p>
+            </div>
+          </div>
+
+          <!-- Precio destacado -->
+          <div class="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-6 border border-primary/10">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-display font-bold text-xl text-text mb-2">Precio del Tratamiento</h3>
+                <p class="text-text/70">Inversión en tu perfil perfecto</p>
+              </div>
+              <div class="text-right">
+                <div class="font-display font-bold text-3xl text-primary">Por definir</div>
+                <p class="text-sm text-text/70 mt-1">Consulta incluida</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios del Tratamiento -->
+  <section class="py-16 lg:py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-text mb-4">
+          Beneficios de Kybella
+        </h2>
+        <p class="text-lg text-text/70 max-w-2xl mx-auto">
+          Descubre las ventajas de este tratamiento revolucionario para eliminar la papada
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-2xl p-6 shadow-card hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg text-text mb-2">Resultados Permanentes</h3>
+          <p class="text-gray-600">Las células grasas destruidas no vuelven a formarse</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg text-text mb-2">No Quirúrgico</h3>
+          <p class="text-gray-600">Tratamiento mínimamente invasivo sin cirugía</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg text-text mb-2">FDA Aprobado</h3>
+          <p class="text-gray-600">Único tratamiento aprobado para grasa submentoniana</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card hover:shadow-lg transition-all duration-300 card-hover">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg text-text mb-2">Recuperación Rápida</h3>
+          <p class="text-gray-600">Regresa a tus actividades normales en pocos días</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proceso del Tratamiento -->
+  <section class="py-16 lg:py-20 bg-background">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-text mb-4">
+          Proceso del Tratamiento
+        </h2>
+        <p class="text-lg text-text/70 max-w-2xl mx-auto">
+          Conoce paso a paso cómo realizamos el tratamiento Kybella
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gradient-to-br from-primary to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-2xl font-bold text-white">1</span>
+          </div>
+          <h3 class="font-semibold text-xl text-text mb-4">Evaluación y Marcado</h3>
+          <p class="text-gray-600">Evaluamos el área y marcamos los puntos de inyección precisos</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gradient-to-br from-primary to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-2xl font-bold text-white">2</span>
+          </div>
+          <h3 class="font-semibold text-xl text-text mb-4">Aplicación de Kybella</h3>
+          <p class="text-gray-600">Se realizan múltiples inyecciones pequeñas en el área submentoniana</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gradient-to-br from-primary to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-2xl font-bold text-white">3</span>
+          </div>
+          <h3 class="font-semibold text-xl text-text mb-4">Cuidados Post-Tratamiento</h3>
+          <p class="text-gray-600">Aplicamos hielo y te damos instrucciones para el cuidado en casa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 lg:py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-text mb-4">
+          Preguntas Frecuentes
+        </h2>
+        <p class="text-lg text-text/70 max-w-2xl mx-auto">
+          Resolvemos tus dudas sobre el tratamiento Kybella
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-6">
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <h3 class="font-semibold text-lg text-text mb-3">¿Cuántas sesiones necesito?</h3>
+          <p class="text-gray-600">La mayoría de pacientes requieren 2-4 sesiones espaciadas de 4-6 semanas para obtener resultados óptimos.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <h3 class="font-semibold text-lg text-text mb-3">¿Cuándo veré los resultados?</h3>
+          <p class="text-gray-600">Los resultados comienzan a notarse después de 4-6 semanas, con mejoras continuas durante varios meses.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <h3 class="font-semibold text-lg text-text mb-3">¿Es doloroso el tratamiento?</h3>
+          <p class="text-gray-600">Se puede experimentar molestia durante las inyecciones, pero utilizamos técnicas para minimizar el dolor.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <h3 class="font-semibold text-lg text-text mb-3">¿Hay efectos secundarios?</h3>
+          <p class="text-gray-600">Pueden ocurrir hinchazón, moretones y entumecimiento temporal, que son normales y se resuelven en días.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-20 bg-gradient-to-br from-primary to-pink-600 text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/10"></div>
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full -translate-x-48 -translate-y-48"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-48 translate-y-48"></div>
+    
+    <div class="relative container mx-auto px-6">
+      <h2 class="font-display font-bold text-3xl lg:text-4xl mb-6">
+        ¿Lista para Eliminar tu Papada?
+      </h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        Agenda tu consulta personalizada y descubre cómo Kybella puede transformar tu perfil de manera permanente.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <CTAButton 
+          text="Agenda tu Consulta" 
+          href="/contacto"
+          variant="secondary"
+          class="bg-white text-primary hover:bg-gray-50 transform hover:scale-105 transition-all duration-300"
+        />
+        <CTAButton 
+          text="Llama Ahora" 
+          href="tel:+13855550123"
+          variant="outline"
+          class="border-white text-white hover:bg-white hover:text-primary transform hover:scale-105 transition-all duration-300"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

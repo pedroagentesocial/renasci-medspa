@@ -1,9 +1,9 @@
 ---
 export interface Props {
   href?: string;
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
-  class?: string;
+  label?: string;
+  variant?: 'primary' | 'ghost' | 'link';
+  className?: string;
   target?: string;
   rel?: string;
   type?: 'button' | 'submit' | 'reset';
@@ -12,10 +12,10 @@ export interface Props {
 }
 
 const { 
-  href,
+  href = "#",
+  label,
   variant = 'primary',
-  size = 'md',
-  class: className = '',
+  className = '',
   target,
   rel,
   type = 'button',
@@ -23,45 +23,35 @@ const {
   onClick
 } = Astro.props;
 
-// Clases base según variante
-const variantClasses = {
-  primary: 'btn-primary',
-  secondary: 'btn-secondary', 
-  outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white bg-transparent'
+// Clases base
+const base = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 min-h-[44px]";
+
+// Variantes sólidas sin degradados
+const variants = {
+  primary: "bg-primary text-white hover:opacity-90 active:translate-y-[1px] shadow-sm hover:shadow-md",
+  ghost: "border-2 border-dark/15 text-dark bg-white hover:bg-soft hover:border-dark/25 hover:opacity-90 active:translate-y-[1px]",
+  link: "relative text-dark bg-transparent hover:text-primary hover:opacity-90 active:translate-y-[1px] after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:bg-primary after:w-0 hover:after:w-full after:transition-all after:duration-200"
 };
 
-// Clases de tamaño
-const sizeClasses = {
-  sm: 'px-4 py-2 text-sm',
-  md: 'px-6 py-3 text-base',
-  lg: 'px-8 py-4 text-lg'
-};
-
-const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
-
-const allClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
-
-// Si tiene href, renderizar como enlace
-if (href) {
+const allClasses = `${base} ${variants[variant]} ${className}`;
 ---
+
+{href ? (
   <a 
     href={href}
     class={allClasses}
     target={target}
     rel={rel}
   >
-    <slot />
+    {label || <slot />}
   </a>
----
-} else {
----
+) : (
   <button 
     type={type}
     class={allClasses}
     disabled={disabled}
     onclick={onClick}
   >
-    <slot />
+    {label || <slot />}
   </button>
----
-}
+)}

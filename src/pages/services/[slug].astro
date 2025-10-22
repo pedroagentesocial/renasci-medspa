@@ -2,13 +2,16 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTAButton from '../../components/CTAButton.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
-import { getServicioBySlug, categorias } from '../../data/services';
+import { getServicioUnificadoBySlug, serviciosUnificados, categoriasUnificadas } from '../../data/services-unified';
 
 export async function getStaticPaths() {
-  const paths = [];
+  const paths: Array<{
+    params: { slug: string };
+    props: { servicio: any; categoria: any };
+  }> = [];
   
-  categorias.forEach(categoria => {
-    categoria.servicios.forEach(servicio => {
+  categoriasUnificadas.forEach(categoria => {
+    categoria.servicios.forEach((servicio: any) => {
       paths.push({
         params: { slug: servicio.slug },
         props: { servicio, categoria }
@@ -28,211 +31,138 @@ if (!servicio) {
 
 // Servicios relacionados (misma categoría, excluyendo el actual)
 const serviciosRelacionados = categoria.servicios
-  .filter(s => s.slug !== servicio.slug)
+  .filter((s: any) => s.slug !== servicio.slug)
   .slice(0, 3);
 ---
 
 <BaseLayout 
-  title={`${servicio.t} - Renasci Medical Spa`}
-  description={`${servicio.excerpt} Precio: ${servicio.precio}. Agenda tu cita en Renasci Medical Spa y descubre los beneficios de este tratamiento.`}
+  title={`${servicio.title.es} - Renasci Medical Spa`}
+  description={`${servicio.excerpt.es} Precio: ${servicio.precio}. Agenda tu cita en Renasci Medical Spa y descubre los beneficios de este tratamiento.`}
 >
+  <!-- Hero del Servicio -->
+  <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+    <!-- Background Image -->
+    <img 
+      src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt={`${servicio.title.es} treatment at medical spa`}
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+    />
+    
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/45"></div>
+    
+    <!-- Content -->
+    <div class="relative z-10 px-6 max-w-4xl mx-auto">
+      <!-- Category Badge -->
+      <div class="inline-block bg-primary/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-white/20">
+        {categoria.nombre.es}
+      </div>
+      
+      <h1 class="font-display font-bold text-4xl md:text-6xl text-white mb-6 text-shadow-lg">
+        {servicio.title.es}
+      </h1>
+      
+      <p class="text-lg md:text-xl text-white/90 mb-8 leading-relaxed text-shadow max-w-3xl mx-auto">
+        {servicio.excerpt.es}
+      </p>
+      
+      <!-- Precio destacado -->
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-card mb-8 inline-block border border-white/20">
+        <div class="text-sm text-white/80 mb-1">Precio desde</div>
+        <div class="font-display font-bold text-2xl md:text-3xl text-primary">{servicio.precio}</div>
+        {servicio.duracion && (
+          <div class="text-sm text-white/80 mt-1">Duración: {servicio.duracion}</div>
+        )}
+      </div>
+      
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a 
+          href="#detalles"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-[#E94594] text-white rounded-2xl font-semibold text-lg transition-all duration-200 hover:opacity-90 hover:-translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+        >
+          Ver Detalles
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </a>
+        
+        <a 
+          href="tel:+13855550123"
+          class="call-hero-button inline-flex items-center gap-3 px-8 py-4 bg-[#10B981] text-white rounded-2xl font-semibold text-lg transition-all duration-200 hover:opacity-90 hover:-translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981]/50 animate-pulse-soft"
+          aria-label="Llamar Renasci"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+          (385) 555-0123
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Breadcrumb -->
-  <nav class="bg-soft py-4">
-    <div class="container mx-auto px-4">
+  <nav class="bg-background py-6 border-b border-gray-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <ol class="flex items-center space-x-2 text-sm">
         <li>
-          <a href="/" class="text-graytxt hover:text-primary transition-colors">Inicio</a>
+          <a href="/" class="text-text/70 hover:text-primary transition-colors link-underline">Inicio</a>
         </li>
-        <li class="text-graytxt">/</li>
+        <li class="text-text/70">/</li>
         <li>
-          <a href="/services" class="text-graytxt hover:text-primary transition-colors">Servicios</a>
+          <a href="/services" class="text-text/70 hover:text-primary transition-colors link-underline">Servicios</a>
         </li>
-        <li class="text-graytxt">/</li>
-        <li class="text-dark font-medium">{servicio.t}</li>
+        <li class="text-text/70">/</li>
+        <li class="text-text font-medium">{servicio.title.es}</li>
       </ol>
     </div>
   </nav>
 
-  <!-- Hero del Servicio -->
-  <section class="py-20 bg-gradient-to-br from-soft via-white to-soft">
-    <div class="container mx-auto px-4">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <!-- Contenido -->
-        <div>
-          <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            {categoria.nombre}
-          </div>
-          
-          <h1 class="font-display font-bold text-4xl lg:text-5xl text-dark mb-6">
-            {servicio.t}
-          </h1>
-          
-          <p class="text-xl text-graytxt mb-8 leading-relaxed">
-            {servicio.excerpt}
-          </p>
-          
-          <!-- Precio destacado -->
-          <div class="bg-white rounded-2xl p-6 shadow-card mb-8 inline-block">
-            <div class="text-sm text-graytxt mb-1">Precio desde</div>
-            <div class="font-display font-bold text-3xl text-primary">{servicio.precio}</div>
-            {servicio.duracion && (
-              <div class="text-sm text-graytxt mt-1">Duración: {servicio.duracion}</div>
-            )}
-          </div>
-          
-          <!-- CTAs -->
-          <div class="flex flex-col sm:flex-row gap-4">
-            <CTAButton 
-              href="#agendar" 
-              variant="primary" 
-              size="lg"
-            >
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              Agendar Cita
-            </CTAButton>
-            
-            <CTAButton 
-              href="tel:+1234567890" 
-              variant="outline" 
-              size="lg"
-            >
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-              </svg>
-              Consulta Gratis
-            </CTAButton>
-          </div>
-        </div>
-        
-        <!-- Imagen -->
+  <!-- Service Details -->
+  <section id="detalles" class="py-16 lg:py-24 bg-background">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <!-- Imagen del servicio -->
         <div class="relative">
-          <div class="aspect-square rounded-2xl overflow-hidden shadow-card">
-            <img 
-              src={servicio.image} 
-              alt={`Tratamiento ${servicio.t} en Renasci Medical Spa`}
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              loading="eager"
-            />
-          </div>
-          
-          <!-- Badge flotante -->
-          <div class="absolute -top-4 -right-4 bg-primary text-white px-6 py-3 rounded-full font-semibold shadow-lg">
-            ¡Popular!
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <img 
+            src={servicio.image}
+            alt={servicio.title.es}
+            class="w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-card"
+            loading="lazy"
+          />
 
-  <!-- Detalles del Tratamiento -->
-  <section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12">
-          <!-- Beneficios -->
+        </div>
+
+        <!-- Contenido del servicio -->
+        <div class="space-y-8">
           <div>
-            <h2 class="font-display font-bold text-3xl text-dark mb-8">
-              Beneficios del Tratamiento
+            <h2 class="font-display font-bold text-3xl lg:text-4xl text-text mb-6">
+              Inyecciones de Neurotoxina Tox
             </h2>
-            
-            <div class="space-y-4">
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-dark mb-2">Resultados Naturales</h3>
-                  <p class="text-graytxt">Obtén resultados que realzan tu belleza natural sin verse artificial.</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-dark mb-2">Procedimiento Seguro</h3>
-                  <p class="text-graytxt">Realizado por especialistas certificados con productos FDA aprobados.</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-dark mb-2">Mínimo Tiempo de Recuperación</h3>
-                  <p class="text-graytxt">Regresa a tus actividades normales el mismo día del tratamiento.</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-dark mb-2">Resultados Duraderos</h3>
-                  <p class="text-graytxt">Disfruta de resultados que perduran por meses con el cuidado adecuado.</p>
-                </div>
-              </div>
+            <div class="prose prose-lg text-gray-700 leading-relaxed">
+              <p class="mb-4">
+                Las <strong>Inyecciones de Neurotoxina Tox</strong> son uno de los tratamientos más efectivos y populares en medicina estética para combatir los signos del envejecimiento facial. Este procedimiento utiliza neurotoxina botulínica purificada para relajar temporalmente los músculos faciales responsables de las arrugas dinámicas.
+              </p>
+              <p class="mb-4">
+                Nuestro tratamiento se enfoca en áreas específicas como las líneas de expresión alrededor de los ojos (patas de gallo), frente, entrecejo y otras zonas donde las contracciones musculares repetitivas han formado arrugas visibles.
+              </p>
+              <p>
+                Con más de 20 años de investigación y millones de tratamientos realizados mundialmente, las neurotoxinas han demostrado ser seguras y efectivas cuando son aplicadas por profesionales certificados.
+              </p>
             </div>
           </div>
-          
-          <!-- Proceso -->
-          <div>
-            <h2 class="font-display font-bold text-3xl text-dark mb-8">
-              ¿Cómo Funciona?
-            </h2>
-            
-            <div class="space-y-6">
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">
-                  1
-                </div>
-                <div>
-                  <h3 class="font-semibold text-dark mb-2">Consulta Inicial</h3>
-                  <p class="text-graytxt">Evaluamos tu piel y discutimos tus objetivos estéticos.</p>
-                </div>
+
+          <!-- Precio destacado -->
+          <div class="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-6 border border-primary/10">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-display font-bold text-xl text-text mb-2">Precio del Tratamiento</h3>
+                <p class="text-text/70">Inversión por unidad aplicada</p>
               </div>
-              
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">
-                  2
-                </div>
-                <div>
-                  <h3 class="font-semibold text-dark mb-2">Preparación</h3>
-                  <p class="text-graytxt">Limpiamos y preparamos el área de tratamiento para el procedimiento.</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">
-                  3
-                </div>
-                <div>
-                  <h3 class="font-semibold text-dark mb-2">Aplicación</h3>
-                  <p class="text-graytxt">Realizamos el tratamiento con precisión y cuidado profesional.</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">
-                  4
-                </div>
-                <div>
-                  <h3 class="font-semibold text-dark mb-2">Cuidados Post-Tratamiento</h3>
-                  <p class="text-graytxt">Te damos instrucciones detalladas para optimizar tus resultados.</p>
-                </div>
+              <div class="text-right">
+                <div class="font-display font-bold text-3xl text-primary">{servicio.precio}</div>
+                <p class="text-sm text-text/70 mt-1">Consulta incluida</p>
               </div>
             </div>
           </div>
@@ -241,67 +171,292 @@ const serviciosRelacionados = categoria.servicios
     </div>
   </section>
 
-  <!-- FAQ Específicas del Servicio -->
-  <section class="py-20 bg-soft">
-    <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="font-display font-bold text-3xl text-dark mb-4">
-            Preguntas Frecuentes
-          </h2>
-          <p class="text-xl text-graytxt">
-            Resolvemos tus dudas sobre {servicio.t}
+  <!-- Beneficios del Tratamiento -->
+  <section class="py-16 lg:py-20 bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-text mb-4">
+          Beneficios del Tratamiento
+        </h2>
+        <p class="text-lg text-text/70 max-w-2xl mx-auto">
+          Descubre por qué miles de pacientes confían en nuestro tratamiento de neurotoxinas
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {servicio.benefits.map((benefit: string, index: number) => (
+          <div class="bg-white rounded-2xl p-6 shadow-card hover:shadow-lg transition-all duration-300 card-hover">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-lg text-text mb-2">{benefit}</h3>
+            <p class="text-text/70 text-sm">
+              {index === 0 && "Suaviza visiblemente las líneas de expresión existentes"}
+              {index === 1 && "Evita la formación de nuevas arrugas con uso regular"}
+              {index === 2 && "Mantiene expresiones faciales naturales y armoniosas"}
+              {index === 3 && "Regresa a actividades normales inmediatamente"}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Proceso del Tratamiento -->
+  <section class="py-16 lg:py-20 bg-background">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-text mb-4">
+          Proceso del Tratamiento
+        </h2>
+        <p class="text-lg text-text/70 max-w-2xl mx-auto">
+          Un procedimiento simple y cómodo que transforma tu apariencia
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="font-display font-bold text-2xl text-primary">1</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-text mb-4">Consulta Personalizada</h3>
+          <p class="text-text/70 leading-relaxed">
+            Evaluamos tu rostro, discutimos tus objetivos y diseñamos un plan de tratamiento personalizado. Analizamos las áreas a tratar y determinamos la cantidad exacta de unidades necesarias.
           </p>
         </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="font-display font-bold text-2xl text-primary">2</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-text mb-4">Aplicación Precisa</h3>
+          <p class="text-text/70 leading-relaxed">
+            Utilizando técnicas avanzadas y agujas ultra-finas, aplicamos la neurotoxina en puntos estratégicos. El procedimiento es prácticamente indoloro y toma solo 15-30 minutos.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="font-display font-bold text-2xl text-primary">3</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-text mb-4">Resultados Graduales</h3>
+          <p class="text-text/70 leading-relaxed">
+            Los resultados comienzan a notarse en 3-5 días y alcanzan su máximo efecto en 2 semanas. Los efectos duran típicamente 3-4 meses, con mejores resultados en tratamientos regulares.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- FAQ Específicas -->
+  <section class="py-16 lg:py-20 bg-background">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-text mb-4">
+          Preguntas Frecuentes
+        </h2>
+        <p class="text-lg text-text/70">
+          Resolvemos las dudas más comunes sobre el tratamiento con neurotoxinas
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <h3 class="font-semibold text-lg text-text mb-3">¿Es doloroso el tratamiento?</h3>
+          <p class="text-text/70">
+            El tratamiento es prácticamente indoloro. Utilizamos agujas ultra-finas y técnicas avanzadas para minimizar cualquier molestia. La mayoría de pacientes describen la sensación como un pequeño pinchazo.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <h3 class="font-semibold text-lg text-text mb-3">¿Cuánto duran los resultados?</h3>
+          <p class="text-text/70">
+            Los efectos típicamente duran entre 3-4 meses. Con tratamientos regulares, muchos pacientes experimentan resultados más duraderos ya que los músculos se "entrenan" para relajarse.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <h3 class="font-semibold text-lg text-text mb-3">¿Cuándo veré los resultados?</h3>
+          <p class="text-text/70">
+            Los primeros resultados son visibles en 3-5 días, con el efecto completo alcanzándose en aproximadamente 2 semanas. La paciencia es clave para obtener los mejores resultados.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <h3 class="font-semibold text-lg text-text mb-3">¿Hay efectos secundarios?</h3>
+          <p class="text-text/70">
+            Los efectos secundarios son mínimos y temporales. Pueden incluir ligero enrojecimiento o pequeños hematomas en el sitio de inyección, que desaparecen en 24-48 horas.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card">
+          <h3 class="font-semibold text-lg text-text mb-3">¿Puedo regresar a mis actividades normales?</h3>
+          <p class="text-text/70">
+            Sí, puedes regresar inmediatamente a tus actividades. Solo recomendamos evitar ejercicio intenso y masajes faciales por 24 horas para optimizar los resultados.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="py-16 lg:py-20 bg-gray-50">
+    <!-- Elementos decorativos -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-16 right-20 w-32 h-32 bg-gradient-to-br from-pink-400/15 to-rose-500/15 rounded-full blur-2xl animate-float-slow"></div>
+      <div class="absolute bottom-24 left-16 w-24 h-24 bg-gradient-to-br from-fuchsia-300/20 to-pink-400/20 rounded-full blur-xl animate-pulse-gentle"></div>
+    </div>
+    
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+      <div class="text-center mb-12 animate-fade-in-up">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl bg-gradient-to-r from-pink-600 via-text to-rose-600 bg-clip-text text-transparent mb-4">
+          Lo Que Dicen Nuestros Pacientes
+        </h2>
+        <p class="text-lg text-text/70">
+          Testimonios reales de pacientes satisfechos con sus resultados
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-6 shadow-card hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate-slide-up-stagger-1 group border-t-4 border-pink-500/50">
+          <div class="flex items-center mb-4">
+            <div class="flex text-pink-400 group-hover:text-rose-400 transition-colors duration-300">
+               <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+               </svg>
+               <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+               </svg>
+               <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+               </svg>
+               <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+               </svg>
+               <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+               </svg>
+             </div>
+          </div>
+          <p class="text-text/80 mb-4 italic">
+            "Increíble experiencia. Los resultados son exactamente lo que esperaba - natural pero notorio. El equipo es muy profesional y me sentí cómoda durante todo el proceso."
+          </p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-full flex items-center justify-center mr-3">
+              <span class="font-semibold text-pink-600">M</span>
+            </div>
+            <div>
+              <p class="font-semibold text-text group-hover:text-pink-600 transition-colors duration-300">María G.</p>
+              <p class="text-sm text-text/70">Paciente verificada</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate-slide-up-stagger-2 group border-t-4 border-rose-500/50">
+          <div class="flex items-center mb-4">
+            <div class="flex text-pink-400 group-hover:text-rose-400 transition-colors duration-300">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              ))}
+            </div>
+          </div>
+          <p class="text-text/80 mb-4 italic">
+            "Excelente atención y resultados fantásticos. Me encanta cómo se ve mi rostro ahora - más fresco y rejuvenecido. Definitivamente regresaré para mi próximo tratamiento."
+          </p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-gradient-to-br from-rose-500/20 to-pink-500/20 rounded-full flex items-center justify-center mr-3">
+              <span class="font-semibold text-rose-600">A</span>
+            </div>
+            <div>
+              <p class="font-semibold text-text group-hover:text-rose-600 transition-colors duration-300">Ana L.</p>
+              <p class="text-sm text-text/70">Paciente verificada</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-card hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate-slide-up-stagger-3 group border-t-4 border-pink-500/50">
+          <div class="flex items-center mb-4">
+            <div class="flex text-pink-400 group-hover:text-rose-400 transition-colors duration-300">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              ))}
+            </div>
+          </div>
+          <p class="text-text/80 mb-4 italic">
+            "Profesionalismo de primer nivel. El Dr. me explicó todo el proceso y los resultados superaron mis expectativas. Me siento más confiada y radiante."
+          </p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-full flex items-center justify-center mr-3">
+              <span class="font-semibold text-pink-600">C</span>
+            </div>
+            <div>
+              <p class="font-semibold text-text group-hover:text-pink-600 transition-colors duration-300">Carmen R.</p>
+              <p class="text-sm text-text/70">Paciente verificada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Principal -->
+  <section class="py-16 lg:py-20 bg-gradient-to-br from-primary to-secondary">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display font-bold text-3xl lg:text-4xl text-white mb-6">
+        ¿Lista para Transformar tu Apariencia?
+      </h2>
+      <p class="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+        Agenda tu consulta personalizada hoy mismo y descubre cómo las inyecciones de neurotoxina pueden ayudarte a lucir y sentirte mejor que nunca.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a 
+          href="tel:+13855550123"
+          class="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary rounded-2xl font-semibold text-lg transition-all duration-200 hover:bg-white/90 hover:-translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+          Llamar Ahora: (385) 555-0123
+        </a>
         
-        <div class="space-y-4">
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <button class="faq-trigger w-full text-left flex justify-between items-center">
-              <h3 class="font-semibold text-dark">¿Cuánto tiempo duran los resultados?</h3>
-              <svg class="w-5 h-5 text-graytxt transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content hidden mt-4 text-graytxt">
-              Los resultados típicamente duran entre 3-6 meses, dependiendo del área tratada y tu metabolismo individual. Te recomendaremos un plan de mantenimiento personalizado.
-            </div>
-          </div>
-          
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <button class="faq-trigger w-full text-left flex justify-between items-center">
-              <h3 class="font-semibold text-dark">¿Es doloroso el procedimiento?</h3>
-              <svg class="w-5 h-5 text-graytxt transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content hidden mt-4 text-graytxt">
-              La mayoría de nuestros pacientes describen la sensación como una pequeña molestia. Utilizamos técnicas para minimizar cualquier incomodidad durante el tratamiento.
-            </div>
-          </div>
-          
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <button class="faq-trigger w-full text-left flex justify-between items-center">
-              <h3 class="font-semibold text-dark">¿Cuándo veré los resultados?</h3>
-              <svg class="w-5 h-5 text-graytxt transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content hidden mt-4 text-graytxt">
-              Los resultados iniciales son visibles inmediatamente, con mejoras continuas durante las primeras 2 semanas. Los resultados completos se aprecian después de 2-4 semanas.
-            </div>
-          </div>
-          
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <button class="faq-trigger w-full text-left flex justify-between items-center">
-              <h3 class="font-semibold text-dark">¿Hay efectos secundarios?</h3>
-              <svg class="w-5 h-5 text-graytxt transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content hidden mt-4 text-graytxt">
-              Los efectos secundarios son mínimos y temporales: ligero enrojecimiento o hinchazón que desaparece en 24-48 horas. Te daremos instrucciones detalladas de cuidado post-tratamiento.
-            </div>
-          </div>
+        <a 
+          href="/contact"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-semibold text-lg transition-all duration-200 hover:bg-white/20 hover:-translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 border border-white/20"
+        >
+          Agendar Online
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0V6a2 2 0 012-2h4a2 2 0 012 2v1m-6 0h8m-9 0v10a2 2 0 002 2h8a2 2 0 002-2V7H3z"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="mt-8 flex items-center justify-center gap-8 text-white/80 text-sm">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          Consulta gratuita
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Resultados en 3-5 días
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Profesionales certificados
         </div>
       </div>
     </div>
@@ -309,144 +464,308 @@ const serviciosRelacionados = categoria.servicios
 
   <!-- Servicios Relacionados -->
   {serviciosRelacionados.length > 0 && (
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-4">
+    <section class="py-16 lg:py-20 bg-background">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-          <h2 class="font-display font-bold text-3xl text-dark mb-4">
+          <h2 class="font-display font-bold text-3xl lg:text-4xl text-text mb-4">
             Servicios Relacionados
           </h2>
-          <p class="text-xl text-graytxt">
+          <p class="text-lg text-text/70">
             Otros tratamientos que podrían interesarte
           </p>
         </div>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {serviciosRelacionados.map((servicioRelacionado) => (
-            <ServiceCard servicio={servicioRelacionado} />
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {serviciosRelacionados.map((servicioRelacionado: any, index: number) => (
+            <div class={`transform hover:scale-105 transition-all duration-500 ${
+              index % 2 === 0 ? 'hover:-translate-y-2' : 'hover:translate-y-2'
+            }`}>
+              <ServiceCard service={servicioRelacionado} />
+            </div>
           ))}
         </div>
       </div>
     </section>
   )}
 
-  <!-- CTA Final -->
-  <section id="agendar" class="py-20 bg-gradient-to-br from-primary to-primary/90">
-    <div class="container mx-auto px-4 text-center">
-      <div class="max-w-3xl mx-auto text-white">
-        <h2 class="font-display font-bold text-4xl mb-6">
-          ¿Listo para Transformar tu Belleza?
-        </h2>
-        
-        <p class="text-xl mb-8 opacity-90">
-          Agenda tu consulta gratuita hoy y descubre cómo {servicio.t} puede ayudarte a alcanzar tus objetivos estéticos.
-        </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <CTAButton 
-            href="tel:+1234567890" 
-            variant="secondary" 
-            size="lg"
-            class="bg-white text-primary hover:bg-gray-50"
-          >
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-            </svg>
-            Llamar Ahora
-          </CTAButton>
-          
-          <CTAButton 
-            href="/services" 
-            variant="outline" 
-            size="lg"
-            class="border-white text-white hover:bg-white hover:text-primary"
-          >
-            Ver Más Servicios
-          </CTAButton>
-        </div>
-        
-        <!-- Información de contacto -->
-        <div class="mt-12 pt-8 border-t border-white/20">
-          <div class="grid md:grid-cols-3 gap-6 text-center">
-            <div>
-              <div class="text-sm opacity-75 mb-1">Teléfono</div>
-              <div class="font-semibold">(555) 123-4567</div>
-            </div>
-            <div>
-              <div class="text-sm opacity-75 mb-1">Horarios</div>
-              <div class="font-semibold">Lun-Vie 9AM-7PM</div>
-            </div>
-            <div>
-              <div class="text-sm opacity-75 mb-1">Ubicación</div>
-              <div class="font-semibold">Miami, FL</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
-
 <script>
-  // FAQ Accordion
-  function setupFAQ() {
-    const faqTriggers = document.querySelectorAll('.faq-trigger');
-    
-    faqTriggers.forEach(trigger => {
-      trigger.addEventListener('click', () => {
-        const content = trigger.nextElementSibling;
-        const icon = trigger.querySelector('svg');
-        
-        // Toggle content
-        content.classList.toggle('hidden');
-        
-        // Rotate icon
-        if (content.classList.contains('hidden')) {
-          icon.style.transform = 'rotate(0deg)';
-        } else {
-          icon.style.transform = 'rotate(180deg)';
-        }
-      });
+  // Ripple effect for hero call button
+  function initHeroCallButtonRipple() {
+    const heroCallButton = document.querySelector('.call-hero-button') as HTMLElement;
+    if (!heroCallButton) return;
+
+    heroCallButton.addEventListener('pointerdown', function(this: HTMLElement, e: PointerEvent) {
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      const ripple = document.createElement('span');
+      ripple.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        left: ${x}px;
+        top: ${y}px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: ripple 0.6s ease-out;
+        pointer-events: none;
+      `;
+      
+      this.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
     });
   }
-  
-  // Smooth scroll para anchors
-  function setupSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-  }
-  
-  // Inicializar
-  document.addEventListener('DOMContentLoaded', () => {
-    setupFAQ();
-    setupSmoothScroll();
-  });
-  
-  // Re-inicializar en navegación de Astro
-  document.addEventListener('astro:page-load', () => {
-    setupFAQ();
-    setupSmoothScroll();
-  });
+
+  // Initialize on DOM load
+  document.addEventListener('DOMContentLoaded', initHeroCallButtonRipple);
 </script>
 
 <style>
-  .faq-content {
-    transition: all 0.3s ease;
+  @keyframes ripple {
+    to {
+      transform: scale(2);
+      opacity: 0;
+    }
   }
-  
-  .faq-trigger svg {
-    transition: transform 0.3s ease;
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+    }
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s infinite;
+  }
+
+  /* Micro-interactions */
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transition: width 200ms ease-out;
+  }
+
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  .smooth-transition {
+    transition: all 180ms ease-out;
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .card-hover {
+    transition: all 300ms ease-out;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .btn-hover {
+    transition: all 200ms ease-out;
+  }
+
+  .btn-hover:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Animaciones personalizadas */
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(-3deg); }
+  }
+
+  @keyframes pulse-gentle {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+
+  @keyframes bounce-arrow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float-delayed 8s ease-in-out infinite 2s;
+  }
+
+  .animate-pulse-gentle {
+    animation: pulse-gentle 4s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+  }
+
+  .animate-fade-in-delayed {
+    animation: fade-in-up 0.8s ease-out 0.3s both;
+  }
+
+  .animate-fade-in-up-delayed {
+    animation: fade-in-up 0.8s ease-out 0.6s both;
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.6s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.6s ease-out;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+
+  .animate-bounce-arrow {
+    animation: bounce-arrow 1.5s ease-in-out infinite;
+  }
+
+  .animate-slide-up-stagger-1 {
+    animation: slide-up 0.6s ease-out 0.1s both;
+  }
+
+  .animate-slide-up-stagger-2 {
+    animation: slide-up 0.6s ease-out 0.2s both;
+  }
+
+  .animate-slide-up-stagger-3 {
+    animation: slide-up 0.6s ease-out 0.3s both;
+  }
+
+  .animate-slide-up-stagger-4 {
+    animation: slide-up 0.6s ease-out 0.4s both;
+  }
+
+  .animate-slide-up-stagger-5 {
+    animation: slide-up 0.6s ease-out 0.5s both;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-gentle 3s ease-in-out infinite;
   }
 </style>

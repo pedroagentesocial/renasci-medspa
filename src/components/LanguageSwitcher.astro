@@ -1,0 +1,333 @@
+---
+// No necesitamos lógica del servidor para el cambio dinámico
+---
+
+<div class="language-switcher">
+  <button 
+    class="language-switcher-button"
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-label="Cambiar idioma"
+  >
+    <span class="flag">🇪🇸</span>
+    <span class="lang-text">ES</span>
+    <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+      <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  
+  <div class="language-dropdown" role="menu">
+    <button 
+      class="lang-option active" 
+      data-lang="es"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span class="flag">🇪🇸</span>
+      <span>Español</span>
+    </button>
+    <button 
+      class="lang-option" 
+      data-lang="en"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span class="flag">🇺🇸</span>
+      <span>English</span>
+    </button>
+  </div>
+</div>
+
+<style>
+  .language-switcher {
+    position: relative;
+    display: inline-block;
+  }
+
+  .language-switcher-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: linear-gradient(135deg, #E94594 0%, #C8A08C 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(233, 69, 148, 0.2);
+    min-height: 40px;
+  }
+
+  .language-switcher-button:hover {
+    background: linear-gradient(135deg, #d63d85 0%, #b8947d 100%);
+    box-shadow: 0 4px 8px rgba(233, 69, 148, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .language-switcher-button:focus {
+    outline: 2px solid #C8A08C;
+    outline-offset: 2px;
+  }
+
+  .language-switcher-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(233, 69, 148, 0.2);
+  }
+
+  .flag {
+    font-size: 1rem;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+  }
+
+  .lang-text {
+    font-weight: 600;
+    letter-spacing: 0.025em;
+  }
+
+  .chevron {
+    transition: transform 0.3s ease;
+    opacity: 0.9;
+  }
+
+  .language-switcher-button[aria-expanded="true"] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .language-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 150px;
+    background: white;
+    border: 1px solid rgba(200, 160, 140, 0.2);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.5rem);
+    transition: all 0.3s ease;
+    z-index: 50;
+    overflow: hidden;
+  }
+
+  .language-switcher-button[aria-expanded="true"] + .language-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: none;
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+  }
+
+  .lang-option:hover {
+    background: linear-gradient(135deg, rgba(233, 69, 148, 0.05) 0%, rgba(200, 160, 140, 0.05) 100%);
+    color: #E94594;
+  }
+
+  .lang-option:focus {
+    outline: none;
+    background: linear-gradient(135deg, rgba(233, 69, 148, 0.1) 0%, rgba(200, 160, 140, 0.1) 100%);
+    color: #E94594;
+  }
+
+  .lang-option.active {
+    background: linear-gradient(135deg, rgba(233, 69, 148, 0.1) 0%, rgba(200, 160, 140, 0.1) 100%);
+    color: #E94594;
+    font-weight: 600;
+    border-left: 3px solid #E94594;
+  }
+
+  .lang-option.active:hover {
+    background: linear-gradient(135deg, rgba(233, 69, 148, 0.15) 0%, rgba(200, 160, 140, 0.15) 100%);
+  }
+
+  .lang-option .flag {
+    font-size: 1.1rem;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+  }
+
+  @media (max-width: 768px) {
+    .language-switcher-button {
+      padding: 0.375rem 0.625rem;
+      font-size: 0.8rem;
+      min-height: 36px;
+    }
+    
+    .language-dropdown {
+      min-width: 130px;
+    }
+
+    .lang-option {
+      padding: 0.625rem 0.875rem;
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<script>
+  class LanguageSwitcherComponent {
+    constructor() {
+      this.isOpen = false;
+      this.button = document.querySelector('.language-switcher-button');
+      this.dropdown = document.querySelector('.language-dropdown');
+      this.options = document.querySelectorAll('.lang-option');
+      
+      this.init();
+    }
+
+    init() {
+      if (!this.button || !this.dropdown) return;
+      
+      // Event listeners
+      this.button.addEventListener('click', this.toggleDropdown.bind(this));
+      this.options.forEach((option) => {
+        option.addEventListener('click', this.selectLanguage.bind(this));
+      });
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', this.handleOutsideClick.bind(this));
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', this.handleKeydown.bind(this));
+      
+      // Listen for language changes from i18nManager
+      window.addEventListener('languageChanged', this.updateUI.bind(this));
+      
+      // Initialize UI based on current language
+      this.updateUIFromManager();
+    }
+
+    toggleDropdown() {
+      this.isOpen = !this.isOpen;
+      this.button.setAttribute('aria-expanded', this.isOpen.toString());
+      
+      if (this.isOpen) {
+        // Focus first option when opening
+        setTimeout(() => {
+          const firstOption = this.dropdown.querySelector('.lang-option');
+          if (firstOption) firstOption.focus();
+        }, 100);
+      }
+    }
+
+    selectLanguage(event) {
+      const selectedLang = event.currentTarget.getAttribute('data-lang');
+      
+      // Use the i18nManager to switch language
+      if ((window as any).i18nManager) {
+        (window as any).i18nManager.switchLanguage(selectedLang);
+      }
+      
+      this.closeDropdown();
+    }
+
+    closeDropdown() {
+      this.isOpen = false;
+      this.button.setAttribute('aria-expanded', 'false');
+      this.button.focus();
+    }
+
+    handleOutsideClick(event) {
+      if (!this.button.contains(event.target) && !this.dropdown.contains(event.target)) {
+        this.closeDropdown();
+      }
+    }
+
+    handleKeydown(event) {
+      if (!this.isOpen) return;
+      
+      switch (event.key) {
+        case 'Escape':
+          event.preventDefault();
+          this.closeDropdown();
+          break;
+        case 'ArrowDown':
+          event.preventDefault();
+          this.focusNextOption();
+          break;
+        case 'ArrowUp':
+          event.preventDefault();
+          this.focusPreviousOption();
+          break;
+        case 'Tab':
+          if (!this.dropdown.contains(event.target)) {
+            this.closeDropdown();
+          }
+          break;
+      }
+    }
+
+    focusNextOption() {
+      const currentFocus = document.activeElement;
+      const options = Array.from(this.options);
+      const currentIndex = options.indexOf(currentFocus);
+      const nextIndex = (currentIndex + 1) % options.length;
+      options[nextIndex].focus();
+    }
+
+    focusPreviousOption() {
+      const currentFocus = document.activeElement;
+      const options = Array.from(this.options);
+      const currentIndex = options.indexOf(currentFocus);
+      const prevIndex = currentIndex <= 0 ? options.length - 1 : currentIndex - 1;
+      options[prevIndex].focus();
+    }
+
+    updateUI(event) {
+      const newLang = event.detail.language;
+      this.updateButtonDisplay(newLang);
+      this.updateActiveOption(newLang);
+    }
+
+    updateUIFromManager() {
+      if ((window as any).i18nManager) {
+        const currentLang = (window as any).i18nManager.getCurrentLanguage();
+        this.updateButtonDisplay(currentLang);
+        this.updateActiveOption(currentLang);
+      }
+    }
+
+    updateButtonDisplay(lang) {
+      const flagSpan = this.button.querySelector('.flag');
+      const textSpan = this.button.querySelector('.lang-text');
+      
+      if (lang === 'es') {
+        if (flagSpan) flagSpan.textContent = '🇪🇸';
+        if (textSpan) textSpan.textContent = 'ES';
+      } else {
+        if (flagSpan) flagSpan.textContent = '🇺🇸';
+        if (textSpan) textSpan.textContent = 'EN';
+      }
+    }
+
+    updateActiveOption(lang) {
+      this.options.forEach((option) => {
+        option.classList.remove('active');
+        if (option.getAttribute('data-lang') === lang) {
+          option.classList.add('active');
+        }
+      });
+    }
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new LanguageSwitcherComponent();
+  });
+</script>
