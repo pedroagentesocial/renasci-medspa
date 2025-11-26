@@ -7,8 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://pedroagentesocial.github.io/renasci-medspa',
-  base: '/renasci-medspa',
+  site: 'https://pedroagentesocial.github.io',
   integrations: [
     react(), 
     tailwind(), 
