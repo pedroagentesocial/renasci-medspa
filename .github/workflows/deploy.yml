@@ -31,6 +31,10 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Create brand subpath
+        run: |
+          mkdir -p dist/renasci-medspa
+          rsync -a --exclude 'renasci-medspa' dist/ dist/renasci-medspa/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
