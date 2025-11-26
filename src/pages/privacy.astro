@@ -6,188 +6,162 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Política de Privacidad - Renasci® Medical Spa"
   description="Política de privacidad de Renasci® Medical Spa. Conoce cómo protegemos y manejamos tu información personal."
 >
-  <div class="py-12 sm:py-16 lg:py-20 bg-white">
+  <section class="pt-24 pb-16 md:pt-32 bg-black text-white text-center">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <!-- Header -->
-      <div class="text-center mb-12">
-        <h1 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-dark mb-6 tracking-tight">
-          Política de <span class="text-primary">Privacidad</span>
-        </h1>
-        <p class="text-lg text-graytxt">
-          Última actualización: 1 de enero de 2025
-        </p>
-      </div>
-
-      <!-- Content -->
+      <h1 class="font-display font-bold text-4xl md:text-5xl mb-6 tracking-tight">
+        <span data-i18n="privacy.title">Política de <span class='text-primary'>Privacidad</span></span>
+      </h1>
+      <p class="text-lg text-white/80" data-i18n="privacy.last_updated">Última actualización: 1 de enero de 2025</p>
+    </div>
+  </section>
+  <div class="h-[2px] w-full bg-primary"></div>
+  <section class="py-16 lg:py-20 bg-white">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="prose prose-lg max-w-none">
         <div class="bg-soft rounded-2xl p-8 mb-8">
-          <p class="text-dark leading-relaxed mb-0">
+          <p class="text-dark leading-relaxed mb-0" data-i18n="privacy.intro">
             En <strong>Renasci®</strong> Medical Spa, valoramos y respetamos tu privacidad. Esta Política de Privacidad describe cómo recopilamos, usamos, protegemos y compartimos tu información personal cuando utilizas nuestros servicios o visitas nuestro sitio web.
           </p>
         </div>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">1. Información que Recopilamos</h2>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.s1_title">1. Información que Recopilamos</h2>
           
-          <h3 class="font-semibold text-xl text-dark mb-3">Información Personal</h3>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="privacy.s1_personal_title">Información Personal</h3>
           <ul class="text-graytxt space-y-2 mb-4">
-            <li>Nombre completo, dirección de correo electrónico y número de teléfono</li>
-            <li>Información de contacto y dirección postal</li>
-            <li>Historial médico y estético relevante para nuestros servicios</li>
-            <li>Información de facturación y pago</li>
-            <li>Fotografías antes/después de tratamientos (con consentimiento explícito)</li>
+            <li><span data-i18n="privacy.s1_personal_item1">Nombre completo, dirección de correo electrónico y número de teléfono</span></li>
+            <li><span data-i18n="privacy.s1_personal_item2">Información de contacto y dirección postal</span></li>
+            <li><span data-i18n="privacy.s1_personal_item3">Historial médico y estético relevante para nuestros servicios</span></li>
+            <li><span data-i18n="privacy.s1_personal_item4">Información de facturación y pago</span></li>
+            <li><span data-i18n="privacy.s1_personal_item5">Fotografías antes/después de tratamientos (con consentimiento explícito)</span></li>
           </ul>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Información Técnica</h3>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="privacy.s1_technical_title">Información Técnica</h3>
           <ul class="text-graytxt space-y-2 mb-4">
-            <li>Dirección IP, tipo de navegador y sistema operativo</li>
-            <li>Páginas visitadas, tiempo de permanencia y patrones de navegación</li>
-            <li>Cookies y tecnologías similares de seguimiento</li>
-            <li>Información de dispositivo móvil (si aplica)</li>
+            <li><span data-i18n="privacy.s1_technical_item1">Dirección IP, tipo de navegador y sistema operativo</span></li>
+            <li><span data-i18n="privacy.s1_technical_item2">Páginas visitadas, tiempo de permanencia y patrones de navegación</span></li>
+            <li><span data-i18n="privacy.s1_technical_item3">Cookies y tecnologías similares de seguimiento</span></li>
+            <li><span data-i18n="privacy.s1_technical_item4">Información de dispositivo móvil (si aplica)</span></li>
           </ul>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">2. Base Legal para el Procesamiento</h2>
-          <p class="text-graytxt mb-4">
-            Procesamos tu información personal bajo las siguientes bases legales:
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.s2_title">2. Base Legal para el Procesamiento</h2>
+          <p class="text-graytxt mb-4" data-i18n="privacy.s2_intro">Procesamos tu información personal bajo las siguientes bases legales:</p>
           <ul class="text-graytxt space-y-2">
-            <li><strong>Consentimiento:</strong> Para tratamientos estéticos, marketing y fotografías</li>
-            <li><strong>Ejecución de contrato:</strong> Para proporcionar servicios médicos y de membresía</li>
-            <li><strong>Interés legítimo:</strong> Para mejorar nuestros servicios y comunicación</li>
-            <li><strong>Obligación legal:</strong> Para cumplir con regulaciones médicas y fiscales</li>
+            <li><span data-i18n="privacy.s2_item1"><strong>Consentimiento:</strong> Para tratamientos estéticos, marketing y fotografías</span></li>
+            <li><span data-i18n="privacy.s2_item2"><strong>Ejecución de contrato:</strong> Para proporcionar servicios médicos y de membresía</span></li>
+            <li><span data-i18n="privacy.s2_item3"><strong>Interés legítimo:</strong> Para mejorar nuestros servicios y comunicación</span></li>
+            <li><span data-i18n="privacy.s2_item4"><strong>Obligación legal:</strong> Para cumplir con regulaciones médicas y fiscales</span></li>
           </ul>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">3. Cómo Usamos tu Información</h2>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.s3_title">3. Cómo Usamos tu Información</h2>
           <ul class="text-graytxt space-y-2">
-            <li>Proporcionar y personalizar nuestros servicios médicos y estéticos</li>
-            <li>Procesar pagos y gestionar tu membresía <strong>Renasci®</strong></li>
-            <li>Comunicarnos contigo sobre citas, tratamientos y promociones</li>
-            <li>Mejorar la calidad y seguridad de nuestros servicios</li>
-            <li>Cumplir con obligaciones legales y regulatorias</li>
-            <li>Analizar el uso del sitio web para optimizar la experiencia del usuario</li>
+            <li><span data-i18n="privacy.s3_item1">Proporcionar y personalizar nuestros servicios médicos y estéticos</span></li>
+            <li><span data-i18n="privacy.s3_item2">Procesar pagos y gestionar tu membresía <strong>Renasci®</strong></span></li>
+            <li><span data-i18n="privacy.s3_item3">Comunicarnos contigo sobre citas, tratamientos y promociones</span></li>
+            <li><span data-i18n="privacy.s3_item4">Mejorar la calidad y seguridad de nuestros servicios</span></li>
+            <li><span data-i18n="privacy.s3_item5">Cumplir con obligaciones legales y regulatorias</span></li>
+            <li><span data-i18n="privacy.s3_item6">Analizar el uso del sitio web para optimizar la experiencia del usuario</span></li>
           </ul>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">4. Retención de Datos</h2>
-          <p class="text-graytxt mb-4">
-            Conservamos tu información personal durante los siguientes períodos:
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.s4_title">4. Retención de Datos</h2>
+          <p class="text-graytxt mb-4" data-i18n="privacy.s4_intro">Conservamos tu información personal durante los siguientes períodos:</p>
           <ul class="text-graytxt space-y-2">
-            <li><strong>Registros médicos:</strong> 7 años después del último tratamiento</li>
-            <li><strong>Información de membresía:</strong> Durante la vigencia de la membresía + 3 años</li>
-            <li><strong>Datos de marketing:</strong> Hasta que retires tu consentimiento</li>
-            <li><strong>Información financiera:</strong> 7 años para fines fiscales</li>
-            <li><strong>Fotografías:</strong> Hasta que retires tu consentimiento</li>
+            <li><span data-i18n="privacy.s4_item1"><strong>Registros médicos:</strong> 7 años después del último tratamiento</span></li>
+            <li><span data-i18n="privacy.s4_item2"><strong>Información de membresía:</strong> Durante la vigencia de la membresía + 3 años</span></li>
+            <li><span data-i18n="privacy.s4_item3"><strong>Datos de marketing:</strong> Hasta que retires tu consentimiento</span></li>
+            <li><span data-i18n="privacy.s4_item4"><strong>Información financiera:</strong> 7 años para fines fiscales</span></li>
+            <li><span data-i18n="privacy.s4_item5"><strong>Fotografías:</strong> Hasta que retires tu consentimiento</span></li>
           </ul>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">5. Tus Derechos</h2>
-          <p class="text-graytxt mb-4">
-            Tienes los siguientes derechos respecto a tu información personal:
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.s5_title">5. Tus Derechos</h2>
+          <p class="text-graytxt mb-4" data-i18n="privacy.s5_intro">Tienes los siguientes derechos respecto a tu información personal:</p>
           <ul class="text-graytxt space-y-2">
-            <li><strong>Acceso:</strong> Solicitar una copia de tu información personal</li>
-            <li><strong>Rectificación:</strong> Corregir información inexacta o incompleta</li>
-            <li><strong>Eliminación:</strong> Solicitar la eliminación de tu información (con limitaciones médicas)</li>
-            <li><strong>Portabilidad:</strong> Recibir tu información en formato estructurado</li>
-            <li><strong>Oposición:</strong> Oponerte al procesamiento para marketing directo</li>
-            <li><strong>Restricción:</strong> Limitar el procesamiento en ciertas circunstancias</li>
+            <li><span data-i18n="privacy.s5_item1"><strong>Acceso:</strong> Solicitar una copia de tu información personal</span></li>
+            <li><span data-i18n="privacy.s5_item2"><strong>Rectificación:</strong> Corregir información inexacta o incompleta</span></li>
+            <li><span data-i18n="privacy.s5_item3"><strong>Eliminación:</strong> Solicitar la eliminación de tu información (con limitaciones médicas)</span></li>
+            <li><span data-i18n="privacy.s5_item4"><strong>Portabilidad:</strong> Recibir tu información en formato estructurado</span></li>
+            <li><span data-i18n="privacy.s5_item5"><strong>Oposición:</strong> Oponerte al procesamiento para marketing directo</span></li>
+            <li><span data-i18n="privacy.s5_item6"><strong>Restricción:</strong> Limitar el procesamiento en ciertas circunstancias</span></li>
           </ul>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">6. Política de Cookies</h2>
-          <p class="text-graytxt mb-4">
-            Utilizamos cookies y tecnologías similares para:
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.s6_title">6. Política de Cookies</h2>
+          <p class="text-graytxt mb-4" data-i18n="privacy.s6_intro">Utilizamos cookies y tecnologías similares para:</p>
           <ul class="text-graytxt space-y-2 mb-4">
-            <li>Mantener tu sesión activa y preferencias</li>
-            <li>Analizar el tráfico del sitio web con Google Analytics</li>
-            <li>Personalizar contenido y anuncios</li>
-            <li>Mejorar la funcionalidad del sitio web</li>
+            <li><span data-i18n="privacy.s6_item1">Mantener tu sesión activa y preferencias</span></li>
+            <li><span data-i18n="privacy.s6_item2">Analizar el tráfico del sitio web con Google Analytics</span></li>
+            <li><span data-i18n="privacy.s6_item3">Personalizar contenido y anuncios</span></li>
+            <li><span data-i18n="privacy.s6_item4">Mejorar la funcionalidad del sitio web</span></li>
           </ul>
-          <p class="text-graytxt">
-            Puedes gestionar las cookies a través de la configuración de tu navegador.
-          </p>
+          <p class="text-graytxt" data-i18n="privacy.s6_note">Puedes gestionar las cookies a través de la configuración de tu navegador.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">7. Compartir con Terceros</h2>
-          <p class="text-graytxt mb-4">
-            Podemos compartir tu información con:
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.s7_title">7. Compartir con Terceros</h2>
+          <p class="text-graytxt mb-4" data-i18n="privacy.s7_intro">Podemos compartir tu información con:</p>
           <ul class="text-graytxt space-y-2">
-            <li><strong>Proveedores de servicios:</strong> Para procesamiento de pagos, análisis web y marketing</li>
-            <li><strong>Profesionales médicos:</strong> Para consultas y referencias (con consentimiento)</li>
-            <li><strong>Autoridades legales:</strong> Cuando sea requerido por ley</li>
-            <li><strong>Servicios de emergencia:</strong> En situaciones médicas críticas</li>
+            <li><span data-i18n="privacy.s7_item1"><strong>Proveedores de servicios:</strong> Para procesamiento de pagos, análisis web y marketing</span></li>
+            <li><span data-i18n="privacy.s7_item2"><strong>Profesionales médicos:</strong> Para consultas y referencias (con consentimiento)</span></li>
+            <li><span data-i18n="privacy.s7_item3"><strong>Autoridades legales:</strong> Cuando sea requerido por ley</span></li>
+            <li><span data-i18n="privacy.s7_item4"><strong>Servicios de emergencia:</strong> En situaciones médicas críticas</span></li>
           </ul>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">8. Seguridad de Datos</h2>
-          <p class="text-graytxt mb-4">
-            Implementamos medidas de seguridad técnicas y organizacionales apropiadas:
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.s8_title">8. Seguridad de Datos</h2>
+          <p class="text-graytxt mb-4" data-i18n="privacy.s8_intro">Implementamos medidas de seguridad técnicas y organizacionales apropiadas:</p>
           <ul class="text-graytxt space-y-2">
-            <li>Cifrado SSL/TLS para transmisión de datos</li>
-            <li>Acceso restringido a información personal</li>
-            <li>Capacitación regular del personal en privacidad</li>
-            <li>Auditorías de seguridad periódicas</li>
-            <li>Respaldo seguro de datos médicos</li>
+            <li><span data-i18n="privacy.s8_item1">Cifrado SSL/TLS para transmisión de datos</span></li>
+            <li><span data-i18n="privacy.s8_item2">Acceso restringido a información personal</span></li>
+            <li><span data-i18n="privacy.s8_item3">Capacitación regular del personal en privacidad</span></li>
+            <li><span data-i18n="privacy.s8_item4">Auditorías de seguridad periódicas</span></li>
+            <li><span data-i18n="privacy.s8_item5">Respaldo seguro de datos médicos</span></li>
           </ul>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">9. Transferencias Internacionales</h2>
-          <p class="text-graytxt">
-            Algunos de nuestros proveedores de servicios pueden estar ubicados fuera de Estados Unidos. Nos aseguramos de que cualquier transferencia internacional cumpla con las leyes de protección de datos aplicables y mantenga un nivel adecuado de protección.
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.s9_title">9. Transferencias Internacionales</h2>
+          <p class="text-graytxt" data-i18n="privacy.s9_text">Algunos de nuestros proveedores de servicios pueden estar ubicados fuera de Estados Unidos. Nos aseguramos de que cualquier transferencia internacional cumpla con las leyes de protección de datos aplicables y mantenga un nivel adecuado de protección.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">10. Menores de Edad</h2>
-          <p class="text-graytxt">
-            Nuestros servicios están dirigidos a personas mayores de 18 años. No recopilamos intencionalmente información personal de menores de 18 años sin el consentimiento parental verificable.
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.s10_title">10. Menores de Edad</h2>
+          <p class="text-graytxt" data-i18n="privacy.s10_text">Nuestros servicios están dirigidos a personas mayores de 18 años. No recopilamos intencionalmente información personal de menores de 18 años sin el consentimiento parental verificable.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">11. Cambios a esta Política</h2>
-          <p class="text-graytxt">
-            Podemos actualizar esta Política de Privacidad ocasionalmente. Te notificaremos sobre cambios significativos por correo electrónico o mediante un aviso prominente en nuestro sitio web. La fecha de "última actualización" al inicio de esta política indica cuándo fue revisada por última vez.
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.s11_title">11. Cambios a esta Política</h2>
+          <p class="text-graytxt" data-i18n="privacy.s11_text">Podemos actualizar esta Política de Privacidad ocasionalmente. Te notificaremos sobre cambios significativos por correo electrónico o mediante un aviso prominente en nuestro sitio web. La fecha de "última actualización" al inicio de esta política indica cuándo fue revisada por última vez.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">12. Jurisdicción</h2>
-          <p class="text-graytxt">
-            Esta Política de Privacidad se rige por las leyes del estado de Utah, Estados Unidos. Cualquier disputa relacionada con esta política será resuelta en los tribunales competentes de Utah.
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.s12_title">12. Jurisdicción</h2>
+          <p class="text-graytxt" data-i18n="privacy.s12_text">Esta Política de Privacidad se rige por las leyes del estado de Utah, Estados Unidos. Cualquier disputa relacionada con esta política será resuelta en los tribunales competentes de Utah.</p>
         </section>
 
         <!-- Contact Information -->
         <div class="bg-primary/5 rounded-2xl p-8 mt-12">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">Contacto</h2>
-          <p class="text-graytxt mb-4">
-            Si tienes preguntas sobre esta Política de Privacidad o deseas ejercer tus derechos, contáctanos:
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="privacy.contact_title">Contacto</h2>
+          <p class="text-graytxt mb-4" data-i18n="privacy.contact_intro">Si tienes preguntas sobre esta Política de Privacidad o deseas ejercer tus derechos, contáctanos:</p>
           <div class="space-y-2 text-graytxt">
-            <p><strong>Renasci®</strong> Medical Spa</p>
-            <p>Email: privacy@renasci.com</p>
-            <p>Teléfono: (555) 123-4567</p>
-            <p>Dirección: 123 Beauty Ave, Ciudad, Utah 84000</p>
+            <p><span data-i18n="privacy.contact_name"><strong>Renasci®</strong> Medical Spa</span></p>
+            <p><span data-i18n="privacy.contact_email">Email: privacy@renasci.com</span></p>
+            <p><span data-i18n="privacy.contact_phone">Teléfono: (555) 123-4567</span></p>
+            <p><span data-i18n="privacy.contact_address">Dirección: 123 Beauty Ave, Ciudad, Utah 84000</span></p>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 
 <style>

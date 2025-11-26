@@ -3,100 +3,119 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TierCard from '../components/TierCard.astro';
 import CTAButton from '../components/CTAButton.astro';
 import FAQItem from '../components/FAQItem.astro';
+import SimpleContactForm from '../components/SimpleContactForm.astro';
 ---
 
 <BaseLayout 
   title="Membresías - Renasci Medical Spa"
-  description="Descubre nuestros planes de membresía: Rack, Glow y Elite. Obtén descuentos exclusivos y beneficios especiales en todos nuestros tratamientos estéticos."
+  description="Descubre nuestros planes de membresía: Renasci Vital y Renasci Vital + Premier. Beneficios en inyecciones, neurotoxinas, Ozempic/Semaglutide, microneedling y PRP, más evaluaciones personalizadas."
 >
-  <!-- Hero Section -->
-  <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-    <!-- Background Image -->
+  <!-- Hero Section Renovado -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Imagen de fondo -->
     <img 
-      src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      alt="Exclusive membership benefits at medical spa"
+      src="/images/heroMembership.png" 
+      alt="Renasci Membership"
       class="absolute inset-0 w-full h-full object-cover"
       loading="eager"
     />
     
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-black/45"></div>
+    <!-- Overlay para legibilidad -->
+    <div class="absolute inset-0 bg-black/40"></div>
+    
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="floating-element absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
+      <div class="floating-element-delayed absolute top-40 right-20 w-24 h-24 bg-secondary/15 rounded-full blur-lg"></div>
+      <div class="floating-element absolute bottom-32 left-1/4 w-40 h-40 bg-primary/8 rounded-full blur-2xl"></div>
+      <div class="floating-element-delayed absolute bottom-20 right-1/3 w-28 h-28 bg-secondary/12 rounded-full blur-xl"></div>
+    </div>
     
     <!-- Content -->
-    <div class="relative z-10 px-6 max-w-4xl mx-auto">
-      <h1 class="font-display font-bold text-4xl md:text-6xl text-white mb-6 text-shadow-lg">
-        Planes de <span class="text-primary">Membresía</span>
-      </h1>
-      
-      <p class="text-lg md:text-xl text-white/90 mb-8 leading-relaxed text-shadow max-w-3xl mx-auto">
-        Únete a nuestra comunidad exclusiva y disfruta de descuentos especiales, 
-        tratamientos prioritarios y beneficios únicos diseñados para tu bienestar.
-      </p>
-      
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a 
-          href="#planes"
-          class="inline-flex items-center gap-2 px-8 py-4 bg-[#E94594] text-white rounded-2xl font-semibold text-lg transition-all duration-200 hover:opacity-90 hover:-translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-        >
-          Ver Planes
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    <div class="relative z-10 px-6 max-w-6xl mx-auto text-center">
+      <div class="hero-content">
+        <!-- Badge animado -->
+        <div class="inline-flex items-center px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full text-white font-semibold text-sm mb-8 border border-primary/20 animate-fade-in-up">
+          <svg class="w-4 h-4 mr-2 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
           </svg>
-        </a>
+          Membresías Exclusivas
+        </div>
         
-        <a 
-          href="tel:+13855550123"
-          class="call-hero-button inline-flex items-center gap-3 px-8 py-4 bg-[#10B981] text-white rounded-2xl font-semibold text-lg transition-all duration-200 hover:opacity-90 hover:-translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981]/50 animate-pulse-soft"
-          aria-label="Llamar Renasci"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-          </svg>
-          (385) 555-0123
-        </a>
-      </div>
-      
-      <!-- Promoción especial -->
-      <div class="mt-8 inline-block bg-primary/20 backdrop-blur-sm text-white px-6 py-3 rounded-full font-semibold border border-white/20">
-        ✨ Promoción Especial: Primer mes GRATIS en plan Glow
+        <!-- Título principal con efecto typing -->
+        <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-tight">
+          <span class="typing-text">Transforma</span><br>
+          <span class="text-primary typing-text-delayed">Tu Belleza</span>
+        </h1>
+        
+        <!-- Subtítulo -->
+        <p class="text-xl md:text-2xl text-white mb-12 leading-relaxed max-w-4xl mx-auto">
+          Únete a nuestra comunidad exclusiva y descubre una nueva dimensión de cuidado personal con beneficios únicos, tratamientos premium y atención personalizada.
+        </p>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <CTAButton 
+            href="#planes"
+            variant="primary"
+            className="px-8 py-4 text-lg font-semibold bg-primary text-white hover:bg-primary/90"
+          >
+            Ver Planes de Membresía
+          </CTAButton>
+          
+          <CTAButton 
+            href="#contacto"
+            variant="primary"
+            className="px-8 py-4 text-lg font-semibold bg-primary text-white hover:bg-primary/90"
+          >
+            Consulta Gratuita
+          </CTAButton>
+        </div>
+        
+        <!-- Stats animados -->
+        <div class="hidden">
+          <div class="text-center">
+            <div class="counter text-3xl md:text-4xl font-bold text-primary mb-2" data-target="500">0</div>
+            <div class="text-sm text-white">Miembros Activos</div>
+          </div>
+          <div class="text-center">
+            <div class="counter text-3xl md:text-4xl font-bold text-primary mb-2" data-target="98">0</div>
+            <div class="text-sm text-white">% Satisfacción</div>
+          </div>
+          <div class="text-center">
+            <div class="counter text-3xl md:text-4xl font-bold text-primary mb-2" data-target="25">0</div>
+            <div class="text-sm text-white">% Descuento Promedio</div>
+          </div>
+          <div class="text-center">
+            <div class="counter text-3xl md:text-4xl font-bold text-primary mb-2" data-target="24">0</div>
+            <div class="text-sm text-white">Soporte 24/7</div>
+          </div>
+        </div>
       </div>
     </div>
+    
+    <!-- Scroll indicator -->
+    
   </section>
 
-  <!-- Stats Section -->
-  <section class="py-16 lg:py-24 bg-background">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-        <div class="text-center p-6 bg-white rounded-xl shadow-sm card-hover">
-          <div class="font-display font-bold text-3xl text-primary mb-2">500+</div>
-          <div class="text-sm text-text/70">Miembros Activos</div>
-        </div>
-        <div class="text-center p-6 bg-white rounded-xl shadow-sm card-hover">
-          <div class="font-display font-bold text-3xl text-primary mb-2">25%</div>
-          <div class="text-sm text-text/70">Descuento Promedio</div>
-        </div>
-        <div class="text-center p-6 bg-white rounded-xl shadow-sm card-hover">
-          <div class="font-display font-bold text-3xl text-primary mb-2">12</div>
-          <div class="text-sm text-text/70">Meses de Beneficios</div>
-        </div>
-        <div class="text-center p-6 bg-white rounded-xl shadow-sm card-hover">
-          <div class="font-display font-bold text-3xl text-primary mb-2">24/7</div>
-          <div class="text-sm text-text/70">Soporte Exclusivo</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Membership Plans -->
-  <section id="planes" class="py-16 lg:py-24 bg-white">
-
+  <!-- Sección Elige tu Plan Perfecto (MOVIDA AQUÍ) -->
+  <section id="planes" class="py-20 bg-white text-black">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl text-dark mb-4 tracking-tight">
+        <div class="flex items-center justify-center mb-4">
+          <div class="flex-1 h-[2px] bg-black"></div>
+          <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8M8 12h8" />
+            </svg>
+          </span>
+          <div class="flex-1 h-[2px] bg-black"></div>
+        </div>
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-black mb-6 tracking-tight">
           Elige tu Plan Perfecto
         </h2>
-        <p class="text-base md:text-lg text-graytxt max-w-2xl mx-auto leading-relaxed">
+        <p class="text-xl text-black/80 max-w-3xl mx-auto leading-relaxed">
           Cada plan está diseñado para diferentes necesidades y presupuestos. 
           Todos incluyen beneficios exclusivos y atención personalizada.
         </p>
@@ -104,152 +123,191 @@ import FAQItem from '../components/FAQItem.astro';
       
       <!-- Mobile: Stack vertical con Glow al centro (order-2) -->
       <!-- Desktop: Grid de 3 columnas con Glow destacado -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <!-- Plan Rack -->
-        <div class="order-1 lg:order-1">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- Renasci Vital -->
+        <div class="order-1 lg:order-1 plan-card">
           <TierCard
-            title="Rack"
-            price="$99"
-            period="/mes"
-            description="Perfecto para comenzar tu journey de belleza con beneficios básicos"
-            features={[
-              "10% descuento en todos los servicios",
-              "Consultas gratuitas ilimitadas", 
-              "Acceso a promociones exclusivas",
-              "1 facial básico gratis al mes",
-              "Soporte por email",
-              "Cancelación flexible"
-            ]}
-            ctaText="Comenzar Plan Rack"
-            ctaHref="#contacto"
-            class="h-full"
-          />
+              title="Renasci Vital"
+              price="USD $100"
+              period="/mes"
+              description="Beneficios esenciales y una inyección mensual incluida para mantener tu bienestar."
+              features={[
+                "1 inyección mensual incluida (B12 Energy Shot o Fat Blaster Shot)",
+                "20% off en Ozempic/Semaglutide",
+                "20% de descuento en neurotoxinas (Botox, Dysport, Xeomin)",
+                "10% de descuento en microneedling o PRP básico",
+                "Consulta médica estética anual gratuita"
+              ]}
+              ctaText="Unirme a Renasci Vital"
+              ctaHref="#contacto"
+              class="h-full min-h-[30rem] border-2 border-[#1DD1A1] hover:border-[#22E9AB] hover:ring-2 hover:ring-[#1DD1A1] hover:shadow-[0_0_40px_rgba(29,209,161,0.5)]"
+              variant="dark"
+              ctaClass="bg-gradient-to-r from-call to-emerald-500 text-white hover:opacity-90 border-2 border-[#1DD1A1]"
+              titleClass="text-3xl md:text-4xl"
+              hoverBorderColor="#1DD1A1"
+              badgeText="Mejor Precio"
+              badgeColor="#1DD1A1"
+              badgeImportance="secondary"
+            />
         </div>
-        
-        <!-- Plan Glow (Destacado) - Centro en móvil con order-2 -->
-        <div class="order-2 sm:order-3 lg:order-2">
+
+        <!-- Renasci Vital + Premier -->
+        <div class="order-2 lg:order-2 plan-card-featured">
           <TierCard
-            title="Glow"
-            price="$199"
-            period="/mes"
-            description="Nuestro plan más popular con beneficios premium y tratamientos incluidos"
-            features={[
-              "20% descuento en todos los servicios",
-              "2 tratamientos premium incluidos",
-              "Consultas y seguimientos gratuitos",
-              "Acceso prioritario a citas",
-              "Productos para el hogar incluidos",
-              "Soporte telefónico 24/7",
-              "Invitaciones a eventos exclusivos",
-              "Plan de tratamiento personalizado"
-            ]}
-            ctaText="Elegir Plan Glow"
-            ctaHref="#contacto"
-            highlight={true}
-            class="h-full lg:scale-105 lg:z-10 relative"
-          />
-        </div>
-        
-        <!-- Plan Elite -->
-        <div class="order-3 sm:order-2 lg:order-3">
-          <TierCard
-            title="Elite"
-            price="$399"
-            period="/mes"
-            description="La experiencia más exclusiva con acceso VIP y tratamientos ilimitados"
-            features={[
-              "30% descuento en todos los servicios",
-              "Tratamientos ilimitados básicos",
-              "3 tratamientos premium incluidos",
-              "Concierge personal dedicado",
-              "Acceso VIP sin esperas",
-              "Kit completo de productos premium",
-              "Consultas en casa disponibles",
-              "Acceso a tratamientos experimentales",
-              "Garantía de satisfacción 100%"
-            ]}
-            ctaText="Experiencia Elite"
-            ctaHref="#contacto"
-            class="h-full"
-          />
-        </div>
-      </div>
-      
-      <!-- Comparación rápida -->
-      <div class="mt-16 bg-soft rounded-2xl p-8">
-        <h3 class="font-display font-bold text-2xl text-dark text-center mb-8">
-          Comparación de Beneficios
-        </h3>
-        
-        <div class="overflow-x-auto">
-          <table class="w-full">
-            <thead>
-              <tr class="border-b border-gray-200">
-                <th class="text-left py-4 px-4 font-semibold text-dark">Beneficio</th>
-                <th class="text-center py-4 px-4 font-semibold text-dark">Rack</th>
-                <th class="text-center py-4 px-4 font-semibold text-primary">Glow</th>
-                <th class="text-center py-4 px-4 font-semibold text-dark">Elite</th>
-              </tr>
-            </thead>
-            <tbody class="text-sm">
-              <tr class="border-b border-gray-100">
-                <td class="py-3 px-4 text-graytxt">Descuento en servicios</td>
-                <td class="py-3 px-4 text-center">10%</td>
-                <td class="py-3 px-4 text-center font-semibold text-primary">20%</td>
-                <td class="py-3 px-4 text-center">30%</td>
-              </tr>
-              <tr class="border-b border-gray-100">
-                <td class="py-3 px-4 text-graytxt">Tratamientos incluidos</td>
-                <td class="py-3 px-4 text-center">1 básico</td>
-                <td class="py-3 px-4 text-center font-semibold text-primary">2 premium</td>
-                <td class="py-3 px-4 text-center">Ilimitados básicos + 3 premium</td>
-              </tr>
-              <tr class="border-b border-gray-100">
-                <td class="py-3 px-4 text-graytxt">Soporte</td>
-                <td class="py-3 px-4 text-center">Email</td>
-                <td class="py-3 px-4 text-center font-semibold text-primary">24/7 Teléfono</td>
-                <td class="py-3 px-4 text-center">Concierge Personal</td>
-              </tr>
-              <tr class="border-b border-gray-100">
-                <td class="py-3 px-4 text-graytxt">Productos incluidos</td>
-                <td class="py-3 px-4 text-center">-</td>
-                <td class="py-3 px-4 text-center font-semibold text-primary">Kit básico</td>
-                <td class="py-3 px-4 text-center">Kit premium completo</td>
-              </tr>
-              <tr>
-                <td class="py-3 px-4 text-graytxt">Acceso prioritario</td>
-                <td class="py-3 px-4 text-center">-</td>
-                <td class="py-3 px-4 text-center font-semibold text-primary">✓</td>
-                <td class="py-3 px-4 text-center">VIP Sin esperas</td>
-              </tr>
-            </tbody>
-          </table>
+              title="Renasci Vital + Premier"
+              price="USD $200"
+              period="/mes"
+              description="Beneficios ampliados, mayores descuentos y seguimiento médico personalizado."
+              features={[
+                "1 inyección mensual incluida (B12 Energy Shot o Fat Blaster Shot)",
+                "20% off en Ozempic/Semaglutide",
+                "30% de descuento en neurotoxinas (Botox, Dysport, Xeomin)",
+                "10% de descuento en microneedling o PRP básico",
+                "15% de descuento en dermal fillers y lip augmentation",
+                "15% de descuento en tratamientos especializados (O‑Shot, Nefertiti Lift, ChinBella)",
+                "Evaluación médica + plan de rejuvenecimiento cada 6 meses"
+              ]}
+              ctaText="Unirme a Vital + Premier"
+              ctaHref="#contacto"
+              highlight={true}
+              class="h-full relative min-h-[30rem] border-2 border-primary hover:border-primary"
+              variant="dark"
+              ctaClass="bg-gradient-to-r from-call to-emerald-500 text-white hover:opacity-90 border-2 border-[#1DD1A1]"
+              titleClass="text-3xl md:text-4xl"
+              hoverBorderColor="#E94594"
+              badgeText="Más Popular"
+              badgeImportance="primary"
+            />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonios de Miembros -->
-  <section class="py-12 sm:py-16 lg:py-20 bg-soft">
+  <!-- Sección de Beneficios con Iconos Animados -->
+  <section class="py-20 bg-black text-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl text-dark mb-4 tracking-tight">
-          Lo que Dicen Nuestros Miembros
+        <div class="flex items-center justify-center mb-4">
+          <div class="flex-1 h-[2px] bg-gray-200"></div>
+          <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8M8 12h8" />
+            </svg>
+          </span>
+          <div class="flex-1 h-[2px] bg-gray-200"></div>
+        </div>
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-white mb-6">
+          ¿Por qué elegir <span class="text-primary">Renasci</span>?
         </h2>
-        <p class="text-base md:text-lg text-graytxt leading-relaxed">
-          Historias reales de transformación y satisfacción
+        <p class="text-xl text-white/80 max-w-3xl mx-auto">
+          Más que un spa, somos tu partner en el journey hacia tu mejor versión
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Beneficio 1 -->
+        <div class="benefit-card group bg-white/10 p-8 rounded-2xl hover:shadow-xl transition-all duration-500 border border-white/10 hover:border-primary/30">
+          <div class="benefit-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-xl text-white mb-4">Descuentos Exclusivos</h3>
+          <p class="text-white/80 leading-relaxed">Hasta 30% de descuento en todos nuestros servicios y productos premium</p>
+        </div>
+        
+        <!-- Beneficio 2 -->
+        <div class="benefit-card group bg-white/10 p-8 rounded-2xl hover:shadow-xl transition-all duration-500 border border-white/10 hover:border-primary/30">
+          <div class="benefit-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-xl text-white mb-4">Acceso Prioritario</h3>
+          <p class="text-white/80 leading-relaxed">Reserva tus citas con prioridad y accede a horarios exclusivos para miembros</p>
+        </div>
+        
+        <!-- Beneficio 3 -->
+        <div class="benefit-card group bg-white/10 p-8 rounded-2xl hover:shadow-xl transition-all duration-500 border border-white/10 hover:border-primary/30">
+          <div class="benefit-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-xl text-white mb-4">Atención Personalizada</h3>
+          <p class="text-white/80 leading-relaxed">Plan de tratamiento personalizado y seguimiento continuo de tus resultados</p>
+        </div>
+        
+        <!-- Beneficio 4 -->
+        <div class="benefit-card group bg-white/10 p-8 rounded-2xl hover:shadow-xl transition-all duration-500 border border-white/10 hover:border-primary/30">
+          <div class="benefit-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-xl text-white mb-4">Productos Premium</h3>
+          <p class="text-white/80 leading-relaxed">Kit completo de productos para el hogar y acceso a líneas exclusivas</p>
+        </div>
+        
+        <!-- Beneficio 5 -->
+        <div class="benefit-card group bg-white/10 p-8 rounded-2xl hover:shadow-xl transition-all duration-500 border border-white/10 hover:border-primary/30">
+          <div class="benefit-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-xl text-white mb-4">Comunidad Exclusiva</h3>
+          <p class="text-white/80 leading-relaxed">Eventos especiales, workshops y acceso a nuestra comunidad VIP</p>
+        </div>
+        
+        <!-- Beneficio 6 -->
+        <div class="benefit-card group bg-white/10 p-8 rounded-2xl hover:shadow-xl transition-all duration-500 border border-white/10 hover:border-primary/30">
+          <div class="benefit-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 109.75 9.75A9.75 9.75 0 0012 2.25z"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-xl text-white mb-4">Soporte 24/7</h3>
+          <p class="text-white/80 leading-relaxed">Atención personalizada cuando la necesites, con soporte dedicado para miembros</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Testimonios Interactivos -->
+  <section class="py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="flex items-center justify-center mb-4">
+          <div class="flex-1 h-[2px] bg-gray-200"></div>
+          <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8M8 12h8" />
+            </svg>
+          </span>
+          <div class="flex-1 h-[2px] bg-gray-200"></div>
+        </div>
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-text mb-6">
+          Historias de <span class="text-primary">Transformación</span>
+        </h2>
+        <p class="text-xl text-graytxt max-w-3xl mx-auto">
+          Descubre cómo nuestros miembros han transformado su vida con Renasci
         </p>
       </div>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <!-- Testimonio 1 -->
-        <div class="bg-white rounded-2xl p-8 shadow-card">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+        <div class="testimonial-card bg-white/10 rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-white/10 hover:border-primary/30 group">
+          <div class="flex items-center mb-6">
+            <div class="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
               M
             </div>
             <div>
-              <div class="font-semibold text-dark">María González</div>
+              <div class="font-bold text-lg text-text">María González</div>
               <div class="text-sm text-graytxt">Miembro Glow - 8 meses</div>
             </div>
           </div>
@@ -262,19 +320,19 @@ import FAQItem from '../components/FAQItem.astro';
             ))}
           </div>
           
-          <p class="text-graytxt italic">
-            "El plan Glow ha sido increíble. Los descuentos me han permitido probar tratamientos que antes no podía costear, y el servicio prioritario es fantástico."
+          <p class="text-graytxt italic leading-relaxed group-hover:text-text transition-colors duration-300">
+            "El plan Glow ha sido increíble. Los descuentos me han permitido probar tratamientos que antes no podía costear, y el servicio prioritario es fantástico. Mi piel nunca se había visto mejor."
           </p>
         </div>
         
         <!-- Testimonio 2 -->
-        <div class="bg-white rounded-2xl p-8 shadow-card">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+        <div class="testimonial-card bg-white/10 rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-white/10 hover:border-primary/30 group">
+          <div class="flex items-center mb-6">
+            <div class="w-16 h-16 bg-gradient-to-br from-secondary to-secondary/80 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
               A
             </div>
             <div>
-              <div class="font-semibold text-dark">Ana Rodríguez</div>
+              <div class="font-bold text-lg text-text">Ana Rodríguez</div>
               <div class="text-sm text-graytxt">Miembro Elite - 1 año</div>
             </div>
           </div>
@@ -287,20 +345,20 @@ import FAQItem from '../components/FAQItem.astro';
             ))}
           </div>
           
-          <p class="text-graytxt italic">
-            "La experiencia Elite es incomparable. Mi concierge personal hace que todo sea perfecto, y los tratamientos ilimitados han transformado completamente mi piel."
+          <p class="text-graytxt italic leading-relaxed group-hover:text-text transition-colors duration-300">
+            "La experiencia Elite es incomparable. Mi concierge personal hace que todo sea perfecto, y los tratamientos ilimitados han transformado completamente mi rutina de belleza."
           </p>
         </div>
         
         <!-- Testimonio 3 -->
-        <div class="bg-white rounded-2xl p-8 shadow-card">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+        <div class="testimonial-card bg-white/10 rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-white/10 hover:border-primary/30 group">
+          <div class="flex items-center mb-6">
+            <div class="w-16 h-16 bg-gradient-to-br from-primary/80 to-secondary rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
               C
             </div>
             <div>
-              <div class="font-semibold text-dark">Carmen López</div>
-              <div class="text-sm text-graytxt">Miembro Rack - 4 meses</div>
+              <div class="font-bold text-lg text-text">Carmen López</div>
+              <div class="text-sm text-graytxt">Miembro Rack - 6 meses</div>
             </div>
           </div>
           
@@ -312,7 +370,7 @@ import FAQItem from '../components/FAQItem.astro';
             ))}
           </div>
           
-          <p class="text-graytxt italic">
+          <p class="text-graytxt italic leading-relaxed group-hover:text-text transition-colors duration-300">
             "Perfecto para empezar. El plan Rack me dio la confianza para probar Renasci, y ahora estoy considerando actualizar al Glow. ¡Los resultados hablan por sí solos!"
           </p>
         </div>
@@ -320,13 +378,23 @@ import FAQItem from '../components/FAQItem.astro';
     </div>
   </section>
 
-  <!-- FAQ de Membresías -->
+  <!-- FAQ Mejorado con Animaciones -->
   <section class="py-20 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="font-display font-bold text-4xl text-dark mb-4">
-            Preguntas Frecuentes
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <div class="flex items-center justify-center mb-4">
+            <div class="flex-1 h-[2px] bg-gray-200"></div>
+            <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8M8 12h8" />
+              </svg>
+            </span>
+            <div class="flex-1 h-[2px] bg-gray-200"></div>
+          </div>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-text mb-6">
+            Preguntas <span class="text-primary">Frecuentes</span>
           </h2>
           <p class="text-xl text-graytxt">
             Todo lo que necesitas saber sobre nuestras membresías
@@ -360,7 +428,7 @@ import FAQItem from '../components/FAQItem.astro';
           />
           
           <FAQItem 
-            question="¿Hay beneficios adicionales para miembros de larga duración?"
+            question="¿Hay beneficios adicionales por ser miembro de larga duración?"
             answer="Absolutamente. Después de 6 meses, recibes beneficios de lealtad adicionales, y después de 1 año, acceso a tratamientos exclusivos y eventos especiales."
           />
         </div>
@@ -368,264 +436,388 @@ import FAQItem from '../components/FAQItem.astro';
     </div>
   </section>
 
-  <!-- CTA de Membresía -->
-  <section id="contacto" class="py-20 bg-gradient-to-br from-primary to-primary/90">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto text-center text-white">
-        <h2 class="font-display font-bold text-4xl lg:text-5xl mb-6">
-          ¿Listo para Unirte a Nuestra Comunidad?
-        </h2>
-        
-        <p class="text-xl mb-8 opacity-90">
-          Comienza tu transformación hoy con una consulta gratuita y descubre 
-          qué plan de membresía es perfecto para ti.
-        </p>
-        
-        <!-- Formulario de contacto para membresía -->
-        <div class="backdrop-blur-sm rounded-2xl p-8 mb-8" style="background-color: rgba(255, 255, 255, 0.1);">
-          <form class="space-y-6">
-            <div class="grid md:grid-cols-2 gap-4">
-              <input 
-                type="text" 
-                placeholder="Nombre completo"
-                class="w-full px-4 py-3 rounded-lg border text-white focus:border-white focus:ring-2 outline-none"
-                style="background-color: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.3);"
-                required
-              />
-              <input 
-                type="tel" 
-                placeholder="Teléfono"
-                class="w-full px-4 py-3 rounded-lg border text-white focus:border-white focus:ring-2 outline-none"
-                style="background-color: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.3);"
-                required
-              />
-            </div>
-            
-            <input 
-              type="email" 
-              placeholder="Email"
-              class="w-full px-4 py-3 rounded-lg border text-white focus:border-white focus:ring-2 outline-none"
-              style="background-color: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.3);"
-              required
-            />
-            
-            <select 
-              class="w-full px-4 py-3 rounded-lg border text-white focus:border-white focus:ring-2 outline-none"
-              style="background-color: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.3);"
-              required
-            >
-              <option value="" class="text-gray-800">Selecciona tu plan de interés</option>
-              <option value="rack" class="text-gray-800">Plan Rack - $99/mes</option>
-              <option value="glow" class="text-gray-800">Plan Glow - $199/mes (Recomendado)</option>
-              <option value="elite" class="text-gray-800">Plan Elite - $399/mes</option>
-              <option value="consulta" class="text-gray-800">Solo consulta informativa</option>
-            </select>
-            
-            <textarea 
-              placeholder="¿Qué tratamientos te interesan más? ¿Tienes alguna pregunta específica?"
-              rows="3"
-              class="w-full px-4 py-3 rounded-lg border text-white focus:border-white focus:ring-2 outline-none resize-none"
-              style="background-color: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.3);"
-            ></textarea>
-            
-            <CTAButton 
-              type="submit"
-              variant="secondary" 
-              size="lg"
-              class="w-full bg-white text-primary hover:bg-gray-50"
-            >
-              Solicitar Consulta Gratuita
-            </CTAButton>
-          </form>
-        </div>
-        
-        <!-- Contacto directo -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <CTAButton 
-            href="tel:+1234567890" 
-            variant="outline" 
-            size="lg"
-            class="border-white text-white hover:bg-white hover:text-primary"
-          >
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-            </svg>
-            Llamar Ahora
-          </CTAButton>
-          
-          <CTAButton 
-            href="/services" 
-            variant="outline" 
-            size="lg"
-            class="border-white text-white hover:bg-white hover:text-primary"
-          >
-            Ver Todos los Servicios
-          </CTAButton>
-        </div>
-        
-        <!-- Garantía -->
-        <div class="mt-12 pt-8 border-t border-white/20">
-          <div class="flex items-center justify-center space-x-2 text-sm opacity-90">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-            </svg>
-            <span>Garantía de satisfacción de 30 días en todos los planes</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <SimpleContactForm />
 </BaseLayout>
 
 <script>
-  // Animaciones de entrada para las tarjetas
-  function setupAnimations() {
-    const cards = document.querySelectorAll('[data-animate]');
-    
+  // Animaciones de entrada
+  function initAnimations() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fadeInUp');
+          entry.target.classList.add('animate-in');
         }
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+    }, observerOptions);
+
+    // Observar elementos animables
+    document.querySelectorAll('.benefit-card, .testimonial-card, .plan-card, .plan-card-featured, .contact-info-item').forEach(el => {
+      observer.observe(el);
     });
-    
-    cards.forEach(card => observer.observe(card));
   }
-  
-  // Smooth scroll para formulario
-  function setupSmoothScroll() {
-    const links = document.querySelectorAll('a[href="#contacto"]');
-    
-    links.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector('#contacto');
-        
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+
+  // Contadores animados
+   function initCounters() {
+     const counters = document.querySelectorAll('.counter');
+     const counterObserver = new IntersectionObserver((entries) => {
+       entries.forEach(entry => {
+         if (entry.isIntersecting) {
+           const counter = entry.target;
+           const targetAttr = counter.getAttribute('data-target');
+           if (!targetAttr) return;
+           
+           const target = parseInt(targetAttr);
+           let current = 0;
+           const increment = target / 50;
+           
+           const updateCounter = () => {
+             if (current < target) {
+               current += increment;
+               counter.textContent = Math.ceil(current).toString();
+               requestAnimationFrame(updateCounter);
+             } else {
+               counter.textContent = target.toString();
+             }
+           };
+           
+           updateCounter();
+           counterObserver.unobserve(counter);
+         }
+       });
+     }, { threshold: 0.5 });
+
+     counters.forEach(counter => counterObserver.observe(counter));
+   }
+
+  // Efecto ripple para botones
+   function initRippleEffect() {
+     document.querySelectorAll('.ripple-effect').forEach(button => {
+       button.addEventListener('click', function(e: MouseEvent) {
+         const ripple = document.createElement('span');
+         const rect = this.getBoundingClientRect();
+         const size = Math.max(rect.width, rect.height);
+         const x = e.clientX - rect.left - size / 2;
+         const y = e.clientY - rect.top - size / 2;
+         
+         ripple.style.width = size + 'px';
+         ripple.style.height = size + 'px';
+         ripple.style.left = x + 'px';
+         ripple.style.top = y + 'px';
+         ripple.classList.add('ripple');
+         
+         this.appendChild(ripple);
+         
+         setTimeout(() => {
+           ripple.remove();
+         }, 600);
+       });
+     });
+   }
+
+  // Validación de formulario
+   function initFormValidation() {
+     const form = document.getElementById('membershipForm');
+     if (!form) return;
+
+     const inputs = form.querySelectorAll('.form-input');
+     
+     inputs.forEach(input => {
+        input.addEventListener('blur', validateField as EventListener);
+        input.addEventListener('input', clearValidation as EventListener);
+      });
+
+     form.addEventListener('submit', handleFormSubmit as EventListener);
+   }
+
+   function validateField(e: Event) {
+     const field = e.target as HTMLInputElement | HTMLSelectElement;
+     const value = field.value.trim();
+     const validation = field.parentNode?.querySelector('.form-validation') as HTMLElement;
+     
+     let isValid = true;
+     let message = '';
+
+     if (field.hasAttribute('required') && !value) {
+       isValid = false;
+       message = 'Este campo es requerido';
+     } else if (field.type === 'email' && value && !isValidEmail(value)) {
+       isValid = false;
+       message = 'Por favor ingresa un email válido';
+     } else if (field.type === 'tel' && value && !isValidPhone(value)) {
+       isValid = false;
+       message = 'Por favor ingresa un teléfono válido';
+     }
+
+     if (isValid) {
+       field.classList.remove('border-red-500');
+       field.classList.add('border-green-500');
+       validation?.classList.add('hidden');
+     } else {
+       field.classList.remove('border-green-500');
+       field.classList.add('border-red-500');
+       if (validation) {
+         validation.textContent = message;
+         validation.classList.remove('hidden');
+       }
+     }
+
+     return isValid;
+   }
+
+   function clearValidation(e: Event) {
+     const field = e.target as HTMLInputElement | HTMLSelectElement;
+     const validation = field.parentNode?.querySelector('.form-validation') as HTMLElement;
+     
+     field.classList.remove('border-red-500', 'border-green-500');
+     validation?.classList.add('hidden');
+   }
+
+   function isValidEmail(email: string) {
+     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+   }
+
+   function isValidPhone(phone: string) {
+     return /^[\+]?[1-9][\d]{0,15}$/.test(phone.replace(/[\s\-\(\)]/g, ''));
+   }
+
+   async function handleFormSubmit(e: Event) {
+     e.preventDefault();
+     
+     const form = e.target as HTMLFormElement;
+     const inputs = form.querySelectorAll('.form-input[required]') as NodeListOf<HTMLInputElement>;
+     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+     const submitText = submitBtn?.querySelector('.submit-text') as HTMLElement;
+     const loadingText = submitBtn?.querySelector('.loading-text') as HTMLElement;
+     
+     let isFormValid = true;
+     
+     // Validar todos los campos requeridos
+      inputs.forEach(input => {
+        const mockEvent = { target: input } as unknown as Event;
+        if (!validateField(mockEvent)) {
+          isFormValid = false;
         }
       });
-    });
-  }
-  
-  // Inicializar
+
+     if (!isFormValid) {
+       return;
+     }
+
+     // Mostrar estado de carga
+     if (submitBtn) {
+       submitBtn.disabled = true;
+       submitText?.classList.add('hidden');
+       loadingText?.classList.remove('hidden');
+     }
+
+     try {
+       // Simular envío del formulario
+       await new Promise(resolve => setTimeout(resolve, 2000));
+       
+       // Mostrar mensaje de éxito
+       form.innerHTML = `
+         <div class="text-center py-8">
+           <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+             <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+             </svg>
+           </div>
+           <h3 class="text-2xl font-bold text-text mb-2">¡Solicitud Enviada!</h3>
+           <p class="text-graytxt mb-4">Nos pondremos en contacto contigo dentro de las próximas 24 horas para agendar tu consulta gratuita.</p>
+           <p class="text-sm text-graytxt">También puedes llamarnos directamente al <a href="tel:+1234567890" class="text-primary font-semibold">(385) 555-0123</a></p>
+         </div>
+       `;
+     } catch (error) {
+       // Restaurar estado del botón en caso de error
+       if (submitBtn) {
+         submitBtn.disabled = false;
+         submitText?.classList.remove('hidden');
+         loadingText?.classList.add('hidden');
+       }
+       
+       alert('Hubo un error al enviar el formulario. Por favor intenta de nuevo.');
+     }
+   }
+
+  // Efecto typing para el hero
+   function initTypingEffect() {
+     const typingElements = document.querySelectorAll('.typing-text, .typing-text-delayed');
+     
+     typingElements.forEach((element, index) => {
+       const text = element.textContent || '';
+       element.textContent = '';
+       (element as HTMLElement).style.borderRight = '3px solid #8B5CF6';
+       
+       setTimeout(() => {
+         let i = 0;
+         const typeInterval = setInterval(() => {
+           element.textContent += text.charAt(i);
+           i++;
+           
+           if (i >= text.length) {
+             clearInterval(typeInterval);
+             setTimeout(() => {
+               (element as HTMLElement).style.borderRight = 'none';
+             }, 500);
+           }
+         }, 100);
+       }, index * 1000);
+     });
+   }
+
+  // Inicializar todo cuando el DOM esté listo
   document.addEventListener('DOMContentLoaded', () => {
-    setupAnimations();
-    setupSmoothScroll();
+    initAnimations();
+    initCounters();
+    initRippleEffect();
+    initTypingEffect();
   });
-  
-  // Re-inicializar en navegación de Astro
-  document.addEventListener('astro:page-load', () => {
-    setupAnimations();
-    setupSmoothScroll();
-  });
-
-<script>
-  // Ripple effect for hero call button
-  function initHeroCallButtonRipple() {
-    const heroCallButton = document.querySelector('.call-hero-button') as HTMLElement;
-    if (!heroCallButton) return;
-
-    heroCallButton.addEventListener('pointerdown', function(this: HTMLElement, e: PointerEvent) {
-      const rect = this.getBoundingClientRect();
-      const size = Math.max(rect.width, rect.height);
-      const x = e.clientX - rect.left - size / 2;
-      const y = e.clientY - rect.top - size / 2;
-      
-      const ripple = document.createElement('span');
-      ripple.style.cssText = `
-        position: absolute;
-        width: ${size}px;
-        height: ${size}px;
-        left: ${x}px;
-        top: ${y}px;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        transform: scale(0);
-        animation: ripple 0.6s ease-out;
-        pointer-events: none;
-      `;
-      
-      this.appendChild(ripple);
-      
-      setTimeout(() => {
-        ripple.remove();
-      }, 600);
-    });
-  }
-
-  // Initialize on DOM load
-  document.addEventListener('DOMContentLoaded', initHeroCallButtonRipple);
 </script>
 
 <style>
+  /* Animaciones personalizadas */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
   @keyframes ripple {
     to {
-      transform: scale(2);
+      transform: scale(4);
       opacity: 0;
     }
   }
 
-  @keyframes pulse-soft {
-    0%, 100% {
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
-    }
-    50% {
-      box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
-    }
+  /* Clases de animación */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
   }
 
-  .animate-pulse-soft {
-    animation: pulse-soft 2s infinite;
+  .animate-fade-in-up-delayed {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
   }
 
-  /* Micro-interactions */
-  .link-underline {
+  .animate-fade-in-up-more-delayed {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+
+  .animate-fade-in-up-most-delayed {
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+  }
+
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-element-delayed {
+    animation: float 6s ease-in-out infinite 3s;
+  }
+
+  /* Efectos hover y transiciones */
+  .benefit-card:hover .benefit-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .plan-card:hover {
+    transform: translateY(-10px) scale(1.02);
+  }
+
+  .plan-card-featured:hover {
+    transform: translateY(-10px) scale(1.12);
+  }
+
+  /* Efecto ripple */
+  .ripple-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+  }
+
+  /* Animaciones de entrada */
+  .benefit-card,
+  .testimonial-card,
+  .plan-card,
+  .plan-card-featured,
+  .contact-info-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+
+  .benefit-card.animate-in,
+  .testimonial-card.animate-in,
+  .plan-card.animate-in,
+  .plan-card-featured.animate-in,
+  .contact-info-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Efectos de formulario */
+  .form-input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.1);
+  }
+
+  .form-group {
     position: relative;
   }
 
-  .link-underline::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background-color: currentColor;
-    transition: width 200ms ease-out;
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 3rem;
+    }
+    
+    .plan-card-featured {
+      transform: none !important;
+    }
+    
+    .plan-card-featured:hover {
+      transform: translateY(-5px) !important;
+    }
   }
 
-  .link-underline:hover::after {
-    width: 100%;
-  }
-
-  .smooth-transition {
-    transition: all 180ms ease-out;
-  }
-
-  .card-hover {
-    transition: all 200ms ease-out;
-  }
-
-  .card-hover:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  }
-
-  .btn-hover {
-    transition: all 200ms ease-out;
-  }
-
-  .btn-hover:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  /* Mejoras de accesibilidad */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>
-</script>

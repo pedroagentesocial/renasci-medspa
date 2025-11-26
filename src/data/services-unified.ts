@@ -53,7 +53,10 @@ export const serviceCategories = {
   'rellenos-faciales-corporales': { es: 'Rellenos Faciales y Corporales', en: 'Facial and Body Fillers' },
   'faciales-especializados': { es: 'Faciales Especializados', en: 'Specialized Facials' },
   'tratamientos-avanzados': { es: 'Tratamientos Avanzados', en: 'Advanced Treatments' },
-  'rejuvenecimiento-intimo': { es: 'Rejuvenecimiento Intimo', en: 'Intimate Rejuvenation' }
+  'rejuvenecimiento-intimo': { es: 'Rejuvenecimiento Intimo', en: 'Intimate Rejuvenation' },
+  'bhrt': { es: 'Terapia Hormonal Bioidéntica (BHRT)', en: 'Bioidentical Hormone Therapy (BHRT)' },
+  'peptide-therapy': { es: 'Terapia con Péptidos', en: 'Peptide Therapy' },
+  'iv-im-therapy': { es: 'Terapia IV/IM', en: 'IV/IM Therapy' }
 };
 
 // Unified services data - combining both old structures
@@ -165,6 +168,163 @@ export const serviciosUnificados: ServicioUnificado[] = [
     benefits: ['Equilibrio hormonal restaurado', 'Mejora en calidad de vida', 'Optimización del bienestar', 'Tratamiento personalizado'],
     duracion: '45 minutos',
     href: '/services/terapia-reemplazo-hormonal'
+  },
+  // BHRT (Bioidentical Hormone Therapy)
+  {
+    id: 'bhrt-membership-her',
+    slug: 'bhrt-membership-her',
+    title: { es: 'Membresía Hormonal para Ella', en: 'Hormone Membership for Her' },
+    description: { es: 'Plan BHRT personalizado para mujeres.', en: 'Personalized BHRT plan for women.' },
+    excerpt: { es: 'BHRT para ella con seguimiento médico.', en: 'BHRT for her with medical follow-up.' },
+    category: 'bhrt',
+    categoryName: serviceCategories['bhrt'],
+    icon: '⚖️',
+    precio: 'Por definir',
+    image: '/images/med-spa-room.jpg',
+    benefits: ['Plan personalizado','Seguimiento médico','Optimización hormonal'],
+    href: '/services/bhrt-membership-her'
+  },
+  {
+    id: 'bhrt-setup-labs-consult',
+    slug: 'bhrt-setup-labs-consult',
+    title: { es: 'BHRT Setup (Labs + Consulta)', en: 'BHRT Setup (includes labs + consult)' },
+    description: { es: 'Evaluación inicial con laboratorios y consulta.', en: 'Initial evaluation with labs and consult.' },
+    excerpt: { es: 'Setup completo para iniciar BHRT.', en: 'Complete setup to start BHRT.' },
+    category: 'bhrt',
+    categoryName: serviceCategories['bhrt'],
+    icon: '🧪',
+    precio: 'Por definir',
+    image: '/images/med-spa-room.jpg',
+    benefits: ['Laboratorios','Consulta','Plan de inicio'],
+    href: '/services/bhrt-setup-labs-consult'
+  },
+  {
+    id: 'bhrt-monthly-support',
+    slug: 'bhrt-monthly-support',
+    title: { es: 'BHRT Mensual (soporte y visitas)', en: 'BHRT Monthly (support, messaging, visits)' },
+    description: { es: 'Soporte mensual con visitas y mensajería.', en: 'Monthly support with visits and messaging.' },
+    excerpt: { es: 'Seguimiento continuo BHRT.', en: 'Continuous BHRT follow-up.' },
+    category: 'bhrt',
+    categoryName: serviceCategories['bhrt'],
+    icon: '📅',
+    precio: 'Por definir',
+    image: '/images/med-spa-room.jpg',
+    benefits: ['Soporte','Mensajería','Visitas periódicas'],
+    href: '/services/bhrt-monthly-support'
+  },
+  {
+    id: 'hormone-replacement-therapy-him',
+    slug: 'hormone-replacement-therapy-him',
+    title: { es: 'Terapia Hormonal para Él', en: 'Hormone Replacement Therapy for Him' },
+    description: { es: 'BHRT personalizada para hombres.', en: 'Personalized BHRT for men.' },
+    excerpt: { es: 'Optimización hormonal masculina.', en: 'Male hormonal optimization.' },
+    category: 'bhrt',
+    categoryName: serviceCategories['bhrt'],
+    icon: '⚖️',
+    precio: 'Por definir',
+    image: '/images/med-spa-room.jpg',
+    benefits: ['Plan personalizado','Seguimiento médico'],
+    href: '/services/hormone-replacement-therapy-him'
+  },
+  {
+    id: 'lab-draw',
+    slug: 'lab-draw',
+    title: { es: 'Extracción de Laboratorios', en: 'Per Lab Draw' },
+    description: { es: 'Toma de muestra para análisis.', en: 'Sample draw for analysis.' },
+    excerpt: { es: 'Extracción de laboratorio.', en: 'Lab draw.' },
+    category: 'bhrt',
+    categoryName: serviceCategories['bhrt'],
+    icon: '🧪',
+    precio: 'Por definir',
+    image: '/images/med-spa-room.jpg',
+    benefits: ['Muestreo','Resultados confiables'],
+    href: '/services/lab-draw'
+  },
+  // Peptide Therapy
+  {
+    id: 'peptides-bpc-157',
+    slug: 'peptides-bpc-157',
+    title: { es: 'BPC-157', en: 'BPC-157' },
+    description: { es: 'Péptido para recuperación y regeneración.', en: 'Peptide for recovery and regeneration.' },
+    excerpt: { es: 'Soporte de tejidos y recuperación.', en: 'Tissue support and recovery.' },
+    category: 'peptide-therapy',
+    categoryName: serviceCategories['peptide-therapy'],
+    icon: '🧬',
+    precio: 'Por definir',
+    image: '/images/med-spa-room.jpg',
+    benefits: ['Recuperación','Regeneración'],
+    href: '/services/peptides-bpc-157'
+  },
+  {
+    id: 'peptides-cjc1295-ipamorelin',
+    slug: 'peptides-cjc1295-ipamorelin',
+    title: { es: 'CJC 1295 / Ipamorelin', en: 'CJC 1295 / Ipamorelin' },
+    description: { es: 'Péptidos para soporte hormonal y crecimiento.', en: 'Peptides for hormonal support and growth.' },
+    excerpt: { es: 'Apoyo al eje hormonal.', en: 'Hormonal axis support.' },
+    category: 'peptide-therapy',
+    categoryName: serviceCategories['peptide-therapy'],
+    icon: '🧬',
+    precio: 'Por definir',
+    image: '/images/med-spa-room.jpg',
+    benefits: ['Soporte hormonal'],
+    href: '/services/peptides-cjc1295-ipamorelin'
+  },
+  {
+    id: 'peptides-sermorelin',
+    slug: 'peptides-sermorelin',
+    title: { es: 'Sermorelina', en: 'Sermorelin' },
+    description: { es: 'Péptido para estimulación natural.', en: 'Peptide for natural stimulation.' },
+    excerpt: { es: 'Estimulación natural del crecimiento.', en: 'Natural growth stimulation.' },
+    category: 'peptide-therapy',
+    categoryName: serviceCategories['peptide-therapy'],
+    icon: '🧬',
+    precio: 'Por definir',
+    image: '/images/med-spa-room.jpg',
+    benefits: ['Estimulación'],
+    href: '/services/peptides-sermorelin'
+  },
+  {
+    id: 'peptides-nad',
+    slug: 'peptides-nad',
+    title: { es: 'NAD+', en: 'NAD+' },
+    description: { es: 'Soporte celular y energético.', en: 'Cellular and energy support.' },
+    excerpt: { es: 'Metabolismo y energía.', en: 'Metabolism and energy.' },
+    category: 'peptide-therapy',
+    categoryName: serviceCategories['peptide-therapy'],
+    icon: '🧬',
+    precio: 'Por definir',
+    image: '/images/med-spa-room.jpg',
+    benefits: ['Energía','Metabolismo'],
+    href: '/services/peptides-nad'
+  },
+  // IV/IM Therapy
+  {
+    id: 'iv-drips',
+    slug: 'iv-drips',
+    title: { es: 'Suero IV (Drips)', en: 'IV Drips' },
+    description: { es: 'Terapias intravenosas para hidratación y recuperación.', en: 'Intravenous therapies for hydration and recovery.' },
+    excerpt: { es: 'Hidratación y recuperación inmediata.', en: 'Immediate hydration and recovery.' },
+    category: 'iv-im-therapy',
+    categoryName: serviceCategories['iv-im-therapy'],
+    icon: '💧',
+    precio: 'Por definir',
+    image: '/images/med-spa-room.jpg',
+    benefits: ['Hidratación','Recuperación'],
+    href: '/services/iv-drips'
+  },
+  {
+    id: 'im-injections',
+    slug: 'im-injections',
+    title: { es: 'Inyecciones IM', en: 'IM Injections' },
+    description: { es: 'Terapias intramusculares para soporte rápido.', en: 'Intramuscular therapies for rapid support.' },
+    excerpt: { es: 'Soporte rápido intramuscular.', en: 'Rapid intramuscular support.' },
+    category: 'iv-im-therapy',
+    categoryName: serviceCategories['iv-im-therapy'],
+    icon: '💉',
+    precio: 'Por definir',
+    image: '/images/med-spa-room.jpg',
+    benefits: ['Soporte rápido'],
+    href: '/services/im-injections'
   },
   // Rellenos
   {
@@ -382,11 +542,11 @@ export const serviciosUnificados: ServicioUnificado[] = [
     href: '/services/mini-chin-up'
   },
   {
-    id: 'doble-sculptra',
-    slug: 'doble-sculptra',
-    title: { es: 'Doble Sculptra', en: 'Double Sculptra' },
+    id: 'mega-collagen-stimulation-sculptra',
+    slug: 'mega-collagen-stimulation-sculptra',
+    title: { es: 'Mega Estimulación de Colágeno — Sculptra', en: 'Mega Collagen Stimulation — Sculptra' },
     description: { es: 'Tratamiento intensivo con doble aplicación de Sculptra para máxima estimulación de colágeno.', en: 'Intensive treatment with double Sculptra application for maximum collagen stimulation.' },
-    excerpt: { es: 'Tratamiento intensivo con doble dosis de Sculptra.', en: 'Intensive treatment with double dose of Sculptra.' },
+    excerpt: { es: 'Doble estimulación de colágeno para resultados intensos.', en: 'Double collagen stimulation for intense results.' },
     category: 'sculptra-rellenos',
     categoryName: { es: 'Tratamientos con Sculptra y Rellenos', en: 'Sculptra and Fillers Treatments' },
     icon: '💎',
@@ -394,7 +554,7 @@ export const serviciosUnificados: ServicioUnificado[] = [
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop&crop=center',
     benefits: ['Doble estimulación', 'Resultados intensivos', 'Rejuvenecimiento profundo', 'Duración extendida'],
     duracion: '75 minutos',
-    href: '/services/doble-sculptra'
+    href: '/services/mega-collagen-stimulation-sculptra'
   },
   {
     id: 'brazilian-butt-lift',
@@ -503,7 +663,7 @@ export const serviciosUnificados: ServicioUnificado[] = [
     image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center',
     benefits: ['Acelera metabolismo', 'Quema grasa efectiva', 'Aumenta energía', 'Resultados naturales'],
     duracion: '15 minutos',
-    href: '/services/inyecciones-fat-blaster'
+    href: '/services/fat-blaster-injections'
   },
   {
     id: 'inyeccion-energia-b12',
@@ -657,9 +817,9 @@ export const serviciosUnificados: ServicioUnificado[] = [
     href: '/services/o-shot-terapia'
   },
   {
-    id: 'puppetmaster',
-    slug: 'puppetmaster',
-    title: { es: 'Inyecciones PuppetMaster (líneas faciales)', en: 'PuppetMaster Injections (facial lines)' },
+    id: 'puppet-lines-injections',
+    slug: 'puppet-lines-injections',
+    title: { es: 'Puppet Lines Injections', en: 'Puppet Lines Injections' },
     description: { es: 'Técnica especializada para corregir líneas de marioneta y surcos nasolabiales con precisión avanzada.', en: 'Specialized technique to correct marionette lines and nasolabial folds with advanced precision.' },
     excerpt: { es: 'Elimina líneas de marioneta y surcos profundos.', en: 'Eliminates marionette lines and deep folds.' },
     category: 'especializados',
@@ -669,7 +829,7 @@ export const serviciosUnificados: ServicioUnificado[] = [
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop&crop=center',
     benefits: ['Elimina líneas profundas', 'Técnica avanzada', 'Resultados naturales', 'Rejuvenecimiento facial'],
     duracion: '45 minutos',
-    href: '/services/puppetmaster'
+    href: '/services/puppet-lines-injections'
   },
   {
     id: 'lifting-nefertiti',
@@ -1040,6 +1200,24 @@ export const categoriasUnificadas: CategoriaUnificada[] = [
     nombre: serviceCategories['rejuvenecimiento-intimo'],
     slug: 'rejuvenecimiento-intimo',
     servicios: serviciosUnificados.filter(s => s.category === 'rejuvenecimiento-intimo')
+  }
+  ,{
+    id: 'bhrt',
+    nombre: serviceCategories['bhrt'],
+    slug: 'bhrt',
+    servicios: serviciosUnificados.filter(s => s.category === 'bhrt')
+  }
+  ,{
+    id: 'peptide-therapy',
+    nombre: serviceCategories['peptide-therapy'],
+    slug: 'peptide-therapy',
+    servicios: serviciosUnificados.filter(s => s.category === 'peptide-therapy')
+  }
+  ,{
+    id: 'iv-im-therapy',
+    nombre: serviceCategories['iv-im-therapy'],
+    slug: 'iv-im-therapy',
+    servicios: serviciosUnificados.filter(s => s.category === 'iv-im-therapy')
   }
 ];
 

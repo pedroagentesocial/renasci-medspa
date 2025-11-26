@@ -4,13 +4,17 @@ export interface Props {
   answer: string;
   isOpen?: boolean;
   class?: string;
+  questionKey?: string;
+  answerKey?: string;
 }
 
 const { 
   question, 
   answer, 
   isOpen = false,
-  class: className = '' 
+  class: className = '',
+  questionKey = '',
+  answerKey = ''
 } = Astro.props;
 
 // Generar ID único para accesibilidad
@@ -25,10 +29,10 @@ const faqId = `faq-${Math.random().toString(36).substr(2, 9)}`;
     data-faq-trigger
   >
     <h3 class="font-display font-semibold text-lg text-dark pr-4 leading-relaxed">
-      {question}
+      {questionKey ? <span data-i18n={questionKey}>{question}</span> : question}
     </h3>
     
-    <div class="faq-icon flex-shrink-0 w-6 h-6 text-primary transition-transform duration-300">
+    <div class="faq-icon flex-shrink-0 w-6 h-6 text-call transition-transform duration-300">
       <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path 
           stroke-linecap="round" 
@@ -48,7 +52,7 @@ const faqId = `faq-${Math.random().toString(36).substr(2, 9)}`;
   >
     <div class="pb-6 pr-10">
       <p class="text-graytxt leading-relaxed">
-        {answer}
+        {answerKey ? <span data-i18n={answerKey}>{answer}</span> : answer}
       </p>
     </div>
   </div>
@@ -110,7 +114,7 @@ const faqId = `faq-${Math.random().toString(36).substr(2, 9)}`;
   }
   
   .faq-trigger:hover .faq-icon {
-    @apply text-primary/80;
+    @apply text-call/80;
   }
   
   .faq-content {

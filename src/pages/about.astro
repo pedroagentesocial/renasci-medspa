@@ -1,0 +1,310 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import TransformCTA from '../components/TransformCTA.astro';
+---
+
+<BaseLayout 
+  title="Sobre Nosotros - Renasci Medical Spa"
+  description="Conoce la historia de Renasci Medical Spa, nuestros valores y por qué somos la mejor opción para tu transformación estética en Salt Lake City."
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Imagen de fondo -->
+    <img 
+      src="/images/heroIndex.png"
+      alt="Renasci Medical Spa"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70"></div>
+    
+    <!-- Contenido del Hero -->
+    <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <div class="hero-content animate-fade-in-up">
+        
+        <!-- Título Principal -->
+        <h1 class="font-display font-bold text-5xl md:text-7xl text-white mb-6 leading-tight">
+          Sobre <span class="text-primary">Renasci</span>
+        </h1>
+        
+        <!-- Subtítulo -->
+        <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
+          Tu transformación comienza aquí. Descubre nuestra historia, valores y compromiso con tu bienestar.
+        </p>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <CTAButton 
+            href="#nuestra-historia"
+            label="Conoce Nuestra Historia"
+            variant="primary"
+            className="px-8 py-4 text-lg font-semibold bg-primary text-white hover:bg-primary/90 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
+          />
+          
+          <CTAButton 
+            href="/contact"
+            label="Agenda tu Consulta"
+            variant="primary"
+            className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-call to-emerald-500 text-white hover:opacity-90 transform transition-all duration-300"
+          />
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </section>
+  <script>
+    const animateCounter = (el: HTMLElement) => {
+      const target = parseInt(el.getAttribute('data-target') || '0', 10);
+      const startAttr = el.getAttribute('data-start');
+      const start = startAttr ? parseInt(startAttr, 10) : Math.floor(target * 0.85);
+      const duration = 5000;
+      const startTime = performance.now();
+      const step = (now: number) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(start + (target - start) * ease);
+        el.textContent = value.toString();
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const counters = document.querySelectorAll('#nuestra-historia .counter') as NodeListOf<HTMLElement>;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          counters.forEach((c) => animateCounter(c));
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    const section = document.querySelector('#nuestra-historia');
+    if (section) io.observe(section);
+  </script>
+
+  <!-- Nuestra Historia Section -->
+  <section id="nuestra-historia" class="py-20 bg-white text-black">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+          <div class="flex items-center justify-center mb-4">
+            <div class="flex-1 h-[2px] bg-black"></div>
+            <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8M8 12h8" />
+              </svg>
+            </span>
+            <div class="flex-1 h-[2px] bg-black"></div>
+          </div>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-black mb-4">
+            Nuestra <span class="text-primary">Historia</span>
+          </h2>
+        </div>
+
+        <div class="space-y-6">
+          <p class="text-lg md:text-xl text-black/80 leading-relaxed motion-fade-in" style="animation-delay:0.1s">
+            Renasci Medical Spa nació de una visión: crear un espacio donde la medicina estética de vanguardia se encuentra con el cuidado personalizado y la excelencia en el servicio.
+          </p>
+          <p class="text-lg md:text-xl text-black/80 leading-relaxed motion-fade-in" style="animation-delay:0.25s">
+            Fundado por profesionales con más de 15 años de experiencia, somos el destino preferido para quienes buscan resultados excepcionales en un ambiente de lujo y confianza.
+          </p>
+          <p class="text-lg md:text-xl text-black/80 leading-relaxed motion-fade-in" style="animation-delay:0.4s">
+            Cada tratamiento está respaldado por tecnología de punta y técnicas avanzadas, con un enfoque personalizado que respeta tu belleza natural.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6 pt-6 border-t border-black/10 motion-fade-in" style="animation-delay:0.55s">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary mb-1"><span class="counter" data-target="15" data-start="12">15</span>+</div>
+            <div class="text-sm text-black/70">Años de Experiencia</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary mb-1"><span class="counter" data-target="5000" data-start="4500">5000</span>+</div>
+            <div class="text-sm text-black/70">Pacientes Satisfechos</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary mb-1"><span class="counter" data-target="98" data-start="90">98</span>%</div>
+            <div class="text-sm text-black/70">Tasa de Satisfacción</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      @keyframes fadeUp { from { opacity:0; transform: translateY(12px);} to { opacity:1; transform: translateY(0);} }
+      .motion-fade-in { opacity:0; animation: fadeUp 600ms ease forwards; }
+      @keyframes shimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+      .shimmer-text { background-image: linear-gradient(90deg, #ffffff, #E94594, #ffffff); background-clip: text; -webkit-background-clip: text; color: transparent; background-size: 200% auto; animation: shimmer 3s linear infinite; }
+    </style>
+  </section>
+
+  <!-- Valores Section -->
+  <section class="py-20 bg-black text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <div class="flex items-center justify-center mb-4">
+            <div class="flex-1 h-[2px] bg-white"></div>
+            <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
+              </svg>
+            </span>
+            <div class="flex-1 h-[2px] bg-white"></div>
+          </div>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-white mb-6">
+            Nuestros <span class="text-primary">Valores</span>
+          </h2>
+          <p class="text-xl text-white/80 max-w-3xl mx-auto">
+            Los principios que guían cada decisión y cada tratamiento en Renasci Medical Spa.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Excelencia -->
+          <div class="text-center p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border-2 border-primary hover:ring-2 hover:ring-primary/60">
+            <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-2xl text-text mb-4">Excelencia</h3>
+            <p class="text-graytxt">
+              Nos comprometemos a ofrecer los más altos estándares de calidad en cada tratamiento y servicio.
+            </p>
+          </div>
+          
+          <!-- Seguridad -->
+          <div class="text-center p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border-2 border-call hover:ring-2 hover:ring-call/60">
+            <div class="w-16 h-16 bg-call/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-call" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-2xl text-text mb-4">Seguridad</h3>
+            <p class="text-graytxt">
+              Tu seguridad es nuestra prioridad. Utilizamos protocolos médicos rigurosos y tecnología certificada.
+            </p>
+          </div>
+          
+          <!-- Personalización -->
+          <div class="text-center p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border-2 border-logo hover:ring-2 hover:ring-logo/60">
+            <div class="w-16 h-16 bg-logo/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-logo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-2xl text-text mb-4">Personalización</h3>
+            <p class="text-graytxt">
+              Cada persona es única. Diseñamos planes de tratamiento personalizados para tus necesidades específicas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipo Section -->
+  <section class="py-20 bg-white text-black">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <div class="flex items-center justify-center mb-4">
+            <div class="flex-1 h-[2px] bg-black"></div>
+            <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </span>
+            <div class="flex-1 h-[2px] bg-black"></div>
+          </div>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-black mb-6">
+            Nuestro <span class="text-primary">Equipo</span>
+          </h2>
+          <p class="text-xl text-black/80 max-w-3xl mx-auto">
+            Profesionales altamente capacitados y certificados, dedicados a tu bienestar y satisfacción.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Miembro del equipo 1 -->
+          <div class="text-center group bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-primary">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+              </div>
+            </div>
+            <h3 class="font-bold text-xl text-text mb-2">Atención Personalizada</h3>
+            <p class="text-graytxt">Plan hecho a tu medida, respetando tu estilo y objetivos.</p>
+          </div>
+          
+          <!-- Miembro del equipo 2 -->
+          <div class="text-center group bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-call">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-call/10 rounded-2xl flex items-center justify-center mx-auto">
+                <svg class="w-8 h-8 text-call" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              </div>
+            </div>
+            <h3 class="font-bold text-xl text-text mb-2">Seguridad Médica</h3>
+            <p class="text-graytxt">Protocolos clínicos y seguimiento para tu tranquilidad.</p>
+          </div>
+          
+          <!-- Miembro del equipo 3 -->
+          <div class="text-center group md:col-span-2 lg:col-span-1 bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-logo">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-logo/10 rounded-2xl flex items-center justify-center mx-auto">
+                <svg class="w-8 h-8 text-logo" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/></svg>
+              </div>
+            </div>
+            <h3 class="font-bold text-xl text-text mb-2">Tecnología Avanzada</h3>
+            <p class="text-graytxt">Equipos y técnicas de última generación para mejores resultados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TransformCTA />
+</BaseLayout>
+
+<style>
+  .hero-content {
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulseSoft {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.02);
+    }
+  }
+</style>

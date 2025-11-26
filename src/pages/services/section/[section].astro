@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+import { serviciosUnificados } from '../../../data/services-unified';
+
+export async function getStaticPaths() {
+  const byHref = new Map(serviciosUnificados.map(s => [s.href, s]));
+  const groups = [
+    {
+      title: 'Neurotoxin & Dermal Filler Injections',
+      slug: 'neurotoxin-dermal-filler-injections',
+      hrefs: ['/services/tox-neurotoxina','/services/botox-no-sweat','/services/botox-lip-flip','/services/mini-aumento-labios','/services/aumento-completo-labios','/services/mega-aumento-labios']
+    },
+    {
+      title: 'Facial & Body Contouring',
+      slug: 'facial-body-contouring',
+      hrefs: ['/services/contorno-facial-personalizado','/services/cheekbone-pop','/services/check-your-bags','/services/chinbella','/services/thighbella','/services/brabella','/services/bananabella']
+    },
+    {
+      title: 'Biostimulators',
+      slug: 'biostimulators',
+      hrefs: ['/services/sculptra-colageno','/services/mega-collagen-stimulation-sculptra','/services/mini-chin-up','/services/brazilian-butt-lift','/services/prf-ection']
+    },
+    {
+      title: 'Specialized Treatments',
+      slug: 'specialized-treatments',
+      hrefs: ['/services/puppet-lines-injections','/services/lifting-nefertiti']
+    },
+    {
+      title: 'Weight Loss & Wellness',
+      slug: 'weight-loss-wellness',
+      hrefs: [
+        '/services/b12-fat-blaster-double-effect',
+        '/services/alternative-medicine-consultation',
+        '/services/fat-blaster-injections',
+        '/services/b12-energy-injection',
+        '/services/medically-supervised-weight-loss'
+      ]
+    },
+    {
+      title: 'Botox & Neuromodulators',
+      slug: 'botox-neuromodulators',
+      hrefs: ['/services/xeomin','/services/dysport','/services/botox-trap','/services/botox-migranas']
+    },
+    {
+      title: 'Regenerative Medicine Therapies',
+      slug: 'regenerative-medicine-therapies',
+      hrefs: ['/services/semaglutide','/services/ozempic','/services/ozonoterapia','/services/exosomas','/services/terapia-reemplazo-hormonal']
+    },
+    {
+      title: 'Hair and Skin Treatments',
+      slug: 'hair-skin-treatments',
+      hrefs: ['/services/hair-restoration-prp','/services/hair-restoration-stem-cells']
+    },
+    {
+      title: 'Advanced Treatments',
+      slug: 'advanced-treatments',
+      hrefs: ['/services/cortisona-acne-quistico','/services/kybella','/services/ez-gel-prf','/services/inyecciones-prp']
+    },
+    {
+      title: 'Intimate Rejuvenation',
+      slug: 'intimate-rejuvenation',
+      hrefs: ['/services/rejuvenecimiento-vaginal-prp','/services/rejuvenecimiento-vaginal-celulas-madre']
+    },
+    {
+      title: 'Microneedling',
+      slug: 'microneedling',
+      hrefs: ['/services/microneedling','/services/microneedling-prp']
+    },
+    {
+      title: 'Platelet-Rich Plasma (PRP)',
+      slug: 'platelet-rich-plasma-prp',
+      hrefs: ['/services/inyecciones-prp','/services/faciales-prp','/services/restauracion-capilar-prp']
+    }
+  ];
+
+  const paths = groups
+    .map(g => ({
+      title: g.title,
+      slug: g.slug,
+      items: g.hrefs.map(h => byHref.get(h)).filter(Boolean)
+    }))
+    .filter(g => g.items.length >= 4)
+    .map(g => ({ params: { section: g.slug }, props: { group: g } }));
+
+  return paths;
+}
+
+const { group } = Astro.props;
+---
+
+<BaseLayout title={`${group.title} - Renasci Medical Spa`} description={`Todos los servicios de ${group.title}.`}>
+  <section class="py-16 bg-black text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h1 class="font-display font-bold text-4xl md:text-5xl">{group.title}</h1>
+        <p class="text-white/70">Explora todos los servicios de esta sección</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {group.items.map((servicio) => (
+          <ServiceCard service={servicio} />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

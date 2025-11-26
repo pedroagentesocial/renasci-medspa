@@ -1,0 +1,596 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ServiceCard from '../components/ServiceCard.astro'
+import CTAButton from '../components/CTAButton.astro'
+import { serviciosUnificados } from '../data/services-unified'
+
+const byHref = new Map(serviciosUnificados.map((s) => [s.href, s]))
+
+const imageOverrides = new Map([
+  ['/services/neurotoxin-injections','/img/services/neurotoxins.jpg'],
+  ['/services/botox-no-sweat','/img/services/botox-no-sweet.jpg'],
+  ['/services/botox-lip-flip','/img/services/Botox-Lip-Flip.jpg'],
+  ['/services/mini-lip-enhancement','/img/services/Lip-filler-image.jpg'],
+  ['/services/full-lip-augmentation','/img/services/longest-lasting-lip-filler-1.webp'],
+  ['/services/mega-lip-augmentation','/img/services/lip-injections-concept-young-lady-600nw-2466127957.jpg.webp'],
+  ['/services/xeomin','/img/services/Xeomin-botox.jpg.webp'],
+  ['/services/dysport','/img/services/Dysport.webp'],
+  ['/services/botox-trap','/img/services/Botox-trap.jpg.avif'],
+  ['/services/botox-migranas','/img/services/Migraine.jpeg.webp'],
+  ['/services/personalized-facial-contour','/img/services/HollywoodContourWandB_700x.jpg.webp'],
+  ['/services/cheekbone-lift','/img/services/Cheekbone-lift.jpg'],
+  ['/services/no-more-bags-injection','/img/services/no-more-bags.jpg'],
+  ['/services/chinbella','/img/services/Mini-Chin-Reduction.webp'],
+  ['/services/thighbella','/img/services/muslos.jpg'],
+  ['/services/rollbella','/img/services/coolsculpting.jpg'],
+  ['/services/bananaroll','/img/services/Tratamiento-Coolsculpting-Banana-Roll-en-Barcelona.jpg'],
+  ['/services/sculptra-colageno','/img/services/Sculptra.jpg.avif'],
+  ['/services/mega-collagen-stimulation-sculptra','/img/services/Mega-collagen-Stimulation.jpg'],
+  ['/services/brazilian-butt-lift','/img/services/brazilian-butt-lift.webp'],
+  ['/services/mini-chin-reduction','/img/services/mini-chin-bio.jpg'],
+  ['/services/puppet-lines-injections','/img/services/Puppet-lines.jpg'],
+  ['/services/nefertiti-neck-lift','/img/services/Nefertiti-neck.jpg.avif'],
+  ['/services/cortisone-injection','/img/services/Cortisone.png'],
+  ['/services/cystic-acne','/img/services/Acne.jpeg'],
+  ['/services/semaglutide','/img/services/Semaglutide.jpg'],
+  ['/services/ozempic','/img/services/Ozempic.jpeg'],
+  ['/services/ozonoterapia','/img/services/Ozone.webp'],
+  ['/services/exosomas','/img/services/Exosomes.jpeg'],
+  ['/services/terapia-reemplazo-hormonal','/img/services/Hormone-her.jpg'],
+  ['/services/alternative-medicine-consultation','/img/services/Alternative.jpg'],
+  ['/services/b12-energy-injection','/img/services/B12.jpg'],
+  ['/services/fat-blaster-injections','/img/services/Fat-blaster.jpg.webp'],
+  ['/services/medically-supervised-weight-loss','/img/services/Supervised.jpg'],
+  ['/services/b12-fat-blaster-double-effect','/img/services/B12.jpg'],
+  ['/services/ozempic-mounjaro','/img/services/Ozempic.jpeg'],
+  ['/services/renasci-prf-gel-therapy','/img/services/Mega-collagen-Stimulation.jpg'],
+  ['/services/bhrt-setup-labs-consult','/img/services/Setup.jpg'],
+  ['/services/bhrt-monthly-support','/img/services/Monthly.jpg'],
+  ['/services/hormone-replacement-therapy-him','/img/services/Hormone-him.jpg'],
+  ['/services/lab-draw','/img/services/Per-lab-draw.jpg'],
+  ['/services/hair-restoration-prp','/img/services/Hair-restoration-PRP.jpg'],
+  ['/services/hair-restoration-stem-cells','/img/services/Hair-restoration-Cells.jpg'],
+  ['/services/vaginal-rejuvenation-prp','/img/services/Vaginal-PRP.jpg'],
+  ['/services/vaginal-rejuvenation-stem-cells','/img/services/Vaginal-Cells.png'],
+  ['/services/microneedling-face-neck','/img/services/microneedling-face.jpg'],
+  ['/services/microneedling-face-neck-decollete','/img/services/microneedling-decollet.jpeg'],
+  ['/services/microneedling-stretch-marks','/img/services/microneedling-stretch.jpg'],
+  ['/services/prp-face-neck','/img/services/PRP-face.jpg'],
+  ['/services/prp-face-neck-decollete','/img/services/PRP-decollet.jpg'],
+  ['/services/prp-stretch-marks','/img/services/PRP-stretch.jpg'],
+  ['/services/peptides-bpc-157','/img/services/BPC-157.jpg'],
+  ['/services/peptides-cjc1295-ipamorelin','/img/services/CJC-1295.jpg'],
+  ['/services/peptides-nad','/img/services/NAD.png'],
+  ['/services/peptides-ghku','/img/services/GhKu.png'],
+  ['/services/peptides-vitamin-d','/img/services/Vitamin-d.jpg'],
+  ['/services/peptides-hair-growth','/img/services/Hair-growth.jpg'],
+  ['/services/iv-drips','/img/services/Drips.jpeg'],
+  ['/services/im-injections','/img/services/IM.jpg'],
+])
+
+const badgesBySlug = new Map([
+  ['chinbella','Premier'],
+  ['nefertiti-neck-lift','Premier'],
+  ['fat-blaster-injections','Membership'],
+  ['b12-energy-injection','Membership'],
+  ['xeomin','Membership'],
+  ['dysport','Membership'],
+  ['botox-trap','Membership'],
+  ['migraine-botox','Membership'],
+  ['botox-migranas','Membership'],
+  ['semaglutide','Membership'],
+  ['ozempic-mounjaro','Membership'],
+  ['microneedling-face-neck','Membership'],
+  ['microneedling-face-neck-decollete','Membership'],
+  ['microneedling-stretch-marks','Membership'],
+  ['prp-face-neck','Membership'],
+  ['prp-face-neck-decollete','Membership'],
+  ['prp-stretch-marks','Membership'],
+])
+
+const titleOverrides = new Map([
+  ['/services/neurotoxin-injections',{ es:'Inyecciones de Neurotoxina', en:'Neurotoxin Injections' }],
+  ['/services/botox-no-sweat',{ es:'Botox No‑Sweat (hiperhidrosis)', en:'Botox No‑Sweat Treatment (hyperhidrosis)' }],
+  ['/services/botox-lip-flip',{ es:'Botox Lip Flip', en:'Botox Lip Flip' }],
+  ['/services/mini-lip-enhancement',{ es:'Mini Aumento de Labios', en:'Mini Lip Enhancement' }],
+  ['/services/full-lip-augmentation',{ es:'Aumento Completo de Labios', en:'Full Lip Augmentation' }],
+  ['/services/mega-lip-augmentation',{ es:'Mega Aumento de Labios', en:'Mega Lip Augmentation' }],
+  ['/services/xeomin',{ es:'Xeomin', en:'Xeomin' }],
+  ['/services/dysport',{ es:'Dysport', en:'Dysport' }],
+  ['/services/botox-trap',{ es:'Botox en Trapecio (adelgazamiento de hombros)', en:'Trapezius Slimming Botox' }],
+  ['/services/personalized-facial-contour',{ es:'Contorno Facial Personalizado', en:'Personalized Facial Contour' }],
+  ['/services/cheekbone-lift',{ es:'Elevación de Pómulos (Cheekbone Pop)', en:'Cheekbone Lift (Cheekbone Pop)' }],
+  ['/services/no-more-bags-injection',{ es:'Inyección No More Bags (ojeras)', en:'No More Bags Injection (under-eye bags)' }],
+  ['/services/chinbella',{ es:'ChinBella (mentón/papada)', en:'ChinBella (chin/double chin)' }],
+  ['/services/premier',{ es:'Premier', en:'Premier' }],
+  ['/services/thighbella',{ es:'ThighBella (muslos)', en:'ThighBella (thighs)' }],
+  ['/services/rollbella',{ es:'RollBella (rollito del brasier)', en:'RollBella (bra roll)' }],
+  ['/services/bananaroll',{ es:'BananaRoll (zona bikini)', en:'BananaRoll (bikini area)' }],
+  ['/services/sculptra-colageno',{ es:'Estimulación de Colágeno — Sculptra', en:'Collagen Stimulation — Sculptra' }],
+  ['/services/mega-collagen-stimulation-sculptra',{ es:'Mega Estimulación de Colágeno — Sculptra', en:'Mega Collagen Stimulation — Sculptra' }],
+  ['/services/brazilian-butt-lift',{ es:'Brazilian Butt Lift', en:'Brazilian Butt Lift' }],
+  ['/services/puppet-lines-injections',{ es:'Puppet Lines Injections', en:'Puppet Lines Injections' }],
+  ['/services/nefertiti-neck-lift',{ es:'Lifting de Cuello Nefertiti', en:'Nefertiti Neck Lift' }],
+  ['/services/semaglutide',{ es:'Semaglutide', en:'Semaglutide' }],
+  ['/services/ozempic',{ es:'Ozempic', en:'Ozempic' }],
+  ['/services/ozonoterapia',{ es:'Ozonoterapia', en:'Ozone Therapy' }],
+  ['/services/exosomas',{ es:'Exosomas', en:'Exosomes Therapy' }],
+  ['/services/terapia-reemplazo-hormonal',{ es:'Terapia de Reemplazo Hormonal', en:'Hormone Replacement Therapy' }],
+  ['/services/alternative-medicine-consultation',{ es:'Consulta de Medicina Alternativa (Get Carded)', en:'Alternative Medicine Consultation (Get Carded)' }],
+  ['/services/b12-energy-injection',{ es:'Inyección de Energía B12', en:'B12 Energy Injection' }],
+  ['/services/fat-blaster-injections',{ es:'Fat Blaster Injections', en:'Fat Blaster Injections' }],
+  ['/services/medically-supervised-weight-loss',{ es:'Pérdida de Peso Supervisada', en:'Medically Supervised Weight Loss' }],
+  ['/services/mini-chin-reduction',{ es:'Mini Reducción de Mentón', en:'Mini Chin Reduction' }],
+  ['/services/renasci-prf-gel-therapy',{ es:'Terapia de Gel PRF Renasci', en:'Renasci PRF Gel Therapy' }],
+  ['/services/b12-fat-blaster-double-effect',{ es:'B12 + Fat Blaster (Doble Efecto)', en:'B12 Injection + Fat Blaster (Double Effect)' }],
+  ['/services/ozempic-mounjaro',{ es:'Ozempic/Mounjaro', en:'Ozempic/Mounjaro' }],
+  ['/services/hair-restoration-prp',{ es:'Tratamiento Capilar con PRP', en:'Hair Restoration Treatment with PRP' }],
+  ['/services/hair-restoration-stem-cells',{ es:'Tratamiento Capilar con Células Madre', en:'Hair Restoration Treatment with Stem Cells' }],
+  ['/services/cortisone-injection',{ es:'Inyección de Cortisona', en:'Cortisone Injection' }],
+  ['/services/cystic-acne',{ es:'Acné Quístico', en:'Cystic Acne' }],
+  ['/services/vaginal-rejuvenation-prp',{ es:'Rejuvenecimiento Vaginal con PRP (O‑Shot)', en:'Vaginal Rejuvenation with PRP (O‑Shot)' }],
+  ['/services/vaginal-rejuvenation-stem-cells',{ es:'Rejuvenecimiento Vaginal con Células Madre (O‑Shot)', en:'Vaginal Rejuvenation with Stem Cells (O‑Shot)' }],
+  ['/services/microneedling-face-neck',{ es:'Microneedling — Rostro + Cuello', en:'Microneedling — Face + Neck' }],
+  ['/services/microneedling-face-neck-decollete',{ es:'Microneedling — Rostro + Cuello + Escote', en:'Microneedling — Face + Neck + Décolleté' }],
+  ['/services/microneedling-stretch-marks',{ es:'Microneedling — Estrías (según área)', en:'Microneedling — Stretch Marks (depends on area)' }],
+  ['/services/terapia-reemplazo-hormonal',{ es:'Membresía Hormonal para Ella', en:'Hormone Membership for Her' }],
+  ['/services/bhrt-setup-labs-consult',{ es:'Configuración (laboratorios + consulta)', en:'Setup (includes labs + consult)' }],
+  ['/services/bhrt-monthly-support',{ es:'Mensual (soporte, mensajes, visitas)', en:'Monthly (support, messaging, visits)' }],
+  ['/services/hormone-replacement-therapy-him',{ es:'Terapia de Reemplazo Hormonal para Él', en:'Hormone Replacement Therapy for Him' }],
+  ['/services/lab-draw',{ es:'Por Toma de Laboratorio', en:'Per Lab Draw' }],
+])
+
+const briefExcerpts = new Map([
+  ['/services/neurotoxin-injections','Suaviza líneas dinámicas y previene nuevas arrugas.'],
+  ['/services/botox-no-sweat','Tratamiento de hiperhidrosis para reducir sudoración.'],
+  ['/services/botox-lip-flip','Realce sutil de labios con neurotoxina.'],
+  ['/services/mini-lip-enhancement','Definición y volumen ligero de labios.'],
+  ['/services/full-lip-augmentation','Volumen equilibrado y contorno definido.'],
+  ['/services/mega-lip-augmentation','Mayor volumen con acabado natural.'],
+  // Facial & Body Contouring
+  ['/services/personalized-facial-contour','Esculpe y armoniza rasgos faciales de forma personalizada.'],
+  ['/services/cheekbone-lift','Realce de pómulos para mayor definición y elevación.'],
+  ['/services/no-more-bags-injection','Reduce bolsas bajo los ojos para una mirada más fresca.'],
+  ['/services/chinbella','Disminuye papada y define la línea mandibular.'],
+  ['/services/premier','Contorno facial integral con enfoque premium.'],
+  ['/services/thighbella','Moldea y afina el contorno de los muslos.'],
+  ['/services/rollbella','Trata el rollito del brasier para un perfil más limpio.'],
+  ['/services/bananaroll','Suaviza el pliegue bajo el glúteo en la zona bikini.'],
+  // Biostimulators
+  ['/services/sculptra-colageno','Estimula colágeno para mejorar firmeza y volumen.'],
+  ['/services/mega-collagen-stimulation-sculptra','Doble estimulación de colágeno para resultados intensos.'],
+  ['/services/mini-chin-reduction','Reducción focal para perfilar el mentón.'],
+  ['/services/brazilian-butt-lift','Realce del glúteo con contorno más elevado y firme.'],
+  ['/services/renasci-prf-gel-therapy','Regenera y mejora textura con gel PRF propio.'],
+  // Specialized Treatments
+  ['/services/puppet-lines-injections','Suaviza líneas faciales marcadas para un acabado uniforme.'],
+  ['/services/nefertiti-neck-lift','Define mandíbula y cuello para un perfil más estilizado.'],
+  // Weight Loss & Wellness
+  ['/services/b12-fat-blaster-double-effect','Energía y lipólisis combinadas para resultados acelerados.'],
+  ['/services/alternative-medicine-consultation','Evaluación integral y recomendaciones personalizadas.'],
+  ['/services/fat-blaster-injections','Apoya la quema de grasa y el metabolismo.'],
+  ['/services/b12-energy-injection','Aumenta energía y bienestar general.'],
+  ['/services/medically-supervised-weight-loss','Pérdida de peso con supervisión médica segura.'],
+  // Botox & Neuromodulators
+  ['/services/xeomin','Neurotoxina precisa para suavizar líneas.'],
+  ['/services/dysport','Alternativa de neurotoxina con resultados naturales.'],
+  ['/services/botox-trap','Define hombros afinando el trapecio.'],
+  ['/services/botox-migranas','Reduce frecuencia e intensidad de migrañas.'],
+  // Regenerative Medicine Therapies
+  ['/services/semaglutide','Apoya el control del peso con GLP‑1.'],
+  ['/services/ozempic-mounjaro','GLP‑1 para control del peso y salud metabólica.'],
+  ['/services/ozonoterapia','Oxigenación avanzada para bienestar y recuperación.'],
+  ['/services/exosomas','Estimula regeneración celular y reparación de tejidos.'],
+  // Hair and Skin Treatments
+  ['/services/hair-restoration-prp','Estimula folículos para mejorar densidad capilar.'],
+  ['/services/hair-restoration-stem-cells','Regeneración avanzada para fortalecer y repoblar cabello.'],
+  // Advanced Treatments
+  ['/services/cortisone-injection','Reduce inflamación localizada para una recuperación rápida.'],
+  ['/services/cystic-acne','Tratamiento focal para brotes quísticos persistentes.'],
+  ['/services/vaginal-rejuvenation-prp','Mejora sensibilidad y soporte con PRP autólogo.'],
+  ['/services/vaginal-rejuvenation-stem-cells','Regeneración íntima con soporte celular avanzado.'],
+  ['/services/microneedling-face-neck','Estimula colágeno y mejora textura en rostro y cuello.'],
+  ['/services/microneedling-face-neck-decollete','Renueva piel en rostro, cuello y escote con microcanales.'],
+  ['/services/microneedling-stretch-marks','Atenúa estrías y mejora apariencia según zona tratada.'],
+  ['/services/terapia-reemplazo-hormonal','Programa integral de equilibrio hormonal para ella.'],
+  ['/services/bhrt-setup-labs-consult','Incluye estudios y consulta para plan personalizado.'],
+  ['/services/bhrt-monthly-support','Seguimiento mensual con soporte y visitas.'],
+  ['/services/hormone-replacement-therapy-him','Plan hormonal diseñado para la salud masculina.'],
+  ['/services/lab-draw','Toma de laboratorio según necesidad del tratamiento.'],
+])
+titleOverrides.set('/services/prp-face-neck', { es:'PRP — Rostro + Cuello', en:'PRP — Face + Neck' })
+titleOverrides.set('/services/prp-face-neck-decollete', { es:'PRP — Rostro + Cuello + Escote', en:'PRP — Face + Neck + Décolleté' })
+titleOverrides.set('/services/prp-stretch-marks', { es:'PRP — Estrías (según área)', en:'PRP — Stretch Marks (depends on area)' })
+briefExcerpts.set('/services/prp-face-neck','Regeneración con PRP para rostro y cuello.')
+briefExcerpts.set('/services/prp-face-neck-decollete','PRP para renovar piel en rostro, cuello y escote.')
+// Peptide Therapy titles and excerpts
+titleOverrides.set('/services/peptides-bpc-157', { es:'BPC-157', en:'BPC-157' })
+titleOverrides.set('/services/peptides-cjc1295-ipamorelin', { es:'CJC 1295 / Ipamorelin', en:'CJC 1295 / Ipamorelin' })
+titleOverrides.set('/services/peptides-sermorelin', { es:'Sermorelina', en:'Sermorelin' })
+titleOverrides.set('/services/peptides-nad', { es:'NAD+', en:'NAD+' })
+titleOverrides.set('/services/peptides-ghku', { es:'GhKu', en:'GhKu' })
+titleOverrides.set('/services/peptides-vitamin-d', { es:'Vitamina D', en:'Vitamin D' })
+titleOverrides.set('/services/peptides-hair-growth', { es:'Crecimiento Capilar (Péptidos)', en:'Hair Growth (Peptides)' })
+briefExcerpts.set('/services/peptides-bpc-157','Favorece recuperación de tejidos y control de inflamación.')
+briefExcerpts.set('/services/peptides-cjc1295-ipamorelin','Estimula liberación de GH para bienestar y composición corporal.')
+briefExcerpts.set('/services/peptides-sermorelin','Apoya producción de GH de forma fisiológica.')
+briefExcerpts.set('/services/peptides-nad','Cofactor celular para energía y función mitocondrial.')
+briefExcerpts.set('/services/peptides-ghku','Péptido multifunción para soporte de reparación.')
+briefExcerpts.set('/services/peptides-vitamin-d','Optimiza niveles de vitamina D para salud integral.')
+briefExcerpts.set('/services/peptides-hair-growth','Péptidos dirigidos para fortalecer y estimular crecimiento capilar.')
+briefExcerpts.set('/services/prp-stretch-marks','PRP focal para atenuar estrías según zona.')
+// IV/IM Therapy titles and excerpts
+titleOverrides.set('/services/iv-drips', { es:'Drips (IV)', en:'Drips' })
+titleOverrides.set('/services/im-injections', { es:'Inyecciones IM', en:'IM injections' })
+briefExcerpts.set('/services/iv-drips','Hidratación y vitaminas vía infusión IV.')
+briefExcerpts.set('/services/im-injections','Vitaminas y fármacos por inyección intramuscular.')
+function getService(h) {
+  const s = byHref.get(h)
+  if (s) {
+    const oimg = imageOverrides.get(h)
+    if (oimg) s.image = oimg
+    const ot = titleOverrides.get(h)
+    if (ot) s.title = ot
+    if (!s.excerpt) {
+      const be = briefExcerpts.get(h)
+      if (be) s.excerpt = be
+    }
+    return s
+  }
+  const slug = (h || '').split('/').pop() || ''
+  const ot = titleOverrides.get(h)
+  const oimg = imageOverrides.get(h) || '/images/med-spa-room.jpg'
+  const title = ot ? (ot.es || ot.en || slug) : slug.replace(/-/g,' ')
+  const be = briefExcerpts.get(h) || ''
+  return {
+    id: slug,
+    slug,
+    title,
+    image: oimg,
+    href: h,
+    excerpt: be,
+    category: 'injections'
+  }
+}
+
+const groups = [
+  { title: 'Neurotoxin & Dermal Filler Injections', hrefs: ['/services/neurotoxin-injections','/services/botox-no-sweat','/services/botox-lip-flip','/services/mini-lip-enhancement','/services/full-lip-augmentation','/services/mega-lip-augmentation'] },
+  { title: 'Facial & Body Contouring', hrefs: ['/services/personalized-facial-contour','/services/cheekbone-lift','/services/no-more-bags-injection','/services/chinbella','/services/thighbella','/services/rollbella','/services/bananaroll'] },
+  { title: 'Biostimulators', hrefs: ['/services/sculptra-colageno','/services/mega-collagen-stimulation-sculptra','/services/mini-chin-reduction','/services/brazilian-butt-lift','/services/renasci-prf-gel-therapy'] },
+  { title: 'Specialized Treatments', hrefs: ['/services/puppet-lines-injections','/services/nefertiti-neck-lift'] },
+  { title: 'Weight Loss & Wellness', hrefs: ['/services/b12-fat-blaster-double-effect','/services/alternative-medicine-consultation','/services/fat-blaster-injections','/services/b12-energy-injection','/services/medically-supervised-weight-loss'] },
+  { title: 'Botox & Neuromodulators', hrefs: ['/services/xeomin','/services/dysport','/services/botox-trap','/services/botox-migranas'] },
+  { title: 'Regenerative Medicine Therapies', hrefs: ['/services/semaglutide','/services/ozempic-mounjaro','/services/ozonoterapia','/services/exosomas'] },
+  { title: 'Hair Restoration Treatments', hrefs: ['/services/hair-restoration-prp','/services/hair-restoration-stem-cells'] },
+  { title: 'Advanced Treatments', hrefs: ['/services/cortisone-injection','/services/cystic-acne'] },
+  { title: 'Intimate Rejuvenation', hrefs: ['/services/vaginal-rejuvenation-prp','/services/vaginal-rejuvenation-stem-cells'] },
+  { title: 'Microneedling', hrefs: ['/services/microneedling-face-neck','/services/microneedling-face-neck-decollete','/services/microneedling-stretch-marks'] },
+  { title: 'Platelet-Rich Plasma (PRP)', hrefs: ['/services/prp-face-neck','/services/prp-face-neck-decollete','/services/prp-stretch-marks'] },
+  { title: 'Bioidentical Hormone Therapy (BHRT)', hrefs: ['/services/terapia-reemplazo-hormonal','/services/bhrt-setup-labs-consult','/services/bhrt-monthly-support','/services/hormone-replacement-therapy-him','/services/lab-draw'] },
+  { title: 'Peptide Therapy', hrefs: ['/services/peptides-bpc-157','/services/peptides-cjc1295-ipamorelin','/services/peptides-sermorelin','/services/peptides-nad','/services/peptides-ghku','/services/peptides-vitamin-d','/services/peptides-hair-growth'] },
+  { title: 'IV/IM Therapy', hrefs: ['/services/iv-drips','/services/im-injections'] },
+]
+
+function getBadgeFor(service){
+  try {
+    const t = String((service?.title && (service.title.en || service.title.es)) || service?.title || '')
+    const s = String(service?.slug || ((service?.href || '').split('/').pop() || ''))
+    const b = badgesBySlug.get(s.toLowerCase())
+    if (b) return b
+    if (/premier/i.test(t) || /premier/i.test(s)) return 'Premier'
+    if (/(membresía|membership)/i.test(t)) return t.match(/membresía/i) ? 'Membresía' : 'Membership'
+    return ''
+  } catch { return '' }
+}
+
+function getBadgeClass(label){
+  const v = String(label || '').toLowerCase()
+  if (v.includes('premier')) return 'bg-[#FFD700] text-black'
+  if (v.includes('membership') || v.includes('membresía')) return 'bg-[#10B981] text-white'
+  return 'bg-[#F3A2A7] text-white'
+}
+---
+
+<BaseLayout title="Servicios">
+  <section class="hero-services">
+    <div class="hero-inner text-center">
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight">Nuestros <span class="accent-pink">Servicios</span></h1>
+      <p class="mt-4 text-white/80 text-base sm:text-lg">Explora nuestras categorías y tratamientos profesionales. Selecciona una sección para ver todos los servicios disponibles.</p>
+    </div>
+  </section>
+  <section id="servicios" class="py-12 sm:py-16 lg:py-20 bg-white scroll-mt-28 md:scroll-mt-36">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {groups.map((group, idx) => (
+        <div id={group.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')} class="mb-16 lg:mb-20 last:mb-0 services-group">
+          <div class="text-center mb-12">
+            <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl text-dark mb-4 tracking-tight">{group.title}</h2>
+            <div class="w-24 h-1 bg-[#F3A2A7] mx-auto rounded-full"></div>
+          </div>
+          {group.title === 'Neurotoxin & Dermal Filler Injections' ? (
+            <div class="relative">
+              <button type="button" aria-label="Anterior" class="carousel-btn absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-injections" data-dir="-1">‹</button>
+              <div id="carousel-injections" class="w-full overflow-x-auto scroll-smooth flex gap-4 pb-2 px-20 md:px-28">
+                {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                  <div class="carousel-item">
+                    <div class="relative">
+                      {getBadgeFor(servicio) && (
+                        <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getBadgeClass(getBadgeFor(servicio))} shadow-sm`}>{getBadgeFor(servicio)}</span>
+                      )}
+                      <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button type="button" aria-label="Siguiente" class="carousel-btn absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-injections" data-dir="1">›</button>
+            </div>
+          ) : group.title === 'Facial & Body Contouring' ? (
+            <div class="relative">
+              <button type="button" aria-label="Anterior" class="carousel-btn absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-contouring" data-dir="-1">‹</button>
+              <div id="carousel-contouring" class="w-full overflow-x-auto scroll-smooth flex gap-4 pb-2 px-20 md:px-28">
+                {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                  <div class="carousel-item">
+                    <div class="relative">
+                      {getBadgeFor(servicio) && (
+                        <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getBadgeClass(getBadgeFor(servicio))} shadow-sm`}>{getBadgeFor(servicio)}</span>
+                      )}
+                      <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button type="button" aria-label="Siguiente" class="carousel-btn absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-contouring" data-dir="1">›</button>
+            </div>
+          ) : group.title === 'Biostimulators' ? (
+            <div class="relative">
+              <button type="button" aria-label="Anterior" class="carousel-btn absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-biostimulators" data-dir="-1">‹</button>
+              <div id="carousel-biostimulators" class="w-full overflow-x-auto scroll-smooth flex gap-4 pb-2 px-20 md:px-28">
+                {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                  <div class="carousel-item">
+                    <div class="relative">
+                      {getBadgeFor(servicio) && (
+                        <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getBadgeClass(getBadgeFor(servicio))} shadow-sm`}>{getBadgeFor(servicio)}</span>
+                      )}
+                      <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button type="button" aria-label="Siguiente" class="carousel-btn absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-biostimulators" data-dir="1">›</button>
+            </div>
+          ) : group.title === 'Specialized Treatments' ? (
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 mb-12">
+              {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                <div class="relative">
+                  {getBadgeFor(servicio) && (
+                    <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getBadgeClass(getBadgeFor(servicio))} shadow-sm`}>{getBadgeFor(servicio)}</span>
+                  )}
+                  <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                </div>
+              ))}
+            </div>
+          ) : group.title === 'Weight Loss & Wellness' ? (
+            <div class="relative">
+              <button type="button" aria-label="Anterior" class="carousel-btn absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-wellness" data-dir="-1">‹</button>
+              <div id="carousel-wellness" class="w-full overflow-x-auto scroll-smooth flex gap-4 pb-2 px-20 md:px-28">
+                {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                  <div class="carousel-item">
+                    <div class="relative">
+                      {getBadgeFor(servicio) && (
+                        <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getBadgeClass(getBadgeFor(servicio))} shadow-sm`}>{getBadgeFor(servicio)}</span>
+                      )}
+                      <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button type="button" aria-label="Siguiente" class="carousel-btn absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-wellness" data-dir="1">›</button>
+            </div>
+          ) : group.title === 'Botox & Neuromodulators' ? (
+            <div class="relative">
+              <button type="button" aria-label="Anterior" class="carousel-btn absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-botox" data-dir="-1">‹</button>
+              <div id="carousel-botox" class="w-full overflow-x-auto scroll-smooth flex gap-4 pb-2 px-20 md:px-28">
+                {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                  <div class="carousel-item">
+                    <div class="relative">
+                      {getBadgeFor(servicio) && (
+                        <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getBadgeClass(getBadgeFor(servicio))} shadow-sm`}>{getBadgeFor(servicio)}</span>
+                      )}
+                      <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button type="button" aria-label="Siguiente" class="carousel-btn absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-botox" data-dir="1">›</button>
+            </div>
+          ) : group.title === 'Regenerative Medicine Therapies' ? (
+            <div class="relative">
+              <button type="button" aria-label="Anterior" class="carousel-btn absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-regenerative" data-dir="-1">‹</button>
+              <div id="carousel-regenerative" class="w-full overflow-x-auto scroll-smooth flex gap-4 pb-2 px-20 md:px-28">
+                {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                  <div class="carousel-item">
+                    <div class="flex flex-col items-start gap-2">
+                      {getBadgeFor(servicio) && (
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#F3A2A7] text-white">{getBadgeFor(servicio)}</span>
+                      )}
+                      <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button type="button" aria-label="Siguiente" class="carousel-btn absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-regenerative" data-dir="1">›</button>
+            </div>
+          ) : group.title === 'Bioidentical Hormone Therapy (BHRT)' ? (
+            <div class="relative">
+              <button type="button" aria-label="Anterior" class="carousel-btn absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-bhrt" data-dir="-1">‹</button>
+              <div id="carousel-bhrt" class="w-full overflow-x-auto scroll-smooth flex gap-4 pb-2 px-20 md:px-28">
+                {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                  <div class="carousel-item">
+                    <div class="relative">
+                      {getBadgeFor(servicio) && (
+                        <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getBadgeClass(getBadgeFor(servicio))} shadow-sm`}>{getBadgeFor(servicio)}</span>
+                      )}
+                      <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button type="button" aria-label="Siguiente" class="carousel-btn absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-bhrt" data-dir="1">›</button>
+            </div>
+          ) : group.title === 'Peptide Therapy' ? (
+            <div class="relative">
+              <button type="button" aria-label="Anterior" class="carousel-btn absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-peptides" data-dir="-1">‹</button>
+              <div id="carousel-peptides" class="w-full overflow-x-auto scroll-smooth flex gap-4 pb-2 px-20 md:px-28">
+                {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                  <div class="carousel-item">
+                    <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                  </div>
+                ))}
+              </div>
+              <button type="button" aria-label="Siguiente" class="carousel-btn absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-peptides" data-dir="1">›</button>
+            </div>
+          ) : group.title === 'IV/IM Therapy' ? (
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 mb-12">
+              {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                <div class="relative">
+                  {getBadgeFor(servicio) && (
+                    <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getBadgeClass(getBadgeFor(servicio))} shadow-sm`}>{getBadgeFor(servicio)}</span>
+                  )}
+                  <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                </div>
+              ))}
+            </div>
+          ) : group.title === 'Microneedling' ? (
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 mb-12">
+              {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                <div class="relative">
+                  {getBadgeFor(servicio) && (
+                    <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getBadgeClass(getBadgeFor(servicio))} shadow-sm`}>{getBadgeFor(servicio)}</span>
+                  )}
+                  <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                </div>
+              ))}
+            </div>
+          ) : group.title === 'Platelet-Rich Plasma (PRP)' ? (
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 mb-12">
+              {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                <div class="flex flex-col items-start gap-2">
+                  {getBadgeFor(servicio) && (
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#F3A2A7] text-white">{getBadgeFor(servicio)}</span>
+                  )}
+                  <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                </div>
+              ))}
+            </div>
+          ) : group.title === 'Hair Restoration Treatments' ? (
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 mb-12">
+              {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+              ))}
+            </div>
+          ) : group.title === 'Advanced Treatments' ? (
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 mb-12">
+              {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+              ))}
+            </div>
+          ) : group.title === 'Intimate Rejuvenation' ? (
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 mb-12">
+              {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+              ))}
+            </div>
+          ) : (
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 mb-12">
+              {group.hrefs.map((h) => getService(h)).filter(Boolean).slice(0,4).map((servicio) => (
+                <div class="relative">
+                  {getBadgeFor(servicio) && (
+                    <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getBadgeClass(getBadgeFor(servicio))} shadow-sm`}>{getBadgeFor(servicio)}</span>
+                  )}
+                  <ServiceCard service={servicio} class="service-item shadow-none hover:shadow-none" />
+                </div>
+              ))}
+            </div>
+          )}
+          {idx < groups.length - 1 && (<div class="my-8 h-[2px] bg-primary w-full"></div>)}
+        </div>
+      ))}
+    </div>
+  </section>
+
+<style is:global>
+  .services-group .service-card{ box-shadow:none !important; border:2px solid #F3A2A7 }
+  .services-group .service-card:hover{ box-shadow:none !important }
+  .services-group .service-card{ height:540px; display:flex; flex-direction:column }
+  .services-group .service-card > div:nth-of-type(1){ aspect-ratio:auto !important; height:400px }
+  .services-group .service-card .p-4{ flex:1 1 auto; display:flex; flex-direction:column }
+  .services-group .service-card .p-4 a{ margin-top:auto }
+  .services-group .service-card a{ color:#F3A2A7 !important }
+  .services-group .badge-overlay{ position:absolute; top:12px; left:12px; z-index:30 }
+  .hero-services{ background:#000; color:#fff; min-height:40vh; display:flex; align-items:center; justify-content:center; padding-top:64px; padding-bottom:48px }
+  @media (min-width:640px){ .hero-services{ min-height:45vh; padding-top:80px; padding-bottom:64px } }
+  @media (min-width:1024px){ .hero-services{ min-height:50vh; padding-top:96px; padding-bottom:80px } }
+  .hero-inner{ max-width:1120px; margin:0 auto; padding:0 16px }
+  .accent-pink{ color:#F3A2A7 }
+  #carousel-injections{ scroll-snap-type:x mandatory }
+  #carousel-injections .carousel-item{ flex:0 0 auto; width:320px; scroll-snap-align:start }
+  #carousel-contouring{ scroll-snap-type:x mandatory }
+  #carousel-contouring .carousel-item{ flex:0 0 auto; width:320px; scroll-snap-align:start }
+  #carousel-biostimulators{ scroll-snap-type:x mandatory }
+  #carousel-biostimulators .carousel-item{ flex:0 0 auto; width:320px; scroll-snap-align:start }
+  
+  #carousel-wellness{ scroll-snap-type:x mandatory }
+  #carousel-wellness .carousel-item{ flex:0 0 auto; width:320px; scroll-snap-align:start }
+  #carousel-botox{ scroll-snap-type:x mandatory }
+  #carousel-botox .carousel-item{ flex:0 0 auto; width:320px; scroll-snap-align:start }
+  #carousel-regenerative{ scroll-snap-type:x mandatory }
+  #carousel-regenerative .carousel-item{ flex:0 0 auto; width:320px; scroll-snap-align:start }
+  #carousel-bhrt{ scroll-snap-type:x mandatory }
+  #carousel-bhrt .carousel-item{ flex:0 0 auto; width:320px; scroll-snap-align:start }
+  #carousel-peptides{ scroll-snap-type:x mandatory }
+  #carousel-peptides .carousel-item{ flex:0 0 auto; width:320px; scroll-snap-align:start }
+</style>
+
+  <script>
+    function setupCarousel(id){
+      const el = document.getElementById(id)
+      if (!el) return
+      const items = Array.from(el.querySelectorAll('.carousel-item'))
+      let index = 0
+      function computeVisible(){
+        const w = items[0]?.offsetWidth || 1
+        const c = Math.floor(el.clientWidth / w)
+        return c > 0 ? c : 1
+      }
+      function scrollToIndex(i){
+        index = i
+        const target = items[index]
+        if (target) el.scrollTo({ left: target.offsetLeft, behavior: 'smooth' })
+      }
+      document.querySelectorAll(`.carousel-btn[data-target="${id}"]`).forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const dir = parseInt(btn.getAttribute('data-dir') || '1', 10)
+          const visible = computeVisible()
+          if (dir > 0) {
+            const next = index + 1
+            const end = items.length - visible
+            scrollToIndex(next > end ? 0 : next)
+          } else {
+            const prev = index - 1
+            const end = items.length - visible
+            scrollToIndex(prev < 0 ? (end >= 0 ? end : 0) : prev)
+          }
+        })
+      })
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      setupCarousel('carousel-injections')
+      setupCarousel('carousel-contouring')
+      setupCarousel('carousel-biostimulators')
+      setupCarousel('carousel-wellness')
+      setupCarousel('carousel-botox')
+      setupCarousel('carousel-regenerative')
+      setupCarousel('carousel-bhrt')
+      setupCarousel('carousel-peptides')
+    })
+  </script>
+</BaseLayout>

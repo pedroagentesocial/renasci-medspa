@@ -1,0 +1,69 @@
+---
+import CTAButton from './CTAButton.astro';
+---
+
+<section class="pt-6 md:pt-8 pb-8 lg:pb-12 bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-4xl mx-auto">
+      <div class="flex items-center justify-center mb-4">
+        <div class="flex-1 h-[2px] bg-black"></div>
+        <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z" />
+          </svg>
+        </span>
+        <div class="flex-1 h-[2px] bg-black"></div>
+      </div>
+      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-black mb-6">
+        <span data-i18n="membership.join_title_prefix">Únete a Nuestra</span>
+        <span class="text-black" data-i18n="membership.join_title_highlight">Membresía</span>
+      </h2>
+      <p class="text-lg md:text-xl text-black/80 mb-8 leading-relaxed">
+        <span data-i18n="membership.join_subtitle">Accede a descuentos exclusivos, tratamientos prioritarios y beneficios especiales diseñados para nuestros miembros más valorados.</span>
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="p-6">
+          <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg text-black mb-2"><span data-i18n="membership.benefit_discounts_title">Descuentos Exclusivos</span></h3>
+          <p class="text-black/70"><span data-i18n="membership.benefit_discounts_text">Descubre descuentos exclusivos en servicios seleccionados</span></p>
+        </div>
+        
+        <div class="p-6">
+          <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg text-black mb-2"><span data-i18n="membership.benefit_priority_title">Acceso Prioritario</span></h3>
+          <p class="text-black/70"><span data-i18n="membership.benefit_priority_text">Reserva tus citas con prioridad y flexibilidad</span></p>
+        </div>
+        
+        <div class="p-6">
+          <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg text-black mb-2"><span data-i18n="membership.benefit_special_title">Beneficios Especiales</span></h3>
+          <p class="text-black/70"><span data-i18n="membership.benefit_special_text">Tratamientos gratuitos y productos exclusivos</span></p>
+        </div>
+      </div>
+
+      <CTAButton 
+        href="/membership"
+        variant="primary"
+        className="inline-flex items-center gap-2 hover:gap-3 transition-all duration-200 bg-black text-white"
+      >
+        <span data-i18n="membership.view_membership">Conoce Nuestra Membresía</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </CTAButton>
+    </div>
+  </div>
+</section>

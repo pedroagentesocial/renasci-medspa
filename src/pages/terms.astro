@@ -6,19 +6,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Términos y Condiciones - Renasci® Medical Spa"
   description="Términos y condiciones de uso de Renasci® Medical Spa. Conoce nuestras políticas de servicios, membresía y responsabilidades."
 >
-  <div class="py-12 sm:py-16 lg:py-20 bg-white">
+  <section class="pt-24 pb-16 md:pt-32 bg-black text-white text-center">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <!-- Header -->
-      <div class="text-center mb-12">
-        <h1 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-dark mb-6 tracking-tight">
-          Términos y <span class="text-primary">Condiciones</span>
-        </h1>
-        <p class="text-lg text-graytxt">
-          Última actualización: 1 de enero de 2025
-        </p>
-      </div>
-
-      <!-- Content -->
+      <h1 class="font-display font-bold text-4xl md:text-5xl mb-6 tracking-tight">
+        Términos y <span class="text-primary">Condiciones</span>
+      </h1>
+      <p class="text-lg text-white/80">Última actualización: 1 de enero de 2025</p>
+    </div>
+  </section>
+  <div class="h-[2px] w-full bg-primary"></div>
+  <section class="py-16 lg:py-20 bg-white">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="prose prose-lg max-w-none">
         <div class="bg-soft rounded-2xl p-8 mb-8">
           <p class="text-dark leading-relaxed mb-0">
@@ -241,7 +239,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 
 <style>

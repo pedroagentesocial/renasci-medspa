@@ -1,0 +1,72 @@
+---
+import CTAButton from './CTAButton.astro';
+---
+
+<section class="pt-12 lg:pt-16 pb-16 lg:pb-24 bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto text-black">
+      <div class="flex items-center justify-center mb-4">
+        <div class="flex-1 h-[2px] bg-black/10"></div>
+        <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12c0 3.866-3.582 7-8 7-1.07 0-2.088-.18-3.02-.51L5 20l1.52-3.04A7.98 7.98 0 013 12c0-3.866 3.582-7 8-7s8 3.134 8 7z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11h8M8 14h6" />
+          </svg>
+        </span>
+        <div class="flex-1 h-[2px] bg-black/10"></div>
+      </div>
+      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl mb-3"><span data-i18n="start.cta_title">Empieza ahora tu tratamiento</span></h2>
+      <p class="text-lg md:text-xl text-black/80 mb-8"><span data-i18n="start.cta_subtitle">Renasci te espera con atención personalizada y resultados profesionales.</span></p>
+    </div>
+
+    <div class="max-w-xl mx-auto bg-white rounded-2xl p-6 shadow-card border-2 border-[#F3A2A7]">
+      <form method="post" action="/api/contact" class="space-y-4" id="simple-contact-form">
+        <div>
+          <label for="name" class="block text-sm font-semibold text-text mb-2"><span data-i18n="form.name">Nombre</span> *</label>
+          <input type="text" id="name" name="name" required class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors" placeholder="Tu nombre" data-i18n="form.placeholder_name" />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-text mb-2"><span data-i18n="form.phone">Teléfono</span></label>
+            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors" placeholder="(385) 555-0123" data-i18n="form.placeholder_phone" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-semibold text-text mb-2"><span data-i18n="form.email">Email</span> *</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors" placeholder="tu@email.com" data-i18n="form.placeholder_email" />
+          </div>
+        </div>
+
+        <div>
+          <label for="service" class="block text-sm font-semibold text-text mb-2"><span data-i18n="form.service">Servicio de interés</span></label>
+          <select id="service" name="service" class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors bg-white">
+            <option value="" data-i18n="form.service_select">Selecciona un servicio</option>
+            <option value="botox" data-i18n="form.options.botox">Botox</option>
+            <option value="fillers" data-i18n="form.options.fillers">Rellenos Dérmicos</option>
+            <option value="sculptra" data-i18n="form.options.sculptra">Sculptra</option>
+            <option value="skincare" data-i18n="form.options.skincare">Cuidado de la Piel</option>
+            <option value="laser" data-i18n="form.options.laser">Tratamientos Láser</option>
+            <option value="other" data-i18n="form.options.other">Otro</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-semibold text-text mb-2"><span data-i18n="form.message">Mensaje</span></label>
+          <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors resize-none" placeholder="Cuéntanos tus objetivos o preguntas" data-i18n="form.placeholder_message"></textarea>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <input type="checkbox" id="consent" name="consent" required class="mt-1 w-5 h-5 rounded border-2 border-[#F3A2A7] focus:ring-2 focus:ring-[#F3A2A7]" />
+          <label for="consent" class="text-sm text-graytxt"><span data-i18n="form.consent_prefix">Acepto ser contactado por Renasci y el tratamiento de mis datos de acuerdo a la</span> <a href="/privacy" class="text-primary"><span data-i18n="footer.privacy">Política de Privacidad</span></a>.</label>
+        </div>
+
+        <CTAButton type="submit" variant="primary" className="w-full py-3 text-lg">
+          <span data-i18n="cta.send">Enviar</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </CTAButton>
+      </form>
+    </div>
+  </div>
+</section>

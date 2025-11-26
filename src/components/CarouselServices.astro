@@ -1,0 +1,130 @@
+---
+const carouselItems = [
+  { 
+    title: 'Neurotoxin Injections', 
+    href: '/services/neurotoxin-injections',
+    image: '/img/services/neurotoxins.jpg',
+    excerpt: { es: 'Suaviza líneas de expresión y arrugas dinámicas.', en: 'Smooth dynamic wrinkles and expression lines.' }
+  },
+  { 
+    title: 'Botox Lip Flip', 
+    href: '/services/botox-lip-flip',
+    image: '/img/services/Botox-Lip-Flip.jpg',
+    excerpt: { es: 'Define el borde del labio superior con microinyecciones.', en: 'Defines upper lip border with micro-injections.' }
+  },
+  { 
+    title: 'Relleno de Labios', 
+    href: '/services/relleno-labios',
+    image: '/img/services/Lip-filler-image.jpg',
+    excerpt: { es: 'Volumen, hidratación y contorno natural de labios.', en: 'Natural lip volume, hydration and contour.' }
+  },
+  { 
+    title: 'Xeomin', 
+    href: '/services/xeomin',
+    image: '/img/services/Xeomin-botox.jpg.webp',
+    excerpt: { es: 'Neuromodulador limpio para líneas del entrecejo y frente.', en: 'Purified neuromodulator for brow and forehead lines.' }
+  },
+  { 
+    title: 'Dysport', 
+    href: '/services/dysport',
+    image: '/img/services/Dysport.webp',
+    excerpt: { es: 'Cobertura amplia y rápida para líneas dinámicas.', en: 'Fast, wide-spread coverage for dynamic lines.' }
+  },
+  { 
+    title: 'ChinBella', 
+    href: '/services/chinbella',
+    image: '/img/services/Mini-Chin-Reduction.webp',
+    excerpt: { es: 'Contorno mandibular y mentón más definido.', en: 'More defined jawline and chin contour.' }
+  }
+];
+
+const items: any[] = carouselItems;
+
+const labels = ['Más popular', 'Recomendado', 'Tendencia'];
+---
+
+<section class="bg-white text-black py-8 md:py-10">
+  <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-6">
+    <div class="flex items-center justify-center mb-5">
+      <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
+      <span class="mx-4 inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#F3A2A7] text-white">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z" /></svg>
+      </span>
+      <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
+    </div>
+    <h2 class="font-display font-bold text-2xl md:text-3xl text-black text-center mb-6"><span data-i18n="carousel.title">Servicios destacados del día</span></h2>
+
+    <div id="carouselTrack" class="overflow-hidden relative">
+      <div class="mx-auto max-w-full px-2">
+        <div id="carouselInner" class="flex transition-transform duration-700 ease-in-out will-change-transform">
+        {items.map((svc: any, si: number) => (
+          <div class="shrink-0 px-1">
+            <div class="group bg-white rounded-xl overflow-hidden shadow-sm border-2 border-[#F3A2A7] hover:shadow-md transition-all duration-300 relative flex flex-col min-h-[300px] md:min-h-[360px] lg:min-h-[400px]">
+              <a href={svc.href ?? (svc.slug ? `/services/${svc.slug}` : '#')} class="absolute inset-0 z-0" aria-label={typeof svc.title === 'string' ? svc.title : (svc.title?.es ?? svc.title?.en ?? 'Servicio')}></a>
+              <div class="absolute top-2 right-2 z-10 inline-flex items-center gap-1 px-2 py-[3px] rounded-full bg-[#AABFA8] text-white text-[11px] font-semibold shadow-sm ring-1 ring-white/40">
+                <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                <span data-i18n={si % 3 === 0 ? 'carousel.label_popular' : si % 3 === 1 ? 'carousel.label_recommended' : 'carousel.label_trending'}>Más popular</span>
+              </div>
+              <div class="h-40 md:h-48 lg:h-56 overflow-hidden">
+                <img src={(svc.image && svc.image.trim() !== '' ? svc.image : '/images/med-spa-room.jpg')} alt={(typeof svc.title === 'string' ? svc.title : (svc.title?.es ?? svc.title?.en ?? 'Servicio'))} class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div class="p-3 md:p-4">
+                <h3 class="font-semibold text-black text-sm">{typeof svc.title === 'string' ? svc.title : (svc.title?.es ?? svc.title?.en ?? 'Servicio')}</h3>
+                <p 
+                  class="text-gray-600 text-sm mb-2 line-clamp-3 overflow-hidden carousel-desc"
+                  data-excerpt-es={typeof svc.excerpt === 'object' ? svc.excerpt.es : (svc.excerpt ?? '')}
+                  data-excerpt-en={typeof svc.excerpt === 'object' ? svc.excerpt.en : (svc.excerpt ?? '')}
+                >{typeof svc.excerpt === 'object' ? svc.excerpt.es : (svc.excerpt ?? '')}</p>
+                <a href={svc.href ?? (svc.slug ? `/services/${svc.slug}` : '#')} class="inline-flex items-center gap-1 text-[#F3A2A7] font-semibold text-sm hover:underline"><span data-i18n="carousel.view_more">Ver más</span><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12" /></svg></a>
+              </div>
+      </div>
+    </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('carouselTrack') as HTMLElement | null;
+    const inner = document.getElementById('carouselInner') as HTMLElement | null;
+    if (!track || !inner) return;
+    const slideCount = inner.children.length;
+    let index = 0;
+    let slideW = 0;
+    const maxIndex = Math.max(0, slideCount - 3);
+    const sizeSlides = () => {
+      const vw = track.clientWidth;
+      slideW = Math.max(0, vw / 3);
+      Array.from(inner.children).forEach((el) => { (el as HTMLElement).style.width = `${slideW}px`; });
+      (inner as HTMLElement).style.width = `${slideW * slideCount}px`;
+    };
+    const update = () => {
+      inner.style.transform = `translateX(-${index * slideW}px)`;
+    };
+    const step = () => {
+      index = index + 1;
+      if (index > maxIndex) index = 0;
+      update();
+    };
+    sizeSlides();
+    update();
+  const timer = setInterval(step, 6000);
+    window.addEventListener('resize', () => { sizeSlides(); if (index > maxIndex) index = 0; update(); });
+
+    // Sincronizar descripciones con el idioma activo
+    const applyDescLanguage = (lang) => {
+      const nodes = Array.from(document.querySelectorAll('.carousel-desc'));
+      nodes.forEach((node) => {
+        const es = node.getAttribute('data-excerpt-es') || '';
+        const en = node.getAttribute('data-excerpt-en') || '';
+        node.textContent = lang === 'en' ? (en || es) : (es || en);
+      });
+    };
+    const currentLang = window.i18nManager?.getCurrentLanguage?.() || document.documentElement.lang || 'es';
+    applyDescLanguage(currentLang);
+    window.addEventListener('languageChanged', (e) => {
+      applyDescLanguage(e.detail?.language || 'es');
+    });
+  });
+</script>

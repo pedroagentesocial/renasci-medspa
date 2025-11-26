@@ -1,0 +1,399 @@
+---
+export interface Hotspot {
+  x: number;
+  y: number;
+  title: string;
+  line: string;
+  href: string;
+  targetX?: number;
+  targetY?: number;
+  showCenterDot?: boolean;
+}
+
+export interface Props {
+  hotspots: Hotspot[];
+}
+
+const { hotspots } = Astro.props;
+---
+
+<div class="hero-hotspots absolute inset-0 pointer-events-none">
+  {hotspots.map((hotspot, index) => (
+    <div 
+      class="hotspot absolute pointer-events-auto"
+      style={`left: ${hotspot.x}%; top: ${hotspot.y}%;`}
+      data-hotspot-id={index}
+      data-title={hotspot.title}
+      data-line={hotspot.line}
+      data-title-es={(hotspot as any).titleEs ?? hotspot.title}
+      data-title-en={(hotspot as any).titleEn ?? hotspot.title}
+      data-line-es={(hotspot as any).lineEs ?? hotspot.line}
+      data-line-en={(hotspot as any).lineEn ?? hotspot.line}
+      data-href={hotspot.href}
+    >
+      <!-- Connection Line (if targetX and targetY are provided) -->
+      {hotspot.targetX && hotspot.targetY && (
+        <div class="connection-line-container absolute pointer-events-none">
+          <!-- Simple CSS line -->
+          <div class="connection-line-css"></div>
+          <!-- Dot at the end -->
+          <div class="connection-dot-css"></div>
+        </div>
+      )}
+      
+      <!-- Hotspot Circle -->
+      <a
+        href={hotspot.href}
+        class="hotspot-button relative w-5 h-5 bg-white/90 backdrop-blur-sm rounded-full border-2 border-white shadow-lg hover:scale-110 transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 group block"
+        aria-label={`${hotspot.title}: ${hotspot.line}`}
+        data-tooltip-trigger
+      >
+        <!-- Pink center dot -->
+        {hotspot.showCenterDot !== false && (
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-[6px] h-[6px] bg-[#E94594] rounded-full animate-pulse"></div>
+          </div>
+        )}
+        
+        <!-- Ripple effect -->
+        <div class="absolute inset-0 rounded-full bg-white/30 animate-ping opacity-75 group-hover:opacity-100"></div>
+      </a>
+
+      <!-- Desktop Tooltip -->
+      <div 
+        class="tooltip hidden md:block absolute z-50 opacity-0 invisible transform -translate-y-2 transition-all duration-200 ease-out pointer-events-none"
+        data-tooltip
+        style="left: 50%; top: 100%; transform: translateX(-50%) translateY(0.5rem);"
+      >
+        <div class="bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-white/20 p-4 min-w-[200px] max-w-[280px]">
+          <div class="text-sm font-semibold text-gray-900 mb-1" data-tooltip-title>{hotspot.title}</div>
+          <div class="text-xs text-gray-600" data-tooltip-line>{hotspot.line}</div>
+        </div>
+        <!-- Tooltip arrow -->
+        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 translate-y-full">
+          <div class="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white/95"></div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<!-- Mobile Bottom Sheet -->
+<div 
+  id="mobile-hotspot-sheet"
+  class="md:hidden fixed inset-x-0 bottom-0 z-50 bg-white rounded-t-2xl shadow-2xl transform translate-y-full transition-transform duration-300 ease-out"
+  data-mobile-sheet
+>
+  <div class="p-6">
+    <!-- Handle -->
+    <div class="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4"></div>
+    
+    <!-- Content -->
+    <div id="mobile-sheet-content">
+      <!-- Content will be populated by JavaScript -->
+    </div>
+    
+    <!-- Close button -->
+    <button 
+      class="mt-4 w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-200 transition-colors duration-200"
+      data-close-sheet
+    >
+      Cerrar
+    </button>
+  </div>
+</div>
+
+<!-- Backdrop for mobile sheet -->
+<div 
+  id="mobile-sheet-backdrop"
+  class="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm opacity-0 invisible transition-all duration-300 ease-out z-40"
+  data-sheet-backdrop
+></div>
+
+<script>
+  function initHeroHotspots() {
+    const hotspotButtons = document.querySelectorAll('[data-tooltip-trigger]');
+    const mobileSheet = document.querySelector('[data-mobile-sheet]') as HTMLElement;
+    const mobileSheetContent = document.getElementById('mobile-sheet-content');
+    const mobileSheetBackdrop = document.querySelector('[data-sheet-backdrop]') as HTMLElement;
+    const closeSheetButton = document.querySelector('[data-close-sheet]');
+    
+    if (!hotspotButtons.length) return;
+
+    // Desktop tooltip functionality
+    hotspotButtons.forEach((button, index) => {
+      const hotspot = button.closest('.hotspot');
+      const tooltip = hotspot?.querySelector('[data-tooltip]') as HTMLElement;
+      
+      if (!tooltip) return;
+
+      let showTimeout: number;
+      let hideTimeout: number;
+
+      const showTooltip = () => {
+        clearTimeout(hideTimeout);
+        showTimeout = window.setTimeout(() => {
+          tooltip.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+          tooltip.classList.add('opacity-100', 'visible', 'translate-y-0');
+        }, 100);
+      };
+
+      const hideTooltip = () => {
+        clearTimeout(showTimeout);
+        hideTimeout = window.setTimeout(() => {
+          tooltip.classList.add('opacity-0', 'invisible', 'translate-y-2');
+          tooltip.classList.remove('opacity-100', 'visible', 'translate-y-0');
+        }, 150);
+      };
+
+      // Desktop events
+      button.addEventListener('mouseenter', showTooltip);
+      button.addEventListener('mouseleave', hideTooltip);
+      button.addEventListener('focus', showTooltip);
+      button.addEventListener('blur', hideTooltip);
+
+      // Mobile events
+      button.addEventListener('click', (e) => {
+        if (window.innerWidth < 768) {
+          e.preventDefault();
+          showMobileSheet(index);
+        }
+        // En desktop, el enlace funcionará normalmente
+      });
+
+      // Keyboard navigation
+      button.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          if (window.innerWidth < 768) {
+            e.preventDefault();
+            showMobileSheet(index);
+          }
+          // En desktop, el enlace funcionará normalmente
+        }
+        if (e.key === 'Escape') {
+          hideTooltip();
+          if (window.innerWidth < 768) {
+            hideMobileSheet();
+          }
+        }
+      });
+    });
+
+    // Mobile sheet functionality
+    function showMobileSheet(hotspotIndex: number) {
+      const hotspotData = getHotspotData(hotspotIndex);
+      if (!hotspotData || !mobileSheetContent) return;
+
+      // Populate content
+      mobileSheetContent.innerHTML = `
+        <div class="text-center">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">${hotspotData.title}</h3>
+          <p class="text-gray-600 mb-4">${hotspotData.line}</p>
+          <a 
+            href="${hotspotData.href}"
+            class="inline-flex items-center gap-2 bg-[#E94594] text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-opacity duration-200"
+          >
+            Ir al servicio
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      `;
+
+      // Show sheet
+      if (mobileSheet && mobileSheetBackdrop) {
+        mobileSheetBackdrop.classList.remove('opacity-0', 'invisible');
+        mobileSheetBackdrop.classList.add('opacity-100', 'visible');
+        mobileSheet.classList.remove('translate-y-full');
+        mobileSheet.classList.add('translate-y-0');
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function hideMobileSheet() {
+      if (mobileSheet && mobileSheetBackdrop) {
+        mobileSheetBackdrop.classList.add('opacity-0', 'invisible');
+        mobileSheetBackdrop.classList.remove('opacity-100', 'visible');
+        mobileSheet.classList.add('translate-y-full');
+        mobileSheet.classList.remove('translate-y-0');
+        
+        // Restore body scroll
+        document.body.style.overflow = '';
+      }
+    }
+
+    function getHotspotData(index: number) {
+      const hotspotEls = document.querySelectorAll('.hotspot');
+      const el = hotspotEls[index] as HTMLElement | null;
+      if (!el) return null as any;
+      const lang = (window as any).i18nManager?.getCurrentLanguage?.() || document.documentElement.lang || 'es';
+      const title = el.getAttribute(lang === 'en' ? 'data-title-en' : 'data-title-es') || el.getAttribute('data-title') || '';
+      const line = el.getAttribute(lang === 'en' ? 'data-line-en' : 'data-line-es') || el.getAttribute('data-line') || '';
+      const href = el.getAttribute('data-href') || el.querySelector('a')?.getAttribute('href') || '#';
+      return { title, line, href };
+    }
+
+    // Close sheet events
+    closeSheetButton?.addEventListener('click', hideMobileSheet);
+    mobileSheetBackdrop?.addEventListener('click', hideMobileSheet);
+
+    // Escape key to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        hideMobileSheet();
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        hideMobileSheet();
+      }
+    });
+    // Sync tooltip texts with current language
+    function applyHotspotLanguage(lang: string) {
+      const hotspotEls = document.querySelectorAll('.hotspot');
+      hotspotEls.forEach((el) => {
+        const titleEl = el.querySelector('[data-tooltip-title]');
+        const lineEl = el.querySelector('[data-tooltip-line]');
+        const title = (el as HTMLElement).getAttribute(lang === 'en' ? 'data-title-en' : 'data-title-es') || (el as HTMLElement).getAttribute('data-title') || '';
+        const line = (el as HTMLElement).getAttribute(lang === 'en' ? 'data-line-en' : 'data-line-es') || (el as HTMLElement).getAttribute('data-line') || '';
+        if (titleEl) (titleEl as HTMLElement).textContent = title;
+        if (lineEl) (lineEl as HTMLElement).textContent = line;
+      });
+    }
+
+    const currentLang = (window as any).i18nManager?.getCurrentLanguage?.() || document.documentElement.lang || 'es';
+    applyHotspotLanguage(currentLang);
+    window.addEventListener('languageChanged', (e: any) => {
+      applyHotspotLanguage(e.detail?.language || 'es');
+    });
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', initHeroHotspots);
+</script>
+
+<style>
+  /* Hotspot animations */
+  .hotspot-button {
+    transform: translate(-50%, -50%);
+  }
+
+  .hotspot-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .hotspot-button:active {
+    transform: translate(-50%, -50%) scale(1.05) translateY(1px);
+  }
+
+  /* Tooltip positioning */
+  .tooltip {
+    bottom: calc(100% + 0.5rem);
+  }
+
+  /* Mobile sheet animations */
+  @media (max-width: 767px) {
+    .tooltip {
+      display: none !important;
+    }
+  }
+
+  /* Pulse animation for center dot */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  /* Ping animation for ripple */
+  @keyframes ping {
+    75%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-ping {
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  /* Connection line container */
+  .connection-line-container {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  /* CSS Line - Going from hotspot (80%, 45%) to lip (65%, 45%) */
+  .connection-line-css {
+    position: absolute;
+    left: -10px;
+    top: -12px;
+    width: 20vw;
+    height: 4px;
+    background: white;
+    opacity: 0.4;
+    box-shadow: 
+      0 0 5px rgba(255, 255, 255, 0.4),
+      0 0 10px rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    animation: pulse-line 2s ease-in-out infinite;
+    transform: translateX(-100%) rotate(0.5deg);
+    transform-origin: right center;
+  }
+
+  /* CSS Dot at the end - positioned on the lip */
+  .connection-dot-css {
+    position: absolute;
+    left: -21vw;
+    top: -20px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    opacity: 0.4;
+    border-radius: 50%;
+    box-shadow: 
+      0 0 5px rgba(255, 255, 255, 0.4),
+      0 0 10px rgba(255, 255, 255, 0.2);
+    animation: pulse-dot 2s ease-in-out infinite;
+    transform: translateY(-2px);
+  }
+
+  /* Curved line animations */
+  @keyframes pulse-line {
+    0%, 100% {
+      opacity: 1;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+    }
+    50% {
+      opacity: 0.8;
+      filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1));
+    }
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+    }
+  }
+</style>

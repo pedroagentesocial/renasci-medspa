@@ -9,6 +9,13 @@ export interface Props {
   ctaText?: string;
   ctaHref?: string;
   class?: string;
+  variant?: 'light' | 'dark';
+  hoverBorderColor?: string;
+  titleClass?: string;
+  badgeText?: string;
+  badgeColor?: string;
+  badgeImportance?: 'primary' | 'secondary';
+  ctaClass?: string;
 }
 
 const { 
@@ -20,16 +27,25 @@ const {
   highlight = false,
   ctaText = "Elegir Plan",
   ctaHref = "#agendar",
-  class: className = ''
+  class: className = '',
+  variant = 'light',
+  ctaClass = ''
 } = Astro.props;
+
+const effectiveBadgeText = Astro.props.badgeText ?? (highlight ? "Más Popular" : undefined);
+const effectiveBadgeImportance = Astro.props.badgeImportance ?? (highlight ? 'primary' : 'secondary');
+const effectiveBadgeColor = Astro.props.badgeColor;
 ---
 
-<div class={`tier-card ${highlight ? 'tier-card-highlight' : 'bg-white'} rounded-2xl shadow-card border border-gray-100 p-8 flex flex-col h-full ${className}`}>
+<div class={`tier-card ${highlight ? 'tier-card-highlight' : (variant === 'dark' ? 'bg-black tier-card-dark' : 'bg-white')} rounded-2xl shadow-card p-8 flex flex-col h-full ${className}`} style={`--hover-border: ${Astro.props.hoverBorderColor || ''}`}> 
   <!-- Badge destacado -->
-  {highlight && (
+  {effectiveBadgeText && (
     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-      <span class="bg-primary text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
-        Mejor Valor
+      <span 
+        class={`${effectiveBadgeImportance === 'primary' ? 'px-7 py-2.5 text-sm font-bold shadow-xl ring-2 ring-white/50' : 'px-5 py-2 text-sm font-semibold shadow-lg ring-1 ring-white/30'} rounded-full text-white ${effectiveBadgeColor ? '' : 'bg-primary'}`}
+        style={effectiveBadgeColor ? `background-color:${effectiveBadgeColor}` : ''}
+      >
+        {effectiveBadgeText}
       </span>
     </div>
   )}
@@ -38,7 +54,7 @@ const {
   <div class="p-8 h-full flex flex-col">
     <!-- Header -->
     <div class="text-center mb-8">
-      <h3 class="font-display font-bold text-2xl text-dark mb-2">
+      <h3 class={`font-display font-bold text-2xl text-dark mb-2 ${Astro.props.titleClass || ''}`}>
         {title}
       </h3>
       <p class="text-graytxt text-sm mb-6">
@@ -79,9 +95,13 @@ const {
       <a 
         href={ctaHref}
         class={`block w-full text-center py-4 px-4 md:px-6 rounded-lg font-semibold transition-all duration-300 min-h-[44px] flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
-          highlight 
-            ? 'bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl transform hover:scale-105 focus-visible:ring-white focus-visible:ring-offset-primary' 
-            : 'bg-soft text-dark hover:bg-primary hover:text-white border-2 border-transparent hover:border-primary focus-visible:ring-primary focus-visible:ring-offset-white'
+          ctaClass
+            ? ctaClass
+            : (highlight 
+                ? 'bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl' 
+                : (variant === 'dark' 
+                    ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20 focus-visible:ring-white focus-visible:ring-offset-black' 
+                    : 'bg-soft text-dark hover:bg-primary hover:text-white border-2 border-transparent hover:border-primary focus-visible:ring-primary focus-visible:ring-offset-white'))
         }`}
       >
         {ctaText}
@@ -92,11 +112,15 @@ const {
 
 <style>
   .tier-card {
-    @apply relative bg-white rounded-xl shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-card;
+    @apply relative rounded-xl shadow-sm transition-all duration-300 hover:shadow-card;
   }
   
+  .tier-card:hover {
+    border-color: var(--hover-border, inherit) !important;
+  }
+
   .tier-card-highlight {
-    @apply border-primary shadow-lg;
+    @apply shadow-lg;
     background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
     color: white;
   }
@@ -107,7 +131,7 @@ const {
   }
   
   .tier-card {
-    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-card;
+    @apply transition-all duration-300 hover:shadow-card;
   }
   
   .tier-card-highlight .text-graytxt {
@@ -116,12 +140,11 @@ const {
   
   .tier-card-highlight:hover {
     @apply shadow-xl;
-    transform: scale(1.05);
     box-shadow: 0 0 40px rgba(233, 69, 148, 0.25);
   }
   
   .tier-card:not(.tier-card-highlight):hover {
-    @apply -translate-y-2 shadow-card;
+    @apply shadow-card;
   }
 
   /* Glow effect for highlighted card */
@@ -142,11 +165,19 @@ const {
   /* Desktop scale effect */
   @media (min-width: 1024px) {
     .tier-card-highlight {
-      transform: scale(1.05);
+      /* subtle only, no scale */
     }
-    
-    .tier-card-highlight:hover {
-      transform: scale(1.08);
-    }
+  }
+
+  /* Dark variant overrides */
+  .tier-card-dark {
+    color: white;
+  }
+  .tier-card-dark h3,
+  .tier-card-dark .text-dark {
+    color: white !important;
+  }
+  .tier-card-dark .text-graytxt {
+    color: #e5e7eb !important;
   }
 </style>

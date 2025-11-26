@@ -1,15 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { categorias } from '../data/services';
+import { services } from '../data/services';
 
-// Generar todas las rutas de servicios
-const serviciosRoutes = categorias.flatMap(categoria => 
-  categoria.servicios.map(servicio => ({
-    url: `/services/${servicio.slug}`,
-    title: servicio.titulo,
-    category: categoria.nombre
-  }))
-);
+// Generar todas las rutas de servicios desde la fuente unificada
+const serviciosRoutes = services.map((s) => ({
+  url: s.href || (s.slug ? `/services/${s.slug}` : '/services'),
+  title: typeof s.title === 'string' ? s.title : (s.title?.es || s.title?.en || 'Servicio'),
+  category: s.categoryName?.es || s.categoryName?.en || s.category || 'Servicios'
+}));
 
 // Rutas principales del sitio
 const mainRoutes = [
@@ -27,14 +25,18 @@ const legalRoutes = [
   { url: '/terms', title: 'Términos y Condiciones', description: 'Términos de uso y políticas de servicio' },
 ];
 
-// Agrupar servicios por categoría
-const servicesByCategory = categorias.map(categoria => ({
-  name: categoria.nombre,
-  services: categoria.servicios.map(servicio => ({
-    url: `/services/${servicio.slug}`,
-    title: servicio.titulo
-  }))
-}));
+// Agrupar servicios por categoría a partir de services
+const categoryMap = new Map<string, { name: string; services: { url: string; title: string }[] }>();
+for (const s of services) {
+  const name = s.categoryName?.es || s.categoryName?.en || s.category || 'Servicios';
+  const url = s.href || (s.slug ? `/services/${s.slug}` : '/services');
+  const title = typeof s.title === 'string' ? s.title : (s.title?.es || s.title?.en || 'Servicio');
+  if (!categoryMap.has(name)) {
+    categoryMap.set(name, { name, services: [] });
+  }
+  categoryMap.get(name)!.services.push({ url, title });
+}
+const servicesByCategory = Array.from(categoryMap.values());
 ---
 
 <BaseLayout 

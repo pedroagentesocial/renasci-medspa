@@ -3,6 +3,7 @@ import HeaderNav from '../components/HeaderNav.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
 import LanguageToggle from '../components/LanguageToggle.astro';
+import i18nUrl from '../scripts/i18n.js?url';
 import { getLocaleFromUrl } from '../i18n/config';
 
 export interface Props {
@@ -57,8 +58,8 @@ const {
     <!-- Preload critical resources -->
     <link rel="preload" href="/images/Renasci logo.png" as="image" type="image/png">
     
-    <!-- Dynamic i18n script -->
-    <script src="/src/scripts/i18n.js" type="module"></script>
+    <!-- Dynamic i18n script (bundled URL) -->
+    <script src={i18nUrl} type="module"></script>
   </head>
   <body>
     <HeaderNav currentPath={currentPath} />

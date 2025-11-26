@@ -1,49 +1,65 @@
 ---
+export interface LocalizedText { es?: string; en?: string }
 export interface Props {
   service: {
-    id: string;
-    slug: string;
-    title: { es: string; en: string };
-    description: { es: string; en: string };
-    excerpt: { es: string; en: string };
-    category: string;
-    categoryName: { es: string; en: string };
-    precio: string;
+    id?: string;
+    slug?: string;
+    title: string | LocalizedText;
+    description?: string | LocalizedText;
+    excerpt?: string | LocalizedText;
+    category?: string;
+    categoryName?: LocalizedText | string;
+    precio?: string;
     duracion?: string;
     image: string;
-    benefits: string[];
-    href: string;
+    benefits?: string[];
+    href?: string;
   };
   lang?: 'es' | 'en';
   class?: string;
+  tags?: string[];
 }
 
-const { service, lang = 'es', class: className = '' } = Astro.props;
+const { service = {}, lang = 'es', class: className = '', tags = [] } = Astro.props;
 
-// Use unified data format
-const title = service.title[lang];
-const description = service.excerpt[lang];
-const href = service.href;
-const image = service.image;
+// Helpers for localized/string values
+const getLocalized = (v: any, fallback: string = '') => {
+  if (v == null) return fallback;
+  if (typeof v === 'object') {
+    const val = v[lang] ?? v.es ?? v.en;
+    return typeof val === 'string' ? val : fallback;
+  }
+  return String(v);
+};
+
+const svc: any = service ?? {};
+const isLarge = String(className).includes('large-card');
+const defaultTitle = lang === 'es' ? 'Servicio' : 'Service';
+const defaultDesc = lang === 'es' ? 'Descubre más sobre este servicio' : 'Learn more about this service';
+const title = getLocalized(svc.title, defaultTitle);
+const description = getLocalized(svc.excerpt ?? svc.description ?? '', defaultDesc);
+const image = typeof svc.image === 'string' && svc.image ? svc.image : '/images/med-spa-room.jpg';
+const href = svc.href ?? (svc.slug ? `/services/${svc.slug}` : '#');
 ---
 
-<div class={`service-card group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-xl hover:scale-[1.02] transition-all duration-300 ${className}`} data-category={service.category}>
-  <div class="aspect-[4/5] overflow-hidden">
+<div class={`service-card group bg-white rounded-2xl overflow-hidden shadow-card transition-all duration-300 relative cursor-pointer min-h-[320px] ${isLarge ? 'min-h-[600px] md:min-h-[700px]' : ''} ${className}`} data-category={svc.category} data-tags={tags.join(' ')} data-href={href}>
+  <a href={href} class="absolute inset-0 z-0" aria-label={title}></a>
+  <div class={`${isLarge ? 'h-[22rem] md:h-[26rem]' : 'aspect-[4/5]'} overflow-hidden`}>
     <img 
       src={image}
       alt={`${title} - ${description}`}
-      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      class="w-full h-full object-cover"
       loading="lazy"
     >
   </div>
   <div class="p-4">
     <div class="flex items-center gap-2 mb-2">
-      <h3 class="font-semibold text-dark font-poppins text-sm">{title}</h3>
+      <h3 class={`font-semibold text-dark font-poppins ${isLarge ? 'text-base md:text-lg' : 'text-sm'} line-clamp-1`}>{title}</h3>
     </div>
-    <p class="text-gray-600 text-xs mb-3 font-dm-sans line-clamp-2">{description}</p>
+    <p class={`text-gray-600 ${isLarge ? 'text-sm' : 'text-xs'} mb-3 font-dm-sans line-clamp-2`}>{description}</p>
     <a 
       href={href}
-      class="inline-flex items-center text-primary font-semibold text-sm hover:underline focus-visible:ring-2 ring-primary/50 rounded"
+      class="inline-flex items-center text-primary font-semibold text-sm hover:underline focus-visible:ring-2 ring-primary/50 rounded relative z-10"
     >
       Ver más →
     </a>
@@ -54,6 +70,15 @@ const image = service.image;
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
+
+<style>
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }

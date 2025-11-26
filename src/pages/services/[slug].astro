@@ -10,12 +10,86 @@ export async function getStaticPaths() {
     props: { servicio: any; categoria: any };
   }> = [];
   
+  const staticSlugs = new Set([
+    'tox-neurotoxina',
+    'botox-no-sweat',
+    'botox-lip-flip',
+    'mini-aumento-labios',
+    'aumento-completo-labios',
+    'mega-aumento-labios',
+    'mini-lip-enhancement',
+    'full-lip-augmentation',
+    'mega-lip-augmentation',
+    'personalized-facial-contour',
+    'cheekbone-lift',
+    'no-more-bags-injection',
+    'rollbella',
+    'bananaroll',
+    'puppet-lines-injections',
+    'nefertiti-neck-lift',
+    'brazilian-butt-lift',
+    'chinbella',
+    'xeomin',
+    'dysport',
+    'botox-trap',
+    'migraine-botox',
+    'collagen-stimulation-sculptra',
+    'mega-collagen-stimulation-sculptra',
+    'mini-chin-reduction',
+    'renasci-prf-gel-therapy',
+    'b12-energy-injection',
+    'fat-blaster-injections',
+    'b12-fat-blaster-double-effect',
+    'alternative-medicine-consultation',
+    'medically-supervised-weight-loss',
+    'ozempic-mounjaro',
+    'ozone-therapy',
+    'exosomes',
+    'hair-restoration-prp',
+    'hair-restoration-stem-cells',
+    'vaginal-rejuvenation-prp',
+    'vaginal-rejuvenation-stem-cells',
+    'cortisone-injection',
+    'cystic-acne',
+    'microneedling-face-neck',
+    'microneedling-face-neck-decollete',
+    'microneedling-stretch-marks',
+    'prp-face-neck',
+    'prp-face-neck-decollete',
+    'prp-stretch-marks',
+    'bhrt-setup-labs-consult',
+    'bhrt-monthly-support',
+    'hormone-replacement-therapy-him',
+    'lab-draw',
+    'peptides-bpc-157',
+    'peptides-cjc1295-ipamorelin',
+    'peptides-sermorelin',
+    'peptides-nad',
+    'peptides-ghku',
+    'peptides-vitamin-d',
+    'peptides-hair-growth',
+    'peptides-take-home',
+    'iv-drips',
+    'im-injections'
+  ]);
+
   categoriasUnificadas.forEach(categoria => {
     categoria.servicios.forEach((servicio: any) => {
-      paths.push({
-        params: { slug: servicio.slug },
-        props: { servicio, categoria }
-      });
+      if (!staticSlugs.has(servicio.slug)) {
+        paths.push({
+          params: { slug: servicio.slug },
+          props: { servicio, categoria }
+        });
+        const aliases = [
+          `${servicio.slug}-treatment`
+        ];
+        aliases.forEach((alias) => {
+          paths.push({
+            params: { slug: alias },
+            props: { servicio, categoria }
+          });
+        });
+      }
     });
   });
   
@@ -138,18 +212,11 @@ const serviciosRelacionados = categoria.servicios
         <div class="space-y-8">
           <div>
             <h2 class="font-display font-bold text-3xl lg:text-4xl text-text mb-6">
-              Inyecciones de Neurotoxina Tox
+              {servicio.title.es}
             </h2>
             <div class="prose prose-lg text-gray-700 leading-relaxed">
-              <p class="mb-4">
-                Las <strong>Inyecciones de Neurotoxina Tox</strong> son uno de los tratamientos más efectivos y populares en medicina estética para combatir los signos del envejecimiento facial. Este procedimiento utiliza neurotoxina botulínica purificada para relajar temporalmente los músculos faciales responsables de las arrugas dinámicas.
-              </p>
-              <p class="mb-4">
-                Nuestro tratamiento se enfoca en áreas específicas como las líneas de expresión alrededor de los ojos (patas de gallo), frente, entrecejo y otras zonas donde las contracciones musculares repetitivas han formado arrugas visibles.
-              </p>
-              <p>
-                Con más de 20 años de investigación y millones de tratamientos realizados mundialmente, las neurotoxinas han demostrado ser seguras y efectivas cuando son aplicadas por profesionales certificados.
-              </p>
+              <p class="mb-4">{servicio.excerpt.es}</p>
+              <p>{servicio.description.es}</p>
             </div>
           </div>
 
@@ -360,7 +427,7 @@ const serviciosRelacionados = categoria.servicios
           <div class="flex items-center mb-4">
             <div class="flex text-pink-400 group-hover:text-rose-400 transition-colors duration-300">
               {[...Array(5)].map((_, i) => (
-                <svg key={i} class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                 </svg>
               ))}
@@ -384,7 +451,7 @@ const serviciosRelacionados = categoria.servicios
           <div class="flex items-center mb-4">
             <div class="flex text-pink-400 group-hover:text-rose-400 transition-colors duration-300">
               {[...Array(5)].map((_, i) => (
-                <svg key={i} class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                 </svg>
               ))}

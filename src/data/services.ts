@@ -317,11 +317,11 @@ export const services: Servicio[] = [
     href: '/services/mini-chin-up'
   },
   {
-    id: 'doble-sculptra',
-    slug: 'doble-sculptra',
-    title: { es: 'Doble Sculptra', en: 'Double Sculptra' },
+    id: 'mega-collagen-stimulation-sculptra',
+    slug: 'mega-collagen-stimulation-sculptra',
+    title: { es: 'Mega Estimulación de Colágeno — Sculptra', en: 'Mega Collagen Stimulation — Sculptra' },
     description: { es: 'Tratamiento intensivo con doble aplicación de Sculptra', en: 'Intensive treatment with double Sculptra application' },
-    excerpt: { es: 'Tratamiento intensivo con doble dosis de Sculptra', en: 'Intensive treatment with double dose of Sculptra' },
+    excerpt: { es: 'Doble estimulación de colágeno para resultados intensos', en: 'Double collagen stimulation for intense results' },
     category: 'sculptra-rellenos',
     categoryName: { es: 'Tratamientos con Sculptra y Rellenos', en: 'Sculptra and Fillers Treatments' },
     icon: '💎',
@@ -329,7 +329,7 @@ export const services: Servicio[] = [
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop&crop=center',
     benefits: ['Doble estimulación', 'Resultados intensivos', 'Rejuvenecimiento profundo', 'Duración extendida'],
     duration: '75 minutos',
-    href: '/services/doble-sculptra'
+    href: '/services/mega-collagen-stimulation-sculptra'
   },
   {
     id: 'brazilian-butt-lift',
