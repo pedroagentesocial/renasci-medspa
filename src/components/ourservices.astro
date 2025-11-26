@@ -23,21 +23,20 @@ import ServicesShowcase from './ServicesShowcase.astro';
       />
 
       <ServicesShowcase 
-        title="Skin & Laser" 
-        subtitle="Microneedling y renovación de la piel"
-        imageSrc="/img/services/Piel-laser-general.jpg" 
-        imageAlt="Tratamientos de piel y láser"
+        title="Piel & PRP" 
+        subtitle="PRP y renovación de la piel"
+        imageSrc="/img/services/PRP-face.jpg" 
+        imageAlt="Tratamientos de piel con PRP"
         items={[
-          { label: 'Microneedling Face + Neck', href: '/services/microneedling-face-neck', icon: 'laser' },
-          { label: 'Microneedling Face + Neck + Décolleté', href: '/services/microneedling-face-neck-decollete', icon: 'laser' },
-          { label: 'Microneedling Stretch Marks', href: '/services/microneedling-stretch-marks', icon: 'laser' }
+          { label: 'PRP — Face + Neck', href: '/services/prp-face-neck', icon: 'dropper' },
+          { label: 'PRP — Face + Neck + Décolleté', href: '/services/prp-face-neck-decollete', icon: 'dropper' },
+          { label: 'PRP — Stretch Marks', href: '/services/prp-stretch-marks', icon: 'dropper' }
         ]}
         reverse={true}
         iconBgClass="bg-call"
         contentBgClass="bg-white"
         contentTextClass="text-black"
-        titleKey="services.skin_title"
-        subtitleKey="services.skin_subtitle"
+        
       />
 
       <ServicesShowcase 
