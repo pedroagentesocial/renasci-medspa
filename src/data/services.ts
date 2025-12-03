@@ -244,15 +244,6 @@ export const services: Servicio[] = [
     precio: '$375'
   },
   {
-    id: 'aumento-completo-labios',
-    title: { es: 'Aumento Completo de Labios', en: 'Complete Lip Enhancement' },
-    description: { es: 'Volumen completo y definición perfecta para labios espectaculares', en: 'Complete volume and perfect definition for spectacular lips' },
-    category: 'rellenos',
-    icon: '💋',
-    href: '/services/aumento-completo-labios',
-    precio: '$650'
-  },
-  {
     id: 'mega-aumento-labios',
     title: { es: 'Mega Aumento de Labios', en: 'Mega Lip Enhancement' },
     description: { es: 'Máximo volumen y definición dramática para labios impactantes', en: 'Maximum volume and dramatic definition for impactful lips' },

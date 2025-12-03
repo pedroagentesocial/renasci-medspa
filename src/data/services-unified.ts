@@ -434,21 +434,6 @@ export const serviciosUnificados: ServicioUnificado[] = [
     href: '/services/mini-aumento-labios'
   },
   {
-    id: 'aumento-completo-labios',
-    slug: 'aumento-completo-labios',
-    title: { es: 'Aumento Completo de Labios', en: 'Complete Lip Enhancement' },
-    description: { es: 'Aumento completo de labios con ácido hialurónico para mayor volumen y definición.', en: 'Complete lip enhancement with hyaluronic acid for greater volume and definition.' },
-    excerpt: { es: 'Volumen y definición completa de labios.', en: 'Complete lip volume and definition.' },
-    category: 'injections',
-    categoryName: serviceCategories.injections,
-    icon: '💋',
-    precio: '$650',
-    image: 'https://images.unsplash.com/photo-1616391182219-e080b4d1043a?w=400&h=300&fit=crop&crop=face',
-    benefits: ['Volumen completo', 'Definición mejorada', 'Labios balanceados', 'Resultados duraderos'],
-    duracion: '45 minutos',
-    href: '/services/aumento-completo-labios'
-  },
-  {
     id: 'mega-aumento-labios',
     slug: 'mega-aumento-labios',
     title: { es: 'Mega Aumento de Labios', en: 'Mega Lip Enhancement' },

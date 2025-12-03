@@ -16,6 +16,12 @@ export interface Props {
   badgeColor?: string;
   badgeImportance?: 'primary' | 'secondary';
   ctaClass?: string;
+  titleEn?: string;
+  descriptionEn?: string;
+  periodEn?: string;
+  ctaTextEn?: string;
+  badgeTextEn?: string;
+  featuresEn?: string[];
 }
 
 const { 
@@ -37,13 +43,29 @@ const effectiveBadgeImportance = Astro.props.badgeImportance ?? (highlight ? 'pr
 const effectiveBadgeColor = Astro.props.badgeColor;
 ---
 
-<div class={`tier-card ${highlight ? 'tier-card-highlight' : (variant === 'dark' ? 'bg-black tier-card-dark' : 'bg-white')} rounded-2xl shadow-card p-8 flex flex-col h-full ${className}`} style={`--hover-border: ${Astro.props.hoverBorderColor || ''}`}> 
+<div 
+  class={`tier-card ${highlight ? 'tier-card-highlight' : (variant === 'dark' ? 'bg-black tier-card-dark' : 'bg-white')} rounded-2xl p-8 flex flex-col h-full ${className}`} 
+  style={`--hover-border: ${Astro.props.hoverBorderColor || ''}`}
+  data-title-es={title}
+  data-title-en={Astro.props.titleEn || title}
+  data-desc-es={description}
+  data-desc-en={Astro.props.descriptionEn || description}
+  data-period-es={period}
+  data-period-en={Astro.props.periodEn || period}
+  data-cta-es={ctaText}
+  data-cta-en={Astro.props.ctaTextEn || ctaText}
+  data-badge-es={effectiveBadgeText || ''}
+  data-badge-en={Astro.props.badgeTextEn || effectiveBadgeText || ''}
+  data-features-es={JSON.stringify(features)}
+  data-features-en={JSON.stringify(Astro.props.featuresEn || features)}
+> 
   <!-- Badge destacado -->
   {effectiveBadgeText && (
     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
       <span 
-        class={`${effectiveBadgeImportance === 'primary' ? 'px-7 py-2.5 text-sm font-bold shadow-xl ring-2 ring-white/50' : 'px-5 py-2 text-sm font-semibold shadow-lg ring-1 ring-white/30'} rounded-full text-white ${effectiveBadgeColor ? '' : 'bg-primary'}`}
+        class={`${effectiveBadgeImportance === 'primary' ? 'px-7 py-2.5 text-sm font-bold ring-2 ring-white/50' : 'px-5 py-2 text-sm font-semibold ring-1 ring-white/30'} rounded-full text-white ${effectiveBadgeColor ? '' : 'bg-primary'}`}
         style={effectiveBadgeColor ? `background-color:${effectiveBadgeColor}` : ''}
+        data-badge-el
       >
         {effectiveBadgeText}
       </span>
@@ -54,10 +76,10 @@ const effectiveBadgeColor = Astro.props.badgeColor;
   <div class="p-8 h-full flex flex-col">
     <!-- Header -->
     <div class="text-center mb-8">
-      <h3 class={`font-display font-bold text-2xl text-dark mb-2 ${Astro.props.titleClass || ''}`}>
+      <h3 class={`font-display font-bold text-2xl text-dark mb-2 ${Astro.props.titleClass || ''}`} data-title-el>
         {title}
       </h3>
-      <p class="text-graytxt text-sm mb-6">
+      <p class="text-graytxt text-sm mb-6" data-desc-el>
         {description}
       </p>
       
@@ -67,7 +89,7 @@ const effectiveBadgeColor = Astro.props.badgeColor;
           <span class="text-4xl font-bold text-dark">
             {price}
           </span>
-          <span class="text-graytxt text-lg ml-2">
+          <span class="text-graytxt text-lg ml-2" data-period-el>
             /{period}
           </span>
         </div>
@@ -76,7 +98,7 @@ const effectiveBadgeColor = Astro.props.badgeColor;
     
     <!-- Features -->
     <div class="flex-1 mb-8">
-      <ul class="space-y-4">
+      <ul class="space-y-4" data-features-el>
         {features.map((feature) => (
           <li class="flex items-start">
             <svg class="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -98,11 +120,12 @@ const effectiveBadgeColor = Astro.props.badgeColor;
           ctaClass
             ? ctaClass
             : (highlight 
-                ? 'bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl' 
+                ? 'bg-primary text-white hover:bg-primary/90' 
                 : (variant === 'dark' 
                     ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20 focus-visible:ring-white focus-visible:ring-offset-black' 
                     : 'bg-soft text-dark hover:bg-primary hover:text-white border-2 border-transparent hover:border-primary focus-visible:ring-primary focus-visible:ring-offset-white'))
         }`}
+        data-cta-el
       >
         {ctaText}
       </a>
@@ -110,9 +133,51 @@ const effectiveBadgeColor = Astro.props.badgeColor;
   </div>
 </div>
 
+<script>
+  function applyTierCardLang(el, lang){
+    try {
+      const t = el.getAttribute(lang === 'en' ? 'data-title-en' : 'data-title-es') || ''
+      const d = el.getAttribute(lang === 'en' ? 'data-desc-en' : 'data-desc-es') || ''
+      const p = el.getAttribute(lang === 'en' ? 'data-period-en' : 'data-period-es') || ''
+      const cta = el.getAttribute(lang === 'en' ? 'data-cta-en' : 'data-cta-es') || ''
+      const badge = el.getAttribute(lang === 'en' ? 'data-badge-en' : 'data-badge-es') || ''
+      const featsRaw = el.getAttribute(lang === 'en' ? 'data-features-en' : 'data-features-es') || '[]'
+      const feats = JSON.parse(featsRaw)
+      const titleEl = el.querySelector('[data-title-el]')
+      const descEl = el.querySelector('[data-desc-el]')
+      const periodEl = el.querySelector('[data-period-el]')
+      const ctaEl = el.querySelector('[data-cta-el]')
+      const badgeEl = el.querySelector('[data-badge-el]')
+      const featsEl = el.querySelector('[data-features-el]')
+      if (titleEl) titleEl.textContent = t
+      if (descEl) descEl.textContent = d
+      if (periodEl) periodEl.textContent = `/${p}`
+      if (ctaEl) ctaEl.textContent = cta
+      if (badgeEl && badge) badgeEl.textContent = badge
+      if (featsEl && Array.isArray(feats)){
+        featsEl.innerHTML = feats.map((f) => (
+          `<li class="flex items-start"><svg class="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg><span class="text-dark text-sm leading-relaxed">${f}</span></li>`
+        )).join('')
+      }
+    } catch {}
+  }
+  function initTierCards(){
+    const params = new URLSearchParams(window.location.search)
+    const urlLang = params.get('lang')
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language')
+    const lang = urlLang === 'en' || urlLang === 'es' ? urlLang : (storedLang === 'en' ? 'en' : (window.i18nManager?.getCurrentLanguage?.() || document.documentElement.lang || 'es'))
+    document.querySelectorAll('.tier-card').forEach((el) => applyTierCardLang(el, lang))
+  }
+  document.addEventListener('DOMContentLoaded', initTierCards)
+  window.addEventListener('languageChanged', (e) => {
+    const lang = e.detail?.language || 'es'
+    document.querySelectorAll('.tier-card').forEach((el) => applyTierCardLang(el, lang))
+  })
+</script>
+
 <style>
   .tier-card {
-    @apply relative rounded-xl shadow-sm transition-all duration-300 hover:shadow-card;
+    @apply relative rounded-xl transition-all duration-300;
   }
   
   .tier-card:hover {
@@ -120,7 +185,6 @@ const effectiveBadgeColor = Astro.props.badgeColor;
   }
 
   .tier-card-highlight {
-    @apply shadow-lg;
     background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
     color: white;
   }
@@ -139,12 +203,9 @@ const effectiveBadgeColor = Astro.props.badgeColor;
   }
   
   .tier-card-highlight:hover {
-    @apply shadow-xl;
-    box-shadow: 0 0 40px rgba(233, 69, 148, 0.25);
   }
   
   .tier-card:not(.tier-card-highlight):hover {
-    @apply shadow-card;
   }
 
   /* Glow effect for highlighted card */

@@ -42,17 +42,15 @@ const serviciosRelacionados = serviciosUnificados
             <div class="space-y-4">
               <div class="inline-flex items-center px-4 py-2 bg-pink-100 rounded-full text-pink-800 text-sm font-medium">
                 <span class="w-2 h-2 bg-pink-500 rounded-full mr-2"></span>
-                Contorno Facial
+                <span data-i18n="cheekpop.category">Contorno Facial</span>
               </div>
               <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 <span class="bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">
-                  Elevación de Pómulos
+                  <span data-i18n="cheekpop.hero_title">Elevación de Pómulos (Cheekbone Pop)</span>
                 </span>
-                <br />
-                <span class="text-gray-700">(Cheekbone Pop)</span>
               </h1>
               <p class="text-xl text-gray-600 leading-relaxed">
-                {servicio.description.es}
+                <span data-i18n="cheekpop.hero_subtitle">Eleva y define los pómulos para un efecto lifting natural y juvenil.</span>
               </p>
             </div>
             
@@ -61,29 +59,31 @@ const serviciosRelacionados = serviciosUnificados
                 <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
-                <span>{servicio.duracion}</span>
+                <span>45 minutos</span>
               </div>
               <div class="flex items-center space-x-2 text-gray-600">
                 <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                 </svg>
-                <span class="text-2xl font-bold text-pink-600">{servicio.precio}</span>
+                <span class="text-2xl font-bold text-pink-600">$850</span>
               </div>
             </div>
             
             <div class="flex flex-col sm:flex-row gap-4">
               <CTAButton 
-                text="Agendar Consulta" 
                 href="/contact" 
                 variant="primary"
                 class="transform hover:scale-105 transition-all duration-300"
-              />
+              >
+                <span data-i18n="cheekpop.cta.book">Agendar Consulta</span>
+              </CTAButton>
               <CTAButton 
-                text="Más Información" 
                 href="/contact" 
-                variant="secondary"
+                variant="ghost"
                 class="transform hover:scale-105 transition-all duration-300"
-              />
+              >
+                <span data-i18n="cheekpop.cta.more">Más Información</span>
+              </CTAButton>
             </div>
           </div>
           
@@ -107,24 +107,20 @@ const serviciosRelacionados = serviciosUnificados
     <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Beneficios del <span class="text-pink-600">Cheekbone Pop</span>
-          </h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Descubre cómo este tratamiento puede transformar tu rostro
-          </p>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4"><span data-i18n="cheekpop.benefits.title">Beneficios del Tratamiento</span></h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto"><span data-i18n="cheekpop.benefits.subtitle">Descubre cómo este tratamiento puede transformar tu rostro</span></p>
         </div>
         
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {servicio.benefits.map((benefit, index) => (
+          {[0,1,2,3].map((index) => (
             <div class="group relative">
               <div class="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-300"></div>
               <div class="relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl flex items-center justify-center mb-4">
                   <span class="text-white font-bold text-lg">{index + 1}</span>
                 </div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">{benefit}</h3>
-                <p class="text-gray-600">Resultados visibles y duraderos</p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2"><span data-i18n={`cheekpop.benefits.items.${index}.title`}>Beneficio</span></h3>
+                <p class="text-gray-600"><span data-i18n={`cheekpop.benefits.items.${index}.text`}>Texto</span></p>
               </div>
             </div>
           ))}
@@ -152,12 +148,8 @@ const serviciosRelacionados = serviciosUnificados
           
           <div class="order-1 lg:order-2 space-y-8">
             <div>
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                Nuestro <span class="text-pink-600">Proceso</span>
-              </h2>
-              <p class="text-lg text-gray-600 mb-8">
-                Un enfoque personalizado para realzar la belleza natural de tus pómulos
-              </p>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6"><span data-i18n="cheekpop.process.title">Proceso del Tratamiento</span></h2>
+              <p class="text-lg text-gray-600 mb-8"><span data-i18n="cheekpop.process.subtitle">Consulta personalizada y aplicación precisa</span></p>
             </div>
             
             <div class="space-y-6">
@@ -166,8 +158,8 @@ const serviciosRelacionados = serviciosUnificados
                   <span class="text-white text-sm font-bold">1</span>
                 </div>
                 <div>
-                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Consulta Personalizada</h3>
-                  <p class="text-gray-600">Evaluamos la estructura facial y diseñamos el tratamiento ideal</p>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2"><span data-i18n="cheekpop.process.steps.0.title">Consulta Personalizada</span></h3>
+                  <p class="text-gray-600"><span data-i18n="cheekpop.process.steps.0.text">Evaluamos la estructura facial y definimos el plan ideal.</span></p>
                 </div>
               </div>
               
@@ -176,8 +168,8 @@ const serviciosRelacionados = serviciosUnificados
                   <span class="text-white text-sm font-bold">2</span>
                 </div>
                 <div>
-                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Aplicación Precisa</h3>
-                  <p class="text-gray-600">Técnica especializada para elevar y definir los pómulos</p>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2"><span data-i18n="cheekpop.process.steps.1.title">Aplicación Precisa</span></h3>
+                  <p class="text-gray-600"><span data-i18n="cheekpop.process.steps.1.text">Técnica especializada para elevar y definir los pómulos.</span></p>
                 </div>
               </div>
               
@@ -186,8 +178,8 @@ const serviciosRelacionados = serviciosUnificados
                   <span class="text-white text-sm font-bold">3</span>
                 </div>
                 <div>
-                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Resultados Inmediatos</h3>
-                  <p class="text-gray-600">Disfruta de pómulos más definidos al instante</p>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2"><span data-i18n="cheekpop.process.steps.2.title">Resultados Inmediatos</span></h3>
+                  <p class="text-gray-600"><span data-i18n="cheekpop.process.steps.2.text">Pómulos más definidos al instante con ajuste natural.</span></p>
                 </div>
               </div>
             </div>
@@ -200,25 +192,24 @@ const serviciosRelacionados = serviciosUnificados
     <section class="py-20 bg-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Preguntas <span class="text-pink-600">Frecuentes</span>
-          </h2>
-        </div>
-        
-        <div class="space-y-8">
-          <div class="bg-gray-50 rounded-2xl p-8 hover:bg-pink-50 transition-colors duration-300">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">¿Cuánto duran los resultados?</h3>
-            <p class="text-gray-600">Los resultados del Cheekbone Pop pueden durar entre 12-18 meses, dependiendo del tipo de producto utilizado y las características individuales.</p>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4"><span data-i18n="cheekpop.faq.title">Preguntas Frecuentes</span></h2>
           </div>
           
-          <div class="bg-gray-50 rounded-2xl p-8 hover:bg-pink-50 transition-colors duration-300">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">¿Es doloroso el procedimiento?</h3>
-            <p class="text-gray-600">El tratamiento es mínimamente invasivo. Utilizamos técnicas de anestesia local para garantizar tu comodidad durante todo el proceso.</p>
-          </div>
-          
-          <div class="bg-gray-50 rounded-2xl p-8 hover:bg-pink-50 transition-colors duration-300">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">¿Cuándo veré los resultados?</h3>
-            <p class="text-gray-600">Los resultados son visibles inmediatamente después del tratamiento, con la apariencia final estableciéndose en 1-2 semanas.</p>
+          <div class="space-y-8">
+            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-pink-50 transition-colors duration-300">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4"><span data-i18n="cheekpop.faq.items.0.q">¿Cuánto duran los resultados?</span></h3>
+            <p class="text-gray-600"><span data-i18n="cheekpop.faq.items.0.a">Usualmente 12–18 meses según producto y características individuales.</span></p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-pink-50 transition-colors duration-300">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4"><span data-i18n="cheekpop.faq.items.1.q">¿Es doloroso el procedimiento?</span></h3>
+            <p class="text-gray-600"><span data-i18n="cheekpop.faq.items.1.a">Mínimamente invasivo; usamos anestesia local para comodidad.</span></p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-pink-50 transition-colors duration-300">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4"><span data-i18n="cheekpop.faq.items.2.q">¿Cuándo veré los resultados?</span></h3>
+            <p class="text-gray-600"><span data-i18n="cheekpop.faq.items.2.a">Inmediatos; la apariencia final se estabiliza en 1–2 semanas.</span></p>
+            </div>
           </div>
         </div>
       </div>
@@ -229,12 +220,8 @@ const serviciosRelacionados = serviciosUnificados
       <section class="py-20 bg-gradient-to-r from-pink-50 to-rose-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Servicios <span class="text-pink-600">Relacionados</span>
-            </h2>
-            <p class="text-xl text-gray-600">
-              Descubre otros tratamientos que podrían interesarte
-            </p>
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4"><span data-i18n="cheekpop.related.title">Servicios Relacionados</span></h2>
+            <p class="text-xl text-gray-600"><span data-i18n="cheekpop.related.subtitle">Descubre otros tratamientos que podrían interesarte</span></p>
           </div>
           
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -253,18 +240,15 @@ const serviciosRelacionados = serviciosUnificados
       <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-48 translate-y-48"></div>
       
       <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
-          ¿Lista para Realzar tus Pómulos?
-        </h2>
-        <p class="text-xl text-pink-100 mb-8 max-w-2xl mx-auto">
-          Agenda tu consulta personalizada y descubre cómo el Cheekbone Pop puede transformar tu rostro
-        </p>
+        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6"><span data-i18n="cheekpop.cta.heading">¿Lista para Realzar tus Pómulos?</span></h2>
+        <p class="text-xl text-pink-100 mb-8 max-w-2xl mx-auto"><span data-i18n="cheekpop.cta.subheading">Agenda tu consulta personalizada y descubre cómo Cheekbone Pop puede transformar tu rostro</span></p>
         <CTAButton 
-          text="Agendar Consulta Ahora" 
           href="/contact" 
           variant="secondary"
           class="bg-white text-pink-600 hover:bg-pink-50 transform hover:scale-105 transition-all duration-300"
-        />
+        >
+          <span data-i18n="cheekpop.cta.book">Agendar Consulta</span>
+        </CTAButton>
       </div>
     </section>
   </main>

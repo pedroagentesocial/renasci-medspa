@@ -12,22 +12,22 @@ import TransformCTA from '../../components/TransformCTA.astro';
   <!-- Hero del Servicio -->
   <section class="pt-24 pb-16 md:pt-32 bg-black text-white text-center">
     <div class="px-6 max-w-4xl mx-auto mt-0 md:mt-4">
-      <div class="inline-block bg-gradient-to-r from-primary/30 to-pink-500/30 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-white/30 animate-fade-in-up">
-        Neurotoxin & Dermal Filler Injections
+      <div class="inline-block bg-[#F3A2A7]/30 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-white/30 animate-fade-in-up">
+        <span data-i18n="services.injectables_title">Neurotoxin & Dermal Filler Injections</span>
       </div>
 
       <h1 class="font-display font-bold text-4xl md:text-5xl text-white mb-4 animate-fade-in-up" style="animation-delay: 0.2s;">
-        Neurotoxin Injections
+        <span data-i18n="neurotoxins.hero_title">Neurotoxin Injections</span>
       </h1>
 
       <p class="text-lg md:text-xl text-white/80 mb-6 leading-relaxed max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
-        Tratamiento con neurotoxina para suavizar arrugas dinámicas y prevenir nuevas líneas de expresión, manteniendo resultados naturales y armoniosos.
+        <span data-i18n="neurotoxins.hero_subtitle">Tratamiento con neurotoxina para suavizar arrugas dinámicas y prevenir nuevas líneas de expresión, manteniendo resultados naturales y armoniosos.</span>
       </p>
 
       <div class="bg-white/10 rounded-2xl p-6 mb-6 inline-block border border-white/20 animate-scale-in" style="animation-delay: 0.6s;">
-        <div class="text-sm text-white/80 mb-1">Precio desde</div>
-        <div class="font-display font-bold text-2xl md:text-3xl bg-gradient-to-r from-primary to-pink-400 bg-clip-text text-transparent">$12 / unidad</div>
-        <div class="text-sm text-white/80 mt-1">Duración: 30 min</div>
+        <div class="text-sm text-white/80 mb-1"><span data-i18n="neurotoxins.price_from_label">Precio desde</span></div>
+        <div class="font-display font-bold text-2xl md:text-3xl text-[#F3A2A7]"><span data-i18n="neurotoxins.price_value">$12 / unidad</span></div>
+        <div class="text-sm text-white/80 mt-1"><span data-i18n="neurotoxins.duration_label">Duración: 30 min</span></div>
       </div>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style="animation-delay: 0.8s;">
@@ -35,7 +35,7 @@ import TransformCTA from '../../components/TransformCTA.astro';
           href="#detalles"
           class="inline-flex items-center gap-2 px-8 py-4 bg-[#F3A2A7] text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:opacity-90 hover:-translate-y-[2px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 animate-pulse-gentle"
           >
-          Ver Detalles
+          <span data-i18n="cta.view_details">Ver Detalles</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>
@@ -43,7 +43,7 @@ import TransformCTA from '../../components/TransformCTA.astro';
 
         <a 
           href="tel:+13855550123"
-          class="call-hero-button inline-flex items-center gap-3 px-8 py-4 bg-[#10B981] text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:opacity-90 hover:-translate-y-[2px] focus:outline-none focus-visible:ring-2 focus-visible:ring-call/50 animate-bounce-subtle"
+          class="call-hero-button inline-flex items-center gap-3 px-8 py-4 bg-[#AABFA8] text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:opacity-90 hover:-translate-y-[2px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#AABFA8]/50 animate-bounce-subtle"
           aria-label="Llamar Renasci"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,11 +59,11 @@ import TransformCTA from '../../components/TransformCTA.astro';
   <nav class="bg-background py-6">
     <div class="container mx-auto px-6">
       <ol class="flex items-center space-x-2 text-sm text-gray-600">
-        <li><a href="/" class="hover:text-primary transition-colors">Inicio</a></li>
+        <li><a href="/" class="hover:text-primary transition-colors"><span data-i18n="nav.home">Inicio</span></a></li>
         <li class="text-gray-400">/</li>
-        <li><a href="/services" class="hover:text-primary transition-colors">Servicios</a></li>
+        <li><a href="/services" class="hover:text-primary transition-colors"><span data-i18n="nav.services">Servicios</span></a></li>
         <li class="text-gray-400">/</li>
-        <li class="text-gray-900 font-medium">Neurotoxin Injections</li>
+        <li class="text-gray-900 font-medium"><span data-i18n="neurotoxins.breadcrumb_label">Neurotoxin Injections</span></li>
       </ol>
     </div>
   </nav>
@@ -87,17 +87,17 @@ import TransformCTA from '../../components/TransformCTA.astro';
         <div class="animate-slide-in-right min-h-[420px] lg:min-h-[520px] flex">
           <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl p-8 lg:p-10 h-full flex-1">
             <h2 class="font-display font-bold text-3xl lg:text-4xl bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-6">
-              Neurotoxin Injections
+              <span data-i18n="neurotoxins.details.title">Neurotoxin Injections</span>
             </h2>
             <div class="prose prose-lg text-gray-700 leading-relaxed">
               <p class="mb-4">
-                Las <strong>Neurotoxin Injections</strong> son un tratamiento efectivo para suavizar arrugas dinámicas y prevenir nuevas líneas de expresión. Actúan relajando temporalmente los músculos responsables de las arrugas.
+                <span data-i18n="neurotoxins.details.p1">Las <strong>Neurotoxin Injections</strong> son un tratamiento efectivo para suavizar arrugas dinámicas y prevenir nuevas líneas de expresión. Actúan relajando temporalmente los músculos responsables de las arrugas.</span>
               </p>
               <p class="mb-4">
-                Nuestros especialistas aplican dosis precisas en áreas como frente, entrecejo y patas de gallo, logrando resultados naturales sin perder tu expresividad.
+                <span data-i18n="neurotoxins.details.p2">Nuestros especialistas aplican dosis precisas en áreas como frente, entrecejo y patas de gallo, logrando resultados naturales sin perder tu expresividad.</span>
               </p>
               <p>
-                Es un procedimiento seguro y rápido, ideal para quienes buscan rejuvenecimiento facial no invasivo y resultados consistentes.
+                <span data-i18n="neurotoxins.details.p3">Es un procedimiento seguro y rápido, ideal para quienes buscan rejuvenecimiento facial no invasivo y resultados consistentes.</span>
               </p>
             </div>
           </div>
@@ -120,18 +120,9 @@ import TransformCTA from '../../components/TransformCTA.astro';
           </span>
           <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
         </div>
-        <div class="flex items-center justify-center mb-6">
-          <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-          <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-          </span>
-          <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-        </div>
-        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4">Beneficios del Tratamiento</h2>
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4"><span data-i18n="neurotoxins.benefits.title">Beneficios del Tratamiento</span></h2>
         <p class="text-lg text-gray-700 max-w-2xl mx-auto">
-          Ventajas clave de las Inyecciones de Neurotoxina
+          <span data-i18n="neurotoxins.benefits.subtitle">Ventajas clave de las Inyecciones de Neurotoxina</span>
         </p>
       </div>
 
@@ -142,8 +133,8 @@ import TransformCTA from '../../components/TransformCTA.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
             </svg>
           </div>
-          <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Reduce Arrugas Dinámicas</h3>
-          <p class="text-gray-700 leading-relaxed">Suaviza líneas de expresión causadas por movimientos repetitivos para un aspecto más joven.</p>
+          <h3 class="font-display font-bold text-xl text-gray-900 mb-3"><span data-i18n="neurotoxins.benefits.item1.title">Reduce Arrugas Dinámicas</span></h3>
+          <p class="text-gray-700 leading-relaxed"><span data-i18n="neurotoxins.benefits.item1.text">Suaviza líneas de expresión causadas por movimientos repetitivos para un aspecto más joven.</span></p>
         </div>
 
         <div class="group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 animate-fade-in-up border-2 border-primary bg-transparent text-white hover:ring-2 hover:ring-primary/60" style="animation-delay: 0.2s;">
@@ -152,8 +143,8 @@ import TransformCTA from '../../components/TransformCTA.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
             </svg>
           </div>
-          <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Previene Nuevas Líneas</h3>
-          <p class="text-gray-700 leading-relaxed">Prevención efectiva para mantener la piel suave por más tiempo.</p>
+          <h3 class="font-display font-bold text-xl text-gray-900 mb-3"><span data-i18n="neurotoxins.benefits.item2.title">Previene Nuevas Líneas</span></h3>
+          <p class="text-gray-700 leading-relaxed"><span data-i18n="neurotoxins.benefits.item2.text">Prevención efectiva para mantener la piel suave por más tiempo.</span></p>
         </div>
 
         <div class="group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 animate-fade-in-up border-2 border-[#F3A2A7] bg-transparent text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60" style="animation-delay: 0.3s;">
@@ -162,8 +153,8 @@ import TransformCTA from '../../components/TransformCTA.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
             </svg>
           </div>
-          <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Resultados Naturales</h3>
-          <p class="text-gray-700 leading-relaxed">Mantiene tu expresividad mientras suaviza líneas no deseadas.</p>
+          <h3 class="font-display font-bold text-xl text-gray-900 mb-3"><span data-i18n="neurotoxins.benefits.item3.title">Resultados Naturales</span></h3>
+          <p class="text-gray-700 leading-relaxed"><span data-i18n="neurotoxins.benefits.item3.text">Mantiene tu expresividad mientras suaviza líneas no deseadas.</span></p>
         </div>
       </div>
     </div>
@@ -183,9 +174,9 @@ import TransformCTA from '../../components/TransformCTA.astro';
           </span>
           <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
         </div>
-        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4">Proceso del Tratamiento</h2>
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4"><span data-i18n="neurotoxins.process.title">Proceso del Tratamiento</span></h2>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Un proceso simple y profesional para obtener los mejores resultados
+          <span data-i18n="neurotoxins.process.subtitle">Un proceso simple y profesional para obtener los mejores resultados</span>
         </p>
       </div>
 
@@ -197,10 +188,10 @@ import TransformCTA from '../../components/TransformCTA.astro';
               <div class="bg-gradient-to-br from-primary/10 to-pink-500/10 rounded-2xl p-6 border border-primary/20">
                 <div class="flex items-center mb-4">
                   <div class="w-10 h-10 bg-gradient-to-br from-primary to-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-4">1</div>
-                  <h3 class="font-display font-bold text-xl text-gray-900">Consulta Inicial</h3>
+                  <h3 class="font-display font-bold text-xl text-gray-900"><span data-i18n="neurotoxins.process.step1.title">Consulta Inicial</span></h3>
                 </div>
                 <p class="text-gray-600 leading-relaxed">
-                  Evaluación de áreas a tratar y objetivos estéticos. Se define el plan y la cantidad de producto.
+                  <span data-i18n="neurotoxins.process.step1.text">Evaluación de áreas a tratar y objetivos estéticos. Se define el plan y la cantidad de producto.</span>
                 </p>
               </div>
             </div>
@@ -214,10 +205,10 @@ import TransformCTA from '../../components/TransformCTA.astro';
               <div class="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-500/20">
                 <div class="flex items-center mb-4">
                   <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-4">2</div>
-                  <h3 class="font-display font-bold text-xl text-gray-900">Preparación del Área</h3>
+                  <h3 class="font-display font-bold text-xl text-gray-900"><span data-i18n="neurotoxins.process.step2.title">Preparación del Área</span></h3>
                 </div>
                 <p class="text-gray-600 leading-relaxed">
-                  Limpieza, desinfección y marcado preciso de puntos de inyección.
+                  <span data-i18n="neurotoxins.process.step2.text">Limpieza, desinfección y marcado preciso de puntos de inyección.</span>
                 </p>
               </div>
             </div>
@@ -231,10 +222,10 @@ import TransformCTA from '../../components/TransformCTA.astro';
               <div class="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-2xl p-6 border border-emerald-500/20">
                 <div class="flex items-center mb-4">
                   <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold mr-4">3</div>
-                  <h3 class="font-display font-bold text-xl text-gray-900">Aplicación de Neurotoxina</h3>
+                  <h3 class="font-display font-bold text-xl text-gray-900"><span data-i18n="neurotoxins.process.step3.title">Aplicación de Neurotoxina</span></h3>
                 </div>
                 <p class="text-gray-600 leading-relaxed">
-                  Inyección precisa y rápida en músculos objetivo. Procedimiento cómodo de ~30 minutos.
+                  <span data-i18n="neurotoxins.process.step3.text">Inyección precisa y rápida en músculos objetivo. Procedimiento cómodo de ~30 minutos.</span>
                 </p>
               </div>
             </div>
@@ -248,10 +239,10 @@ import TransformCTA from '../../components/TransformCTA.astro';
               <div class="bg-gradient-to-br from-rose-500/10 to-pink-500/10 rounded-2xl p-6 border border-rose-500/20">
                 <div class="flex items-center mb-4">
                   <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-4">4</div>
-                  <h3 class="font-display font-bold text-xl text-gray-900">Cuidados Post-Tratamiento</h3>
+                  <h3 class="font-display font-bold text-xl text-gray-900"><span data-i18n="neurotoxins.process.step4.title">Cuidados Post-Tratamiento</span></h3>
                 </div>
                 <p class="text-gray-600 leading-relaxed">
-                  Recomendaciones de cuidado y seguimiento. Resultados visibles en 3–5 días; máximo en 2 semanas.
+                  <span data-i18n="neurotoxins.process.step4.text">Recomendaciones de cuidado y seguimiento. Resultados visibles en 3–5 días; máximo en 2 semanas.</span>
                 </p>
               </div>
             </div>
@@ -264,16 +255,6 @@ import TransformCTA from '../../components/TransformCTA.astro';
     </div>
   </section>
 
-  <div class="flex items-center justify-center my-10">
-    <div class="flex-1 h-[2px] bg-primary"></div>
-    <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
-      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01" />
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    </span>
-    <div class="flex-1 h-[2px] bg-primary"></div>
-  </div>
 
   <!-- Preguntas Frecuentes -->
   <section class="py-16 lg:py-20 bg-white text-gray-900">
@@ -289,9 +270,9 @@ import TransformCTA from '../../components/TransformCTA.astro';
           </span>
           <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
         </div>
-        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4">Preguntas Frecuentes</h2>
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4"><span data-i18n="neurotoxins.faq.title">Preguntas Frecuentes</span></h2>
         <p class="text-lg text-gray-700 max-w-2xl mx-auto">
-          Resolvemos dudas comunes sobre Neurotoxin Injections
+          <span data-i18n="neurotoxins.faq.subtitle">Resolvemos dudas comunes sobre Neurotoxin Injections</span>
         </p>
       </div>
 
@@ -303,38 +284,37 @@ import TransformCTA from '../../components/TransformCTA.astro';
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            ¿Qué es la neurotoxina y cómo funciona?
+            <span data-i18n="neurotoxins.faq.q1">¿Qué es la neurotoxina y cómo funciona?</span>
           </h3>
           <p class="text-gray-700 leading-relaxed pl-11">
-            Bloquea temporalmente señales nerviosas en músculos específicos, suavizando las arrugas dinámicas de forma segura y controlada.
+            <span data-i18n="neurotoxins.faq.a1">Bloquea temporalmente señales nerviosas en músculos específicos, suavizando las arrugas dinámicas de forma segura y controlada.</span>
           </p>
         </div>
 
-        <div class="rounded-2xl p-6 border-2 border-primary bg-transparent text-white animate-fade-in-up hover:ring-2 hover:ring-primary/60" style="animation-delay: 0.2s;">
-          <h3 class="font-display font-bold text-lg text-white mb-3 flex items-center">
-            <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3 border-2 border-primary hover:bg-primary/15">
-              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="rounded-2xl p-6 border-2 border-[#F3A2A7] bg-transparent text-gray-900 animate-fade-in-up hover:ring-2 hover:ring-[#F3A2A7]/60" style="animation-delay: 0.2s;">
+          <h3 class="font-display font-bold text-lg text-gray-900 mb-3 flex items-center">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3 border-2 border-[#F3A2A7] hover:bg-[#F3A2A7]/15">
+              <svg class="w-4 h-4 text-[#F3A2A7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            ¿Cuánto duran los resultados?
+            <span data-i18n="neurotoxins.faq.q2">¿Cuánto duran los resultados?</span>
           </h3>
-          <p class="text-white/80 leading-relaxed pl-11">
-            Usualmente 3–4 meses, variando por área, dosis y metabolismo. Con constancia, la duración puede optimizarse.
+          <p class="text-gray-700 leading-relaxed pl-11">
+            <span data-i18n="neurotoxins.faq.a2">Usualmente 3–4 meses, variando por área, dosis y metabolismo. Con constancia, la duración puede optimizarse.</span>
           </p>
         </div>
 
-        <div class="rounded-2xl p-6 border-2 border-primary bg-transparent text-white animate-fade-in-up hover:ring-2 hover:ring-primary/60" style="animation-delay: 0.3s;">
-          <h3 class="font-display font-bold text-lg text-white mb-3 flex items-center">
-            <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3 border-2 border-primary hover:bg-primary/15">
-              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-              </svg>
+        <div class="rounded-2xl p-6 border-2 border-[#F3A2A7] bg-transparent text-gray-900 animate-fade-in-up hover:ring-2 hover:ring-[#F3A2A7]/60" style="animation-delay: 0.3s;">
+          <h3 class="font-display font-bold text-lg text-gray-900 mb-3 flex items-center">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3 border-2 border-[#F3A2A7] hover:bg-[#F3A2A7]/15">
+              <svg class="w-4 h-4 text-[#F3A2A7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
             </div>
-            ¿Es doloroso?
+            <span data-i18n="neurotoxins.faq.q3">¿Es doloroso?</span>
           </h3>
-          <p class="text-white/80 leading-relaxed pl-11">
-            Es bien tolerado; se siente como pequeños pinchazos con agujas finas y técnica precisa.
+          <p class="text-gray-700 leading-relaxed pl-11">
+            <span data-i18n="neurotoxins.faq.a3">Es bien tolerado; se siente como pequeños pinchazos con agujas finas y técnica precisa.</span>
           </p>
         </div>
       </div>
@@ -346,51 +326,51 @@ import TransformCTA from '../../components/TransformCTA.astro';
     <div class="container mx-auto px-6">
       <div class="text-center mb-12">
         <div class="flex items-center justify-center mb-6">
-          <div class="flex-1 h-[2px] bg-primary"></div>
-          <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
+          <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
+          <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
           </span>
-          <div class="flex-1 h-[2px] bg-primary"></div>
+          <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
         </div>
-        <h2 class="font-display font-bold text-3xl lg:text-4xl bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-4">
-          Lo Que Dicen Nuestros Pacientes
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4">
+          <span data-i18n="neurotoxins.testimonials.title">Lo Que Dicen Nuestros Pacientes</span>
         </h2>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Experiencias reales con resultados naturales y consistentes
+          <span data-i18n="neurotoxins.testimonials.subtitle">Experiencias reales con resultados naturales y consistentes</span>
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 border-2 border-primary bg-transparent text-gray-900 hover:ring-2 hover:ring-primary/60 animate-fade-in-up" style="animation-delay: 0.1s;">
+        <div class="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 border-2 border-[#F3A2A7] bg-transparent text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60 animate-fade-in-up" style="animation-delay: 0.1s;">
           <div class="flex items-center mb-4">
             <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Laura Martínez" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" />
             <div>
               <h4 class="font-semibold text-gray-900">Laura Martínez</h4>
             </div>
           </div>
-          <p class="text-gray-700 mb-4 italic">"Resultados naturales y el proceso muy profesional. Me encantó el trato."</p>
+          <p class="text-gray-700 mb-4 italic"><span data-i18n="neurotoxins.testimonials.q1">"Resultados naturales y el proceso muy profesional. Me encantó el trato."</span></p>
         </div>
 
-        <div class="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 border-2 border-primary bg-transparent text-gray-900 hover:ring-2 hover:ring-primary/60 animate-fade-in-up" style="animation-delay: 0.2s;">
+        <div class="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 border-2 border-[#F3A2A7] bg-transparent text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60 animate-fade-in-up" style="animation-delay: 0.2s;">
           <div class="flex items-center mb-4">
             <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mr-4 text-white font-semibold">AM</div>
             <div>
               <h4 class="font-semibold text-gray-900">Ana Morales</h4>
             </div>
           </div>
-          <p class="text-gray-700 mb-4 italic">“Me sentí cómoda y los resultados fueron justo lo que buscaba.”</p>
+          <p class="text-gray-700 mb-4 italic"><span data-i18n="neurotoxins.testimonials.q2">“Me sentí cómoda y los resultados fueron justo lo que buscaba.”</span></p>
         </div>
 
-        <div class="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 border-2 border-primary bg-transparent text-gray-900 hover:ring-2 hover:ring-primary/60 animate-fade-in-up" style="animation-delay: 0.3s;">
+        <div class="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 border-2 border-[#F3A2A7] bg-transparent text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60 animate-fade-in-up" style="animation-delay: 0.3s;">
           <div class="flex items-center mb-4">
             <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mr-4 text-white font-semibold">JP</div>
             <div>
               <h4 class="font-semibold text-gray-900">Javier Pérez</h4>
             </div>
           </div>
-          <p class="text-gray-700 mb-4 italic">“Atención excelente y resultados visibles desde la primera semana.”</p>
+          <p class="text-gray-700 mb-4 italic"><span data-i18n="neurotoxins.testimonials.q3">“Atención excelente y resultados visibles desde la primera semana.”</span></p>
         </div>
       </div>
     </div>

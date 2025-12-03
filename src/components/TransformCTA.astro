@@ -23,9 +23,18 @@ const {
 <!-- Contact CTA Section -->
 <section class="py-16 lg:py-24 bg-text text-white">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+    <div class="flex items-center justify-center mb-6">
+      <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
+      <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
+        </svg>
+      </span>
+      <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
+    </div>
     <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl mb-6">
-      {title.split(' ').slice(0, -1).join(' ')}
-      <span class="text-primary">{title.split(' ').slice(-1)[0]}</span>
+      <span class="text-[#F3A2A7]">{title}</span>
     </h2>
     <p class="text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
       {subtitle}
@@ -35,7 +44,7 @@ const {
       <CTAButton 
         href={primaryButtonHref}
         variant="primary"
-        className="inline-flex items-center gap-2 hover:gap-3 transition-all duration-200"
+        className="inline-flex items-center gap-2 hover:gap-3 transition-all duration-200 !bg-[#F3A2A7] focus-visible:ring-[#F3A2A7]/50"
       >
         {primaryButtonText}
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

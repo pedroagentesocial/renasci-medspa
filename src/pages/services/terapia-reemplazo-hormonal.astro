@@ -1,150 +1,55 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import CTAButton from '../../components/CTAButton.astro';
-import ServiceCard from '../../components/ServiceCard.astro';
-import { serviciosUnificados } from '../../data/services-unified';
-
-// Datos específicos del servicio
-const servicio = {
-  id: 'terapia-reemplazo-hormonal',
-  slug: 'terapia-reemplazo-hormonal',
-  title: { es: 'Terapia de Reemplazo Hormonal', en: 'Hormone Replacement Therapy' },
-  description: { es: 'Terapia regenerativa especializada para restaurar el equilibrio hormonal, mejorar la calidad de vida y optimizar el bienestar integral mediante tratamientos hormonales personalizados.', en: 'Specialized regenerative therapy to restore hormonal balance, improve quality of life and optimize integral well-being through personalized hormonal treatments.' },
-  excerpt: { es: 'Terapia regenerativa para equilibrio hormonal y bienestar integral.', en: 'Regenerative therapy for hormonal balance and integral well-being.' },
-  category: 'medicina-regenerativa',
-  precio: 'Por definir',
-  image: '/img/services/Hormone-her.jpg',
-  benefits: ['Equilibrio hormonal restaurado', 'Mejora en calidad de vida', 'Optimización del bienestar', 'Tratamiento personalizado'],
-  duracion: '45 minutos'
-};
-
-// Servicios relacionados
-const serviciosRelacionados = serviciosUnificados
-  .filter(s => s.category === 'medicina-regenerativa' && s.slug !== servicio.slug)
-  .slice(0, 3);
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import TransformCTA from '../../components/TransformCTA.astro'
 ---
 
 <BaseLayout 
-  title={`${servicio.title.es} - Renasci Medical Spa`}
-  description={`${servicio.excerpt.es} Precio: ${servicio.precio}. Agenda tu cita en Renasci Medical Spa y descubre los beneficios de este tratamiento.`}
+  title="Membresía BHRT — Ella - Renasci Medical Spa"
+  description="Soporte continuo para BHRT en mujeres: mensajes, visitas y ajustes de dosis bajo guía médica."
 >
-  <!-- Hero del Servicio -->
-  <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-    <!-- Background Image -->
-    <img 
-      src="/img/services/Hormone-her.jpg"
-      alt={`${servicio.title.es} treatment at medical spa`}
-      class="absolute inset-0 w-full h-full object-cover"
-      loading="eager"
-    />
-    
-    <!-- Gradient Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-br from-pink-900/40 via-purple-900/30 to-pink-800/40"></div>
-    
-    <!-- Floating Elements -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <!-- Animated circles -->
-      <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-pink-400/20 rounded-full blur-xl animate-pulse"></div>
-      <div class="absolute top-3/4 right-1/4 w-24 h-24 bg-purple-400/20 rounded-full blur-lg animate-bounce"></div>
-      <div class="absolute bottom-1/4 left-1/3 w-40 h-40 bg-pink-300/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
-    </div>
-    
-    <!-- Content -->
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Category Badge -->
-      <div class="inline-flex items-center px-4 py-2 rounded-full bg-pink-500/20 backdrop-blur-sm border border-pink-300/30 mb-6">
-        <span class="text-pink-200 text-sm font-medium uppercase tracking-wider">Medicina Regenerativa</span>
+  <section class="pt-24 pb-16 md:pt-32 bg-black text-white text-center">
+    <div class="px-6 max-w-4xl mx-auto mt-0 md:mt-4">
+      <div class="inline-block bg-[#F3A2A7]/30 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-[#F3A2A7]/30">Bioidentical Hormone Therapy (BHRT)</div>
+      <h1 class="font-display font-bold text-4xl md:text-5xl text-white mb-4">Membresía BHRT — Ella</h1>
+      <p class="text-lg md:text-xl text-white/80 mb-6 leading-relaxed max-w-3xl mx-auto">Acompañamiento continuo, mensajería y visitas para afinar la terapia hormonal de forma segura y efectiva.</p>
+      <div class="bg-white/10 rounded-2xl p-6 mb-6 inline-block border border-white/20">
+        <div class="text-sm text-white/80 mb-1">Membresía</div>
+        <div class="font-display font-bold text-2xl md:text-3xl text-[#F3A2A7]">$149/mes</div>
+        <div class="text-sm text-white/80 mt-1">Continuo</div>
       </div>
-      
-      <!-- Title -->
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-        <span class="bg-gradient-to-r from-pink-200 via-white to-pink-200 bg-clip-text text-transparent">
-          {servicio.title.es}
-        </span>
-      </h1>
-      
-      <!-- Description -->
-      <p class="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-        {servicio.description.es}
-      </p>
-      
-      <!-- Price Highlight -->
-      <div class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl shadow-2xl mb-8 transform hover:scale-105 transition-all duration-300">
-        <span class="text-2xl md:text-3xl font-bold text-white">{servicio.precio}</span>
-      </div>
-      
-      <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <CTAButton 
-          href="/contact" 
-          variant="primary"
-          class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-        >
-          Agenda tu Cita
-        </CTAButton>
-        <CTAButton 
-          href="/contact" 
-          variant="secondary"
-          class="bg-white/10 backdrop-blur-sm text-white border border-white/30 hover:bg-white/20 px-8 py-4 rounded-xl font-semibold text-lg transform hover:scale-105 transition-all duration-300"
-        >
-          Más Información
-        </CTAButton>
+        <a href="#details" class="inline-flex items-center gap-2 px-8 py-4 bg-[#F3A2A7] text-white rounded-2xl font-semibold text-lg transition-all duración-300 hover:opacity-90 hover:-translate-y-[2px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7]/50">Ver Detalles<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></a>
+        <a href="tel:+13855550123" class="inline-flex items-center gap-3 px-8 py-4 bg-[#AABFA8] text-white rounded-2xl font-semibold text-lg transition-all duración-300 hover:opacity-90 hover:-translate-y-[2px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#AABFA8]/50" aria-label="Llamar a Renasci"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>(385) 555-0123</a>
       </div>
-    </div>
-    
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-      </svg>
     </div>
   </section>
 
-  <!-- Detalles del Servicio -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <!-- Imagen -->
-        <div class="relative">
-          <div class="absolute -inset-4 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-3xl blur-xl"></div>
-          <img 
-            src={servicio.image}
-            alt={servicio.title.es}
-            class="relative w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-2xl"
-            loading="lazy"
-          />
+  <nav class="bg-background py-6">
+    <div class="container mx-auto px-6">
+      <ol class="flex items-center space-x-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-[#F3A2A7] transition-colors">Inicio</a></li>
+        <li class="text-gray-400">/</li>
+        <li><a href="/services" class="hover:text-[#F3A2A7] transition-colors">Servicios</a></li>
+        <li class="text-gray-400">/</li>
+        <li class="text-gray-900 font-medium">Membresía BHRT — Ella</li>
+      </ol>
+    </div>
+  </nav>
+  <div class="h-[2px] w-full bg-[#F3A2A7]"></div>
+
+  <section id="details" class="py-16 lg:py-24 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+        <div class="relative group bg-white rounded-3xl overflow-hidden h-full min-h-[420px] lg:min-h-[520px]">
+          <img src="/img/services/Hormone-her.jpg" alt="Membresía BHRT — Ella" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy" />
         </div>
-        
-        <!-- Contenido -->
-        <div class="space-y-8">
-          <div>
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
-              ¿Qué es la {servicio.title.es}?
-            </h2>
-            <div class="prose prose-lg text-gray-600 space-y-4">
-              <p>
-                La <strong>Terapia de Reemplazo Hormonal</strong> es un tratamiento de medicina regenerativa diseñado para restaurar los niveles hormonales óptimos cuando el cuerpo no produce suficientes hormonas naturalmente, especialmente durante la menopausia, andropausia o desequilibrios hormonales.
-              </p>
-              <p>
-                Este enfoque terapéutico utiliza hormonas bioidénticas o sintéticas para reemplazar las hormonas que el cuerpo ya no produce en cantidades adecuadas, ayudando a aliviar síntomas y mejorar significativamente la calidad de vida.
-              </p>
-              <p>
-                En Renasci Medical Spa, ofrecemos terapias hormonales personalizadas bajo supervisión médica especializada, utilizando los protocolos más avanzados para garantizar seguridad y eficacia en cada tratamiento.
-              </p>
-            </div>
-          </div>
-          
-          <!-- Precio destacado -->
-          <div class="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-8 border border-pink-100">
-            <div class="flex items-center justify-between">
-              <div>
-                <h3 class="text-xl font-bold text-gray-800 mb-2">Precio del Tratamiento</h3>
-                <p class="text-gray-600">Evaluación hormonal completa incluida</p>
-              </div>
-              <div class="text-right">
-                <div class="text-3xl font-bold text-pink-600">{servicio.precio}</div>
-                <p class="text-sm text-gray-500 mt-1">Seguimiento médico especializado</p>
-              </div>
+        <div class="min-h-[420px] lg:min-h-[520px] flex">
+          <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl p-8 lg:p-10 h-full flex-1">
+            <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-6">Membresía BHRT — Ella</h2>
+            <div class="prose prose-lg text-gray-700 leading-relaxed">
+              <p class="mb-4">Soporte continuo diseñado para la terapia hormonal femenina, con mensajería y visitas para ajustar el tratamiento.</p>
+              <p class="mb-4">Los ajustes de dosis y el monitoreo mantienen resultados seguros y efectivos conforme evolucionan las necesidades.</p>
+              <p>Acceso claro a tu equipo de atención cuando surjan preguntas.</p>
             </div>
           </div>
         </div>
@@ -152,135 +57,53 @@ const serviciosRelacionados = serviciosUnificados
     </div>
   </section>
 
-  <!-- Beneficios -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
-          Beneficios de la <span class="text-pink-600">Terapia Hormonal</span>
-        </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Descubre cómo el equilibrio hormonal puede transformar tu bienestar
-        </p>
+  <section class="py-16 lg:py-20 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <div class="flex items-center justify-center mb-6"><div class="flex-1 h-[2px] bg-[#F3A2A7]"></div><span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span><div class="flex-1 h-[2px] bg-[#F3A2A7]"></div></div>
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4">Beneficios</h2>
+        <p class="text-lg text-gray-700 max-w-2xl mx-auto">Por qué la membresía mejora la BHRT para ellas</p>
       </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {servicio.benefits.map((benefit, index) => (
-          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-            <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-4">{benefit}</h3>
-            <p class="text-gray-600">
-              {index === 0 && "Restauración de los niveles hormonales óptimos para el bienestar"}
-              {index === 1 && "Mejora significativa en energía, estado de ánimo y vitalidad"}
-              {index === 2 && "Optimización del sueño, libido y función cognitiva"}
-              {index === 3 && "Protocolo médico adaptado a tus necesidades específicas"}
-            </p>
-          </div>
-        ))}
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="group rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60"><h3 class="font-display font-bold text-xl text-gray-900 mb-3">Atención Personalizada</h3><p class="text-gray-700">Guía a medida según tus necesidades.</p></div>
+        <div class="group rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60"><h3 class="font-display font-bold text-xl text-gray-900 mb-3">Soporte de Síntomas</h3><p class="text-gray-700">Mensajería y visitas oportunas.</p></div>
+        <div class="group rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60"><h3 class="font-display font-bold text-xl text-gray-900 mb-3">Seguridad</h3><p class="text-gray-700">Ajustes monitorizados.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Proceso del Tratamiento -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
-          Proceso del <span class="text-pink-600">Tratamiento</span>
-        </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Un enfoque médico integral para el equilibrio hormonal óptimo
-        </p>
+  <section class="py-16 lg:py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <div class="flex items-center justify-center mb-6"><div class="flex-1 h-[2px] bg-[#F3A2A7]"></div><span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" /></svg></span><div class="flex-1 h-[2px] bg-[#F3A2A7]"></div></div>
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4">Proceso</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Mensajería, visitas, revisión y ajustes</p>
       </div>
-      
-      <div class="grid lg:grid-cols-3 gap-12">
-        <div class="text-center">
-          <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8">
-            <span class="text-3xl font-bold text-white">1</span>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-4">Evaluación Hormonal Completa</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Realizamos análisis hormonales exhaustivos, evaluación de síntomas y revisión del historial médico para determinar el perfil hormonal individual y las necesidades específicas.
-          </p>
-        </div>
-        
-        <div class="text-center">
-          <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8">
-            <span class="text-3xl font-bold text-white">2</span>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-4">Protocolo Personalizado</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Diseñamos un plan de tratamiento hormonal individualizado, seleccionando el tipo, dosis y método de administración más apropiado según tu perfil y objetivos de salud.
-          </p>
-        </div>
-        
-        <div class="text-center">
-          <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8">
-            <span class="text-3xl font-bold text-white">3</span>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-4">Monitoreo Especializado</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Seguimiento médico continuo con evaluaciones regulares, ajustes de dosis según respuesta clínica y monitoreo de efectos para optimizar resultados y seguridad.
-          </p>
+      <div class="relative">
+        <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#F3A2A7] via-pink-400 to-purple-500 rounded-full opacity-30 hidden lg:block"></div>
+        <div class="space-y-12">
+          <div class="flex flex-col lg:flex-row items-center gap-8"><div class="lg:w-1/2 lg:pr-8"><div class="rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white"><div class="flex items-center mb-4"><div class="w-10 h-10 bg-[#F3A2A7] rounded-full flex items-center justify-center text-white font-bold mr-4">1</div><h3 class="font-display font-bold text-xl text-gray-900">Mensajería</h3></div><p class="text-gray-600 leading-relaxed">Acceso para preguntas y actualizaciones.</p></div></div><div class="lg:w-1/2 lg:pl-8"><img src="/images/med-spa-room.jpg" alt="Mensajería" class="w-full h-64 object-cover rounded-2xl" loading="lazy" /></div></div>
+          <div class="flex flex-col lg:flex-row-reverse items-center gap-8"><div class="lg:w-1/2 lg:pl-8"><div class="rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white"><div class="flex items-center mb-4"><div class="w-10 h-10 bg-[#F3A2A7] rounded-full flex items-center justify-center text-white font-bold mr-4">2</div><h3 class="font-display font-bold text-xl text-gray-900">Visitas</h3></div><p class="text-gray-600 leading-relaxed">Revisiones periódicas de resultados.</p></div></div><div class="lg:w-1/2 lg:pr-8"><img src="/images/inyeccion-botox.jpg" alt="Visitas" class="w-full h-64 object-cover rounded-2xl" loading="lazy" /></div></div>
+          <div class="flex flex-col lg:flex-row items-center gap-8"><div class="lg:w-1/2 lg:pr-8"><div class="rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white"><div class="flex items-center mb-4"><div class="w-10 h-10 bg-[#F3A2A7] rounded-full flex items-center justify-center text-white font-bold mr-4">3</div><h3 class="font-display font-bold text-xl text-gray-900">Revisión</h3></div><p class="text-gray-600 leading-relaxed">Resultados y laboratorios guían cambios.</p></div></div><div class="lg:w-1/2 lg:pl-8"><img src="/images/inyeccion-botox.jpg" alt="Revisión" class="w-full h-64 object-cover rounded-2xl" loading="lazy" /></div></div>
+          <div class="flex flex-col lg:flex-row-reverse items-center gap-8"><div class="lg:w-1/2 lg:pl-8"><div class="rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white"><div class="flex items-center mb-4"><div class="w-10 h-10 bg-[#F3A2A7] rounded-full flex items-center justify-center text-white font-bold mr-4">4</div><h3 class="font-display font-bold text-xl text-gray-900">Ajustes</h3></div><p class="text-gray-600 leading-relaxed">Actualización de dosis y rutas según necesidad.</p></div></div><div class="lg:w-1/2 lg:pr-8"><img src="/images/med-spa-room.jpg" alt="Ajustes" class="w-full h-64 object-cover rounded-2xl" loading="lazy" /></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Servicios Relacionados -->
-  {serviciosRelacionados.length > 0 && (
-    <section class="py-20 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
-            Servicios <span class="text-pink-600">Relacionados</span>
-          </h2>
-          <p class="text-xl text-gray-600">
-            Descubre otros tratamientos que podrían interesarte
-          </p>
-        </div>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {serviciosRelacionados.map((servicio) => (
-            <ServiceCard servicio={servicio} />
-          ))}
-        </div>
+  <section class="py-16 lg:py-20 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4">Preguntas Frecuentes</h2>
+        <p class="text-lg text-gray-700 max-w-2xl mx-auto">Dudas comunes sobre la membresía BHRT para ella</p>
       </div>
-    </section>
-  )}
-
-  <!-- CTA Section -->
-  <section class="py-20 bg-gradient-to-r from-pink-600 to-rose-600 relative overflow-hidden">
-    <div class="absolute inset-0 bg-black/10"></div>
-    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full -translate-x-48 -translate-y-48"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-48 translate-y-48"></div>
-    
-    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
-        ¿Lista para Equilibrar tus Hormonas?
-      </h2>
-      <p class="text-xl text-pink-100 mb-8 max-w-2xl mx-auto">
-        Agenda tu evaluación hormonal especializada y descubre cómo la terapia de reemplazo hormonal puede transformar tu calidad de vida.
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <CTAButton 
-          text="Agenda tu Consulta" 
-          href="/contacto"
-          variant="secondary"
-          class="bg-white text-pink-600 hover:bg-pink-50 transform hover:scale-105 transition-all duration-300"
-        />
-        <CTAButton 
-          text="Llama Ahora" 
-          href="tel:+1234567890"
-          variant="outline"
-          class="border-white text-white hover:bg-white hover:text-pink-600 transform hover:scale-105 transition-all duration-300"
-        />
+      <div class="max-w-4xl mx-auto space-y-6">
+        <div class="rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60"><h3 class="font-display font-bold text-lg text-gray-900 mb-3">¿Qué incluye?</h3><p class="text-gray-700 leading-relaxed">Mensajería, visitas y ajustes.</p></div>
+        <div class="rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60"><h3 class="font-display font-bold text-lg text-gray-900 mb-3">¿Puedo cancelar en cualquier momento?</h3><p class="text-gray-700 leading-relaxed">Opciones de membresía flexibles.</p></div>
+        <div class="rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60"><h3 class="font-display font-bold text-lg text-gray-900 mb-3">¿Con qué frecuencia?</h3><p class="text-gray-700 leading-relaxed">Cadencia adaptada a tu plan.</p></div>
       </div>
     </div>
   </section>
+
+  <TransformCTA />
 </BaseLayout>

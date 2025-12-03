@@ -13,8 +13,8 @@ const carouselItems = [
     excerpt: { es: 'Define el borde del labio superior con microinyecciones.', en: 'Defines upper lip border with micro-injections.' }
   },
   { 
-    title: 'Relleno de Labios', 
-    href: '/services/relleno-labios',
+    title: 'Full Lip Augmentation', 
+    href: '/services/full-lip-augmentation',
     image: '/img/services/Lip-filler-image.jpg',
     excerpt: { es: 'Volumen, hidratación y contorno natural de labios.', en: 'Natural lip volume, hydration and contour.' }
   },
@@ -59,9 +59,9 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
         <div id="carouselInner" class="flex transition-transform duration-700 ease-in-out will-change-transform">
         {items.map((svc: any, si: number) => (
           <div class="shrink-0 px-1">
-            <div class="group bg-white rounded-xl overflow-hidden shadow-sm border-2 border-[#F3A2A7] hover:shadow-md transition-all duration-300 relative flex flex-col min-h-[300px] md:min-h-[360px] lg:min-h-[400px]">
+            <div class="group bg-white rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-[0_8px_24px_-8px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_40px_-12px_rgba(0,0,0,0.25)] hover:ring-black/10 hover:-translate-y-[2px] transition-all duration-300 relative flex flex-col min-h-[300px] md:min-h-[360px] lg:min-h-[400px]">
               <a href={svc.href ?? (svc.slug ? `/services/${svc.slug}` : '#')} class="absolute inset-0 z-0" aria-label={typeof svc.title === 'string' ? svc.title : (svc.title?.es ?? svc.title?.en ?? 'Servicio')}></a>
-              <div class="absolute top-2 right-2 z-10 inline-flex items-center gap-1 px-2 py-[3px] rounded-full bg-[#AABFA8] text-white text-[11px] font-semibold shadow-sm ring-1 ring-white/40">
+              <div class="absolute top-2 right-2 z-10 inline-flex items-center gap-1 px-2 py-[3px] rounded-full bg-[#AABFA8] text-white text-[11px] font-semibold ring-1 ring-white/40">
                 <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
                 <span data-i18n={si % 3 === 0 ? 'carousel.label_popular' : si % 3 === 1 ? 'carousel.label_recommended' : 'carousel.label_trending'}>Más popular</span>
               </div>

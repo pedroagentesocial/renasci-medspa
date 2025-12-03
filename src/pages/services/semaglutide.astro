@@ -25,34 +25,34 @@ const servicio = {
 >
   <section class="pt-24 pb-16 md:pt-32 bg-black text-white text-center">
     <div class="px-6 max-w-4xl mx-auto mt-0 md:mt-4">
-      <div class="inline-block bg-gradient-to-r from-primary/30 to-pink-500/30 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-white/30">Wellness & Weight Loss</div>
-      <h1 class="font-display font-bold text-4xl md:text-5xl text-white mb-4">{servicio.title.es}</h1>
-      <p class="text-lg md:text-xl text-white/80 mb-6 leading-relaxed max-w-3xl mx-auto">{servicio.description.es}</p>
+      <div class="inline-block bg-[#F3A2A7]/30 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-white/30"><span data-i18n="services.wellness_title">Wellness & Weight Loss</span></div>
+      <h1 class="font-display font-bold text-4xl md:text-5xl text-white mb-4" data-i18n="semaglutide.hero_title">Semaglutide</h1>
+      <p class="text-lg md:text-xl text-white/80 mb-6 leading-relaxed max-w-3xl mx-auto" data-i18n="semaglutide.hero_subtitle">Tratamiento médico supervisado para control de apetito y mejora metabólica.</p>
       <div class="inline-flex gap-4 mb-6 justify-center items-center">
         <div class="bg-white/10 rounded-2xl p-6 inline-block border border-white/20 text-center">
-          <div class="text-sm text-white/80 mb-1">Precio</div>
-          <div class="font-display font-bold text-2xl md:text-3xl bg-gradient-to-r from-primary to-pink-400 bg-clip-text text-transparent">{servicio.precio}</div>
-          <div class="text-sm text-white/80 mt-1">Duración: {servicio.duracion.replace(' minutos',' min')}</div>
+          <div class="text-sm text-white/80 mb-1" data-i18n="semaglutide.price_from_label">Precio</div>
+          <div class="font-display font-bold text-2xl md:text-3xl text-[#F3A2A7]" data-i18n="semaglutide.price_value">$500</div>
+          <div class="text-sm text-white/80 mt-1" data-i18n="semaglutide.duration_label">Duración: 30 min</div>
         </div>
         <div class="bg-white/10 rounded-2xl p-6 inline-block border-2 border-[#1DD1A1] hover:border-[#22E9AB] hover:ring-2 hover:ring-[#1DD1A1] hover:shadow-[0_0_32px_rgba(29,209,161,0.35)] transition-all duration-200">
           <div class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-[#1DD1A1]/20 text-white text-xs font-semibold mb-3 border border-[#1DD1A1]/40">
             <span class="w-2 h-2 rounded-full bg-[#1DD1A1]"></span>
-            Membership Benefit
+            <span data-i18n="semaglutide.membership_badge_label">Beneficio de Membresía</span>
           </div>
-          <div class="text-sm text-white/80 mb-1">Members</div>
-          <div class="font-display font-bold text-2xl md:text-3xl text-call">20% OFF</div>
-          <div class="text-sm text-white/80 mt-1">Now $400</div>
-          <div class="text-xs text-white/70 mt-2">Exclusive savings and follow-up</div>
+          <div class="text-sm text-white/80 mb-1" data-i18n="semaglutide.members_label">Miembros</div>
+          <div class="font-display font-bold text-2xl md:text-3xl text-call" data-i18n="semaglutide.membership_discount_value">20% OFF</div>
+          <div class="text-sm text-white/80 mt-1" data-i18n="semaglutide.membership_now_text">Ahora $400</div>
+          <div class="text-xs text-white/70 mt-2" data-i18n="semaglutide.membership_note_text">Ahorros exclusivos y seguimiento</div>
         </div>
       </div>
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="#details" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-pink-500 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:opacity-90 hover:-translate-y-[2px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">Ver Detalles<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></a>
-        <a href="tel:+13855550123" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-call to-emerald-500 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:opacity-90 hover:-translate-y-[2px] focus:outline-none focus-visible:ring-2 focus-visible:ring-call/50" aria-label="Llamar Renasci"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>(385) 555-0123</a>
+        <a href="#details" class="inline-flex items-center gap-2 px-8 py-4 bg-[#F3A2A7] text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:opacity-90 hover:-translate-y-[2px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7]/50"><span data-i18n="cta.view_details">Ver Detalles</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></a>
+        <a href="tel:+13855550123" class="inline-flex items-center gap-3 px-8 py-4 bg-[#AABFA8] text-white rounded-2xl font-semibold text-lg transition-all duración-300 hover:opacity-90 hover:-translate-y-[2px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#AABFA8]/50" aria-label="Llamar Renasci"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke_width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 0 0 5.516 5.516l1.13-2.257a1 1 0 0 1 1.21-.502l4.493 1.498a1 1 0 0 1 .684.949V19a2 2 0 0 1-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>(385) 555-0123</a>
       </div>
       <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-semibold mt-2 mx-auto w-fit whitespace-nowrap">
         <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
-        Included in Membership Plans
-        <a href="/membership" class="underline underline-offset-2 hover:text-white ml-2">See Memberships</a>
+        <span data-i18n="semaglutide.membership_included_label">Incluido en Planes de Membresía</span>
+        <a href="/membership" class="underline underline-offset-2 hover:text-white ml-2"><span data-i18n="semaglutide.membership_see_link">Ver Membresías</span></a>
       </div>
     </div>
   </section>
@@ -60,15 +60,15 @@ const servicio = {
   <nav class="bg-background py-6">
     <div class="container mx-auto px-6">
       <ol class="flex items-center space-x-2 text-sm text-gray-600">
-        <li><a href="/" class="hover:text-primary transition-colors">Inicio</a></li>
+        <li><a href="/" class="hover:text-[#F3A2A7] transition-colors"><span data-i18n="nav.home">Inicio</span></a></li>
         <li class="text-gray-400">/</li>
-        <li><a href="/services" class="hover:text-primary transition-colors">Servicios</a></li>
+        <li><a href="/services" class="hover:text-[#F3A2A7] transition-colors"><span data-i18n="nav.services">Servicios</span></a></li>
         <li class="text-gray-400">/</li>
-        <li class="text-gray-900 font-medium">{servicio.title.es}</li>
+        <li class="text-gray-900 font-medium"><span data-i18n="semaglutide.breadcrumb_label">Semaglutide</span></li>
       </ol>
     </div>
   </nav>
-  <div class="h-[2px] w-full bg-primary"></div>
+  <div class="h-[2px] w-full bg-[#F3A2A7]"></div>
 
   <section id="details" class="py-16 lg:py-24 bg-white">
     <div class="container mx-auto px-6">
@@ -78,11 +78,11 @@ const servicio = {
         </div>
         <div class="min-h-[420px] lg:min-h-[520px] flex">
           <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl p-8 lg:p-10 h-full flex-1">
-            <h2 class="font-display font-bold text-3xl lg:text-4xl bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-6">{servicio.title.es}</h2>
+            <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-6" data-i18n="semaglutide.details.title">Semaglutide</h2>
             <div class="prose prose-lg text-gray-700 leading-relaxed">
-              <p class="mb-4"><strong>Semaglutide</strong> es un tratamiento médico supervisado que apoya el control del apetito y la mejora metabólica.</p>
-              <p class="mb-4">Plan personalizado con seguimiento para resultados seguros y sostenibles.</p>
-              <p>Evaluación, dosificación y monitoreo integrados en tu programa.</p>
+              <p class="mb-4" data-i18n="semaglutide.details.p1"><strong>Semaglutide</strong> es un tratamiento médico supervisado que apoya el control del apetito y la mejora metabólica.</p>
+              <p class="mb-4" data-i18n="semaglutide.details.p2">Plan personalizado con seguimiento para resultados seguros y sostenibles.</p>
+              <p data-i18n="semaglutide.details.p3">Evaluación, dosificación y monitoreo integrados en tu programa.</p>
             </div>
           </div>
         </div>
@@ -90,17 +90,17 @@ const servicio = {
     </div>
   </section>
 
-  <section class="py-16 lg:py-20 bg-black text-white">
+  <section class="py-16 lg:py-20 bg-white text-gray-900">
     <div class="container mx-auto px-6">
       <div class="text-center mb-12">
-        <div class="flex items-center justify-center mb-6"><div class="flex-1 h-[2px] bg-primary"></div><span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span><div class="flex-1 h-[2px] bg-primary"></div></div>
-        <h2 class="font-display font-bold text-3xl lg:text-4xl bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-4">Beneficios del Tratamiento</h2>
-        <p class="text-lg text-white/80 max-w-2xl mx-auto">Por qué elegir {servicio.title.es} en Renasci</p>
+        <div class="flex items-center justify-center mb-6"><div class="flex-1 h-[2px] bg-[#F3A2A7]"></div><span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span><div class="flex-1 h-[2px] bg-[#F3A2A7]"></div></div>
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4" data-i18n="semaglutide.benefits.title">Beneficios del Tratamiento</h2>
+        <p class="text-lg text-gray-700 max-w-2xl mx-auto" data-i18n="semaglutide.benefits.subtitle">Por qué elegir Semaglutide en Renasci</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="group rounded-2xl p-6 border-2 border-primary bg-transparent text-white hover:ring-2 hover:ring-primary/60"><h3 class="font-display font-bold text-xl text-white mb-3">Control de Apetito</h3><p class="text-white/80">Soporte para saciedad y hábitos saludables.</p></div>
-        <div class="group rounded-2xl p-6 border-2 border-primary bg-transparent text-white hover:ring-2 hover:ring-primary/60"><h3 class="font-display font-bold text-xl text-white mb-3">Mejora Metabólica</h3><p class="text-white/80">Apoyo al control glucémico y energía.</p></div>
-        <div class="group rounded-2xl p-6 border-2 border-primary bg-transparent text-white hover:ring-2 hover:ring-primary/60"><h3 class="font-display font-bold text-xl text-white mb-3">Resultados Sostenibles</h3><p class="text-white/80">Progreso supervisado y duradero.</p></div>
+        <div class="group rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60"><h3 class="font-display font-bold text-xl text-gray-900 mb-3" data-i18n="semaglutide.benefits.items.0.title">Control de Apetito</h3><p class="text-gray-700" data-i18n="semaglutide.benefits.items.0.text">Soporte para saciedad y hábitos saludables.</p></div>
+        <div class="group rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60"><h3 class="font-display font-bold text-xl text-gray-900 mb-3" data-i18n="semaglutide.benefits.items.1.title">Mejora Metabólica</h3><p class="text-gray-700" data-i18n="semaglutide.benefits.items.1.text">Apoyo al control glucémico y energía.</p></div>
+        <div class="group rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white text-gray-900 hover:ring-2 hover:ring-[#F3A2A7]/60"><h3 class="font-display font-bold text-xl text-gray-900 mb-3" data-i18n="semaglutide.benefits.items.2.title">Resultados Sostenibles</h3><p class="text-gray-700" data-i18n="semaglutide.benefits.items.2.text">Progreso supervisado y duradero.</p></div>
       </div>
     </div>
   </section>
@@ -108,16 +108,16 @@ const servicio = {
   <section class="py-16 lg:py-20 bg-white">
     <div class="container mx-auto px-6">
       <div class="text-center mb-12">
-        <div class="flex items-center justify-center mb-6"><div class="flex-1 h-[2px] bg-primary"></div><span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" /></svg></span><div class="flex-1 h-[2px] bg-primary"></div></div>
-        <h2 class="font-display font-bold text-3xl lg:text-4xl bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-4">Proceso del Tratamiento</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Evaluación, plan personalizado y seguimiento continuo</p>
+        <div class="flex items-center justify-center mb-6"><div class="flex-1 h-[2px] bg-[#F3A2A7]"></div><span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" /></svg></span><div class="flex-1 h-[2px] bg-[#F3A2A7]"></div></div>
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4" data-i18n="semaglutide.process.title">Proceso del Tratamiento</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n="semaglutide.process.subtitle">Evaluación, plan personalizado y seguimiento continuo</p>
       </div>
       <div class="relative">
-        <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary via-pink-400 to-purple-500 rounded-full opacity-30 hidden lg:block"></div>
+        <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#F3A2A7] via-[#F3A2A7] to-transparent rounded-full opacity-30 hidden lg:block"></div>
         <div class="space-y-12">
-          <div class="flex flex-col lg:flex-row items-center gap-8"><div class="lg:w-1/2 lg:pr-8"><div class="bg-gradient-to-br from-primary/10 to-pink-500/10 rounded-2xl p-6 border border-primary/20"><div class="flex items-center mb-4"><div class="w-10 h-10 bg-gradient-to-br from-primary to-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-4">1</div><h3 class="font-display font-bold text-xl text-gray-900">Evaluación Médica</h3></div><p class="text-gray-600 leading-relaxed">Revisión clínica y objetivos.</p></div></div><div class="lg:w-1/2 lg:pl-8"><img src="/images/med-spa-room.jpg" alt="Evaluación" class="w-full h-64 object-cover rounded-2xl" loading="lazy" /></div></div>
-          <div class="flex flex-col lg:flex-row-reverse items-center gap-8"><div class="lg:w-1/2 lg:pl-8"><div class="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-500/20"><div class="flex items-center mb-4"><div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-4">2</div><h3 class="font-display font-bold text-xl text-gray-900">Plan Personalizado</h3></div><p class="text-gray-600 leading-relaxed">Dosificación y guía de estilo de vida.</p></div></div><div class="lg:w-1/2 lg:pr-8"><img src="/img/services/inyeccion-botox.jpg" alt="Plan" class="w-full h-64 object-cover rounded-2xl" loading="lazy" /></div></div>
-          <div class="flex flex-col lg:flex-row items-center gap-8"><div class="lg:w-1/2 lg:pr-8"><div class="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-2xl p-6 border border-emerald-500/20"><div class="flex items-center mb-4"><div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold mr-4">3</div><h3 class="font-display font-bold text-xl text-gray-900">Seguimiento Continuo</h3></div><p class="text-gray-600 leading-relaxed">Revisiones y ajustes para sostener resultados.</p></div></div><div class="lg:w-1/2 lg:pl-8"><img src="/images/med-spa-room.jpg" alt="Seguimiento" class="w-full h-64 object-cover rounded-2xl" loading="lazy" /></div></div>
+          <div class="flex flex-col lg:flex-row items-center gap-8"><div class="lg:w-1/2 lg:pr-8"><div class="rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white hover:ring-2 hover:ring-[#F3A2A7]/60"><div class="flex items-center mb-4"><div class="w-10 h-10 rounded-full bg-[#F3A2A7] flex items-center justify-center text-white font-bold mr-4">1</div><h3 class="font-display font-bold text-xl text-gray-900" data-i18n="semaglutide.process.steps.0.title">Evaluación Médica</h3></div><p class="text-gray-600 leading-relaxed" data-i18n="semaglutide.process.steps.0.text">Revisión clínica y objetivos.</p></div></div><div class="lg:w-1/2 lg:pl-8"><img src="/images/med-spa-room.jpg" alt="Evaluación" class="w-full h-64 object-cover rounded-2xl" loading="lazy" /></div></div>
+          <div class="flex flex-col lg:flex-row-reverse items-center gap-8"><div class="lg:w-1/2 lg:pl-8"><div class="rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white hover:ring-2 hover:ring-[#F3A2A7]/60"><div class="flex items-center mb-4"><div class="w-10 h-10 rounded-full bg-[#F3A2A7] flex items-center justify-center text-white font-bold mr-4">2</div><h3 class="font-display font-bold text-xl text-gray-900" data-i18n="semaglutide.process.steps.1.title">Plan Personalizado</h3></div><p class="text-gray-600 leading-relaxed" data-i18n="semaglutide.process.steps.1.text">Dosificación y guía de estilo de vida.</p></div></div><div class="lg:w-1/2 lg:pr-8"><img src="/img/services/inyeccion-botox.jpg" alt="Plan" class="w-full h-64 object-cover rounded-2xl" loading="lazy" /></div></div>
+          <div class="flex flex-col lg:flex-row items-center gap-8"><div class="lg:w-1/2 lg:pr-8"><div class="rounded-2xl p-6 border-2 border-[#F3A2A7] bg-white hover:ring-2 hover:ring-[#F3A2A7]/60"><div class="flex items-center mb-4"><div class="w-10 h-10 rounded-full bg-[#F3A2A7] flex items-center justify-center text-white font-bold mr-4">3</div><h3 class="font-display font-bold text-xl text-gray-900" data-i18n="semaglutide.process.steps.2.title">Seguimiento Continuo</h3></div><p class="text-gray-600 leading-relaxed" data-i18n="semaglutide.process.steps.2.text">Revisiones y ajustes para sostener resultados.</p></div></div><div class="lg:w-1/2 lg:pl-8"><img src="/images/med-spa-room.jpg" alt="Seguimiento" class="w-full h-64 object-cover rounded-2xl" loading="lazy" /></div></div>
         </div>
       </div>
     </div>

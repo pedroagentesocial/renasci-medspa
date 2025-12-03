@@ -7,7 +7,8 @@ export interface Props {
   currentPath?: string;
 }
 
-const { currentPath = "/" } = Astro.props;
+const { currentPath: propPath } = Astro.props;
+const currentPath = propPath ?? (Astro.url?.pathname ?? "/");
 
 // Helper function to generate category URLs
 function generateCategoryUrl(categoryGroup: string) {
@@ -16,6 +17,14 @@ function generateCategoryUrl(categoryGroup: string) {
     .toLowerCase()
     .replace(/\s+/g, '-')
     .replace(/[áéíóú]/g, (match: string) => replacements[match] || match)}`;
+}
+
+function isActive(href: string) {
+  try {
+    const cp = String(currentPath || '/');
+    const h = String(href || '');
+    return cp === h || (h !== '/' && cp.startsWith(h + '/'));
+  } catch { return false }
 }
 
 const links = [
@@ -33,7 +42,7 @@ const services = [
       { t: "Tratamiento Botox No-Sweat (sudoración)", href: "/services/botox-no-sweat", price: "$850" },
       { t: "Botox Lip Flip (giro de labio)", href: "/services/botox-lip-flip", price: "$75" },
       { t: "Mini Aumento de Labios", href: "/services/mini-aumento-labios", price: "$375" },
-      { t: "Aumento Completo de Labios", href: "/services/aumento-completo-labios", price: "$650" },
+      { t: "Full Lip Augmentation", href: "/services/full-lip-augmentation", price: "$650" },
       { t: "Mega Aumento de Labios", href: "/services/mega-aumento-labios", price: "$850" }
     ]
   },
@@ -254,7 +263,7 @@ const services = [
           <img src="/images/Renasci logo.png" alt="Renasci Medical Spa" class="h-8 w-auto" style="filter: brightness(0) invert(1);" />
           <button 
             id="mobile-menu-close"
-            class="absolute right-4 top-1/2 -translate-y-1/2 text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-[48px] p-2"
+            class="absolute right-4 top-1/2 -translate-y-1/2 text-[#F3A2A7] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7]/50 rounded-[48px] p-2"
             aria-label="Cerrar menú"
           >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -268,7 +277,7 @@ const services = [
           
           <ul class="space-y-3 mt-2">
             <li>
-              <a href="/" class="flex justify-end items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition">
+              <a href="/" class="flex justify-end items-center text-white text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition">
                 <span class="underline underline-offset-2" data-i18n="nav.home">Inicio</span>
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12" />
@@ -276,118 +285,118 @@ const services = [
               </a>
             </li>
             <li>
-              <a href="/membership" class="block bg-primary text-white font-bold text-xl tracking-wide transition-colors duration-200 py-1 px-4 border-b border-white/10 hover:opacity-90"><span data-i18n="nav.membership">Membresía</span></a>
+              <a href="/membership" class="block bg-[#F3A2A7] text-white font-bold text-xl tracking-wide transition-colors duration-200 py-1 px-4 border-b border-white/10 hover:opacity-90"><span data-i18n="nav.membership">Membresía</span></a>
             </li>
             <li>
-              <a href="/about" class="block bg-primary text-white font-bold text-xl tracking-wide transition-colors duration-200 py-1 px-4 border-b border-white/10 hover:opacity-90"><span data-i18n="nav.about">Nosotros</span></a>
+              <a href="/about" class="block bg-[#F3A2A7] text-white font-bold text-xl tracking-wide transition-colors duration-200 py-1 px-4 border-b border-white/10 hover:opacity-90"><span data-i18n="nav.about">Nosotros</span></a>
             </li>
             <li>
-              <a href="/contact" class="block bg-primary text-white font-bold text-xl tracking-wide transition-colors duration-200 py-1 px-4 border-b border-white/10 hover:opacity-90"><span data-i18n="nav.contact">Contacto</span></a>
+              <a href="/contact" class="block bg-[#F3A2A7] text-white font-bold text-xl tracking-wide transition-colors duration-200 py-1 px-4 border-b border-white/10 hover:opacity-90"><span data-i18n="nav.contact">Contacto</span></a>
             </li>
             <li>
-              <input id="services-filter" type="text" placeholder="Filtrar servicios..." class="w-full px-3 py-2 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-primary" />
+              <input id="services-filter" type="text" placeholder="Filtrar servicios..." data-i18n="services.filter_placeholder" class="w-full px-3 py-2 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#F3A2A7]" />
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">Neurotoxin & Dermal Filler Injections</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.injectables_title">Neurotoxin & Dermal Filler Injections</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/neurotoxin-injections" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Neurotoxin Injections</a>
+                  <a href="/services/neurotoxin-injections" class={`block ${isActive('/services/neurotoxin-injections') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Neurotoxin Injections</a>
                 </li>
                 <li>
-                  <a href="/services/botox-no-sweat-treatment" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Botox No-Sweat Treatment (hyperhidrosis)</a>
+                  <a href="/services/botox-no-sweat-treatment" class={`block ${isActive('/services/botox-no-sweat-treatment') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Botox No-Sweat Treatment (hyperhidrosis)</a>
                 </li>
                 <li>
-                  <a href="/services/botox-lip-flip" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Botox Lip Flip</a>
+                  <a href="/services/botox-lip-flip" class={`block ${isActive('/services/botox-lip-flip') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Botox Lip Flip</a>
                 </li>
                 <li>
-                  <a href="/services/mini-lip-enhancement" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Mini Lip Enhancement</a>
+                  <a href="/services/mini-lip-enhancement" class={`block ${isActive('/services/mini-lip-enhancement') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Mini Lip Enhancement</a>
                 </li>
                 <li>
-                  <a href="/services/full-lip-augmentation" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Full Lip Augmentation</a>
+                  <a href="/services/full-lip-augmentation" class={`block ${isActive('/services/full-lip-augmentation') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Full Lip Augmentation</a>
                 </li>
                 <li>
-                  <a href="/services/mega-lip-augmentation" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Mega Lip Augmentation</a>
+                  <a href="/services/mega-lip-augmentation" class={`block ${isActive('/services/mega-lip-augmentation') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Mega Lip Augmentation</a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.groups.contour">Facial & Body Contouring</span></div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.groups.contour">Facial & Body Contouring</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/personalized-facial-contour" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Personalized Facial Contour</a>
+                  <a href="/services/personalized-facial-contour" class={`block ${isActive('/services/personalized-facial-contour') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Personalized Facial Contour</a>
                 </li>
                 <li>
-                  <a href="/services/cheekbone-lift" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Cheekbone Lift (Cheekbone Pop)</a>
+                  <a href="/services/cheekbone-lift" class={`block ${isActive('/services/cheekbone-lift') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Cheekbone Lift (Cheekbone Pop)</a>
                 </li>
                 <li>
-                  <a href="/services/no-more-bags-injection" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">No More Bags Injection (under-eye bags)</a>
+                  <a href="/services/no-more-bags-injection" class={`block ${isActive('/services/no-more-bags-injection') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>No More Bags Injection (under-eye bags)</a>
                 </li>
                 <li>
-                  <a href="/services/chinbella" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition"><span>ChinBella (chin/double chin)</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#C8A08C]/15 border border-[#C8A08C]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#C8A08C]"></span>Premier</span></a>
+                  <a href="/services/chinbella" class={`flex items-center ${isActive('/services/chinbella') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>ChinBella (chin/double chin)</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#C8A08C]/15 border border-[#C8A08C]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#C8A08C]"></span>Premier</span></a>
                 </li>
                 <li>
-                  <a href="/services/thighbella" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">ThighBella (thighs)</a>
+                  <a href="/services/thighbella" class={`block ${isActive('/services/thighbella') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>ThighBella (thighs)</a>
                 </li>
                 <li>
-                  <a href="/services/rollbella" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">RollBella (bra roll)</a>
+                  <a href="/services/rollbella" class={`block ${isActive('/services/rollbella') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>RollBella (bra roll)</a>
                 </li>
                 <li>
-                  <a href="/services/bananaroll" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">BananaRoll (bikini area)</a>
+                  <a href="/services/bananaroll" class={`block ${isActive('/services/bananaroll') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>BananaRoll (bikini area)</a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">Biostimulators</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.biostimulators_title">Biostimulators</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/collagen-stimulation-sculptra" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Collagen Stimulation with Sculptra</a>
+                  <a href="/services/collagen-stimulation-sculptra" class={`block ${isActive('/services/collagen-stimulation-sculptra') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Collagen Stimulation with Sculptra</a>
                 </li>
                 <li>
-                  <a href="/services/mega-collagen-stimulation-sculptra" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Mega Collagen Stimulation with Sculptra</a>
+                  <a href="/services/mega-collagen-stimulation-sculptra" class={`block ${isActive('/services/mega-collagen-stimulation-sculptra') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Mega Collagen Stimulation with Sculptra</a>
                 </li>
                 <li>
-                  <a href="/services/mini-chin-reduction" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Mini Chin Reduction</a>
+                  <a href="/services/mini-chin-reduction" class={`block ${isActive('/services/mini-chin-reduction') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Mini Chin Reduction</a>
                 </li>
                 <li>
-                  <a href="/services/brazilian-butt-lift" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Brazilian Butt Lift</a>
+                  <a href="/services/brazilian-butt-lift" class={`block ${isActive('/services/brazilian-butt-lift') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Brazilian Butt Lift</a>
                 </li>
                 <li>
-                  <a href="/services/renasci-prf-gel-therapy" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Renasci PRF Gel Therapy</a>
+                  <a href="/services/renasci-prf-gel-therapy" class={`block ${isActive('/services/renasci-prf-gel-therapy') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Renasci PRF Gel Therapy</a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">Specialized Treatments</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.specialized_title">Specialized Treatments</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/puppet-lines-injections" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Puppet Lines Injections (facial lines)</a>
+                  <a href="/services/puppet-lines-injections" class={`block ${isActive('/services/puppet-lines-injections') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Puppet Lines Injections (facial lines)</a>
                 </li>
                 <li>
-                  <a href="/services/nefertiti-neck-lift" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition"><span>Nefertiti Neck Lift</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#C8A08C]/15 border border-[#C8A08C]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#C8A08C]"></span>Premier</span></a>
+                  <a href="/services/nefertiti-neck-lift" class={`flex items-center ${isActive('/services/nefertiti-neck-lift') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Nefertiti Neck Lift</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#C8A08C]/15 border border-[#C8A08C]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#C8A08C]"></span>Premier</span></a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">Weight Loss & Wellness</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.wellness_title">Weight Loss & Wellness</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/b12-fat-blaster-double-effect" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">B12 Injection + Fat Blaster (Double Effect)</a>
+                  <a href="/services/b12-fat-blaster-double-effect" class={`block ${isActive('/services/b12-fat-blaster-double-effect') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>B12 Injection + Fat Blaster (Double Effect)</a>
                 </li>
                 <li>
-                  <a href="/services/alternative-medicine-consultation" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Alternative Medicine Consultation (Get Carded)</a>
+                  <a href="/services/alternative-medicine-consultation" class={`block ${isActive('/services/alternative-medicine-consultation') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Alternative Medicine Consultation (Get Carded)</a>
                 </li>
                 <li>
-                  <a href="/services/fat-blaster-injections" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition">
+                  <a href="/services/fat-blaster-injections" class={`flex items-center ${isActive('/services/fat-blaster-injections') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
                     <span>Fat Blaster Injections</span>
                     <span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"> 
                       <span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>
@@ -396,7 +405,7 @@ const services = [
                   </a>
                 </li>
                 <li>
-                  <a href="/services/b12-energy-injection" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition">
+                  <a href="/services/b12-energy-injection" class={`flex items-center ${isActive('/services/b12-energy-injection') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
                     <span>B12 Energy Injection</span>
                     <span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"> 
                       <span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>
@@ -405,36 +414,36 @@ const services = [
                   </a>
                 </li>
                 <li>
-                  <a href="/services/medically-supervised-weight-loss" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Medically Supervised Weight Loss</a>
+                  <a href="/services/medically-supervised-weight-loss" class={`block ${isActive('/services/medically-supervised-weight-loss') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Medically Supervised Weight Loss</a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">Botox & Neuromodulators</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.neurotoxins_title">Botox & Neuromodulators</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/xeomin" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition"><span>Xeomin</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
+                  <a href="/services/xeomin" class={`flex items-center ${isActive('/services/xeomin') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Xeomin</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
                 </li>
                 <li>
-                  <a href="/services/dysport" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition"><span>Dysport</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
+                  <a href="/services/dysport" class={`flex items-center ${isActive('/services/dysport') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Dysport</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
                 </li>
                 <li>
-                  <a href="/services/botox-trap" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition"><span>Botox Trap</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
+                  <a href="/services/botox-trap" class={`flex items-center ${isActive('/services/botox-trap') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Botox Trap</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
                 </li>
                 <li>
-                  <a href="/services/migraine-botox" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition"><span>Migraine Botox</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
+                  <a href="/services/migraine-botox" class={`flex items-center ${isActive('/services/migraine-botox') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Migraine Botox</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">Regenerative Medicine Therapies</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.regenerative_title">Regenerative Medicine Therapies</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/semaglutide" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition">
+                  <a href="/services/semaglutide" class={`flex items-center ${isActive('/services/semaglutide') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
                     <span>Semaglutide</span>
                     <span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"> 
                       <span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>
@@ -443,7 +452,7 @@ const services = [
                   </a>
                 </li>
                 <li>
-                  <a href="/services/ozempic-mounjaro" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition">
+                  <a href="/services/ozempic-mounjaro" class={`flex items-center ${isActive('/services/ozempic-mounjaro') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
                     <span>Ozempic/Mounjaro</span>
                     <span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"> 
                       <span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>
@@ -452,140 +461,140 @@ const services = [
                   </a>
                 </li>
                 <li>
-                  <a href="/services/ozone-therapy" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Ozone Therapy</a>
+                  <a href="/services/ozone-therapy" class={`block ${isActive('/services/ozone-therapy') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Ozone Therapy</a>
                 </li>
                 <li>
-                  <a href="/services/exosomes" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Exosomes</a>
+                  <a href="/services/exosomes" class={`block ${isActive('/services/exosomes') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Exosomes</a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.groups.hair_skin">Hair and Skin Treatments</span></div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.groups.hair_skin">Hair and Skin Treatments</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/hair-restoration-prp" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Hair Restoration Treatment with PRP</a>
+                  <a href="/services/hair-restoration-prp" class={`block ${isActive('/services/hair-restoration-prp') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Hair Restoration Treatment with PRP</a>
                 </li>
                 <li>
-                  <a href="/services/hair-restoration-stem-cells" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Hair Restoration Treatment with Stem Cells</a>
+                  <a href="/services/hair-restoration-stem-cells" class={`block ${isActive('/services/hair-restoration-stem-cells') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Hair Restoration Treatment with Stem Cells</a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">Advanced Treatments</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.advanced_title">Advanced Treatments</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/cortisone-injection" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Cortisone Injection</a>
+                  <a href="/services/cortisone-injection" class={`block ${isActive('/services/cortisone-injection') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Cortisone Injection</a>
                 </li>
                 <li>
-                  <a href="/services/cystic-acne" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Cystic Acne</a>
+                  <a href="/services/cystic-acne" class={`block ${isActive('/services/cystic-acne') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Cystic Acne</a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">Intimate Rejuvenation</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.intimate_title">Intimate Rejuvenation</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/vaginal-rejuvenation-prp" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Vaginal Rejuvenation with PRP (O-Shot)</a>
+                  <a href="/services/vaginal-rejuvenation-prp" class={`block ${isActive('/services/vaginal-rejuvenation-prp') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Vaginal Rejuvenation with PRP (O-Shot)</a>
                 </li>
                 <li>
-                  <a href="/services/vaginal-rejuvenation-stem-cells" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Vaginal Rejuvenation with Stem Cells (O-Shot)</a>
+                  <a href="/services/vaginal-rejuvenation-stem-cells" class={`block ${isActive('/services/vaginal-rejuvenation-stem-cells') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Vaginal Rejuvenation with Stem Cells (O-Shot)</a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">Microneedling</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.microneedling_title">Microneedling</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/microneedling-face-neck" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition"><span>Face + Neck</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
+                  <a href="/services/microneedling-face-neck" class={`flex items-center ${isActive('/services/microneedling-face-neck') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Face + Neck</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
                 </li>
                 <li>
-                  <a href="/services/microneedling-face-neck-decollete" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition"><span>Face + Neck + Décolleté</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
+                  <a href="/services/microneedling-face-neck-decollete" class={`flex items-center ${isActive('/services/microneedling-face-neck-decollete') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Face + Neck + Décolleté</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
                 </li>
                 <li>
-                  <a href="/services/microneedling-stretch-marks" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition"><span>Stretch marks (depends on area)</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
+                  <a href="/services/microneedling-stretch-marks" class={`flex items-center ${isActive('/services/microneedling-stretch-marks') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Stretch marks (depends on area)</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">Platelet-Rich Plasma (PRP)</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.prp_title">Platelet-Rich Plasma (PRP)</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/prp-face-neck" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition"><span>Face + Neck</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
+                  <a href="/services/prp-face-neck" class={`flex items-center ${isActive('/services/prp-face-neck') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Face + Neck</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
                 </li>
                 <li>
-                  <a href="/services/prp-face-neck-decollete" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition"><span>Face + Neck + Décolleté</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
+                  <a href="/services/prp-face-neck-decollete" class={`flex items-center ${isActive('/services/prp-face-neck-decollete') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Face + Neck + Décolleté</span><span class="ml-2 inline-flex itemscenter gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
                 </li>
                 <li>
-                  <a href="/services/prp-stretch-marks" class="flex items-center text-white text-base font-medium py-1 px-2 hover:text-primary transition"><span>Stretch marks (depends on area)</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
+                  <a href="/services/prp-stretch-marks" class={`flex items-center ${isActive('/services/prp-stretch-marks') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Stretch marks (depends on area)</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">Bioidentical Hormone Therapy (BHRT)</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.bhrt_title">Bioidentical Hormone Therapy (BHRT)</span></div>
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/bhrt-membership-her" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Hormone Membership for Her</a>
+                  <a href="/services/bhrt-membership-her" class={`block ${isActive('/services/bhrt-membership-her') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Hormone Membership for Her</a>
                 </li>
                 <li>
-                  <a href="/services/bhrt-setup-labs-consult" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Setup (includes labs + consult)</a>
+                  <a href="/services/bhrt-setup-labs-consult" class={`block ${isActive('/services/bhrt-setup-labs-consult') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Setup (includes labs + consult)</a>
                 </li>
                 <li>
-                  <a href="/services/bhrt-monthly-support" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Monthly (support, messaging, visits)</a>
+                  <a href="/services/bhrt-monthly-support" class={`block ${isActive('/services/bhrt-monthly-support') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Monthly (support, messaging, visits)</a>
                 </li>
                 <li>
-                  <a href="/services/hormone-replacement-therapy-him" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Hormone Replacement Therapy for Him</a>
+                  <a href="/services/hormone-replacement-therapy-him" class={`block ${isActive('/services/hormone-replacement-therapy-him') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Hormone Replacement Therapy for Him</a>
                 </li>
                 <li>
-                  <a href="/services/lab-draw" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Per Lab Draw</a>
+                  <a href="/services/lab-draw" class={`block ${isActive('/services/lab-draw') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Per Lab Draw</a>
                 </li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">Peptide Therapy</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.peptides_title">Peptide Therapy</span></div>
               </div>
               <ul class="space-y-2">
-                <li><a href="/services/peptides-bpc-157" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">BPC-157</a></li>
-                <li><a href="/services/peptides-cjc1295-ipamorelin" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">CJC 1295 / Ipamorelin</a></li>
-                <li><a href="/services/peptides-sermorelin" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Sermorelin</a></li>
-                <li><a href="/services/peptides-nad" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">NAD+</a></li>
-                <li><a href="/services/peptides-ghku" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">GhKu</a></li>
-                <li><a href="/services/peptides-vitamin-d" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Vitamin D</a></li>
-                <li><a href="/services/peptides-hair-growth" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Hair Growth</a></li>
+                <li><a href="/services/peptides-bpc-157" class={`block ${isActive('/services/peptides-bpc-157') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>BPC-157</a></li>
+                <li><a href="/services/peptides-cjc1295-ipamorelin" class={`block ${isActive('/services/peptides-cjc1295-ipamorelin') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>CJC 1295 / Ipamorelin</a></li>
+                <li><a href="/services/peptides-sermorelin" class={`block ${isActive('/services/peptides-sermorelin') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Sermorelin</a></li>
+                <li><a href="/services/peptides-nad" class={`block ${isActive('/services/peptides-nad') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>NAD+</a></li>
+                <li><a href="/services/peptides-ghku" class={`block ${isActive('/services/peptides-ghku') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>GhKu</a></li>
+                <li><a href="/services/peptides-vitamin-d" class={`block ${isActive('/services/peptides-vitamin-d') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Vitamin D</a></li>
+                <li><a href="/services/peptides-hair-growth" class={`block ${isActive('/services/peptides-hair-growth') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Hair Growth</a></li>
               </ul>
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-primary text-white font-bold text-xl tracking-wide py-1 px-4">IV/IM Therapy</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4"><span data-i18n="services.ivim_title">IV/IM Therapy</span></div>
               </div>
               <ul class="space-y-2">
-                <li><a href="/services/iv-drips" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">Drips</a></li>
-                <li><a href="/services/im-injections" class="block text-white text-base font-medium py-1 px-2 hover:text-primary transition">IM injections</a></li>
+                <li><a href="/services/iv-drips" class={`block ${isActive('/services/iv-drips') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Drips</a></li>
+                <li><a href="/services/im-injections" class={`block ${isActive('/services/im-injections') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>IM injections</a></li>
               </ul>
             </li>
           </ul>
 
           <!-- Mobile Social Links -->
-          <div class="mt-8 pt-6 border-t border-gray-100">
+            <div class="mt-8 pt-6 border-t border-gray-100">
             <h4 class="font-semibold text-gray-900 mb-4">Síguenos</h4>
             <div class="flex gap-4">
               <a 
                 href="https://www.instagram.com/renascimedspa/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="text-gray-600 hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded p-2"
+                class="text-gray-600 hover:text-[#F3A2A7] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7]/50 rounded p-2"
                 aria-label="Instagram"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -596,7 +605,7 @@ const services = [
                 href="https://www.facebook.com/profile.php?id=61580623082047" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="text-gray-600 hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded p-2"
+                class="text-gray-600 hover:text-[#F3A2A7] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7]/50 rounded p-2"
                 aria-label="Facebook"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -727,6 +736,19 @@ const services = [
       mobileMenuButton.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
       document.body.classList.add('menu-open');
+      const k1 = 'mobileMenuScrollTop', k2 = 'mobileMenuSelectedHref';
+      setTimeout(() => {
+        const st = parseInt(localStorage.getItem(k1) || '0', 10);
+        if (mobileMenuPanel) mobileMenuPanel.scrollTop = st;
+        const href = localStorage.getItem(k2);
+        if (href && mobileMenuPanel) {
+          const el = mobileMenuPanel.querySelector(`a[href="${href}"]`);
+          if (el) (el as HTMLElement).scrollIntoView({ block: 'center' });
+        } else if (mobileMenuPanel) {
+          const active = mobileMenuPanel.querySelector('a.active-link') || mobileMenuPanel.querySelector(`a[href="${window.location.pathname}"]`);
+          if (active) (active as HTMLElement).scrollIntoView({ block: 'center' });
+        }
+      }, 320);
     }
 
   function closeMobileMenu() {
@@ -740,6 +762,7 @@ const services = [
     if (mobileMenuPanel) mobileMenuPanel.style.transform = 'translateX(-100%)';
     mobileMenu.setAttribute('aria-hidden', 'true');
     mobileMenuButton.setAttribute('aria-expanded', 'false');
+    if (mobileMenuPanel) localStorage.setItem('mobileMenuScrollTop', String(mobileMenuPanel.scrollTop));
     document.body.style.overflow = '';
     document.body.classList.remove('menu-open');
   }
@@ -905,6 +928,7 @@ const services = [
   }
 
   function initSidebarActive() {
+    const mobileMenuPanel = document.getElementById('mobile-menu-panel') as HTMLElement | null;
     const pathname = window.location.pathname.replace(/\/$/, '');
     const links = Array.from(document.querySelectorAll('#mobile-menu-panel nav ul.space-y-3 a[href]')) as HTMLAnchorElement[];
     links.forEach(a => {
@@ -913,6 +937,24 @@ const services = [
         a.classList.add('active-link');
       }
     });
+    const linkNodes = Array.from(document.querySelectorAll('#mobile-menu-panel nav a[href^="/services/"]')) as HTMLAnchorElement[];
+    linkNodes.forEach(a => {
+      a.addEventListener('click', () => {
+        if (mobileMenuPanel) localStorage.setItem('mobileMenuScrollTop', String(mobileMenuPanel.scrollTop));
+        const href = a.getAttribute('href') || '';
+        if (href) localStorage.setItem('mobileMenuSelectedHref', href);
+      });
+    });
+    if (mobileMenuPanel) {
+      let stId: number | undefined;
+      mobileMenuPanel.addEventListener('scroll', () => {
+        if (stId) window.clearTimeout(stId);
+        stId = window.setTimeout(() => {
+          localStorage.setItem('mobileMenuScrollTop', String(mobileMenuPanel.scrollTop));
+        }, 150);
+      }, { passive: true });
+    }
+
   }
 
   function initSidebarLanguageSync() {
@@ -920,6 +962,29 @@ const services = [
       'Inicio': 'Home',
       'Membresía': 'Membership',
       'Contacto': 'Contact',
+      'Neurotoxin & Dermal Filler Injections': 'Injectables & Dermal Fillers',
+      'Inyectables & Rellenos Dérmicos': 'Injectables & Dermal Fillers',
+      'Biostimulators': 'Bioestimuladores',
+      'Bioestimuladores': 'Biostimulators',
+      'Specialized Treatments': 'Tratamientos Especializados',
+      'Tratamientos Especializados': 'Specialized Treatments',
+      'Weight Loss & Wellness': 'Pérdida de Peso y Bienestar',
+      'Pérdida de Peso y Bienestar': 'Weight Loss & Wellness',
+      'Botox & Neuromodulators': 'Botox y Neuromoduladores',
+      'Botox y Neuromoduladores': 'Botox & Neuromodulators',
+      'Regenerative Medicine Therapies': 'Terapias de Medicina Regenerativa',
+      'Terapias de Medicina Regenerativa': 'Regenerative Medicine Therapies',
+      'Advanced Treatments': 'Tratamientos Avanzados',
+      'Tratamientos Avanzados': 'Advanced Treatments',
+      'Intimate Rejuvenation': 'Rejuvenecimiento Íntimo',
+      'Rejuvenecimiento Íntimo': 'Intimate Rejuvenation',
+      'Microneedling': 'Microneedling',
+      'Platelet-Rich Plasma (PRP)': 'Plasma Rico en Plaquetas (PRP)',
+      'Plasma Rico en Plaquetas (PRP)': 'Platelet-Rich Plasma (PRP)',
+      'Peptide Therapy': 'Terapia con Péptidos',
+      'Terapia con Péptidos': 'Peptide Therapy',
+      'IV/IM Therapy': 'Terapia IV/IM',
+      'Terapia IV/IM': 'IV/IM Therapy',
       'Inyecciones y Neurotoxinas': 'Injectables & Neurotoxins',
       'Tratamientos con Sculptra y Rellenos': 'Sculptra & Fillers',
       'Contorno Facial y Corporal': 'Facial & Body Contouring',
@@ -964,6 +1029,10 @@ const services = [
         if (lang === 'en' && esToEn[txt]) node.innerText = esToEn[txt];
         if (lang === 'es' && enToEs[txt]) node.innerText = enToEs[txt];
       });
+      const filterInput = document.getElementById('services-filter') as HTMLInputElement | null;
+      if (filterInput) {
+        filterInput.placeholder = lang === 'en' ? 'Filter services...' : 'Filtrar servicios...';
+      }
     }
 
     const current = (window as any).i18nManager?.getCurrentLanguage?.() || document.documentElement.lang || 'es';

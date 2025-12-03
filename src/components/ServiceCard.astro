@@ -31,18 +31,31 @@ const getLocalized = (v: any, fallback: string = '') => {
   }
   return String(v);
 };
+const getByLang = (v: any, l: 'es' | 'en', fallback: string = '') => {
+  if (v == null) return fallback;
+  if (typeof v === 'object') {
+    const val = v[l] ?? v.es ?? v.en;
+    return typeof val === 'string' ? val : fallback;
+  }
+  return String(v);
+};
 
 const svc: any = service ?? {};
 const isLarge = String(className).includes('large-card');
 const defaultTitle = lang === 'es' ? 'Servicio' : 'Service';
 const defaultDesc = lang === 'es' ? 'Descubre más sobre este servicio' : 'Learn more about this service';
+const ctaLabel = lang === 'es' ? 'Ver más →' : 'Learn more →';
 const title = getLocalized(svc.title, defaultTitle);
 const description = getLocalized(svc.excerpt ?? svc.description ?? '', defaultDesc);
 const image = typeof svc.image === 'string' && svc.image ? svc.image : '/images/med-spa-room.jpg';
 const href = svc.href ?? (svc.slug ? `/services/${svc.slug}` : '#');
+const titleEs = getByLang(svc.title, 'es', defaultTitle);
+const titleEn = getByLang(svc.title, 'en', defaultTitle);
+const descEs = getByLang(svc.excerpt ?? svc.description ?? '', 'es', defaultDesc);
+const descEn = getByLang(svc.excerpt ?? svc.description ?? '', 'en', defaultDesc);
 ---
 
-<div class={`service-card group bg-white rounded-2xl overflow-hidden shadow-card transition-all duration-300 relative cursor-pointer min-h-[320px] ${isLarge ? 'min-h-[600px] md:min-h-[700px]' : ''} ${className}`} data-category={svc.category} data-tags={tags.join(' ')} data-href={href}>
+<div class={`service-card group bg-white rounded-2xl overflow-hidden transition-all duration-300 relative cursor-pointer min-h-[320px] ${isLarge ? 'min-h-[600px] md:min-h-[700px]' : ''} ${className}`} data-category={svc.category} data-tags={tags.join(' ')} data-href={href} data-title-es={titleEs} data-title-en={titleEn} data-desc-es={descEs} data-desc-en={descEn}>
   <a href={href} class="absolute inset-0 z-0" aria-label={title}></a>
   <div class={`${isLarge ? 'h-[22rem] md:h-[26rem]' : 'aspect-[4/5]'} overflow-hidden`}>
     <img 
@@ -61,7 +74,7 @@ const href = svc.href ?? (svc.slug ? `/services/${svc.slug}` : '#');
       href={href}
       class="inline-flex items-center text-primary font-semibold text-sm hover:underline focus-visible:ring-2 ring-primary/50 rounded relative z-10"
     >
-      Ver más →
+      {ctaLabel}
     </a>
   </div>
 </div>

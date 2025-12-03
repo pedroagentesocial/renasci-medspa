@@ -35,21 +35,21 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
     <div class="relative z-10 px-6 max-w-6xl mx-auto text-center">
       <div class="hero-content">
         <!-- Badge animado -->
-        <div class="inline-flex items-center px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full text-white font-semibold text-sm mb-8 border border-primary/20 animate-fade-in-up">
+        <div class="inline-flex items-center px-4 py-2 bg-[#F3A2A7]/10 backdrop-blur-sm rounded-full text-white font-semibold text-sm mb-8 border border-[#F3A2A7]/20 animate-fade-in-up" data-t-es="Membresías Exclusivas" data-t-en="Exclusive Memberships">
           <svg class="w-4 h-4 mr-2 text-white" fill="currentColor" viewBox="0 0 20 20">
             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
           </svg>
-          Membresías Exclusivas
+          <span class="i18n-text">Membresías Exclusivas</span>
         </div>
         
         <!-- Título principal con efecto typing -->
         <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-tight">
-          <span class="typing-text">Transforma</span><br>
-          <span class="text-primary typing-text-delayed">Tu Belleza</span>
+          <span class="typing-text" data-t-es="Transforma" data-t-en="Transform">Transforma</span><br>
+          <span class="text-[#F3A2A7] typing-text-delayed" data-t-es="Tu Belleza" data-t-en="Your Beauty">Tu Belleza</span>
         </h1>
         
         <!-- Subtítulo -->
-        <p class="text-xl md:text-2xl text-white mb-12 leading-relaxed max-w-4xl mx-auto">
+        <p class="text-xl md:text-2xl text-white mb-12 leading-relaxed max-w-4xl mx-auto" data-t-es="Únete a nuestra comunidad exclusiva y descubre una nueva dimensión de cuidado personal con beneficios únicos, tratamientos premium y atención personalizada." data-t-en="Join our exclusive community and discover a new dimension of self-care with unique benefits, premium treatments, and personalized attention.">
           Únete a nuestra comunidad exclusiva y descubre una nueva dimensión de cuidado personal con beneficios únicos, tratamientos premium y atención personalizada.
         </p>
         
@@ -58,17 +58,17 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
           <CTAButton 
             href="#planes"
             variant="primary"
-            className="px-8 py-4 text-lg font-semibold bg-primary text-white hover:bg-primary/90"
+            className="px-8 py-4 text-lg font-semibold bg-[#F3A2A7] text-white hover:opacity-90 focus-visible:ring-[#F3A2A7]/50"
           >
-            Ver Planes de Membresía
+            <span data-t-es="Ver Planes de Membresía" data-t-en="View Membership Plans">Ver Planes de Membresía</span>
           </CTAButton>
           
           <CTAButton 
             href="#contacto"
-            variant="primary"
-            className="px-8 py-4 text-lg font-semibold bg-primary text-white hover:bg-primary/90"
+            variant="mint"
+            className="px-8 py-4 text-lg font-semibold focus-visible:ring-[#AABFA8]/50"
           >
-            Consulta Gratuita
+            <span data-t-es="Consulta Gratuita" data-t-en="Free Consultation">Consulta Gratuita</span>
           </CTAButton>
         </div>
         
@@ -103,19 +103,17 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <div class="flex items-center justify-center mb-4">
-          <div class="flex-1 h-[2px] bg-black"></div>
-          <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
+          <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
+          <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8M8 12h8" />
             </svg>
           </span>
-          <div class="flex-1 h-[2px] bg-black"></div>
+          <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
         </div>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-black mb-6 tracking-tight">
-          Elige tu Plan Perfecto
-        </h2>
-        <p class="text-xl text-black/80 max-w-3xl mx-auto leading-relaxed">
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-[#F3A2A7] mb-6 tracking-tight" data-t-es="Elige tu Plan Perfecto" data-t-en="Choose Your Perfect Plan">Elige tu Plan Perfecto</h2>
+        <p class="text-xl text-black/80 max-w-3xl mx-auto leading-relaxed" data-t-es="Cada plan está diseñado para diferentes necesidades y presupuestos. Todos incluyen beneficios exclusivos y atención personalizada." data-t-en="Each plan is designed for different needs and budgets. All include exclusive benefits and personalized care.">
           Cada plan está diseñado para diferentes necesidades y presupuestos. 
           Todos incluyen beneficios exclusivos y atención personalizada.
         </p>
@@ -128,9 +126,12 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
         <div class="order-1 lg:order-1 plan-card">
           <TierCard
               title="Renasci Vital"
+              titleEn="Renasci Vital"
               price="USD $100"
-              period="/mes"
+              period="mes"
+              periodEn="month"
               description="Beneficios esenciales y una inyección mensual incluida para mantener tu bienestar."
+              descriptionEn="Essential benefits and one monthly injection included to maintain your wellness."
               features={[
                 "1 inyección mensual incluida (B12 Energy Shot o Fat Blaster Shot)",
                 "20% off en Ozempic/Semaglutide",
@@ -138,14 +139,23 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
                 "10% de descuento en microneedling o PRP básico",
                 "Consulta médica estética anual gratuita"
               ]}
+              featuresEn={[
+                "1 monthly injection included (B12 Energy Shot or Fat Blaster Shot)",
+                "20% off Ozempic/Semaglutide",
+                "20% off neuromodulators (Botox, Dysport, Xeomin)",
+                "10% off microneedling or basic PRP",
+                "Free annual aesthetic medical consultation"
+              ]}
               ctaText="Unirme a Renasci Vital"
+              ctaTextEn="Join Renasci Vital"
               ctaHref="#contacto"
-              class="h-full min-h-[30rem] border-2 border-[#1DD1A1] hover:border-[#22E9AB] hover:ring-2 hover:ring-[#1DD1A1] hover:shadow-[0_0_40px_rgba(29,209,161,0.5)]"
-              variant="dark"
-              ctaClass="bg-gradient-to-r from-call to-emerald-500 text-white hover:opacity-90 border-2 border-[#1DD1A1]"
-              titleClass="text-3xl md:text-4xl"
-              hoverBorderColor="#1DD1A1"
+              class="h-full min-h-[30rem] bg-white text-black border-2 border-[#1DD1A1] hover:ring-2 hover:ring-[#1DD1A1]"
+              variant="light"
+              ctaClass="bg-[#1DD1A1] text-white hover:opacity-90 border-2 border-[#1DD1A1] focus-visible:ring-[#1DD1A1] focus-visible:ring-offset-white"
+              titleClass="text-3xl md:text-4xl text-black"
+              hoverBorderColor="#F3A2A7"
               badgeText="Mejor Precio"
+              badgeTextEn="Best Price"
               badgeColor="#1DD1A1"
               badgeImportance="secondary"
             />
@@ -155,9 +165,12 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
         <div class="order-2 lg:order-2 plan-card-featured">
           <TierCard
               title="Renasci Vital + Premier"
+              titleEn="Renasci Vital + Premier"
               price="USD $200"
-              period="/mes"
+              period="mes"
+              periodEn="month"
               description="Beneficios ampliados, mayores descuentos y seguimiento médico personalizado."
+              descriptionEn="Expanded benefits, greater discounts, and personalized medical follow-up."
               features={[
                 "1 inyección mensual incluida (B12 Energy Shot o Fat Blaster Shot)",
                 "20% off en Ozempic/Semaglutide",
@@ -167,21 +180,38 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
                 "15% de descuento en tratamientos especializados (O‑Shot, Nefertiti Lift, ChinBella)",
                 "Evaluación médica + plan de rejuvenecimiento cada 6 meses"
               ]}
+              featuresEn={[
+                "1 monthly injection included (B12 Energy Shot or Fat Blaster Shot)",
+                "20% off Ozempic/Semaglutide",
+                "30% off neuromodulators (Botox, Dysport, Xeomin)",
+                "10% off microneedling or basic PRP",
+                "15% off dermal fillers and lip augmentation",
+                "15% off specialized treatments (O‑Shot, Nefertiti Lift, ChinBella)",
+                "Medical evaluation + rejuvenation plan every 6 months"
+              ]}
               ctaText="Unirme a Vital + Premier"
+              ctaTextEn="Join Vital + Premier"
               ctaHref="#contacto"
-              highlight={true}
-              class="h-full relative min-h-[30rem] border-2 border-primary hover:border-primary"
-              variant="dark"
-              ctaClass="bg-gradient-to-r from-call to-emerald-500 text-white hover:opacity-90 border-2 border-[#1DD1A1]"
-              titleClass="text-3xl md:text-4xl"
-              hoverBorderColor="#E94594"
-              badgeText="Más Popular"
+              highlight={false}
               badgeImportance="primary"
+              class="h-full relative min-h-[30rem] bg-white text-black border-2 border-[#F3A2A7] hover:ring-2 hover:ring-[#F3A2A7]"
+              variant="light"
+              ctaClass="bg-[#F3A2A7] text-white hover:opacity-90 border-2 border-[#F3A2A7] focus-visible:ring-[#F3A2A7] focus-visible:ring-offset-white"
+              titleClass="text-3xl md:text-4xl text-black"
+              hoverBorderColor="#F3A2A7"
+              badgeText="Más Popular"
+              badgeTextEn="Most Popular"
+              badgeColor="#F3A2A7"
             />
         </div>
       </div>
     </div>
   </section>
+
+  <style>
+    .plan-card .tier-card .text-graytxt{ color:#000 !important }
+    .plan-card-featured .tier-card .text-graytxt{ color:#000 !important }
+  </style>
 
   <!-- Sección de Beneficios con Iconos Animados -->
   <section class="py-20 bg-black text-white">
@@ -198,10 +228,10 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
           <div class="flex-1 h-[2px] bg-gray-200"></div>
         </div>
         <h2 class="font-display font-bold text-4xl md:text-5xl text-white mb-6">
-          ¿Por qué elegir <span class="text-primary">Renasci</span>?
+          <span data-t-es="¿Por qué elegir" data-t-en="Why choose">¿Por qué elegir</span> <span class="text-[#F3A2A7]">Renasci</span>?
         </h2>
         <p class="text-xl text-white/80 max-w-3xl mx-auto">
-          Más que un spa, somos tu partner en el journey hacia tu mejor versión
+          <span data-t-es="Más que un spa, somos tu partner en el journey hacia tu mejor versión" data-t-en="More than a spa, we are your partner on the journey to your best self">Más que un spa, somos tu partner en el journey hacia tu mejor versión</span>
         </p>
       </div>
       
@@ -213,8 +243,8 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
             </svg>
           </div>
-          <h3 class="font-bold text-xl text-white mb-4">Descuentos Exclusivos</h3>
-          <p class="text-white/80 leading-relaxed">Hasta 30% de descuento en todos nuestros servicios y productos premium</p>
+          <h3 class="font-bold text-xl text-white mb-4" data-t-es="Descuentos Exclusivos" data-t-en="Exclusive Discounts">Descuentos Exclusivos</h3>
+          <p class="text-white/80 leading-relaxed" data-t-es="Hasta 30% de descuento en todos nuestros servicios y productos premium" data-t-en="Up to 30% off all our services and premium products">Hasta 30% de descuento en todos nuestros servicios y productos premium</p>
         </div>
         
         <!-- Beneficio 2 -->
@@ -224,8 +254,8 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
             </svg>
           </div>
-          <h3 class="font-bold text-xl text-white mb-4">Acceso Prioritario</h3>
-          <p class="text-white/80 leading-relaxed">Reserva tus citas con prioridad y accede a horarios exclusivos para miembros</p>
+          <h3 class="font-bold text-xl text-white mb-4" data-t-es="Acceso Prioritario" data-t-en="Priority Access">Acceso Prioritario</h3>
+          <p class="text-white/80 leading-relaxed" data-t-es="Reserva tus citas con prioridad y accede a horarios exclusivos para miembros" data-t-en="Book your appointments with priority and access exclusive member times">Reserva tus citas con prioridad y accede a horarios exclusivos para miembros</p>
         </div>
         
         <!-- Beneficio 3 -->
@@ -235,8 +265,8 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
             </svg>
           </div>
-          <h3 class="font-bold text-xl text-white mb-4">Atención Personalizada</h3>
-          <p class="text-white/80 leading-relaxed">Plan de tratamiento personalizado y seguimiento continuo de tus resultados</p>
+          <h3 class="font-bold text-xl text-white mb-4" data-t-es="Atención Personalizada" data-t-en="Personalized Care">Atención Personalizada</h3>
+          <p class="text-white/80 leading-relaxed" data-t-es="Plan de tratamiento personalizado y seguimiento continuo de tus resultados" data-t-en="Personalized treatment plan and continuous tracking of your results">Plan de tratamiento personalizado y seguimiento continuo de tus resultados</p>
         </div>
         
         <!-- Beneficio 4 -->
@@ -246,8 +276,8 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
             </svg>
           </div>
-          <h3 class="font-bold text-xl text-white mb-4">Productos Premium</h3>
-          <p class="text-white/80 leading-relaxed">Kit completo de productos para el hogar y acceso a líneas exclusivas</p>
+          <h3 class="font-bold text-xl text-white mb-4" data-t-es="Productos Premium" data-t-en="Premium Products">Productos Premium</h3>
+          <p class="text-white/80 leading-relaxed" data-t-es="Kit completo de productos para el hogar y acceso a líneas exclusivas" data-t-en="Complete home product kit and access to exclusive lines">Kit completo de productos para el hogar y acceso a líneas exclusivas</p>
         </div>
         
         <!-- Beneficio 5 -->
@@ -257,8 +287,8 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
             </svg>
           </div>
-          <h3 class="font-bold text-xl text-white mb-4">Comunidad Exclusiva</h3>
-          <p class="text-white/80 leading-relaxed">Eventos especiales, workshops y acceso a nuestra comunidad VIP</p>
+          <h3 class="font-bold text-xl text-white mb-4" data-t-es="Comunidad Exclusiva" data-t-en="Exclusive Community">Comunidad Exclusiva</h3>
+          <p class="text-white/80 leading-relaxed" data-t-es="Eventos especiales, workshops y acceso a nuestra comunidad VIP" data-t-en="Special events, workshops, and access to our VIP community">Eventos especiales, workshops y acceso a nuestra comunidad VIP</p>
         </div>
         
         <!-- Beneficio 6 -->
@@ -268,8 +298,8 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 109.75 9.75A9.75 9.75 0 0012 2.25z"></path>
             </svg>
           </div>
-          <h3 class="font-bold text-xl text-white mb-4">Soporte 24/7</h3>
-          <p class="text-white/80 leading-relaxed">Atención personalizada cuando la necesites, con soporte dedicado para miembros</p>
+          <h3 class="font-bold text-xl text-white mb-4" data-t-es="Soporte 24/7" data-t-en="24/7 Support">Soporte 24/7</h3>
+          <p class="text-white/80 leading-relaxed" data-t-es="Atención personalizada cuando la necesites, con soporte dedicado para miembros" data-t-en="Personalized attention whenever you need it, with dedicated member support">Atención personalizada cuando la necesites, con soporte dedicado para miembros</p>
         </div>
       </div>
     </div>
@@ -292,9 +322,9 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
           <div class="flex-1 h-[2px] bg-gray-200"></div>
         </div>
         <h2 class="font-display font-bold text-4xl md:text-5xl text-text mb-6">
-          Historias de <span class="text-primary">Transformación</span>
+          <span data-t-es="Historias de" data-t-en="Stories of">Historias de</span> <span class="text-[#F3A2A7]" data-t-es="Transformación" data-t-en="Transformation">Transformación</span>
         </h2>
-        <p class="text-xl text-graytxt max-w-3xl mx-auto">
+        <p class="text-xl text-graytxt max-w-3xl mx-auto" data-t-es="Descubre cómo nuestros miembros han transformado su vida con Renasci" data-t-en="Discover how our members have transformed their lives with Renasci">
           Descubre cómo nuestros miembros han transformado su vida con Renasci
         </p>
       </div>
@@ -394,9 +424,9 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
             <div class="flex-1 h-[2px] bg-gray-200"></div>
           </div>
           <h2 class="font-display font-bold text-4xl md:text-5xl text-text mb-6">
-            Preguntas <span class="text-primary">Frecuentes</span>
+            <span data-t-es="Preguntas" data-t-en="Frequently">Preguntas</span> <span class="text-[#F3A2A7]" data-t-es="Frecuentes" data-t-en="Asked Questions">Frecuentes</span>
           </h2>
-          <p class="text-xl text-graytxt">
+          <p class="text-xl text-graytxt" data-t-es="Todo lo que necesitas saber sobre nuestras membresías" data-t-en="Everything you need to know about our memberships">
             Todo lo que necesitas saber sobre nuestras membresías
           </p>
         </div>
@@ -821,3 +851,15 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
     }
   }
 </style>
+<script>
+  function applyMembershipLang(){
+    const params = new URLSearchParams(window.location.search)
+    const urlLang = params.get('lang')
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language')
+    const lang = urlLang === 'en' || urlLang === 'es' ? urlLang : (storedLang === 'en' ? 'en' : (window.i18nManager?.getCurrentLanguage?.() || document.documentElement.lang || 'es'))
+    const nodes = Array.from(document.querySelectorAll('[data-t-es]'))
+    nodes.forEach((n) => { const es = n.getAttribute('data-t-es')||''; const en = n.getAttribute('data-t-en')||es; n.textContent = (lang==='en')? en : es })
+  }
+  document.addEventListener('DOMContentLoaded', applyMembershipLang)
+  window.addEventListener('languageChanged', (e) => { const lang = e.detail?.language || 'es'; const nodes = Array.from(document.querySelectorAll('[data-t-es]')); nodes.forEach((n) => { const es = n.getAttribute('data-t-es')||''; const en = n.getAttribute('data-t-en')||es; n.textContent = (lang==='en')? en : es }) })
+</script>
