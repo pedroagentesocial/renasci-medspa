@@ -433,6 +433,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     let isPaused = false;
     let remainingMs = slideDuration;
     let lastProgress = 0;
+    let pausedByVisibility = false;
     function freezeIndicators() {
       const activeInd = indicators[current];
       if (!activeInd) return;
@@ -531,6 +532,15 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       });
     });
 
+    // Apply initial paused state from storage
+    try {
+      const stored = localStorage.getItem('heroSliderPaused');
+      if (stored === 'true') {
+        isPaused = true;
+        if (toggleIcon) toggleIcon.innerHTML = '<polygon points="8,5 8,19 19,12" fill="currentColor" />';
+        toggleBtn?.setAttribute('aria-label', 'Play slider');
+      }
+    } catch {}
     setActive(0);
 
     function setPlayState(paused: boolean) {
@@ -569,7 +579,28 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       if (toggleBtn) toggleBtn.setAttribute('aria-label', paused ? 'Play slider' : 'Pause slider');
     }
 
-    toggleBtn?.addEventListener('click', () => setPlayState(!isPaused));
+    toggleBtn?.addEventListener('click', () => {
+      const next = !isPaused;
+      try { localStorage.setItem('heroSliderPaused', String(next)); } catch {}
+      setPlayState(next);
+    });
+
+    // Pause on tab hidden; resume on visible if not user-paused
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        if (!isPaused) {
+          pausedByVisibility = true;
+          setPlayState(true);
+        }
+      } else {
+        let userPaused = false;
+        try { userPaused = localStorage.getItem('heroSliderPaused') === 'true'; } catch {}
+        if (pausedByVisibility && !userPaused) {
+          pausedByVisibility = false;
+          setPlayState(false);
+        }
+      }
+    });
   })();
 </script>
 
