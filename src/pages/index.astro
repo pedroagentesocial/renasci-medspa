@@ -429,26 +429,35 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     const toggleBtn = document.getElementById('heroToggle') as HTMLButtonElement | null;
     const toggleIcon = document.getElementById('heroToggleIcon') as SVGElement | null;
     let current = 0;
-    let timer: number | null = null;
+    let advanceTimer: number | null = null;
     let isPaused = false;
+    let remainingMs = slideDuration;
+    let lastProgress = 0;
     function freezeIndicators() {
-      indicators.forEach(ind => {
-        const bar = ind.querySelector('.bar') as HTMLElement | null;
-        const fill = ind.querySelector('.bar .fill') as HTMLElement | null;
-        if (bar && fill) {
-          const bw = bar.getBoundingClientRect().width;
-          const fw = fill.getBoundingClientRect().width;
-          fill.style.transition = 'none';
-          if (bw > 0) fill.style.width = `${(fw / bw) * 100}%`;
+      const activeInd = indicators[current];
+      if (!activeInd) return;
+      const bar = activeInd.querySelector('.bar') as HTMLElement | null;
+      const fill = activeInd.querySelector('.bar .fill') as HTMLElement | null;
+      if (bar && fill) {
+        const bw = bar.getBoundingClientRect().width;
+        const fw = fill.getBoundingClientRect().width;
+        fill.style.transition = 'none';
+        if (bw > 0) {
+          lastProgress = Math.min(1, Math.max(0, fw / bw));
+          fill.style.width = `${lastProgress * 100}%`;
+          remainingMs = Math.max(1, Math.round(slideDuration * (1 - lastProgress)));
+        } else {
+          lastProgress = 0;
+          remainingMs = slideDuration;
         }
-        const circle = ind.querySelector('.circle .circle-progress') as SVGCircleElement | null;
-        if (circle) {
-          const cs = window.getComputedStyle(circle);
-          const dash = cs.getPropertyValue('stroke-dashoffset') || circle.style.strokeDashoffset || '0';
-          circle.style.transition = 'none';
-          circle.style.strokeDashoffset = dash;
-        }
-      });
+      }
+      const circle = activeInd.querySelector('.circle .circle-progress') as SVGCircleElement | null;
+      if (circle) {
+        const cs = window.getComputedStyle(circle);
+        const dash = cs.getPropertyValue('stroke-dashoffset') || circle.style.strokeDashoffset || '0';
+        circle.style.transition = 'none';
+        circle.style.strokeDashoffset = dash;
+      }
     }
 
     function animateIndicator(indEl: HTMLElement, active: boolean) {
@@ -505,9 +514,11 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
         (membershipEl as HTMLElement).style.display = index === 1 ? '' : 'none';
       }
       indicators.forEach((ind, i) => animateIndicator(ind, i === index));
-      if (timer) window.clearInterval(timer);
+      lastProgress = 0;
+      remainingMs = slideDuration;
+      if (advanceTimer) window.clearTimeout(advanceTimer);
       if (!isPaused) {
-        timer = window.setInterval(() => setActive((current + 1) % slides.length), slideDuration);
+        advanceTimer = window.setTimeout(() => setActive((current + 1) % slides.length), remainingMs);
       } else {
         freezeIndicators();
       }
@@ -524,11 +535,30 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
 
     function setPlayState(paused: boolean) {
       isPaused = paused;
-      if (timer) { window.clearInterval(timer); timer = null; }
-      if (!paused) {
-        setActive(current);
-      } else {
+      if (advanceTimer) { window.clearTimeout(advanceTimer); advanceTimer = null; }
+      if (paused) {
         freezeIndicators();
+      } else {
+        // Resume from the current progress without restarting
+        const activeInd = indicators[current];
+        if (activeInd) {
+          const bar = activeInd.querySelector('.bar') as HTMLElement | null;
+          const fill = activeInd.querySelector('.bar .fill') as HTMLElement | null;
+          if (bar && fill) {
+            fill.style.transition = 'none';
+            void (fill as any).offsetWidth;
+            fill.style.transition = `width ${remainingMs}ms linear`;
+            fill.style.width = '100%';
+          }
+          const circle = activeInd.querySelector('.circle .circle-progress') as SVGCircleElement | null;
+          if (circle) {
+            circle.style.transition = 'none';
+            void circle.getBoundingClientRect();
+            circle.style.transition = `stroke-dashoffset ${remainingMs}ms linear`;
+            circle.style.strokeDashoffset = '0';
+          }
+        }
+        advanceTimer = window.setTimeout(() => setActive((current + 1) % slides.length), remainingMs);
       }
       if (toggleIcon) {
         // Update icon: pause when playing, play when paused
