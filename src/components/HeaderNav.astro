@@ -210,24 +210,14 @@ const services = [
 
       <!-- CTA Agendar -->
       <div class="inline-flex">
-        {schedulerUrl ? (
-          <CTAButton 
-            variant="primary"
-            type="button"
-            onClick="window.__openScheduler && window.__openScheduler()"
-            className="px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm !bg-[#C69C87] !text-white hover:opacity-90 min-h-[40px] md:min-h-[44px]"
-          >
-            <span data-i18n="cta.book_now">Agendar Ahora</span>
-          </CTAButton>
-        ) : (
-          <CTAButton 
-            href="/contact"
-            variant="primary"
-            className="px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm !bg-[#C69C87] !text-white hover:opacity-90 min-h-[40px] md:min-h-[44px]"
-          >
-            <span data-i18n="cta.book_now">Agendar Ahora</span>
-          </CTAButton>
-        )}
+        <CTAButton 
+          variant="primary"
+          type="button"
+          onClick="window.__triggerScheduler && window.__triggerScheduler()"
+          className="px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm !bg-[#C69C87] !text-white hover:opacity-90 min-h-[40px] md:min-h-[44px]"
+        >
+          <span data-i18n="cta.book_now">Agendar Ahora</span>
+        </CTAButton>
       </div>
 
       <!-- Redes Sociales -->
@@ -639,24 +629,14 @@ const services = [
               </svg>
               (385) 555-0123
             </a>
-            {schedulerUrl ? (
-              <CTAButton 
-                variant="primary"
-                type="button"
-                onClick="window.__openScheduler && window.__openScheduler()"
-                className="w-full px-4 py-3 text-sm !bg-[#C69C87] !text-white hover:opacity-90"
-              >
-                <span data-i18n="cta.book_now">Agendar Ahora</span>
-              </CTAButton>
-            ) : (
-              <CTAButton 
-                href="/contact"
-                variant="primary"
-                className="w-full px-4 py-3 text-sm !bg-[#C69C87] !text-white hover:opacity-90"
-              >
-                <span data-i18n="cta.book_now">Agendar Ahora</span>
-              </CTAButton>
-            )}
+            <CTAButton 
+              variant="primary"
+              type="button"
+              onClick="window.__triggerScheduler && window.__triggerScheduler()"
+              className="w-full px-4 py-3 text-sm !bg-[#C69C87] !text-white hover:opacity-90"
+            >
+              <span data-i18n="cta.book_now">Agendar Ahora</span>
+            </CTAButton>
           </div>
         </nav>
       </div>
@@ -676,27 +656,15 @@ const services = [
       </svg>
       (385) 555-0123
     </a>
-    {schedulerUrl ? (
-      <button 
-        class="pointer-events-auto flex flex-1 items-center justify-center gap-2 bg-[#C69C87] text-white rounded-[48px] px-4 py-3 font-semibold text-sm shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C69C87]/50"
-        onclick="window.__openScheduler && window.__openScheduler()"
-      >
-        <span data-i18n="cta.book_now">Agendar Ahora</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-      </button>
-    ) : (
-      <a 
-        href="/contact"
-        class="pointer-events-auto flex flex-1 items-center justify-center gap-2 bg-[#C69C87] text-white rounded-[48px] px-4 py-3 font-semibold text-sm shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C69C87]/50"
-      >
-        <span data-i18n="cta.book_now">Agendar Ahora</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-      </a>
-    )}
+    <button 
+      class="pointer-events-auto flex flex-1 items-center justify-center gap-2 bg-[#C69C87] text-white rounded-[48px] px-4 py-3 font-semibold text-sm shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C69C87]/50"
+      onclick="window.__triggerScheduler && window.__triggerScheduler()"
+    >
+      <span data-i18n="cta.book_now">Agendar Ahora</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+      </svg>
+    </button>
   </div>
   </div>
 
@@ -757,28 +725,41 @@ const services = [
   }
 
   function initScheduler() {
-    const u = schedulerUrl;
+    let u = schedulerUrl;
     const m = document.getElementById('scheduler-modal');
     const f = document.getElementById('scheduler-frame') as HTMLIFrameElement | null;
     const b = document.getElementById('scheduler-backdrop');
     const c = document.getElementById('scheduler-close');
     if (!m || !f || !b || !c) return;
-    function open() {
-      if (!u) return;
-      if (u.includes('calendar.google.com')) {
-        window.open(u, '_blank');
-        return;
-      }
-      m.classList.remove('hidden');
-      f.src = u;
-      document.body.style.overflow = 'hidden';
+    async function resolveUrl() {
+      if (u) return u;
+      try {
+        const res = await fetch('/scheduler.json', { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          if (data && typeof data.url === 'string' && data.url.trim() !== '') {
+            u = data.url.trim();
+          }
+        }
+      } catch {}
+      return u;
     }
     function close() {
       m.classList.add('hidden');
       f.src = '';
       document.body.style.overflow = '';
     }
-    (window as any).__openScheduler = open;
+    function trigger() {
+      resolveUrl().then((link) => {
+        if (!link) { window.location.href = '/contact'; return; }
+        if (link.includes('calendar.google.com')) { window.open(link, '_blank'); return; }
+        m.classList.remove('hidden');
+        f.src = link;
+        document.body.style.overflow = 'hidden';
+      });
+    }
+    (window as any).__triggerScheduler = trigger;
+    (window as any).__openScheduler = trigger;
     b.addEventListener('click', close);
     c.addEventListener('click', close);
     document.addEventListener('keydown', (e) => { const k = (e as KeyboardEvent).key; if (k === 'Escape' && !m.classList.contains('hidden')) close(); });
