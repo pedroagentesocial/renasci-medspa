@@ -92,10 +92,11 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
     const slideCount = inner.children.length;
     let index = 0;
     let slideW = 0;
-    const maxIndex = Math.max(0, slideCount - 3);
+    let perView = 3;
     const sizeSlides = () => {
       const vw = track.clientWidth;
-      slideW = Math.max(0, vw / 3);
+      perView = vw < 640 ? 1 : (vw < 1024 ? 2 : 3);
+      slideW = Math.max(0, vw / perView);
       Array.from(inner.children).forEach((el) => { (el as HTMLElement).style.width = `${slideW}px`; });
       (inner as HTMLElement).style.width = `${slideW * slideCount}px`;
     };
@@ -103,6 +104,7 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
       inner.style.transform = `translateX(-${index * slideW}px)`;
     };
     const step = () => {
+      const maxIndex = Math.max(0, slideCount - perView);
       index = index + 1;
       if (index > maxIndex) index = 0;
       update();
@@ -110,7 +112,7 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
     sizeSlides();
     update();
   const timer = setInterval(step, 6000);
-    window.addEventListener('resize', () => { sizeSlides(); if (index > maxIndex) index = 0; update(); });
+    window.addEventListener('resize', () => { sizeSlides(); index = 0; update(); });
 
     // Sincronizar descripciones con el idioma activo
     const applyDescLanguage = (lang) => {

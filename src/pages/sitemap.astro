@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { services } from '../data/services';
+import { serviciosUnificados } from '../data/services-unified';
 
 // Generar todas las rutas de servicios desde la fuente unificada
-const serviciosRoutes = services.map((s) => ({
+const serviciosRoutes = serviciosUnificados.map((s) => ({
   url: s.href || (s.slug ? `/services/${s.slug}` : '/services'),
-  title: typeof s.title === 'string' ? s.title : (s.title?.es || s.title?.en || 'Servicio'),
+  title: s.title?.es || s.title?.en || 'Servicio',
   category: s.categoryName?.es || s.categoryName?.en || s.category || 'Servicios'
 }));
 
@@ -15,7 +15,6 @@ const mainRoutes = [
   { url: '/services', title: 'Servicios', description: 'Todos nuestros tratamientos estéticos' },
   { url: '/membership', title: 'Membresía', description: 'Planes de membresía y beneficios exclusivos' },
   { url: '/about', title: 'Nosotros', description: 'Conoce nuestro equipo y filosofía' },
-  { url: '/blog', title: 'Blog', description: 'Artículos y consejos de belleza' },
   { url: '/contact', title: 'Contacto', description: 'Agenda tu cita y contáctanos' },
 ];
 
@@ -27,10 +26,10 @@ const legalRoutes = [
 
 // Agrupar servicios por categoría a partir de services
 const categoryMap = new Map<string, { name: string; services: { url: string; title: string }[] }>();
-for (const s of services) {
+for (const s of serviciosUnificados) {
   const name = s.categoryName?.es || s.categoryName?.en || s.category || 'Servicios';
   const url = s.href || (s.slug ? `/services/${s.slug}` : '/services');
-  const title = typeof s.title === 'string' ? s.title : (s.title?.es || s.title?.en || 'Servicio');
+  const title = s.title?.es || s.title?.en || 'Servicio';
   if (!categoryMap.has(name)) {
     categoryMap.set(name, { name, services: [] });
   }
@@ -186,15 +185,7 @@ const servicesByCategory = Array.from(categoryMap.values());
         </div>
       </div>
 
-      <!-- XML Sitemap Link -->
-      <div class="mt-8 text-center">
-        <p class="text-sm text-graytxt">
-          Para motores de búsqueda: 
-          <a href="/sitemap-index.xml" class="text-primary hover:underline font-medium">
-            Sitemap XML
-          </a>
-        </p>
-      </div>
+      
     </div>
   </div>
 </BaseLayout>

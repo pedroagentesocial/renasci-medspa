@@ -8,10 +8,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <section class="pt-24 pb-16 md:pt-32 bg-black text-white text-center">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h1 class="font-display font-bold text-4xl md:text-5xl mb-6 tracking-tight">
-        Términos y <span class="text-primary">Condiciones</span>
-      </h1>
-      <p class="text-lg text-white/80">Última actualización: 1 de enero de 2025</p>
+      <h1 class="font-display font-bold text-4xl md:text-5xl mb-6 tracking-tight"><span data-i18n="terms.title">Términos y <span class="text-primary">Condiciones</span></span></h1>
+      <p class="text-lg text-white/80" data-i18n="terms.last_updated">Última actualización: 1 de enero de 2025</p>
     </div>
   </section>
   <div class="h-[2px] w-full bg-primary"></div>
@@ -19,222 +17,164 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="prose prose-lg max-w-none">
         <div class="bg-soft rounded-2xl p-8 mb-8">
-          <p class="text-dark leading-relaxed mb-0">
-            Bienvenido a <strong>Renasci®</strong> Medical Spa. Estos Términos y Condiciones rigen el uso de nuestros servicios, sitio web y programas de membresía. Al utilizar nuestros servicios, aceptas estos términos en su totalidad.
-          </p>
+          <p class="text-dark leading-relaxed mb-0" data-i18n="terms.intro">Bienvenido a <strong>Renasci®</strong> Medical Spa. Estos Términos y Condiciones rigen el uso de nuestros servicios, sitio web y programas de membresía. Al utilizar nuestros servicios, aceptas estos términos en su totalidad.</p>
         </div>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">1. Uso del Sitio Web</h2>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.s1_title">1. Uso del Sitio Web</h2>
           
-          <h3 class="font-semibold text-xl text-dark mb-3">Uso Permitido</h3>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s1_allowed_title">Uso Permitido</h3>
           <ul class="text-graytxt space-y-2 mb-4">
-            <li>Navegar e informarte sobre nuestros servicios</li>
-            <li>Agendar citas y consultas</li>
-            <li>Acceder a tu cuenta de membresía</li>
-            <li>Comunicarte con nuestro equipo</li>
+            <li><span data-i18n="terms.s1_allowed_item1">Navegar e informarte sobre nuestros servicios</span></li>
+            <li><span data-i18n="terms.s1_allowed_item2">Agendar citas y consultas</span></li>
+            <li><span data-i18n="terms.s1_allowed_item3">Acceder a tu cuenta de membresía</span></li>
+            <li><span data-i18n="terms.s1_allowed_item4">Comunicarte con nuestro equipo</span></li>
           </ul>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Uso Prohibido</h3>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s1_prohibited_title">Uso Prohibido</h3>
           <ul class="text-graytxt space-y-2">
-            <li>Usar el sitio para fines ilegales o no autorizados</li>
-            <li>Intentar acceder a sistemas o datos no autorizados</li>
-            <li>Interferir con el funcionamiento del sitio web</li>
-            <li>Copiar, distribuir o modificar contenido sin autorización</li>
-            <li>Usar información obtenida para spam o marketing no solicitado</li>
+            <li><span data-i18n="terms.s1_prohibited_item1">Usar el sitio para fines ilegales o no autorizados</span></li>
+            <li><span data-i18n="terms.s1_prohibited_item2">Intentar acceder a sistemas o datos no autorizados</span></li>
+            <li><span data-i18n="terms.s1_prohibited_item3">Interferir con el funcionamiento del sitio web</span></li>
+            <li><span data-i18n="terms.s1_prohibited_item4">Copiar, distribuir o modificar contenido sin autorización</span></li>
+            <li><span data-i18n="terms.s1_prohibited_item5">Usar información obtenida para spam o marketing no solicitado</span></li>
           </ul>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">2. Propiedad Intelectual</h2>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.s2_title">2. Propiedad Intelectual</h2>
           
-          <h3 class="font-semibold text-xl text-dark mb-3">Marca Registrada</h3>
-          <p class="text-graytxt mb-4">
-            <strong>Renasci®</strong> es una marca registrada de nuestra propiedad. El uso no autorizado de nuestra marca, logo, nombres comerciales o cualquier material protegido por derechos de autor está estrictamente prohibido.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s2_trademark_title">Marca Registrada</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s2_trademark_text"><strong>Renasci®</strong> es una marca registrada de nuestra propiedad. El uso no autorizado de nuestra marca, logo, nombres comerciales o cualquier material protegido por derechos de autor está estrictamente prohibido.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Contenido del Sitio</h3>
-          <p class="text-graytxt mb-4">
-            Todo el contenido del sitio web, incluyendo textos, imágenes, gráficos, logos, videos y software, está protegido por derechos de autor y otras leyes de propiedad intelectual. No puedes reproducir, distribuir, modificar o crear trabajos derivados sin nuestro consentimiento escrito.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s2_site_content_title">Contenido del Sitio</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s2_site_content_text">Todo el contenido del sitio web, incluyendo textos, imágenes, gráficos, logos, videos y software, está protegido por derechos de autor y otras leyes de propiedad intelectual. No puedes reproducir, distribuir, modificar o crear trabajos derivados sin nuestro consentimiento escrito.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Contenido del Usuario</h3>
-          <p class="text-graytxt">
-            Al enviar contenido (reseñas, comentarios, fotografías), nos otorgas una licencia no exclusiva, libre de regalías y mundial para usar, modificar y mostrar dicho contenido con fines promocionales y comerciales.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s2_user_content_title">Contenido del Usuario</h3>
+          <p class="text-graytxt" data-i18n="terms.s2_user_content_text">Al enviar contenido (reseñas, comentarios, fotografías), nos otorgas una licencia no exclusiva, libre de regalías y mundial para usar, modificar y mostrar dicho contenido con fines promocionales y comerciales.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">3. Servicios Médicos y Estéticos</h2>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.s3_title">3. Servicios Médicos y Estéticos</h2>
           
-          <h3 class="font-semibold text-xl text-dark mb-3">Naturaleza de los Servicios</h3>
-          <p class="text-graytxt mb-4">
-            Ofrecemos servicios médicos estéticos incluyendo, pero no limitado a, inyecciones de neurotoxina (Botox), rellenos dérmicos, tratamientos láser, y otros procedimientos cosméticos.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s3_nature_title">Naturaleza de los Servicios</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s3_nature_text">Ofrecemos servicios médicos estéticos incluyendo, pero no limitado a, inyecciones de neurotoxina (Botox), rellenos dérmicos, tratamientos láser, y otros procedimientos cosméticos.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Consulta Médica Requerida</h3>
-          <p class="text-graytxt mb-4">
-            Todos los tratamientos requieren una consulta médica previa. Nuestros profesionales evaluarán tu idoneidad para cada procedimiento y discutirán riesgos, beneficios y expectativas realistas.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s3_consult_title">Consulta Médica Requerida</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s3_consult_text">Todos los tratamientos requieren una consulta médica previa. Nuestros profesionales evaluarán tu idoneidad para cada procedimiento y discutirán riesgos, beneficios y expectativas realistas.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Consentimiento Informado</h3>
-          <p class="text-graytxt">
-            Antes de cualquier procedimiento, debes firmar un formulario de consentimiento informado que detalla los riesgos, beneficios, alternativas y cuidados posteriores específicos del tratamiento.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s3_consent_title">Consentimiento Informado</h3>
+          <p class="text-graytxt" data-i18n="terms.s3_consent_text">Antes de cualquier procedimiento, debes firmar un formulario de consentimiento informado que detalla los riesgos, beneficios, alternativas y cuidados posteriores específicos del tratamiento.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">4. Limitación de Responsabilidad</h2>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.s4_title">4. Limitación de Responsabilidad</h2>
           
-          <h3 class="font-semibold text-xl text-dark mb-3">Información Educacional</h3>
-          <p class="text-graytxt mb-4">
-            La información en nuestro sitio web es únicamente para fines educativos e informativos. No constituye consejo médico personalizado y no debe usarse como sustituto de una consulta médica profesional.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s4_educational_title">Información Educacional</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s4_educational_text">La información en nuestro sitio web es únicamente para fines educativos e informativos. No constituye consejo médico personalizado y no debe usarse como sustituto de una consulta médica profesional.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Resultados No Garantizados</h3>
-          <p class="text-graytxt mb-4">
-            Los resultados de los tratamientos estéticos pueden variar entre individuos. No garantizamos resultados específicos y las fotografías de antes/después mostradas son solo ejemplos de resultados posibles.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s4_no_guarantee_title">Resultados No Garantizados</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s4_no_guarantee_text">Los resultados de los tratamientos estéticos pueden variar entre individuos. No garantizamos resultados específicos y las fotografías de antes/después mostradas son solo ejemplos de resultados posibles.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Limitación de Daños</h3>
-          <p class="text-graytxt">
-            En la máxima medida permitida por la ley, nuestra responsabilidad total por cualquier reclamo no excederá el monto pagado por los servicios específicos en cuestión. No seremos responsables por daños indirectos, incidentales o consecuentes.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s4_damages_title">Limitación de Daños</h3>
+          <p class="text-graytxt" data-i18n="terms.s4_damages_text">En la máxima medida permitida por la ley, nuestra responsabilidad total por cualquier reclamo no excederá el monto pagado por los servicios específicos en cuestión. No seremos responsables por daños indirectos, incidentales o consecuentes.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">5. Disclaimer Médico</h2>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.s5_title">5. Disclaimer Médico</h2>
           
           <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-4">
-            <h3 class="font-semibold text-xl text-dark mb-3">⚠️ Aviso Médico Importante</h3>
+            <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s5_warning_title">⚠️ Aviso Médico Importante</h3>
             <ul class="text-graytxt space-y-2">
-              <li>Los tratamientos con inyectables conllevan riesgos inherentes incluyendo, pero no limitado a: hematomas, hinchazón, infección, reacciones alérgicas, asimetría y resultados no deseados</li>
-              <li>Algunos efectos secundarios pueden ser permanentes o requerir tratamiento médico adicional</li>
-              <li>Los resultados pueden variar y no están garantizados</li>
-              <li>Es esencial seguir todas las instrucciones pre y post-tratamiento</li>
-              <li>Debes informar sobre todas las condiciones médicas, medicamentos y alergias</li>
+              <li><span data-i18n="terms.s5_warning_item1">Los tratamientos con inyectables conllevan riesgos inherentes incluyendo, pero no limitado a: hematomas, hinchazón, infección, reacciones alérgicas, asimetría y resultados no deseados</span></li>
+              <li><span data-i18n="terms.s5_warning_item2">Algunos efectos secundarios pueden ser permanentes o requerir tratamiento médico adicional</span></li>
+              <li><span data-i18n="terms.s5_warning_item3">Los resultados pueden variar y no están garantizados</span></li>
+              <li><span data-i18n="terms.s5_warning_item4">Es esencial seguir todas las instrucciones pre y post-tratamiento</span></li>
+              <li><span data-i18n="terms.s5_warning_item5">Debes informar sobre todas las condiciones médicas, medicamentos y alergias</span></li>
             </ul>
           </div>
 
-          <p class="text-graytxt">
-            <strong>Busca atención médica inmediata</strong> si experimentas síntomas graves como dificultad para respirar, hinchazón severa, cambios en la visión, o cualquier reacción que te preocupe después de un tratamiento.
-          </p>
+          <p class="text-graytxt" data-i18n="terms.s5_warning_note"><strong>Busca atención médica inmediata</strong> si experimentas síntomas graves como dificultad para respirar, hinchazón severa, cambios en la visión, o cualquier reacción que te preocupe después de un tratamiento.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">6. Precios y Servicios</h2>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.s6_title">6. Precios y Servicios</h2>
           
-          <h3 class="font-semibold text-xl text-dark mb-3">Cambios de Precios</h3>
-          <p class="text-graytxt mb-4">
-            Nos reservamos el derecho de modificar nuestros precios y servicios en cualquier momento sin previo aviso. Los precios vigentes al momento de la prestación del servicio serán los aplicables.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s6_price_changes_title">Cambios de Precios</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s6_price_changes_text">Nos reservamos el derecho de modificar nuestros precios y servicios en cualquier momento sin previo aviso. Los precios vigentes al momento de la prestación del servicio serán los aplicables.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Disponibilidad de Servicios</h3>
-          <p class="text-graytxt mb-4">
-            La disponibilidad de servicios específicos puede variar según la ubicación, temporada y disponibilidad de personal calificado. Nos reservamos el derecho de discontinuar servicios cuando sea necesario.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s6_availability_title">Disponibilidad de Servicios</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s6_availability_text">La disponibilidad de servicios específicos puede variar según la ubicación, temporada y disponibilidad de personal calificado. Nos reservamos el derecho de discontinuar servicios cuando sea necesario.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Política de Cancelación</h3>
-          <p class="text-graytxt">
-            Las cancelaciones deben realizarse con al menos 24 horas de anticipación. Las cancelaciones tardías o no-shows pueden estar sujetas a cargos según nuestra política vigente.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s6_cancellation_title">Política de Cancelación</h3>
+          <p class="text-graytxt" data-i18n="terms.s6_cancellation_text">Las cancelaciones deben realizarse con al menos 24 horas de anticipación. Las cancelaciones tardías o no-shows pueden estar sujetas a cargos según nuestra política vigente.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">7. Programa de Membresía Renasci®</h2>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.s7_title">7. Programa de Membresía Renasci®</h2>
           
-          <h3 class="font-semibold text-xl text-dark mb-3">Pagos Recurrentes</h3>
-          <p class="text-graytxt mb-4">
-            Las membresías operan con pagos recurrentes mensuales automáticos. Al inscribirte, autorizas los cargos automáticos a tu método de pago registrado hasta que canceles la membresía.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s7_payments_title">Pagos Recurrentes</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s7_payments_text">Las membresías operan con pagos recurrentes mensuales automáticos. Al inscribirte, autorizas los cargos automáticos a tu método de pago registrado hasta que canceles la membresía.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Período de Compromiso</h3>
-          <p class="text-graytxt mb-4">
-            Las membresías requieren un compromiso mínimo de 3 meses. La cancelación antes de este período puede estar sujeta a penalizaciones según el plan seleccionado.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s7_commit_title">Período de Compromiso</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s7_commit_text">Las membresías requieren un compromiso mínimo de 3 meses. La cancelación antes de este período puede estar sujeta a penalizaciones según el plan seleccionado.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Cancelación de Membresía</h3>
-          <p class="text-graytxt mb-4">
-            Puedes cancelar tu membresía en cualquier momento después del período de compromiso inicial proporcionando un aviso de 30 días. La cancelación será efectiva al final del ciclo de facturación actual.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s7_cancel_title">Cancelación de Membresía</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s7_cancel_text">Puedes cancelar tu membresía en cualquier momento después del período de compromiso inicial proporcionando un aviso de 30 días. La cancelación será efectiva al final del ciclo de facturación actual.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Roll-over de Créditos</h3>
-          <p class="text-graytxt mb-4">
-            Los créditos no utilizados de la membresía pueden acumularse por un máximo de 60 días. Después de este período, los créditos expirarán automáticamente sin reembolso.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s7_rollover_title">Roll-over de Créditos</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s7_rollover_text">Los créditos no utilizados de la membresía pueden acumularse por un máximo de 60 días. Después de este período, los créditos expirarán automáticamente sin reembolso.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">No Transferible</h3>
-          <p class="text-graytxt mb-4">
-            Las membresías y créditos asociados son estrictamente personales y no transferibles a terceros. Cualquier intento de transferencia resultará en la cancelación inmediata de la membresía.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s7_not_transferable_title">No Transferible</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s7_not_transferable_text">Las membresías y créditos asociados son estrictamente personales y no transferibles a terceros. Cualquier intento de transferencia resultará en la cancelación inmediata de la membresía.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Fraude y Abuso</h3>
-          <p class="text-graytxt mb-4">
-            Nos reservamos el derecho de cancelar membresías en casos de fraude, abuso del sistema, o uso indebido de beneficios. Esto incluye, pero no se limita a, compartir credenciales, reventa de servicios, o proporcionar información falsa.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s7_fraud_title">Fraude y Abuso</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s7_fraud_text">Nos reservamos el derecho de cancelar membresías en casos de fraude, abuso del sistema, o uso indebido de beneficios. Esto incluye, pero no se limita a, compartir credenciales, reventa de servicios, o proporcionar información falsa.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Política de Reembolsos</h3>
-          <p class="text-graytxt mb-4">
-            Los pagos de membresía no son reembolsables, excepto en circunstancias excepcionales a nuestra discreción. Los créditos no utilizados no son reembolsables en efectivo.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s7_refunds_title">Política de Reembolsos</h3>
+          <p class="text-graytxt mb-4" data-i18n="terms.s7_refunds_text">Los pagos de membresía no son reembolsables, excepto en circunstancias excepcionales a nuestra discreción. Los créditos no utilizados no son reembolsables en efectivo.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Promociones y Descuentos</h3>
-          <p class="text-graytxt">
-            Las promociones especiales y descuentos para miembros están sujetos a términos específicos y pueden modificarse o discontinuarse en cualquier momento. Los descuentos no son acumulables salvo que se indique expresamente.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s7_promos_title">Promociones y Descuentos</h3>
+          <p class="text-graytxt" data-i18n="terms.s7_promos_text">Las promociones especiales y descuentos para miembros están sujetos a términos específicos y pueden modificarse o discontinuarse en cualquier momento. Los descuentos no son acumulables salvo que se indique expresamente.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">8. Privacidad y Protección de Datos</h2>
-          <p class="text-graytxt">
-            El manejo de tu información personal se rige por nuestra <a href="/privacy" class="text-primary hover:underline">Política de Privacidad</a>, que forma parte integral de estos términos. Te recomendamos revisarla cuidadosamente.
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.s8_title">8. Privacidad y Protección de Datos</h2>
+          <p class="text-graytxt" data-i18n="terms.s8_text">El manejo de tu información personal se rige por nuestra <a href="/privacy" class="text-primary hover:underline">Política de Privacidad</a>, que forma parte integral de estos términos. Te recomendamos revisarla cuidadosamente.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">9. Modificaciones a los Términos</h2>
-          <p class="text-graytxt">
-            Podemos modificar estos términos en cualquier momento. Los cambios significativos serán notificados por correo electrónico o mediante aviso prominente en nuestro sitio web. El uso continuado de nuestros servicios después de las modificaciones constituye tu aceptación de los nuevos términos.
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.s9_title">9. Modificaciones a los Términos</h2>
+          <p class="text-graytxt" data-i18n="terms.s9_text">Podemos modificar estos términos en cualquier momento. Los cambios significativos serán notificados por correo electrónico o mediante aviso prominente en nuestro sitio web. El uso continuado de nuestros servicios después de las modificaciones constituye tu aceptación de los nuevos términos.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">10. Jurisdicción y Ley Aplicable</h2>
-          <p class="text-graytxt mb-4">
-            Estos términos se rigen por las leyes del estado de Utah, Estados Unidos, sin consideración a sus principios de conflicto de leyes. Cualquier disputa será resuelta en los tribunales competentes de Utah.
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.s10_title">10. Jurisdicción y Ley Aplicable</h2>
+          <p class="text-graytxt mb-4" data-i18n="terms.s10_text">Estos términos se rigen por las leyes del estado de Utah, Estados Unidos, sin consideración a sus principios de conflicto de leyes. Cualquier disputa será resuelta en los tribunales competentes de Utah.</p>
 
-          <h3 class="font-semibold text-xl text-dark mb-3">Arbitraje</h3>
-          <p class="text-graytxt">
-            Para disputas que no excedan $10,000, las partes acuerdan resolver las controversias mediante arbitraje vinculante bajo las reglas de la Asociación Americana de Arbitraje, antes de recurrir a los tribunales.
-          </p>
+          <h3 class="font-semibold text-xl text-dark mb-3" data-i18n="terms.s10_arbitration_title">Arbitraje</h3>
+          <p class="text-graytxt" data-i18n="terms.s10_arbitration_text">Para disputas que no excedan $10,000, las partes acuerdan resolver las controversias mediante arbitraje vinculante bajo las reglas de la Asociación Americana de Arbitraje, antes de recurrir a los tribunales.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">11. Divisibilidad</h2>
-          <p class="text-graytxt">
-            Si cualquier disposición de estos términos se considera inválida o inaplicable, las disposiciones restantes permanecerán en pleno vigor y efecto.
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.s11_title">11. Divisibilidad</h2>
+          <p class="text-graytxt" data-i18n="terms.s11_text">Si cualquier disposición de estos términos se considera inválida o inaplicable, las disposiciones restantes permanecerán en pleno vigor y efecto.</p>
         </section>
 
         <section class="mb-8">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">12. Acuerdo Completo</h2>
-          <p class="text-graytxt">
-            Estos términos, junto con nuestra Política de Privacidad y cualquier formulario de consentimiento específico, constituyen el acuerdo completo entre tú y <strong>Renasci®</strong> Medical Spa.
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.s12_title">12. Acuerdo Completo</h2>
+          <p class="text-graytxt" data-i18n="terms.s12_text">Estos términos, junto con nuestra Política de Privacidad y cualquier formulario de consentimiento específico, constituyen el acuerdo completo entre tú y <strong>Renasci®</strong> Medical Spa.</p>
         </section>
 
         <!-- Contact Information -->
         <div class="bg-primary/5 rounded-2xl p-8 mt-12">
-          <h2 class="font-display font-bold text-2xl text-dark mb-4">Contacto Legal</h2>
-          <p class="text-graytxt mb-4">
-            Para preguntas sobre estos términos o asuntos legales, contáctanos:
-          </p>
+          <h2 class="font-display font-bold text-2xl text-dark mb-4" data-i18n="terms.contact_title">Contacto Legal</h2>
+          <p class="text-graytxt mb-4" data-i18n="terms.contact_intro">Para preguntas sobre estos términos o asuntos legales, contáctanos:</p>
           <div class="space-y-2 text-graytxt">
-            <p><strong>Renasci®</strong> Medical Spa</p>
-            <p>Email: legal@renasci.com</p>
-            <p>Teléfono: (555) 123-4567</p>
-            <p>Dirección: 123 Beauty Ave, Ciudad, Utah 84000</p>
+            <p><span data-i18n="terms.contact_name"><strong>Renasci®</strong> Medical Spa</span></p>
+            <p><span data-i18n="terms.contact_email">Email: legal@renasci.com</span></p>
+            <p><span data-i18n="terms.contact_phone">Teléfono: (555) 123-4567</span></p>
+            <p><span data-i18n="terms.contact_address">Dirección: 123 Beauty Ave, Ciudad, Utah 84000</span></p>
           </div>
         </div>
       </div>

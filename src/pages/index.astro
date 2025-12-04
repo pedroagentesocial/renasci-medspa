@@ -20,7 +20,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
   description="Tratamientos estéticos avanzados en Renasci Medical Spa. Botox, rellenos, sculptra y más. Renueva tu piel con los mejores especialistas."
 >
   <!-- Hero Section with Slider -->
-  <section class="relative min-h-screen flex items-center overflow-hidden">
+  <section class="relative min-h-[85vh] md:min-h-screen flex items-center overflow-hidden">
     <!-- Slides -->
     <div id="heroSlides" class="absolute inset-0">
       <!-- Slide 0: Video -->
@@ -30,6 +30,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
           muted 
           loop 
           playsinline 
+          preload="metadata"
           poster="/images/heroIndex.png"
           class="absolute inset-0 w-full h-full object-cover"
         >
@@ -38,6 +39,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
         <div class="absolute inset-0 bg-black/40"></div>
 
         <!-- Hotspots SOLO para slide 0 -->
+        <div class="hidden md:block">
         <HeroHotspots 
           hotspots={[
             {
@@ -88,6 +90,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
             }
           ]}
         />
+        </div>
       </div>
       <!-- Slide 1: Image -->
       <div class="hero-slide opacity-0 pointer-events-none transition-opacity duration-700 ease-out">
@@ -101,29 +104,47 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     </div>
 
     <!-- Título del hero (solo visible en slide 0) -->
-    <div id="heroTitle" class="relative z-10 px-6 max-w-4xl ml-4 sm:ml-8 lg:ml-16">
-      <h1 class="font-display text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-left">
+    <div id="heroTitle" class="relative z-10 px-6 max-w-4xl mx-auto sm:ml-8 lg:ml-16">
+      <h1 class="font-display text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-center md:text-left">
         <span data-i18n="hero.renew_prefix">Renueva tu</span> <span class="text-[#F3A2A7] animate-pulse-gentle bg-gradient-to-r from-[#F3A2A7] to-[#F3A2A7] bg-clip-text text-transparent animate-shimmer" data-i18n="hero.renew_highlight">Piel</span>
       </h1>
-      <a 
-        href="/services" 
-        class="inline-flex items-center gap-2 px-8 py-4 rounded-[48px] font-semibold bg-[#F3A2A7] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#F3A2A7]/50 min-h-[44px]"
-      >
-        <span data-i18n="cta.view_services">Conoce nuestros servicios</span>
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-      </a>
+      <div class="flex justify-center md:justify-start">
+        <a 
+          href="/services" 
+          class="inline-flex items-center gap-2 px-8 py-4 rounded-[48px] font-semibold bg-[#F3A2A7] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#F3A2A7]/50 min-h-[44px]"
+        >
+          <span data-i18n="cta.view_services">Conoce nuestros servicios</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
     </div>
 
     <!-- Overlay de slide 1 (solo visible en imagen de membresía) -->
     <div id="heroMembershipOverlay" class="absolute inset-0 z-10" style="display:none">
-      <div class="absolute right-6 sm:right-10 lg:right-16 top-28 sm:top-32 lg:top-36">
-        <h2 class="font-display text-white text-right text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+      <div class="absolute left-0 right-0 top-24 sm:top-28 md:hidden px-6">
+        <h2 class="font-display text-white text-center text-2xl sm:text-3xl font-bold tracking-tight mb-4">
           <span data-i18n="hero.memberships_title_prefix">Conoce Nuestras</span> <span class="text-[#F3A2A7]" data-i18n="hero.memberships_title_highlight">Membresías</span>
         </h2>
       </div>
-      <div class="absolute right-6 sm:right-10 lg:right-16 bottom-12 sm:bottom-16 lg:bottom-20">
+      <div class="absolute right-6 sm:right-10 lg:right-16 top-28 sm:top-32 lg:top-36 hidden md:block">
+        <h2 class="font-display text-white text-right text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+          <span data-i18n="hero.memberships_title_prefix">Conoce Nuestras</span> <span class="text-[#F3A2A7]" data-i18n="hero.memberships_title_highlight">Membresías</span>
+        </h2>
+      </div>
+      <div class="absolute left-0 right-0 bottom-12 sm:bottom-16 md:hidden flex justify_center px-6">
+        <a 
+          href="/membership" 
+          class="inline-flex items-center gap-2 px-7 py-3 rounded-[48px] font-semibold bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#AABFA8]/50 min-h-[40px]"
+        >
+          <span data-i18n="cta.go_membership">Ir a Membresía</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+      <div class="absolute right-6 sm:right-10 lg:right-16 bottom-12 sm:bottom-16 lg:bottom-20 hidden md:block">
         <a 
           href="/membership" 
           class="inline-flex items-center gap-2 px-8 py-4 rounded-[48px] font-semibold bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#AABFA8]/50 min-h-[44px]"
@@ -137,10 +158,10 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     </div>
 
     <!-- Slider Indicators (bar for activo, círculo para inactivo) -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 z-10">
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 md:gap-4 z-10">
       <!-- Indicator for slide 0 -->
       <button class="indicator" data-slide="0" aria-label="Slide 1">
-        <div class="bar w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>
+        <div class="bar w-28 md:w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>
         <div class="circle w-6 h-6">
           <svg class="w-6 h-6" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/>
@@ -150,7 +171,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       </button>
       <!-- Indicator for slide 1 -->
       <button class="indicator" data-slide="1" aria-label="Slide 2">
-        <div class="bar w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>
+        <div class="bar w-28 md:w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>
         <div class="circle w-6 h-6">
           <svg class="w-6 h-6" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/>
