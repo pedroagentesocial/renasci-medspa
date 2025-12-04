@@ -54,8 +54,8 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
               href: "/services/botox-lip-flip",
             },
             {
-              x: 64,
-              y: 38,
+              x: 57,
+              y: 22,
               title: "Glabella Botox",
               titleEs: "Botox Entrecejo",
               titleEn: "Glabella Botox",
@@ -63,6 +63,17 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
               lineEs: "Suaviza líneas del entrecejo",
               lineEn: "Smooths glabella frown lines",
               href: "/services/neurotoxin-injections"
+            },
+            {
+              x: 58,
+              y: 66,
+              title: "Nefertiti Neck Lift",
+              titleEs: "Lifting de Cuello Nefertiti",
+              titleEn: "Nefertiti Neck Lift",
+              line: "Define y rejuvenece el cuello",
+              lineEs: "Define y rejuvenece el cuello",
+              lineEn: "Defines and rejuvenates the neck",
+              href: "/services/nefertiti-neck-lift"
             },
             {
               x: 58,
@@ -168,6 +179,12 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
 
     <!-- Slider Indicators (bar for activo, círculo para inactivo) -->
     <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 md:gap-4 z-10">
+      <button id="heroToggle" class="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-full bg-white/20 text-white hover:bg-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50" aria-label="Pause slider">
+        <svg id="heroToggleIcon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <rect x="6" y="5" width="4" height="14" rx="1" stroke-width="2" />
+          <rect x="14" y="5" width="4" height="14" rx="1" stroke-width="2" />
+        </svg>
+      </button>
       <!-- Indicator for slide 0 -->
       <button class="indicator" data-slide="0" aria-label="Slide 1">
         <div class="bar w-28 md:w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>
@@ -409,8 +426,11 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     const slideDuration = 20000; // 20s per slide
     const slides = Array.from(document.querySelectorAll('.hero-slide')) as HTMLElement[];
     const indicators = Array.from(document.querySelectorAll('.indicator')) as HTMLElement[];
+    const toggleBtn = document.getElementById('heroToggle') as HTMLButtonElement | null;
+    const toggleIcon = document.getElementById('heroToggleIcon') as SVGElement | null;
     let current = 0;
     let timer: number | null = null;
+    let isPaused = false;
 
     function animateIndicator(indEl: HTMLElement, active: boolean) {
       const barFill = indEl.querySelector('.bar .fill') as HTMLElement | null;
@@ -467,7 +487,9 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       }
       indicators.forEach((ind, i) => animateIndicator(ind, i === index));
       if (timer) window.clearInterval(timer);
-      timer = window.setInterval(() => setActive((current + 1) % slides.length), slideDuration);
+      if (!isPaused) {
+        timer = window.setInterval(() => setActive((current + 1) % slides.length), slideDuration);
+      }
     }
 
     indicators.forEach(ind => {
@@ -478,6 +500,23 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     });
 
     setActive(0);
+
+    function setPlayState(paused: boolean) {
+      isPaused = paused;
+      if (timer) { window.clearInterval(timer); timer = null; }
+      if (!paused) {
+        setActive(current);
+      }
+      if (toggleIcon) {
+        // Update icon: pause when playing, play when paused
+        toggleIcon.innerHTML = paused
+          ? '<polygon points="8,5 8,19 19,12" fill="currentColor" />'
+          : '<rect x="6" y="5" width="4" height="14" rx="1" stroke-width="2" /><rect x="14" y="5" width="4" height="14" rx="1" stroke-width="2" />';
+      }
+      if (toggleBtn) toggleBtn.setAttribute('aria-label', paused ? 'Play slider' : 'Pause slider');
+    }
+
+    toggleBtn?.addEventListener('click', () => setPlayState(!isPaused));
   })();
 </script>
 
