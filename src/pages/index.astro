@@ -431,6 +431,25 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     let current = 0;
     let timer: number | null = null;
     let isPaused = false;
+    function freezeIndicators() {
+      indicators.forEach(ind => {
+        const bar = ind.querySelector('.bar') as HTMLElement | null;
+        const fill = ind.querySelector('.bar .fill') as HTMLElement | null;
+        if (bar && fill) {
+          const bw = bar.getBoundingClientRect().width;
+          const fw = fill.getBoundingClientRect().width;
+          fill.style.transition = 'none';
+          if (bw > 0) fill.style.width = `${(fw / bw) * 100}%`;
+        }
+        const circle = ind.querySelector('.circle .circle-progress') as SVGCircleElement | null;
+        if (circle) {
+          const cs = window.getComputedStyle(circle);
+          const dash = cs.getPropertyValue('stroke-dashoffset') || circle.style.strokeDashoffset || '0';
+          circle.style.transition = 'none';
+          circle.style.strokeDashoffset = dash;
+        }
+      });
+    }
 
     function animateIndicator(indEl: HTMLElement, active: boolean) {
       const barFill = indEl.querySelector('.bar .fill') as HTMLElement | null;
@@ -489,6 +508,8 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       if (timer) window.clearInterval(timer);
       if (!isPaused) {
         timer = window.setInterval(() => setActive((current + 1) % slides.length), slideDuration);
+      } else {
+        freezeIndicators();
       }
     }
 
@@ -506,6 +527,8 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       if (timer) { window.clearInterval(timer); timer = null; }
       if (!paused) {
         setActive(current);
+      } else {
+        freezeIndicators();
       }
       if (toggleIcon) {
         // Update icon: pause when playing, play when paused
