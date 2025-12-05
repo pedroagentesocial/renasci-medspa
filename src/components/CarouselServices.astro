@@ -118,7 +118,10 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
     sizeSlides();
     update();
   let timer = setInterval(step, 6000);
+  let resumeTimeout: any = null;
   const resetAutoplay = () => { if (timer) clearInterval(timer); timer = setInterval(step, 6000); };
+  const pauseAutoplay = () => { if (timer) { clearInterval(timer); timer = null; } if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; } };
+  const scheduleResume = (delay = 3000) => { if (resumeTimeout) clearTimeout(resumeTimeout); resumeTimeout = setTimeout(() => { resetAutoplay(); }, delay); };
   const prevBtn = document.getElementById('carouselPrev');
   const nextBtn = document.getElementById('carouselNext');
   function prev() {
@@ -134,6 +137,15 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
   }
   prevBtn?.addEventListener('click', prev);
   nextBtn?.addEventListener('click', next);
+
+  track.addEventListener('mouseenter', () => { pauseAutoplay(); });
+  track.addEventListener('mouseleave', () => { scheduleResume(2500); });
+  track.addEventListener('focusin', () => { pauseAutoplay(); });
+  track.addEventListener('focusout', () => { scheduleResume(2500); });
+  track.addEventListener('touchstart', () => { pauseAutoplay(); }, { passive: true } as any);
+  track.addEventListener('touchend', () => { scheduleResume(3000); }, { passive: true } as any);
+  track.addEventListener('pointerdown', () => { pauseAutoplay(); });
+  track.addEventListener('pointerup', () => { scheduleResume(3000); });
     window.addEventListener('resize', () => { sizeSlides(); index = 0; update(); });
 
     // Sincronizar descripciones con el idioma activo
