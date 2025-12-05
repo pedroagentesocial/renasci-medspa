@@ -515,6 +515,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
         (membershipEl as HTMLElement).style.display = index === 1 ? '' : 'none';
       }
       indicators.forEach((ind, i) => animateIndicator(ind, i === index));
+      try { localStorage.setItem('heroSliderCurrent', String(current)); } catch {}
       lastProgress = 0;
       remainingMs = slideDuration;
       if (advanceTimer) window.clearTimeout(advanceTimer);
@@ -541,7 +542,12 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
         toggleBtn?.setAttribute('aria-label', 'Play slider');
       }
     } catch {}
-    setActive(0);
+    let initialIndex = 0;
+    try {
+      const storedIdx = parseInt(localStorage.getItem('heroSliderCurrent') || '0', 10);
+      if (!Number.isNaN(storedIdx)) initialIndex = Math.max(0, Math.min(storedIdx, slides.length - 1));
+    } catch {}
+    setActive(initialIndex);
 
     function setPlayState(paused: boolean) {
       isPaused = paused;

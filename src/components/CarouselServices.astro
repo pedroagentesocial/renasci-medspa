@@ -55,6 +55,12 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
     <h2 class="font-display font-bold text-2xl md:text-3xl text-black text-center mb-6"><span data-i18n="carousel.title">Servicios destacados del día</span></h2>
 
     <div id="carouselTrack" class="overflow-hidden relative">
+      <button id="carouselPrev" class="hidden md:flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 text-black shadow hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7]/50 z-10" aria-label="Anterior">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button id="carouselNext" class="hidden md:flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 text-black shadow hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7]/50 z-10" aria-label="Siguiente">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
       <div class="mx-auto max-w-full px-2">
         <div id="carouselInner" class="flex transition-transform duration-700 ease-in-out will-change-transform">
         {items.map((svc: any, si: number) => (
@@ -111,7 +117,23 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
     };
     sizeSlides();
     update();
-  const timer = setInterval(step, 6000);
+  let timer = setInterval(step, 6000);
+  const resetAutoplay = () => { if (timer) clearInterval(timer); timer = setInterval(step, 6000); };
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  function prev() {
+    const maxIndex = Math.max(0, slideCount - perView);
+    index = index - 1;
+    if (index < 0) index = maxIndex;
+    update();
+    resetAutoplay();
+  }
+  function next() {
+    step();
+    resetAutoplay();
+  }
+  prevBtn?.addEventListener('click', prev);
+  nextBtn?.addEventListener('click', next);
     window.addEventListener('resize', () => { sizeSlides(); index = 0; update(); });
 
     // Sincronizar descripciones con el idioma activo
