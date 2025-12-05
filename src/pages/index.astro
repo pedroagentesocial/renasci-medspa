@@ -434,6 +434,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     let remainingMs = slideDuration;
     let lastProgress = 0;
     let pausedByVisibility = false;
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     function freezeIndicators() {
       const activeInd = indicators[current];
       if (!activeInd) return;
@@ -533,7 +534,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       });
     });
 
-    // Apply initial paused state from storage
+    // Apply initial paused state from storage and reduced motion
     try {
       const stored = localStorage.getItem('heroSliderPaused');
       if (stored === 'true') {
@@ -542,6 +543,12 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
         toggleBtn?.setAttribute('aria-label', 'Play slider');
       }
     } catch {}
+    if (prefersReduced) {
+      isPaused = true;
+      try { localStorage.setItem('heroSliderPaused', 'true'); } catch {}
+      if (toggleIcon) toggleIcon.innerHTML = '<polygon points="8,5 8,19 19,12" fill="currentColor" />';
+      toggleBtn?.setAttribute('aria-label', 'Play slider');
+    }
     let initialIndex = 0;
     try {
       const storedIdx = parseInt(localStorage.getItem('heroSliderCurrent') || '0', 10);
