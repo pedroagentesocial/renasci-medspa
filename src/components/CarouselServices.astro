@@ -82,8 +82,9 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
                   data-excerpt-en={typeof svc.excerpt === 'object' ? svc.excerpt.en : (svc.excerpt ?? '')}
                 >{typeof svc.excerpt === 'object' ? svc.excerpt.es : (svc.excerpt ?? '')}</p>
                 <a href={svc.href ?? (svc.slug ? `/services/${svc.slug}` : '#')} class="inline-flex items-center gap-1 text-[#F3A2A7] font-semibold text-sm hover:underline"><span data-i18n="carousel.view_more">Ver más</span><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12" /></svg></a>
-              </div>
+        </div>
       </div>
+      <div id="carouselDots" class="mt-3 flex justify-center gap-1.5 md:hidden"></div>
     </div>
         ))}
       </div>
@@ -94,23 +95,28 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
   document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('carouselTrack') as HTMLElement | null;
     const inner = document.getElementById('carouselInner') as HTMLElement | null;
+    const dots = document.getElementById('carouselDots') as HTMLElement | null;
     if (!track || !inner) return;
     const slideCount = inner.children.length;
     let index = 0;
     let slideW = 0;
     let perView = 3;
+    let maxIndex = 0;
     const sizeSlides = () => {
       const vw = track.clientWidth;
       perView = vw < 640 ? 1 : (vw < 1024 ? 2 : 3);
       slideW = Math.max(0, vw / perView);
       Array.from(inner.children).forEach((el) => { (el as HTMLElement).style.width = `${slideW}px`; });
       (inner as HTMLElement).style.width = `${slideW * slideCount}px`;
+      maxIndex = Math.max(0, slideCount - perView);
+      renderDots();
+      updateDots();
     };
     const update = () => {
       inner.style.transform = `translateX(-${index * slideW}px)`;
+      updateDots();
     };
     const step = () => {
-      const maxIndex = Math.max(0, slideCount - perView);
       index = index + 1;
       if (index > maxIndex) index = 0;
       update();
@@ -146,6 +152,28 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
   track.addEventListener('touchend', () => { scheduleResume(3000); }, { passive: true } as any);
   track.addEventListener('pointerdown', () => { pauseAutoplay(); });
   track.addEventListener('pointerup', () => { scheduleResume(3000); });
+  function renderDots() {
+    if (!dots) return;
+    const pages = maxIndex + 1;
+    const currentChildren = Array.from(dots.children);
+    if (currentChildren.length === pages) return;
+    dots.innerHTML = '';
+    for (let i = 0; i < pages; i++) {
+      const b = document.createElement('button');
+      b.setAttribute('type', 'button');
+      b.setAttribute('aria-label', `Ir a página ${i + 1}`);
+      b.className = 'w-2.5 h-2.5 rounded-full bg-black/20';
+      b.addEventListener('click', () => { index = i; update(); resetAutoplay(); });
+      dots.appendChild(b);
+    }
+  }
+  function updateDots() {
+    if (!dots) return;
+    const children = Array.from(dots.children) as HTMLElement[];
+    children.forEach((el, i) => {
+      el.className = 'w-2.5 h-2.5 rounded-full ' + (i === index ? 'bg-[#F3A2A7]' : 'bg-black/20');
+    });
+  }
     window.addEventListener('resize', () => { sizeSlides(); index = 0; update(); });
 
     // Sincronizar descripciones con el idioma activo
