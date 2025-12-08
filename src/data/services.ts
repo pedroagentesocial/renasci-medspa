@@ -47,12 +47,13 @@ export interface Categoria extends CategoriaUnificada {
 export const services: Servicio[] = [
   // Neurotoxinas
   {
-    id: 'botox-dysport',
-    title: { es: 'Botox / Dysport', en: 'Botox / Dysport' },
+    id: 'botox',
+    slug: 'botox',
+    title: { es: 'Botox', en: 'Botox' },
     description: { es: 'Reduce arrugas y líneas de expresión', en: 'Reduce wrinkles and expression lines' },
     category: 'neurotoxinas',
     icon: '💉',
-    href: '/services/botox-dysport',
+    href: '/services/botox',
     precio: '$12 / unidad'
   },
   {

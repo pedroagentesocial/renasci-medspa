@@ -1,37 +1,37 @@
 ---
 const carouselItems = [
   { 
-    title: 'Neurotoxin Injections', 
+    title: { es: 'Inyecciones de Neurotoxina', en: 'Neurotoxin Injections' },
     href: '/services/neurotoxin-injections',
     image: '/img/services/neurotoxins.jpg',
     excerpt: { es: 'Suaviza líneas de expresión y arrugas dinámicas.', en: 'Smooth dynamic wrinkles and expression lines.' }
   },
   { 
-    title: 'Botox Lip Flip', 
+    title: { es: 'Botox Lip Flip', en: 'Botox Lip Flip' },
     href: '/services/botox-lip-flip',
     image: '/img/services/Botox-Lip-Flip.jpg',
     excerpt: { es: 'Define el borde del labio superior con microinyecciones.', en: 'Defines upper lip border with micro-injections.' }
   },
   { 
-    title: 'Full Lip Augmentation', 
+    title: { es: 'Aumento Completo de Labios', en: 'Full Lip Augmentation' },
     href: '/services/full-lip-augmentation',
     image: '/img/services/Lip-filler-image.jpg',
     excerpt: { es: 'Volumen, hidratación y contorno natural de labios.', en: 'Natural lip volume, hydration and contour.' }
   },
   { 
-    title: 'Xeomin', 
+    title: { es: 'Xeomin', en: 'Xeomin' },
     href: '/services/xeomin',
     image: '/img/services/Xeomin-botox.jpg.webp',
     excerpt: { es: 'Neuromodulador limpio para líneas del entrecejo y frente.', en: 'Purified neuromodulator for brow and forehead lines.' }
   },
   { 
-    title: 'Dysport', 
+    title: { es: 'Dysport', en: 'Dysport' },
     href: '/services/dysport',
     image: '/img/services/Dysport.webp',
     excerpt: { es: 'Cobertura amplia y rápida para líneas dinámicas.', en: 'Fast, wide-spread coverage for dynamic lines.' }
   },
   { 
-    title: 'ChinBella', 
+    title: { es: 'ChinBella', en: 'ChinBella' },
     href: '/services/chinbella',
     image: '/img/services/Mini-Chin-Reduction.webp',
     excerpt: { es: 'Contorno mandibular y mentón más definido.', en: 'More defined jawline and chin contour.' }
@@ -75,7 +75,15 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
                 <img src={(svc.image && svc.image.trim() !== '' ? svc.image : '/images/med-spa-room.jpg')} alt={(typeof svc.title === 'string' ? svc.title : (svc.title?.es ?? svc.title?.en ?? 'Servicio'))} class="w-full h-full object-cover" loading="lazy" />
               </div>
               <div class="p-3 md:p-4">
-                <h3 class="font-semibold text-black text-sm">{typeof svc.title === 'string' ? svc.title : (svc.title?.es ?? svc.title?.en ?? 'Servicio')}</h3>
+                <h3 class="font-semibold text-black text-sm">
+                  <span 
+                    class="carousel-title"
+                    data-title-es={typeof svc.title === 'object' ? (svc.title.es ?? svc.title.en ?? 'Servicio') : (svc.title ?? 'Servicio')}
+                    data-title-en={typeof svc.title === 'object' ? (svc.title.en ?? svc.title.es ?? 'Service') : (svc.title ?? 'Service')}
+                  >
+                    {typeof svc.title === 'object' ? (svc.title.es ?? svc.title.en ?? 'Servicio') : (svc.title ?? 'Servicio')}
+                  </span>
+                </h3>
                 <p 
                   class="text-gray-600 text-sm mb-2 line-clamp-3 overflow-hidden carousel-desc"
                   data-excerpt-es={typeof svc.excerpt === 'object' ? svc.excerpt.es : (svc.excerpt ?? '')}
@@ -194,10 +202,21 @@ const labels = ['Más popular', 'Recomendado', 'Tendencia'];
         node.textContent = lang === 'en' ? (en || es) : (es || en);
       });
     };
+    const applyTitleLanguage = (lang) => {
+      const nodes = Array.from(document.querySelectorAll('.carousel-title'));
+      nodes.forEach((node) => {
+        const es = node.getAttribute('data-title-es') || '';
+        const en = node.getAttribute('data-title-en') || '';
+        node.textContent = lang === 'en' ? (en || es) : (es || en);
+      });
+    };
     const currentLang = window.i18nManager?.getCurrentLanguage?.() || document.documentElement.lang || 'es';
     applyDescLanguage(currentLang);
+    applyTitleLanguage(currentLang);
     window.addEventListener('languageChanged', (e) => {
-      applyDescLanguage(e.detail?.language || 'es');
+      const l = e.detail?.language || 'es';
+      applyDescLanguage(l);
+      applyTitleLanguage(l);
     });
   });
 </script>

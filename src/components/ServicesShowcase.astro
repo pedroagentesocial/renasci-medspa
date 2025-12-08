@@ -32,6 +32,7 @@ const {
   titleKey = '',
   subtitleKey = ''
 } = Astro.props;
+const ctaTextClass = iconBgClass.includes('bg-[#F3A2A7]') ? 'text-[#F3A2A7]' : (iconBgClass.includes('bg-[#AABFA8]') ? 'text-[#AABFA8]' : (iconBgClass.includes('bg-[#C8A08C]') ? 'text-[#C8A08C]' : 'text-[#F3A2A7]'));
 ---
 
 <div class={`grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch`}>
@@ -90,6 +91,12 @@ const {
           <span class="text-base md:text-lg font-semibold text-center">{item.label}</span>
       </div>
     ))}
+  </div>
+  <div class="mt-8">
+    <a href="/services" class={`${ctaTextClass} inline-flex items-center gap-1 font-semibold text-sm hover:underline`}>
+      <span data-i18n="carousel.view_more">Ver más</span>
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12" /></svg>
+    </a>
   </div>
 </div>
 </div>

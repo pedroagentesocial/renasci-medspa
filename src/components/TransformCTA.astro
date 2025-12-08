@@ -34,10 +34,10 @@ const {
       <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
     </div>
     <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl mb-6">
-      <span class="text-[#F3A2A7]">{title}</span>
+      <span class="text-[#F3A2A7]" data-i18n="transform.title">{title}</span>
     </h2>
     <p class="text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
-      {subtitle}
+      <span data-i18n="transform.subtitle">{subtitle}</span>
     </p>
     
     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -46,7 +46,7 @@ const {
         variant="primary"
         className="inline-flex items-center gap-2 hover:gap-3 transition-all duration-200 !bg-[#F3A2A7] focus-visible:ring-[#F3A2A7]/50"
       >
-        {primaryButtonText}
+        <span data-i18n="transform.primary_cta">{primaryButtonText}</span>
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
         </svg>

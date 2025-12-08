@@ -1,0 +1,58 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "membership": "Membership",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "services": {
+    "injectables_title": "Injectables & Dermal Fillers",
+    "skin_title": "Skin & Laser",
+    "body_title": "Body & Intimate",
+    "biostimulators_title": "Biostimulators",
+    "specialized_title": "Specialized Treatments",
+    "wellness_title": "Weight Loss & Wellness",
+    "neurotoxins_title": "Botox & Neuromodulators",
+    "regenerative_title": "Regenerative Medicine Therapies",
+    "advanced_title": "Advanced Treatments",
+    "intimate_title": "Intimate Rejuvenation",
+    "microneedling_title": "Microneedling",
+    "prp_title": "Platelet Rich Plasma (PRP)",
+    "bhrt_title": "Bioidentical Hormone Therapy (BHRT)",
+    "peptides_title": "Peptide Therapy",
+    "ivim_title": "IV/IM Therapy",
+    "filter_placeholder": "Filter services...",
+    "groups": { "contour": "Facial & Body Contour", "hair_skin": "Skin & Hair Treatments" }
+  },
+  "cta": {
+    "book_now": "Book Now",
+    "learn_more": "Learn More",
+    "view_services": "View Services"
+  },
+  "start": {
+    "cta_title": "Start your treatment now",
+    "cta_subtitle": "Renasci awaits with personalized care and professional results."
+  },
+  "footer": {
+    "about_paragraph": "Renasci Medical Spa is your destination for advanced aesthetic treatments. We renew your skin with top specialists and cutting‑edge technology.",
+    "cert_fda": "FDA Certified",
+    "cert_licensed": "Licensed",
+    "contact_title": "Contact Us",
+    "location_label": "Location",
+    "hours_label": "Hours",
+    "hours_mon_fri": "Mon - Fri: 9:00 AM - 7:00 PM",
+    "hours_sat": "Sat: 9:00 AM - 5:00 PM",
+    "hours_sun": "Sun: Closed",
+    "social_title": "Follow Us",
+    "follow_paragraph": "Follow us on social media for beauty tips, exclusive promotions and amazing transformations.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "sitemap": "Sitemap",
+    "copyright_suffix": "All rights reserved."
+  },
+  "hero": {
+    "renew_prefix": "Renew your",
+    "renew_highlight": "Skin"
+  }
+}

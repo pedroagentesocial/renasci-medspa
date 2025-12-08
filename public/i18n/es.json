@@ -1,0 +1,58 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "membership": "Membresía",
+    "about": "Nosotros",
+    "contact": "Contacto"
+  },
+  "services": {
+    "injectables_title": "Inyectables & Rellenos Dérmicos",
+    "skin_title": "Piel & Láser",
+    "body_title": "Cuerpo & Íntimo",
+    "biostimulators_title": "Bioestimuladores",
+    "specialized_title": "Tratamientos Especializados",
+    "wellness_title": "Pérdida de Peso y Bienestar",
+    "neurotoxins_title": "Botox y Neuromoduladores",
+    "regenerative_title": "Terapias de Medicina Regenerativa",
+    "advanced_title": "Tratamientos Avanzados",
+    "intimate_title": "Rejuvenecimiento Íntimo",
+    "microneedling_title": "Microneedling",
+    "prp_title": "Plasma Rico en Plaquetas (PRP)",
+    "bhrt_title": "Terapia Hormonal Bioidéntica (BHRT)",
+    "peptides_title": "Terapia con Péptidos",
+    "ivim_title": "Terapia IV/IM",
+    "filter_placeholder": "Filtrar servicios...",
+    "groups": { "contour": "Contorno Facial y Corporal", "hair_skin": "Tratamientos de Piel y Cabello" }
+  },
+  "cta": {
+    "book_now": "Agendar Ahora",
+    "learn_more": "Conoce Más",
+    "view_services": "Ver Servicios"
+  },
+  "start": {
+    "cta_title": "Empieza ahora tu tratamiento",
+    "cta_subtitle": "Renasci te espera con atención personalizada y resultados profesionales."
+  },
+  "footer": {
+    "about_paragraph": "Renasci Medical Spa es tu destino para tratamientos estéticos avanzados. Renovamos tu piel con los mejores especialistas y tecnología de vanguardia.",
+    "cert_fda": "Certificado FDA",
+    "cert_licensed": "Licenciado",
+    "contact_title": "Contáctanos",
+    "location_label": "Ubicación",
+    "hours_label": "Horarios",
+    "hours_mon_fri": "Lun - Vie: 9:00 AM - 7:00 PM",
+    "hours_sat": "Sáb: 9:00 AM - 5:00 PM",
+    "hours_sun": "Dom: Cerrado",
+    "social_title": "Síguenos",
+    "follow_paragraph": "Síguenos en nuestras redes sociales para tips de belleza, promociones exclusivas y transformaciones increíbles.",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "sitemap": "Mapa del sitio",
+    "copyright_suffix": "Todos los derechos reservados."
+  },
+  "hero": {
+    "renew_prefix": "Renueva tu",
+    "renew_highlight": "Piel"
+  }
+}

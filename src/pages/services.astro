@@ -61,12 +61,14 @@ const imageOverrides = new Map([
   ['/services/prp-stretch-marks','/img/services/PRP-stretch.jpg'],
   ['/services/peptides-bpc-157','/img/services/BPC-157.jpg'],
   ['/services/peptides-cjc1295-ipamorelin','/img/services/CJC-1295.jpg'],
+  ['/services/peptides-sermorelin','/img/services/Sermorelin.jpg'],
   ['/services/peptides-nad','/img/services/NAD.png'],
   ['/services/peptides-ghku','/img/services/GhKu.png'],
   ['/services/peptides-vitamin-d','/img/services/Vitamin-d.jpg'],
   ['/services/peptides-hair-growth','/img/services/Hair-growth.jpg'],
   ['/services/iv-drips','/img/services/Drips.jpeg'],
   ['/services/im-injections','/img/services/IM.jpg'],
+  ['/services/bhrt-membership-her','/img/services/Hormone-her.jpg'],
 ])
 
 const badgesBySlug = new Map([
@@ -340,7 +342,7 @@ const groups = [
   { title: 'Intimate Rejuvenation', hrefs: ['/services/vaginal-rejuvenation-prp','/services/vaginal-rejuvenation-stem-cells'] },
   { title: 'Microneedling', hrefs: ['/services/microneedling-face-neck','/services/microneedling-face-neck-decollete','/services/microneedling-stretch-marks'] },
   { title: 'Platelet-Rich Plasma (PRP)', hrefs: ['/services/prp-face-neck','/services/prp-face-neck-decollete','/services/prp-stretch-marks'] },
-  { title: 'Bioidentical Hormone Therapy (BHRT)', hrefs: ['/services/terapia-reemplazo-hormonal','/services/bhrt-setup-labs-consult','/services/bhrt-monthly-support','/services/hormone-replacement-therapy-him','/services/lab-draw'] },
+  { title: 'Bioidentical Hormone Therapy (BHRT)', hrefs: ['/services/bhrt-membership-her','/services/hormone-replacement-therapy-him'] },
   { title: 'Peptide Therapy', hrefs: ['/services/peptides-bpc-157','/services/peptides-cjc1295-ipamorelin','/services/peptides-sermorelin','/services/peptides-nad','/services/peptides-ghku','/services/peptides-vitamin-d','/services/peptides-hair-growth'] },
   { title: 'IV/IM Therapy', hrefs: ['/services/iv-drips','/services/im-injections'] },
 ]
@@ -526,9 +528,9 @@ function getGroupLabel(title){
               <div id="carousel-regenerative" class="w-full overflow-x-auto scroll-smooth flex gap-4 pb-2 px-20 md:px-28">
                 {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
                   <div class="carousel-item">
-                    <div class="flex flex-col items-start gap-2">
+                    <div class="relative">
                       {getBadgeFor(servicio) && (
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#F3A2A7] text-white">{getBadgeFor(servicio)}</span>
+                        <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#10B981] text-white shadow-sm`}>{getBadgeFor(servicio)}</span>
                       )}
                       <ServiceCard service={servicio} lang={lang} class="service-item shadow-none hover:shadow-none" />
                     </div>
@@ -538,21 +540,15 @@ function getGroupLabel(title){
               <button type="button" aria-label={pageText[lang].next} class="carousel-btn absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-regenerative" data-dir="1">›</button>
             </div>
           ) : group.title === 'Bioidentical Hormone Therapy (BHRT)' ? (
-            <div class="relative">
-              <button type="button" aria-label={pageText[lang].prev} class="carousel-btn absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-bhrt" data-dir="-1">‹</button>
-              <div id="carousel-bhrt" class="w-full overflow-x-auto scroll-smooth flex gap-4 pb-2 px-20 md:px-28">
-                {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
-                  <div class="carousel-item">
-                    <div class="relative">
-                      {getBadgeFor(servicio) && (
-                        <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getBadgeClass(getBadgeFor(servicio))} shadow-sm`}>{getBadgeFor(servicio)}</span>
-                      )}
-                      <ServiceCard service={servicio} lang={lang} class="service-item shadow-none hover:shadow-none" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <button type="button" aria-label={pageText[lang].next} class="carousel-btn absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 bg-[#F3A2A7] text-white rounded-full w-12 h-12 flex items-center justify-center" data-target="carousel-bhrt" data-dir="1">›</button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 mb-12">
+              {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
+                <div class="relative">
+                  {getBadgeFor(servicio) && (
+                    <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getBadgeClass(getBadgeFor(servicio))} shadow-sm`}>{getBadgeFor(servicio)}</span>
+                  )}
+                  <ServiceCard service={servicio} lang={lang} class="service-item shadow-none hover:shadow-none" />
+                </div>
+              ))}
             </div>
           ) : group.title === 'Peptide Therapy' ? (
             <div class="relative">
@@ -591,9 +587,9 @@ function getGroupLabel(title){
           ) : group.title === 'Platelet-Rich Plasma (PRP)' ? (
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 mb-12">
               {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
-                <div class="flex flex-col items-start gap-2">
+                <div class="relative">
                   {getBadgeFor(servicio) && (
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#F3A2A7] text-white">{getBadgeFor(servicio)}</span>
+                    <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#10B981] text-white shadow-sm`}>{getBadgeFor(servicio)}</span>
                   )}
                   <ServiceCard service={servicio} lang={lang} class="service-item shadow-none hover:shadow-none" />
                 </div>

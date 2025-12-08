@@ -44,14 +44,14 @@ const { hotspots } = Astro.props;
       <!-- Hotspot Circle -->
       <a
         href={hotspot.href}
-        class="hotspot-button relative w-5 h-5 bg-white/90 backdrop-blur-sm rounded-full border-2 border-white shadow-lg hover:scale-110 transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 group block"
+        class="hotspot-button relative w-4 h-4 bg-white/90 backdrop-blur-sm rounded-full border-2 border-white shadow-lg hover:scale-110 transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 group block"
         aria-label={`${hotspot.title}: ${hotspot.line}`}
         data-tooltip-trigger
       >
         <!-- Pink center dot -->
         {hotspot.showCenterDot !== false && (
           <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-[6px] h-[6px] bg-[#E94594] rounded-full animate-pulse"></div>
+            <div class="w-[4px] h-[4px] bg-[#E94594] rounded-full animate-pulse"></div>
           </div>
         )}
         

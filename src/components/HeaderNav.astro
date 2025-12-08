@@ -185,7 +185,7 @@ const services = [
       <a href="/" class="flex items-center transition-transform duration-300 hover:scale-105">
         <img 
           id="brandLogo"
-          src="/images/Renasci logo.png" 
+          src="/images/renasci-logo.png" 
           alt="Renasci Medical Spa" 
           class="h-12 w-auto transition-all duration-300 filter drop-shadow-lg"
         />
@@ -262,7 +262,7 @@ const services = [
       <div class="flex flex-col h-full">
         <!-- Header -->
         <div class="sticky top-0 bg-black relative flex items-center justify-center p-6 border-b border-white/10 z-[1]">
-          <img src="/images/Renasci logo.png" alt="Renasci Medical Spa" class="h-8 w-auto" style="filter: brightness(0) invert(1);" />
+          <img src="/images/renasci-logo.png" alt="Renasci Medical Spa" class="h-8 w-auto" style="filter: brightness(0) invert(1);" />
           <button 
             id="mobile-menu-close"
             class="absolute right-4 top-1/2 -translate-y-1/2 text-[#F3A2A7] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7]/50 rounded-[48px] p-2"
@@ -296,6 +296,9 @@ const services = [
               <a href="/contact" class="block bg-[#F3A2A7] text-white font-bold text-xl tracking-wide transition-colors duration-200 py-1 px-4 border-b border-white/10 hover:opacity-90"><span data-i18n="nav.contact">Contacto</span></a>
             </li>
             <li>
+              <a href="/services" class="block bg-[#F3A2A7] text-white font-bold text-xl tracking-wide transition-colors duration-200 py-1 px-4 border-b border-white/10 hover:opacity-90"><span data-i18n="nav.services">Servicios</span></a>
+            </li>
+            <li>
               <input id="services-filter" type="text" placeholder="Filtrar servicios..." data-i18n="services.filter_placeholder" class="w-full px-3 py-2 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#F3A2A7]" />
             </li>
             <li>
@@ -304,22 +307,34 @@ const services = [
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/neurotoxin-injections" class={`block ${isActive('/services/neurotoxin-injections') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Neurotoxin Injections</a>
+                  <a href="/services/neurotoxin-injections" class={`block ${isActive('/services/neurotoxin-injections') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Inyecciones de Neurotoxina" data-label-en="Neurotoxin Injections">Neurotoxin Injections</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/botox-no-sweat-treatment" class={`block ${isActive('/services/botox-no-sweat-treatment') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Botox No-Sweat Treatment (hyperhidrosis)</a>
+                  <a href="/services/botox-no-sweat-treatment" class={`block ${isActive('/services/botox-no-sweat-treatment') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Tratamiento Botox No‑Sweat (hiperhidrosis)" data-label-en="Botox No-Sweat Treatment (hyperhidrosis)">Botox No-Sweat Treatment (hyperhidrosis)</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/botox-lip-flip" class={`block ${isActive('/services/botox-lip-flip') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Botox Lip Flip</a>
+                  <a href="/services/botox-lip-flip" class={`block ${isActive('/services/botox-lip-flip') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Botox Lip Flip" data-label-en="Botox Lip Flip">Botox Lip Flip</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/mini-lip-enhancement" class={`block ${isActive('/services/mini-lip-enhancement') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Mini Lip Enhancement</a>
+                  <a href="/services/mini-lip-enhancement" class={`block ${isActive('/services/mini-lip-enhancement') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Mini Aumento de Labios" data-label-en="Mini Lip Enhancement">Mini Lip Enhancement</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/full-lip-augmentation" class={`block ${isActive('/services/full-lip-augmentation') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Full Lip Augmentation</a>
+                  <a href="/services/full-lip-augmentation" class={`block ${isActive('/services/full-lip-augmentation') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Aumento Completo de Labios" data-label-en="Full Lip Augmentation">Full Lip Augmentation</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/mega-lip-augmentation" class={`block ${isActive('/services/mega-lip-augmentation') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Mega Lip Augmentation</a>
+                  <a href="/services/mega-lip-augmentation" class={`block ${isActive('/services/mega-lip-augmentation') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Mega Aumento de Labios" data-label-en="Mega Lip Augmentation">Mega Lip Augmentation</span>
+                  </a>
                 </li>
               </ul>
             </li>
@@ -329,25 +344,40 @@ const services = [
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/personalized-facial-contour" class={`block ${isActive('/services/personalized-facial-contour') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Personalized Facial Contour</a>
+                  <a href="/services/personalized-facial-contour" class={`block ${isActive('/services/personalized-facial-contour') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Contorno Facial Personalizado" data-label-en="Personalized Facial Contour">Personalized Facial Contour</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/cheekbone-lift" class={`block ${isActive('/services/cheekbone-lift') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Cheekbone Lift (Cheekbone Pop)</a>
+                  <a href="/services/cheekbone-lift" class={`block ${isActive('/services/cheekbone-lift') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Elevación de Pómulos (Cheekbone Pop)" data-label-en="Cheekbone Lift (Cheekbone Pop)">Cheekbone Lift (Cheekbone Pop)</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/no-more-bags-injection" class={`block ${isActive('/services/no-more-bags-injection') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>No More Bags Injection (under-eye bags)</a>
+                  <a href="/services/no-more-bags-injection" class={`block ${isActive('/services/no-more-bags-injection') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Inyección No More Bags (ojeras/bolsas)" data-label-en="No More Bags Injection (under-eye bags)">No More Bags Injection (under-eye bags)</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/chinbella" class={`flex items-center ${isActive('/services/chinbella') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>ChinBella (chin/double chin)</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#C8A08C]/15 border border-[#C8A08C]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#C8A08C]"></span>Premier</span></a>
+                  <a href="/services/chinbella" class={`flex items-center ${isActive('/services/chinbella') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="ChinBella (papada/doble mentón)" data-label-en="ChinBella (chin/double chin)">ChinBella (chin/double chin)</span>
+                    <span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#C8A08C]/15 border border-[#C8A08C]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#C8A08C]"></span>Premier</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/thighbella" class={`block ${isActive('/services/thighbella') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>ThighBella (thighs)</a>
+                  <a href="/services/thighbella" class={`block ${isActive('/services/thighbella') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="ThighBella (muslos)" data-label-en="ThighBella (thighs)">ThighBella (thighs)</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/rollbella" class={`block ${isActive('/services/rollbella') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>RollBella (bra roll)</a>
+                  <a href="/services/rollbella" class={`block ${isActive('/services/rollbella') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="RollBella (rollito de brasier)" data-label-en="RollBella (bra roll)">RollBella (bra roll)</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/bananaroll" class={`block ${isActive('/services/bananaroll') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>BananaRoll (bikini area)</a>
+                  <a href="/services/bananaroll" class={`block ${isActive('/services/bananaroll') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="BananaRoll (zona del bikini)" data-label-en="BananaRoll (bikini area)">BananaRoll (bikini area)</span>
+                  </a>
                 </li>
               </ul>
             </li>
@@ -357,19 +387,29 @@ const services = [
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/collagen-stimulation-sculptra" class={`block ${isActive('/services/collagen-stimulation-sculptra') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Collagen Stimulation with Sculptra</a>
+                  <a href="/services/collagen-stimulation-sculptra" class={`block ${isActive('/services/collagen-stimulation-sculptra') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Estimulación de Colágeno con Sculptra" data-label-en="Collagen Stimulation with Sculptra">Collagen Stimulation with Sculptra</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/mega-collagen-stimulation-sculptra" class={`block ${isActive('/services/mega-collagen-stimulation-sculptra') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Mega Collagen Stimulation with Sculptra</a>
+                  <a href="/services/mega-collagen-stimulation-sculptra" class={`block ${isActive('/services/mega-collagen-stimulation-sculptra') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Mega Estimulación de Colágeno con Sculptra" data-label-en="Mega Collagen Stimulation with Sculptra">Mega Collagen Stimulation with Sculptra</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/mini-chin-reduction" class={`block ${isActive('/services/mini-chin-reduction') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Mini Chin Reduction</a>
+                  <a href="/services/mini-chin-reduction" class={`block ${isActive('/services/mini-chin-reduction') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Mini Reducción de Papada" data-label-en="Mini Chin Reduction">Mini Chin Reduction</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/brazilian-butt-lift" class={`block ${isActive('/services/brazilian-butt-lift') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Brazilian Butt Lift</a>
+                  <a href="/services/brazilian-butt-lift" class={`block ${isActive('/services/brazilian-butt-lift') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Brazilian Butt Lift" data-label-en="Brazilian Butt Lift">Brazilian Butt Lift</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/renasci-prf-gel-therapy" class={`block ${isActive('/services/renasci-prf-gel-therapy') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Renasci PRF Gel Therapy</a>
+                  <a href="/services/renasci-prf-gel-therapy" class={`block ${isActive('/services/renasci-prf-gel-therapy') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Terapia Gel PRF de Renasci" data-label-en="Renasci PRF Gel Therapy">Renasci PRF Gel Therapy</span>
+                  </a>
                 </li>
               </ul>
             </li>
@@ -379,10 +419,15 @@ const services = [
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/puppet-lines-injections" class={`block ${isActive('/services/puppet-lines-injections') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Puppet Lines Injections (facial lines)</a>
+                  <a href="/services/puppet-lines-injections" class={`block ${isActive('/services/puppet-lines-injections') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Inyecciones Puppet Lines (líneas faciales)" data-label-en="Puppet Lines Injections (facial lines)">Puppet Lines Injections (facial lines)</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/nefertiti-neck-lift" class={`flex items-center ${isActive('/services/nefertiti-neck-lift') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Nefertiti Neck Lift</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#C8A08C]/15 border border-[#C8A08C]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#C8A08C]"></span>Premier</span></a>
+                  <a href="/services/nefertiti-neck-lift" class={`flex items-center ${isActive('/services/nefertiti-neck-lift') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Lifting de Cuello Nefertiti" data-label-en="Nefertiti Neck Lift">Nefertiti Neck Lift</span>
+                    <span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#C8A08C]/15 border border-[#C8A08C]/40 text-white text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#C8A08C]"></span>Premier</span>
+                  </a>
                 </li>
               </ul>
             </li>
@@ -392,14 +437,18 @@ const services = [
               </div>
               <ul class="space-y-2">
                 <li>
-                  <a href="/services/b12-fat-blaster-double-effect" class={`block ${isActive('/services/b12-fat-blaster-double-effect') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>B12 Injection + Fat Blaster (Double Effect)</a>
+                  <a href="/services/b12-fat-blaster-double-effect" class={`block ${isActive('/services/b12-fat-blaster-double-effect') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Inyección B12 + Fat Blaster (Doble Efecto)" data-label-en="B12 Injection + Fat Blaster (Double Effect)">B12 Injection + Fat Blaster (Double Effect)</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="/services/alternative-medicine-consultation" class={`block ${isActive('/services/alternative-medicine-consultation') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Alternative Medicine Consultation (Get Carded)</a>
+                  <a href="/services/alternative-medicine-consultation" class={`block ${isActive('/services/alternative-medicine-consultation') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Consulta de Medicina Alternativa (Obtén tu tarjeta)" data-label-en="Alternative Medicine Consultation (Get Carded)">Alternative Medicine Consultation (Get Carded)</span>
+                  </a>
                 </li>
                 <li>
                   <a href="/services/fat-blaster-injections" class={`flex items-center ${isActive('/services/fat-blaster-injections') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span>Fat Blaster Injections</span>
+                    <span class="menu-item-label" data-label-es="Inyecciones Fat Blaster" data-label-en="Fat Blaster Injections">Fat Blaster Injections</span>
                     <span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"> 
                       <span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>
                       Membership
@@ -408,7 +457,7 @@ const services = [
                 </li>
                 <li>
                   <a href="/services/b12-energy-injection" class={`flex items-center ${isActive('/services/b12-energy-injection') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span>B12 Energy Injection</span>
+                    <span class="menu-item-label" data-label-es="Inyección de Energía B12" data-label-en="B12 Energy Injection">B12 Energy Injection</span>
                     <span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-white text-[11px]"> 
                       <span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>
                       Membership
@@ -416,7 +465,9 @@ const services = [
                   </a>
                 </li>
                 <li>
-                  <a href="/services/medically-supervised-weight-loss" class={`block ${isActive('/services/medically-supervised-weight-loss') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Medically Supervised Weight Loss</a>
+                  <a href="/services/medically-supervised-weight-loss" class={`block ${isActive('/services/medically-supervised-weight-loss') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Pérdida de Peso Supervisada Médicamente" data-label-en="Medically Supervised Weight Loss">Medically Supervised Weight Loss</span>
+                  </a>
                 </li>
               </ul>
             </li>
@@ -549,18 +600,11 @@ const services = [
                 <li>
                   <a href="/services/bhrt-membership-her" class={`block ${isActive('/services/bhrt-membership-her') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Hormone Membership for Her</a>
                 </li>
-                <li>
-                  <a href="/services/bhrt-setup-labs-consult" class={`block ${isActive('/services/bhrt-setup-labs-consult') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Setup (includes labs + consult)</a>
-                </li>
-                <li>
-                  <a href="/services/bhrt-monthly-support" class={`block ${isActive('/services/bhrt-monthly-support') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Monthly (support, messaging, visits)</a>
-                </li>
+                
                 <li>
                   <a href="/services/hormone-replacement-therapy-him" class={`block ${isActive('/services/hormone-replacement-therapy-him') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Hormone Replacement Therapy for Him</a>
                 </li>
-                <li>
-                  <a href="/services/lab-draw" class={`block ${isActive('/services/lab-draw') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Per Lab Draw</a>
-                </li>
+                
               </ul>
             </li>
             <li>
@@ -725,7 +769,7 @@ const services = [
   }
 
   function initScheduler() {
-    let u = schedulerUrl;
+    let u = (typeof schedulerUrl !== 'undefined' ? schedulerUrl : '');
     const m = document.getElementById('scheduler-modal');
     const f = document.getElementById('scheduler-frame') as HTMLIFrameElement | null;
     const b = document.getElementById('scheduler-backdrop');
@@ -1076,14 +1120,12 @@ const services = [
       'Elevación de Pómulos (Cheekbone Pop)': 'Cheekbone Lift (Cheekbone Pop)',
       'Inyección Check Your Bags (ojeras/bolsas)': 'No More Bags Injection (under-eye bags)',
       'ChinBella (papada/doble mentón)': 'ChinBella (chin/double chin)',
-      'ThighBella (muslos)': 'ThighBella (thighs)',
       'BraBella (rollito de brasier)': 'RollBella (bra roll)',
       'Restauración Capilar con PRF': 'Hair Restoration Treatment with PRP',
       'O-Shot Terapia con Plaquetas': 'Vaginal Rejuvenation with PRP (O-Shot)',
       'Inyecciones PuppetMaster (líneas faciales)': 'Puppet Lines Injections (facial lines)',
       'Lifting de Cuello Nefertiti': 'Nefertiti Neck Lift',
       'Tratamiento Botox Lip Flip (giro de labio)': 'Botox Lip Flip',
-      'Estimulación de Colágeno con Sculptra': 'Collagen Stimulation with Sculptra',
       'Mini Chin Up (reducción de papada)': 'Mini Chin Reduction',
       'PRF-Ection (gel PRF)': 'Renasci PRF Gel Therapy',
       'Microneedling + PRP': 'Microneedling + PRP',
@@ -1096,12 +1138,40 @@ const services = [
       'Tratamiento Microneedling': 'Microneedling Treatment',
       'Microneedling con PRP': 'Microneedling with PRP',
       'Relleno Dérmico': 'Dermal Filler',
-      'Relleno de Labios': 'Lip Filler'
+      'Relleno de Labios': 'Lip Filler',
+      'Inyecciones de Neurotoxina': 'Neurotoxin Injections',
+      'Tratamiento Botox No‑Sweat (hiperhidrosis)': 'Botox No-Sweat Treatment (hyperhidrosis)',
+      'Mini Aumento de Labios': 'Mini Lip Enhancement',
+      'Aumento Completo de Labios': 'Full Lip Augmentation',
+      'Mega Aumento de Labios': 'Mega Lip Augmentation',
+      'Inyección No More Bags (ojeras/bolsas)': 'No More Bags Injection (under-eye bags)',
+      'ThighBella (muslos)': 'ThighBella (thighs)',
+      'RollBella (rollito de brasier)': 'RollBella (bra roll)',
+      'BananaRoll (zona del bikini)': 'BananaRoll (bikini area)',
+      
+      'Mega Estimulación de Colágeno con Sculptra': 'Mega Collagen Stimulation with Sculptra',
+      'Mini Reducción de Papada': 'Mini Chin Reduction',
+      'Terapia Gel PRF de Renasci': 'Renasci PRF Gel Therapy',
+      'Inyecciones Puppet Lines (líneas faciales)': 'Puppet Lines Injections (facial lines)',
+      'Inyección B12 + Fat Blaster (Doble Efecto)': 'B12 Injection + Fat Blaster (Double Effect)',
+      'Consulta de Medicina Alternativa (Obtén tu tarjeta)': 'Alternative Medicine Consultation (Get Carded)',
+      'Inyecciones Fat Blaster': 'Fat Blaster Injections',
+      'Inyección de Energía B12': 'B12 Energy Injection',
+      'Pérdida de Peso Supervisada Médicamente': 'Medically Supervised Weight Loss'
     } as Record<string, string>;
 
     const enToEs = Object.fromEntries(Object.entries(esToEn).map(([es, en]) => [en, es])) as Record<string, string>;
 
     function apply(lang: string) {
+      // Prefer explicit per-item labels
+      const labels = document.querySelectorAll('#mobile-menu-panel .menu-item-label');
+      labels.forEach((label) => {
+        const el = label as HTMLElement;
+        const es = el.getAttribute('data-label-es') || el.textContent || '';
+        const en = el.getAttribute('data-label-en') || el.textContent || '';
+        el.textContent = lang === 'en' ? (en || es) : (es || en);
+      });
+      // Fallback: map other texts (section headers etc.)
       const nodes = document.querySelectorAll('#mobile-menu-panel nav *');
       nodes.forEach((el) => {
         const node = el as HTMLElement;
