@@ -196,7 +196,7 @@ const services = [
     <div class="flex items-center gap-2 sm:gap-3">
       <!-- Botón Llamar (Desktop) -->
       <a 
-        href="tel:+13855550123"
+        href="tel:+18019967427"
         class="flex items-center gap-2 bg-[#AABFA8] hover:bg-[#AABFA9]/90 text-white rounded-[48px] px-3 md:px-4 py-2 md:py-2.5 font-semibold text-xs md:text-sm transition-all duration-200 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EFBBBC]/50 animate-pulseSoft overflow-hidden relative min-h-[40px] md:min-h-[44px]"
         aria-label="Llamar Renasci"
         id="call-button"
@@ -204,7 +204,7 @@ const services = [
         <svg class="w-3 md:w-4 h-3 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
         </svg>
-        <span class="hidden lg:inline">(385) 555-0123</span>
+        <span class="hidden lg:inline">(801) 996-7427</span>
         <span class="lg:hidden">Llamar</span>
       </a>
 
@@ -691,14 +691,14 @@ const services = [
 <div class="fixed-bottom-cta fixed bottom-3 inset-x-4 md:hidden z-[50] pointer-events-none">
   <div class="flex gap-3 justify-center">
     <a 
-      href="tel:+13855550123"
+      href="tel:+18019967427"
       class="pointer-events-auto flex flex-1 items-center justify-center gap-2 bg-[#AABFA8] text-white rounded-[48px] px-4 py-3 font-semibold text-sm shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#AABFA8]/50"
       aria-label="Llamar Renasci"
     >
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
       </svg>
-      (385) 555-0123
+      (801) 996-7427
     </a>
     <button 
       class="pointer-events-auto flex flex-1 items-center justify-center gap-2 bg-[#C69C87] text-white rounded-[48px] px-4 py-3 font-semibold text-sm shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C69C87]/50"
@@ -794,13 +794,9 @@ const services = [
       document.body.style.overflow = '';
     }
     function trigger() {
-      resolveUrl().then((link) => {
-        if (!link) { window.location.href = '/contact'; return; }
-        if (link.includes('calendar.google.com')) { window.open(link, '_blank'); return; }
-        m.classList.remove('hidden');
-        f.src = link;
-        document.body.style.overflow = 'hidden';
-      });
+      m.classList.remove('hidden');
+      f.src = '/book';
+      document.body.style.overflow = 'hidden';
     }
     (window as any).__triggerScheduler = trigger;
     (window as any).__openScheduler = trigger;

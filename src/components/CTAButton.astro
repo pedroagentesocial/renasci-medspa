@@ -36,14 +36,16 @@ const variants = {
 };
 
 const allClasses = `${base} ${variants[variant]} ${className}`;
+const hrefFinal = (onClick && href === '#') ? 'javascript:void(0)' : href;
 ---
 
 {href ? (
   <a 
-    href={href}
+    href={hrefFinal}
     class={allClasses}
     target={target}
     rel={rel}
+    onclick={onClick}
   >
     {label || <slot />}
   </a>
