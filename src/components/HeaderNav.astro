@@ -212,8 +212,9 @@ const services = [
       <div class="inline-flex">
         <CTAButton 
           variant="primary"
-          type="button"
-          onClick="window.__triggerScheduler && window.__triggerScheduler()"
+          href="https://api.agentesocial.com/widget/booking/ZIYe8XGFfENxqvZHGTBD"
+          target="_blank"
+          rel="noopener"
           className="px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm !bg-[#C69C87] !text-white hover:opacity-90 min-h-[40px] md:min-h-[44px]"
         >
           <span data-i18n="cta.book_now">Agendar Ahora</span>
@@ -675,8 +676,9 @@ const services = [
             </a>
             <CTAButton 
               variant="primary"
-              type="button"
-              onClick="window.__triggerScheduler && window.__triggerScheduler()"
+              href="https://api.agentesocial.com/widget/booking/ZIYe8XGFfENxqvZHGTBD"
+              target="_blank"
+              rel="noopener"
               className="w-full px-4 py-3 text-sm !bg-[#C69C87] !text-white hover:opacity-90"
             >
               <span data-i18n="cta.book_now">Agendar Ahora</span>
@@ -700,15 +702,18 @@ const services = [
       </svg>
       (801) 996-7427
     </a>
-    <button 
+    <a 
+      href="https://api.agentesocial.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" 
+      target="_blank" 
+      rel="noopener"
       class="pointer-events-auto flex flex-1 items-center justify-center gap-2 bg-[#C69C87] text-white rounded-[48px] px-4 py-3 font-semibold text-sm shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C69C87]/50"
-      onclick="window.__triggerScheduler && window.__triggerScheduler()"
+      aria-label="Agendar Ahora"
     >
       <span data-i18n="cta.book_now">Agendar Ahora</span>
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
       </svg>
-    </button>
+    </a>
   </div>
   </div>
 
