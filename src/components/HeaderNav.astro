@@ -769,7 +769,9 @@ const services = [
   }
 
   function initScheduler() {
-    let u = (typeof schedulerUrl !== 'undefined' ? schedulerUrl : '');
+    let u = (typeof schedulerUrl !== 'undefined' && schedulerUrl) 
+      ? schedulerUrl 
+      : 'https://api.agentesocial.com/widget/booking/ZIYe8XGFfENxqvZHGTBD';
     const m = document.getElementById('scheduler-modal');
     const f = document.getElementById('scheduler-frame') as HTMLIFrameElement | null;
     const b = document.getElementById('scheduler-backdrop');
@@ -795,7 +797,9 @@ const services = [
     }
     function trigger() {
       m.classList.remove('hidden');
-      f.src = '/book';
+      if (f) {
+        f.src = u;
+      }
       document.body.style.overflow = 'hidden';
     }
     (window as any).__triggerScheduler = trigger;
