@@ -125,8 +125,8 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
 
     <!-- Título del hero (solo visible en slide 0) -->
     <div id="heroTitle" class="relative z-10 px-6 max-w-4xl mx-auto sm:ml-8 lg:ml-16">
-      <h1 class="font-display text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-center md:text-left">
-        <span data-i18n="hero.renew_prefix">Renueva tu</span> <span class="text-[#F3A2A7] animate-pulse-gentle bg-gradient-to-r from-[#F3A2A7] to-[#F3A2A7] bg-clip-text text-transparent animate-shimmer" data-i18n="hero.renew_highlight">Piel</span>
+      <h1 class="font-brittany text-white text-4xl md:text-6xl lg:text-7xl font-normal tracking-tight mb-6 text-center md:text-left">
+        <span data-i18n="hero.renew_prefix">Renueva tu</span> <span data-i18n="hero.renew_highlight">Piel</span>
       </h1>
       <div class="flex justify-center md:justify-start">
         <a 
@@ -240,6 +240,21 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       </CTAButton>
     </div>
   </section>
+
+  <style>
+    @font-face {
+      font-family: 'Brittany';
+      src: url('/fonts/Brittany.woff2') format('woff2'),
+           url('/fonts/Brittany.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    .font-brittany {
+      font-family: 'Brittany', cursive;
+      letter-spacing: 0.01em;
+    }
+  </style>
 
   <OurServices />
 
