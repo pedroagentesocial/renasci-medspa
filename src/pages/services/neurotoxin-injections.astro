@@ -10,8 +10,10 @@ import TransformCTA from '../../components/TransformCTA.astro';
   description="Inyecciones de neurotoxina para suavizar líneas de expresión, prevenir nuevas arrugas y lograr resultados naturales y duraderos. Agenda tu cita en Renasci Medical Spa."
 >
   <!-- Hero del Servicio -->
-  <section class="pt-24 pb-16 md:pt-32 bg-black text-white text-center">
-    <div class="px-6 max-w-4xl mx-auto mt-0 md:mt-4">
+  <section class="pt-24 pb-16 md:pt-32 text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/hero-services.jpg')"></div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative px-6 max-w-4xl mx-auto mt-0 md:mt-4">
       <div class="inline-block bg-[#F3A2A7]/30 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-white/30 animate-fade-in-up">
         <span data-i18n="services.injectables_title">Neurotoxin & Dermal Filler Injections</span>
       </div>
