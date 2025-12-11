@@ -640,7 +640,9 @@ function getGroupLabel(title){
   .services-group .service-card .p-4 a{ margin-top:auto }
   .services-group .service-card a{ color:#F3A2A7 !important }
   .services-group .badge-overlay{ position:absolute; top:12px; left:12px; z-index:30 }
-  .hero-services{ background:#000; color:#fff; min-height:40vh; display:flex; align-items:center; justify-content:center; padding-top:64px; padding-bottom:48px }
+  .hero-services{ background:#000; color:#fff; min-height:40vh; display:flex; align-items:center; justify-content:center; padding-top:64px; padding-bottom:48px; position:relative; background-image:url('/img/services/hero-services.jpg'); background-size:cover; background-position:center }
+  .hero-services::after{ content:""; position:absolute; inset:0; background:rgba(0,0,0,0.4) }
+  .hero-services .hero-inner{ position:relative; z-index:1 }
   @media (min-width:640px){ .hero-services{ min-height:45vh; padding-top:80px; padding-bottom:64px } }
   @media (min-width:1024px){ .hero-services{ min-height:50vh; padding-top:96px; padding-bottom:80px } }
   .hero-inner{ max-width:1120px; margin:0 auto; padding:0 16px }
