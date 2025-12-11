@@ -5575,7 +5575,7 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body>
+  <body data-path={currentPath}>
     <HeaderNav />
     <main>
       <slot />
@@ -5588,4 +5588,22 @@ const {
 <style is:global>
   html { font-family: system-ui, sans-serif; }
   body { margin: 0; padding: 0; }
+  body[data-path^="/services"] main > section.bg-black.text-white.text-center:first-of-type { position: relative; }
+  body[data-path^="/services"] main > section.bg-black.text-white.text-center:first-of-type::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('/img/services/hero-services.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+  body[data-path^="/services"] main > section.bg-black.text-white.text-center:first-of-type::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 0;
+  }
+  body[data-path^="/services"] main > section.bg-black.text-white.text-center:first-of-type > * { position: relative; z-index: 1; }
 </style>
