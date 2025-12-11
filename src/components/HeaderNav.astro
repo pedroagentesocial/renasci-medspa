@@ -868,19 +868,7 @@ const services = [
       mobileMenuButton.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
       document.body.classList.add('menu-open');
-      const k1 = 'mobileMenuScrollTop', k2 = 'mobileMenuSelectedHref';
-      setTimeout(() => {
-        const st = parseInt(localStorage.getItem(k1) || '0', 10);
-        if (mobileMenuPanel) mobileMenuPanel.scrollTop = st;
-        const href = localStorage.getItem(k2);
-        if (href && mobileMenuPanel) {
-          const el = mobileMenuPanel.querySelector(`a[href="${href}"]`);
-          if (el) (el as HTMLElement).scrollIntoView({ block: 'center' });
-        } else if (mobileMenuPanel) {
-          const active = mobileMenuPanel.querySelector('a.active-link') || mobileMenuPanel.querySelector(`a[href="${window.location.pathname}"]`);
-          if (active) (active as HTMLElement).scrollIntoView({ block: 'center' });
-        }
-      }, 320);
+      setTimeout(() => { if (mobileMenuPanel) mobileMenuPanel.scrollTop = 0; }, 320);
     }
 
   function closeMobileMenu() {
