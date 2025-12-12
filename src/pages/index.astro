@@ -23,19 +23,13 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
   <section class="relative min-h-[85vh] md:min-h-screen flex items-center overflow-hidden">
     <!-- Slides -->
     <div id="heroSlides" class="absolute inset-0">
-      <!-- Slide 0: Video -->
+      <!-- Slide 0: Image -->
       <div class="hero-slide opacity-100 transition-opacity duration-700 ease-out">
-        <video 
-          autoplay 
-          muted 
-          loop 
-          playsinline 
-          preload="metadata"
-          poster="/images/heroIndex.png"
-          class="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/video/hero.mp4" type="video/mp4">
-        </video>
+        <div 
+          class="absolute inset-0 w-full h-full bg-cover bg-center"
+          style="background-image:url('/img/services/hero-index.jpeg')"
+          aria-label="Renasci Hero"
+        ></div>
         <div class="absolute inset-0 bg-black/40"></div>
 
         <!-- Hotspots SOLO para slide 0 -->
@@ -43,8 +37,8 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
         <HeroHotspots 
           hotspots={[
             {
-              x: 60,
-              y: 45,
+              x: 51,
+              y: 60,
               title: "Botox Lip Flip",
               titleEs: "Botox Lip Flip",
               titleEn: "Botox Lip Flip",
@@ -54,8 +48,8 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
               href: "/services/botox-lip-flip",
             },
             {
-              x: 57,
-              y: 22,
+              x: 49,
+              y: 30,
               title: "Botox",
               titleEs: "Botox",
               titleEn: "Botox",
@@ -65,8 +59,8 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
               href: "/services/botox"
             },
             {
-              x: 58,
-              y: 66,
+              x: 56,
+              y: 83,
               title: "Nefertiti Neck Lift",
               titleEs: "Lifting de Cuello Nefertiti",
               titleEn: "Nefertiti Neck Lift",
@@ -76,8 +70,8 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
               href: "/services/nefertiti-neck-lift"
             },
             {
-              x: 58,
-              y: 58,
+              x: 49,
+              y: 78,
               title: "ChinBella",
               titleEs: "ChinBella",
               titleEn: "ChinBella",
@@ -87,8 +81,8 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
               href: "/services/chinbella"
             },
             {
-              x: 68,
-              y: 27,
+              x: 60,
+              y: 40,
               title: "Neurotoxin Injections",
               titleEs: "Inyecciones de Neurotoxina",
               titleEn: "Neurotoxin Injections",
@@ -98,8 +92,8 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
               href: "/services/neurotoxin-injections"
             },
             {
-              x: 50,
-              y: 33,
+              x: 42,
+              y: 46,
               title: "Botox en Pómulos",
               titleEs: "Botox en Pómulos",
               titleEn: "Cheekbone Lift",
@@ -125,16 +119,16 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
 
     <!-- Título del hero (solo visible en slide 0) -->
     <div id="heroTitle" class="relative z-10 px-6 max-w-4xl mx-auto sm:ml-8 lg:ml-16">
-      <h1 class="font-brittany text-white text-4xl md:text-6xl lg:text-7xl font-normal tracking-tight mb-6 text-center md:text-left">
+      <h1 class="font-hero-allura text-white text-4xl md:text-6xl lg:text-7xl font-normal tracking-tight mb-6 text-center md:text-left" id="heroTitleText">
         <span data-i18n="hero.renew_prefix">Renueva tu</span> <span data-i18n="hero.renew_highlight">Piel</span>
       </h1>
-      <p class="text-white/80 text-lg md:text-xl leading-relaxed mb-6">
+      <p class="text-white/80 text-base md:text-xl leading-relaxed mb-6 text-left max-w-md md:max-w-lg" style="text-align: justify;">
         Belleza que se tranforma contigo, guiada por medicina regenerativa y resultados que respetan tu esencia.
       </p>
       <div class="flex justify-center md:justify-start">
         <a 
           href="/services" 
-          class="inline-flex items-center gap-2 px-8 py-4 rounded-[48px] font-semibold bg-[#F3A2A7] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#F3A2A7]/50 min-h-[44px]"
+          class="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-[48px] font-semibold bg-[#F3A2A7] text-white text-sm md:text-base hover:opacity-90 active:translate-y-[1px] transition-all duración-200 focus-visible:ring-2 ring-[#F3A2A7]/50 min-h-[38px] md:min-h-[44px]"
         >
           <span data-i18n="cta.view_services">Conoce nuestros servicios</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -159,7 +153,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       <div class="absolute left-0 right-0 bottom-12 sm:bottom-16 md:hidden flex justify_center px-6">
         <a 
           href="/membership" 
-          class="inline-flex items-center gap-2 px-7 py-3 rounded-[48px] font-semibold bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#AABFA8]/50 min-h-[40px]"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-[48px] font-semibold text-sm bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#AABFA8]/50 min-h-[38px]"
         >
           <span data-i18n="cta.go_membership">Ir a Membresía</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -255,7 +249,8 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     }
     .font-brittany {
       font-family: 'Brittany', cursive;
-      letter-spacing: 0.01em;
+      letter-spacing: -0.02em;
+      font-style: italic;
     }
   </style>
 
@@ -858,3 +853,18 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     transform: translateY(-2px);
   }
 </style>
+  <script>
+    (function(){
+      const el = document.getElementById('heroTitleText');
+      const url = new URL(window.location.href);
+      const script = (url.searchParams.get('script') || '').toLowerCase();
+      if (!el) return;
+      if (script === 'sacramento') {
+        el.classList.remove('font-hero-allura');
+        el.classList.add('font-hero-sacramento');
+      } else {
+        el.classList.remove('font-hero-sacramento');
+        el.classList.add('font-hero-allura');
+      }
+    })();
+  </script>
