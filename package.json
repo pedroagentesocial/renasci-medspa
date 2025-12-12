@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy:hostinger": "node scripts/deploy-ftp.mjs",
+    "deploy:hostinger:clean": "CLEAN=true node scripts/deploy-ftp.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.5",
@@ -27,6 +29,8 @@
     "astro": "^5.13.7",
     "astro-i18next": "^1.0.0-beta.21",
     "astro-icon": "^1.1.5",
+    "basic-ftp": "^5.0.5",
+    "dotenv": "^17.2.3",
     "framer-motion": "^12.23.12",
     "gsap": "^3.13.0",
     "i18next": "^25.5.2",
