@@ -7,7 +7,8 @@ async function main() {
   const user = process.env.FTP_USER
   const password = process.env.FTP_PASS
   const port = parseInt(process.env.FTP_PORT || '21', 10)
-  const remoteDir = process.env.FTP_DIR || 'public_html'
+  const remoteDirRaw = process.env.FTP_DIR || 'public_html'
+  const remoteDir = remoteDirRaw.startsWith('/') ? remoteDirRaw : `/${remoteDirRaw}`
   const localDir = process.env.LOCAL_DIR || 'dist'
 
   if (!host || !user || !password) {
@@ -24,7 +25,7 @@ async function main() {
 
   try {
     await client.access({ host, user, password, port, secure: false })
-    await client.cwd(remoteDir)
+    await client.ensureDir(remoteDir)
     if ((process.env.CLEAN || '').toLowerCase() === 'true') {
       await client.clearWorkingDir()
     }
