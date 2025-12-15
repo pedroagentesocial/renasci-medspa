@@ -666,6 +666,14 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     stroke-dashoffset: 56.5;
   }
 
+  /* Mobile tap targets for slider controls */
+  @media (max-width: 640px) {
+    #heroToggle { width: 40px; height: 40px; }
+    .indicator { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; }
+    .indicator .circle svg { width: 28px; height: 28px; }
+    .indicator .bar { width: 112px; }
+  }
+
   /* Animated Background Patterns */
   @keyframes float-slow {
     0%, 100% {
