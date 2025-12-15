@@ -23,7 +23,7 @@ const faqId = `faq-${Math.random().toString(36).substr(2, 9)}`;
 
 <div class={`faq-item border-b border-gray-100 ${className}`}>
   <button 
-    class="faq-trigger w-full py-6 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7]/50 focus-visible:ring-offset-2 rounded-lg"
+    class="faq-trigger w-full py-5 sm:py-6 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7]/50 focus-visible:ring-offset-2 rounded-lg"
     aria-expanded={isOpen}
     aria-controls={`${faqId}-content`}
     data-faq-trigger
@@ -32,7 +32,7 @@ const faqId = `faq-${Math.random().toString(36).substr(2, 9)}`;
       {questionKey ? <span data-i18n={questionKey}>{question}</span> : question}
     </h3>
     
-    <div class="faq-icon flex-shrink-0 w-6 h-6 text-[#F3A2A7] transition-transform duration-300">
+    <div class="faq-icon flex-shrink-0 w-7 h-7 sm:w-6 sm:h-6 text-[#F3A2A7] transition-transform duration-300">
       <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path 
           stroke-linecap="round" 
