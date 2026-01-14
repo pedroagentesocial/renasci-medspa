@@ -90,7 +90,6 @@ import CTAButton from './CTAButton.astro';
                   required
                 />
                 <div class="form-validation hidden text-red-500 text-sm mt-1"></div>
-              <p class="text-xs text-graytxt mt-2">By entering your phone number, you are agreeing to receive text messages from us. Message & data rates may apply. Message frequency may vary. Reply HELP for more information. You can reply STOP or UNSUBSCRIBE to opt-out.</p>
               </div>
             </div>
             
@@ -132,6 +131,14 @@ import CTAButton from './CTAButton.astro';
               ></textarea>
             </div>
             
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="consent-membership" name="consent" required class="mt-1 w-5 h-5 rounded border-2 border-[#F3A2A7] focus:ring-2 focus:ring-[#F3A2A7]" />
+              <label for="consent-membership" class="text-sm text-graytxt">
+                Acepto ser contactado y el tratamiento de mis datos de acuerdo a la <a href="/privacy" class="text-[#F3A2A7] hover:opacity-80 transition-colors">Política de Privacidad</a>.
+              </label>
+            </div>
+            <p class="text-xs text-graytxt mt-2 text-center">By entering your phone number, you are agreeing to receive text messages from us. Message & data rates may apply. Message frequency may vary. Reply HELP for more information. You can reply STOP or UNSUBSCRIBE to opt-out.</p>
+            
             <CTAButton 
               type="submit"
               variant="primary"
@@ -141,10 +148,7 @@ import CTAButton from './CTAButton.astro';
               <span class="loading-text hidden">Enviando...</span>
             </CTAButton>
             
-            <p class="text-sm text-graytxt text-center">
-              Al enviar este formulario, aceptas recibir comunicaciones de Renasci Medical Spa. 
-              <a href="/privacy" class="text-[#F3A2A7] hover:opacity-80 transition-colors">Política de Privacidad</a>
-            </p>
+            
           </form>
         </div>
       </div>
