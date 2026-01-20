@@ -6,22 +6,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   title="IgniteRF by InMode — Plataforma RFAL Avanzada"
   description="IgniteRF es una solución avanzada para contracción de tejidos blandos, electrocoagulación, hemostasia y tratamientos fraccionados con penetración de hasta 60mm."
 >
-  <section class="relative min-h-screen md:min-h-[80vh] bg-black text-white text-center flex items-center overflow-hidden">
-    <video class="absolute inset-0 w-full h-full object-cover z-0" src="/video/igniteRF.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
-    <div class="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-      <h1 class="font-display font-bold text-4xl md:text-5xl tracking-tight mb-4">
-        <span data-i18n="igniterf.hero_title">IgniteRF</span>
-      </h1>
-      <p class="text-white/85 text-lg md:text-xl">
-        <span data-i18n="igniterf.hero_subtitle">RFAL</span>
-      </p>
-      <div class="mt-6">
-        <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-[48px] font-semibold bg-[#F3A2A7] text-white hover:opacity-90 transition-all">
-          <span data-i18n="igniterf.cta">Agenda</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
+  <section class="relative h-screen md:h-[80vh] bg-black text-white overflow-hidden">
+    <video 
+      class="absolute inset-0 w-full h-full object-cover z-0" 
+      src="/video/igniteRF.mp4" 
+      autoplay 
+      muted 
+      playsinline 
+      preload="auto" 
+      aria-hidden="true"
+    ></video>
+    <div class="absolute inset-0 z-10 flex items-center justify-center">
+      <div class="text-center px-4">
+        <h1 class="font-display font-bold text-4xl md:text-5xl tracking-tight mb-2" style="text-shadow: 0 2px 8px rgba(0,0,0,.6);">
+          <span data-i18n="igniterf.hero_title">IGNITERF</span>
+        </h1>
+        <p class="uppercase tracking-widest text-sm md:text-base text-white/90" style="text-shadow: 0 2px 8px rgba(0,0,0,.6);">
+          <span data-i18n="igniterf.hero_subtitle">ADVANCED MINIMALLY INVASIVE CONTRACTION TREATMENTS</span>
+        </p>
       </div>
     </div>
   </section>
