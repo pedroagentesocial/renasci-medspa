@@ -633,10 +633,20 @@ const services = [
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4">Tratamientos Avanzados</div>
+                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4">
+                  <span class="menu-item-label" data-label-es="Tratamientos Avanzados" data-label-en="Advanced Treatments">Tratamientos Avanzados</span>
+                </div>
               </div>
               <ul class="space-y-2">
-                <li><a href="/services/igniterf" class={`block ${isActive('/services/igniterf') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>IgniteRF by InMode</a></li>
+                <li>
+                  <a href="/services/igniterf" class={`flex items-center justify-between ${isActive('/services/igniterf') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="IgniteRF by InMode" data-label-en="IgniteRF by InMode">IgniteRF by InMode</span>
+                    <span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#F3A2A7]/15 border border-[#F3A2A7]/40 text-white text-[11px]">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#F3A2A7]"></span>
+                      <span class="menu-item-label" data-label-es="Novedad" data-label-en="New">Novedad</span>
+                    </span>
+                  </a>
+                </li>
               </ul>
             </li>
           </ul>
