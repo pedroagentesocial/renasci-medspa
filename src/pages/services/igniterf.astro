@@ -7,7 +7,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   description="IgniteRF es una solución avanzada para contracción de tejidos blandos, electrocoagulación, hemostasia y tratamientos fraccionados con penetración de hasta 60mm."
 >
   <section class="relative min-h-screen md:min-h-[80vh] bg-black text-white text-center flex items-center overflow-hidden">
-    <video class="absolute inset-0 w-full h-full object-cover z-0" src="/video/igniteRF.mp4" autoplay muted loop playsinline></video>
+    <video class="absolute inset-0 w-full h-full object-cover z-0" src="/video/igniteRF.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
     <div class="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <h1 class="font-display font-bold text-4xl md:text-5xl tracking-tight mb-4">
         <span data-i18n="igniterf.hero_title">IgniteRF</span>
@@ -41,7 +41,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           </p>
         </div>
         <figure class="rounded-2xl border border-gray-200 bg-black/5 p-3 flex flex-col items-center justify-center">
-          <img src="/images/igniteRF.png" alt="IgniteRF" class="w-full h-auto object-contain rounded-xl" loading="lazy" />
+          <img src="/img/ignateRF.png" alt="IgniteRF" class="w-full h-auto object-contain rounded-xl" loading="lazy" />
           <figcaption class="mt-2 text-sm text-graytxt">
             <span data-i18n="igniterf.image_caption">IgniteRF Workstation</span>
           </figcaption>
