@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="IgniteRF by InMode — Plataforma RFAL Avanzada"
+  description="IgniteRF es una solución avanzada para contracción de tejidos blandos, electrocoagulación, hemostasia y tratamientos fraccionados con penetración de hasta 60mm."
+>
+  <section class="relative min-h-[50vh] bg-black text-white text-center flex items-center">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h1 class="font-display font-bold text-4xl md:text-5xl tracking-tight mb-4">
+        IgniteRF by InMode
+      </h1>
+      <p class="text-white/85 text-lg md:text-xl">
+        Plataforma RFAL con modalidades sinérgicas para contracción de tejido y resultados naturales en rostro y cuerpo.
+      </p>
+      <div class="mt-6">
+        <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-[48px] font-semibold bg-[#F3A2A7] text-white hover:opacity-90 transition-all">
+          Agenda una consulta
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="h-[2px] w-full bg-[#F3A2A7]"></div>
+
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <h2 class="font-display font-bold text-2xl md:text-3xl text-dark mb-4">¿Qué es IgniteRF?</h2>
+          <p class="text-graytxt leading-relaxed mb-4">
+            IgniteRF es una plataforma integral indicada para procedimientos que requieren contracción de tejidos blandos, electrocoagulación, hemostasia y tratamientos fraccionados con niveles de penetración de hasta 60mm. Integra modalidades sinérgicas y parámetros de energía preestablecidos que optimizan la dispersión térmica para obtener resultados consistentes y naturales.
+          </p>
+          <p class="text-graytxt leading-relaxed">
+            Incorpora mecanismos de retroalimentación de temperatura e impedancia para monitorizar el tejido en tiempo real, maximizando la seguridad y los resultados clínicos.
+          </p>
+        </div>
+        <div class="bg-[#F3A2A7]/10 rounded-2xl p-6">
+          <h3 class="font-semibold text-xl text-dark mb-3">Beneficios Clave</h3>
+          <ul class="space-y-2 text-graytxt">
+            <li>Rango de tratamiento de 0.5mm a 60mm.</li>
+            <li>Enfoque multimodal para precisión y contracción de tejido.</li>
+            <li>Energía bipolar de radiofrecuencia (RF) clínicamente probada.</li>
+            <li>Parámetros preestablecidos para controlar la dispersión de calor.</li>
+            <li>Monitoreo continuo de temperatura e impedancia del tejido.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 lg:py-12 bg-white">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h3 class="font-display font-bold text-2xl text-dark mb-4">Tecnologías en la estación</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-gray-200 p-6">
+          <h4 class="font-semibold text-lg text-dark mb-2">BodyTite Turbo</h4>
+          <p class="text-graytxt">Contracción de tejido corporal con profundidad elevada y control térmico avanzado.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 p-6">
+          <h4 class="font-semibold text-lg text-dark mb-2">FaceTite Turbo</h4>
+          <p class="text-graytxt">Contorno facial mínimamente invasivo con contracción de tejido subcutáneo.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 p-6">
+          <h4 class="font-semibold text-lg text-dark mb-2">AccuTite</h4>
+          <p class="text-graytxt">Aplicación de precisión en zonas pequeñas y delicadas.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 p-6">
+          <h4 class="font-semibold text-lg text-dark mb-2">Morpheus8 Body Turbo</h4>
+          <p class="text-graytxt">RF fraccionada para remodelación y mejora de la apariencia de tejidos.</p>
+        </div>
+      </div>
+      <div class="mt-8">
+        <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-[48px] font-semibold bg-[#AABFA8] text-white hover:opacity-90 transition-all">
+          Solicitar evaluación
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .text-dark { color: #1A1A1A; }
+  .text-graytxt { color: #4B5563; }
+</style>
