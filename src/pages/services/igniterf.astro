@@ -68,12 +68,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             </ul>
           </div>
         </div>
-        <figure class="rounded-2xl border border-gray-200 bg-black/5 p-3 flex flex-col items-center justify-center">
-          <img src="/img/ignateRF.png" alt="IgniteRF" class="w-full h-auto object-contain rounded-xl" loading="lazy" />
-          <figcaption class="mt-2 text-sm text-graytxt">
+        <div class="rounded-2xl border border-gray-200 bg-black/5 p-3">
+          <div class="grid grid-cols-2 gap-3 items-start">
+            <figure class="flex flex-col">
+              <img src="/img/ignaterf/Body%20Tite1.png" alt="IgniteRF View 1" class="w-full h-auto object-contain rounded-xl" loading="lazy" />
+              <figcaption class="mt-2 text-xs text-graytxt"><span data-i18n="igniterf.view1">Vista 1</span></figcaption>
+            </figure>
+            <figure class="flex flex-col">
+              <img src="/img/ignaterf/Body%20Tite2.jpg" alt="IgniteRF View 2" class="w-full h-auto object-contain rounded-xl" loading="lazy" />
+              <figcaption class="mt-2 text-xs text-graytxt"><span data-i18n="igniterf.view2">Vista 2</span></figcaption>
+            </figure>
+          </div>
+          <div class="mt-2 text-sm text-graytxt text-center">
             <span data-i18n="igniterf.image_caption">IgniteRF Workstation</span>
-          </figcaption>
-        </figure>
+          </div>
+        </div>
       </div>
       </div>
     </div>
