@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import SimpleContactForm from '../../components/SimpleContactForm.astro'
+import TransformCTA from '../../components/TransformCTA.astro'
+import { getLocaleFromUrl } from '../../i18n/config'
+
+const langParam = Astro.url.searchParams.get('lang')
+const pathLocale = getLocaleFromUrl(Astro.url)
+const lang = (langParam === 'es' || langParam === 'en') ? langParam : pathLocale
+
+const pageText = {
+  es: {
+    metaTitle: 'Terapia con Péptidos - Renasci Medical Spa',
+    metaDescription: 'Terapia con péptidos diseñada para apoyar energía, recuperación, metabolismo, balance hormonal y envejecimiento saludable.',
+    heroTitle: 'Terapia con Péptidos',
+    heroAlt: 'Terapia con péptidos',
+    introTitle: 'Terapia con Péptidos',
+    introText: 'En Renasci Medical Spa, los péptidos terapéuticos se seleccionan cuidadosamente para ayudar a reducir grasa resistente, recuperar energía, mejorar la recuperación, equilibrar hormonas y apoyar la vitalidad a largo plazo.',
+    whatAreTitle: '¿Qué son los péptidos?',
+    whatAreP1: 'Los péptidos son cadenas cortas de aminoácidos, los bloques de construcción de las proteínas en el cuerpo. Actúan como señales que guían a las células a reparar, regenerar y restablecer el equilibrio, de forma precisa y suave.',
+    whatAreP2: 'Nuestros protocolos de péptidos complementan programas de pérdida de peso, hormonales y estéticos, creando un efecto combinado que ayuda a sentirte con más fuerza, verte renovada/o y mantenerte alineada/o con tus objetivos de bienestar.',
+    benefitsTitle: 'Beneficios de la terapia con péptidos',
+    benefits: [
+      'Control de peso y pérdida de grasa: quema grasa resistente, apoya el metabolismo y preserva músculo magro.',
+      'Antienvejecimiento y longevidad: desacelera el envejecimiento celular, aumenta la energía y mejora la calidad del sueño.',
+      'Recuperación y reparación: ayuda a reparar tendones, ligamentos y mucosa intestinal mientras reduce la inflamación.',
+      'Salud hormonal y sexual: restaura la libido, mejora el rendimiento y equilibra las hormonas de forma natural.',
+      'Regeneración de piel y cabello: estimula colágeno, favorece el crecimiento capilar y mejora la textura de la piel.',
+      'Soporte cognitivo y de energía: mejora el enfoque, la claridad y la vitalidad diaria.'
+    ],
+    pricingTitle: 'Precios y consultas',
+    pricing: [
+      'Consulta $75: obligatoria para pacientes que inician terapia con péptidos (para revisar historial, objetivos y firmar consentimiento).',
+      'Reposiciones: después de la consulta inicial, los pacientes sólo pagan su terapia con péptidos al precio de reposición indicado.',
+      'Pacientes con membresía: si ya estás en programas de pérdida de peso o membresía hormonal, la consulta se exenta y sólo pagas la terapia al precio de reposición. Si estás en nuestra Spa Membership, recibes 10% de descuento en el precio de reposición y la consulta se exenta.'
+    ],
+    cards: {
+      bpcTitle: 'BPC-157',
+      bpcDesc: 'Apoya la recuperación de tejidos y el equilibrio regenerativo.',
+      cjcTitle: 'CJC 1295 / Ipamorelin',
+      cjcDesc: 'Ayuda con la recuperación, la calidad del sueño y objetivos de composición corporal.',
+      sermorelinTitle: 'Sermorelin',
+      sermorelinDesc: 'Favorece la señalización hormonal natural para recuperación y vitalidad.',
+      nadTitle: 'NAD+',
+      nadDesc: 'Apoya la energía, la reparación celular y la claridad mental.',
+      ghkuTitle: 'GhKu',
+      ghkuDesc: 'Apoya la renovación de la piel y el cuidado enfocado en recuperación.',
+      vitaminTitle: 'Vitamina D',
+      vitaminDesc: 'Ayuda a mantener el balance inmunológico y el bienestar general.',
+      hairTitle: 'Crecimiento Capilar',
+      hairDesc: 'Apoya un cabello más abundante y saludable con enfoque regenerativo.'
+    },
+    cta: 'Agendar Ahora'
+  },
+  en: {
+    metaTitle: 'Peptide Therapy - Renasci Medical Spa',
+    metaDescription: 'Peptide therapy designed to support energy, recovery, metabolism, hormone balance, and healthy aging.',
+    heroTitle: 'Peptide Therapy',
+    heroAlt: 'Peptide therapy',
+    introTitle: 'Peptide Therapy',
+    introText: 'At Renasci Medical Spa, therapeutic peptides are carefully selected to help reduce stubborn fat, restore energy, enhance recovery, balance hormones, and support long-term vitality.',
+    whatAreTitle: 'What Are Peptides?',
+    whatAreP1: 'Peptides are short chains of amino acids, the building blocks of proteins in the body. They act as signals that guide cells to repair, regenerate, and restore balance, making them precise and gentle.',
+    whatAreP2: 'Our peptide protocols complement weight loss, hormone, and aesthetic programs, creating a combined effect that helps you feel stronger, look refreshed, and stay aligned with your wellness goals.',
+    benefitsTitle: 'Benefits of Peptide Therapy',
+    benefits: [
+      'Weight Management & Fat Loss: Burn stubborn fat, support metabolism, and preserve lean muscle.',
+      'Anti-Aging & Longevity: Slow cellular aging, increase energy, and improve sleep quality.',
+      'Recovery & Healing: Repair tendons, ligaments, and gut lining while reducing inflammation.',
+      'Hormone & Sexual Health: Restore libido, enhance performance, and balance hormones naturally.',
+      'Skin & Hair Regeneration: Boost collagen, support hair growth, and improve skin texture.',
+      'Brain & Energy Support: Improve focus, clarity, and daily vitality.'
+    ],
+    pricingTitle: 'Pricing & Consults',
+    pricing: [
+      '$75 Consult Fee: Required for patients starting peptide therapy (to review history, goals, and sign consent).',
+      'Refills: After initial consult, patients will pay only for their peptide therapy at the refill price listed below.',
+      'Membership Patients: If already enrolled in Weight Loss Programs, Hormone Membership, consult fee is waived — they just pay for the peptide therapy at refill price. If enrolled in our Spa Membership, you will receive 10% off the refill price and consult fee is waived.'
+    ],
+    cards: {
+      bpcTitle: 'BPC-157',
+      bpcDesc: 'Supports tissue recovery and regenerative balance.',
+      cjcTitle: 'CJC 1295 / Ipamorelin',
+      cjcDesc: 'Helps with recovery, sleep quality, and body composition goals.',
+      sermorelinTitle: 'Sermorelin',
+      sermorelinDesc: 'Encourages natural hormone signaling for recovery and vitality.',
+      nadTitle: 'NAD+',
+      nadDesc: 'Supports energy, cellular repair, and mental clarity.',
+      ghkuTitle: 'GhKu',
+      ghkuDesc: 'Supports skin renewal and recovery-focused care.',
+      vitaminTitle: 'Vitamin D',
+      vitaminDesc: 'Helps maintain immune balance and overall wellness support.',
+      hairTitle: 'Hair Growth',
+      hairDesc: 'Supports fuller, healthier-looking hair with regenerative focus.'
+    },
+    cta: 'Book Now'
+  }
+}
+---
+
+<BaseLayout 
+  title={pageText[lang].metaTitle}
+  description={pageText[lang].metaDescription}
+  lang={lang}
+>
+  <section class="relative min-h-[45vh] flex items-center justify-center text-center overflow-hidden">
+    <img 
+      src="/img/services/peptide-therapy.jpg"
+      alt={pageText[lang].heroAlt}
+      data-alt-es={pageText.es.heroAlt}
+      data-alt-en={pageText.en.heroAlt}
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-black/55"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6">
+      <h1 class="font-display font-bold text-4xl md:text-6xl text-white mb-4" data-t-es={pageText.es.heroTitle} data-t-en={pageText.en.heroTitle}>{pageText[lang].heroTitle}</h1>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display font-bold text-3xl md:text-4xl text-[#F3A2A7] mb-6" data-t-es={pageText.es.introTitle} data-t-en={pageText.en.introTitle}>{pageText[lang].introTitle}</h2>
+        <p class="text-lg text-gray-700 leading-relaxed" data-t-es={pageText.es.introText} data-t-en={pageText.en.introText}>{pageText[lang].introText}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-gray-50 text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+        <div>
+          <h2 class="font-display font-bold text-3xl md:text-4xl text-[#F3A2A7] mb-6" data-t-es={pageText.es.whatAreTitle} data-t-en={pageText.en.whatAreTitle}>{pageText[lang].whatAreTitle}</h2>
+          <p class="text-lg text-gray-700 leading-relaxed mb-6" data-t-es={pageText.es.whatAreP1} data-t-en={pageText.en.whatAreP1}>{pageText[lang].whatAreP1}</p>
+          <p class="text-lg text-gray-700 leading-relaxed" data-t-es={pageText.es.whatAreP2} data-t-en={pageText.en.whatAreP2}>{pageText[lang].whatAreP2}</p>
+        </div>
+        <div>
+          <h2 class="font-display font-bold text-3xl md:text-4xl text-[#F3A2A7] mb-6" data-t-es={pageText.es.benefitsTitle} data-t-en={pageText.en.benefitsTitle}>{pageText[lang].benefitsTitle}</h2>
+          <ul class="list-disc pl-5 space-y-3 text-gray-700 leading-relaxed">
+            <li data-t-es={pageText.es.benefits[0]} data-t-en={pageText.en.benefits[0]}>{pageText[lang].benefits[0]}</li>
+            <li data-t-es={pageText.es.benefits[1]} data-t-en={pageText.en.benefits[1]}>{pageText[lang].benefits[1]}</li>
+            <li data-t-es={pageText.es.benefits[2]} data-t-en={pageText.en.benefits[2]}>{pageText[lang].benefits[2]}</li>
+            <li data-t-es={pageText.es.benefits[3]} data-t-en={pageText.en.benefits[3]}>{pageText[lang].benefits[3]}</li>
+            <li data-t-es={pageText.es.benefits[4]} data-t-en={pageText.en.benefits[4]}>{pageText[lang].benefits[4]}</li>
+            <li data-t-es={pageText.es.benefits[5]} data-t-en={pageText.en.benefits[5]}>{pageText[lang].benefits[5]}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-display font-bold text-3xl md:text-4xl text-[#F3A2A7] mb-6" data-t-es={pageText.es.pricingTitle} data-t-en={pageText.en.pricingTitle}>{pageText[lang].pricingTitle}</h2>
+        <ul class="list-disc pl-5 space-y-3 text-gray-700 leading-relaxed">
+          <li data-t-es={pageText.es.pricing[0]} data-t-en={pageText.en.pricing[0]}>{pageText[lang].pricing[0]}</li>
+          <li data-t-es={pageText.es.pricing[1]} data-t-en={pageText.en.pricing[1]}>{pageText[lang].pricing[1]}</li>
+          <li data-t-es={pageText.es.pricing[2]} data-t-en={pageText.en.pricing[2]}>{pageText[lang].pricing[2]}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-gray-50 text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/BPC-157.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.bpcTitle} data-t-en={pageText.en.cards.bpcTitle}>{pageText[lang].cards.bpcTitle}</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span>$200</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.bpcDesc} data-t-en={pageText.en.cards.bpcDesc}>{pageText[lang].cards.bpcDesc}</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/CJC-1295.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.cjcTitle} data-t-en={pageText.en.cards.cjcTitle}>{pageText[lang].cards.cjcTitle}</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span>$200</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.cjcDesc} data-t-en={pageText.en.cards.cjcDesc}>{pageText[lang].cards.cjcDesc}</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Sermorelin.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.sermorelinTitle} data-t-en={pageText.en.cards.sermorelinTitle}>{pageText[lang].cards.sermorelinTitle}</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span>$200</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.sermorelinDesc} data-t-en={pageText.en.cards.sermorelinDesc}>{pageText[lang].cards.sermorelinDesc}</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/NAD.png');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.nadTitle} data-t-en={pageText.en.cards.nadTitle}>{pageText[lang].cards.nadTitle}</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span>1000mg $150 / 2000mg $275</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.nadDesc} data-t-en={pageText.en.cards.nadDesc}>{pageText[lang].cards.nadDesc}</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/GhKu.png');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.ghkuTitle} data-t-en={pageText.en.cards.ghkuTitle}>{pageText[lang].cards.ghkuTitle}</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span>$80-$120</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.ghkuDesc} data-t-en={pageText.en.cards.ghkuDesc}>{pageText[lang].cards.ghkuDesc}</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Vitamin-d.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.vitaminTitle} data-t-en={pageText.en.cards.vitaminTitle}>{pageText[lang].cards.vitaminTitle}</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span>$76</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.vitaminDesc} data-t-en={pageText.en.cards.vitaminDesc}>{pageText[lang].cards.vitaminDesc}</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white lg:col-start-2">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Hair-growth.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.hairTitle} data-t-en={pageText.en.cards.hairTitle}>{pageText[lang].cards.hairTitle}</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span>$145</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.hairDesc} data-t-en={pageText.en.cards.hairDesc}>{pageText[lang].cards.hairDesc}</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SimpleContactForm />
+  <TransformCTA />
+</BaseLayout>
+
+<script>
+  const getTherapyPeptideLang = () => {
+    const params = new URLSearchParams(window.location.search)
+    const urlLang = params.get('lang')
+    if (urlLang === 'en' || urlLang === 'es') return urlLang
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language')
+    if (storedLang === 'en' || storedLang === 'es') return storedLang
+    const managerLang = window.i18nManager?.getCurrentLanguage?.()
+    if (managerLang === 'en' || managerLang === 'es') return managerLang
+    return document.documentElement.lang === 'en' ? 'en' : 'es'
+  }
+
+  const applyTherapyPeptideLang = (lang) => {
+    document.querySelectorAll('[data-t-es]').forEach((el) => {
+      const es = el.getAttribute('data-t-es') || ''
+      const en = el.getAttribute('data-t-en') || es
+      el.textContent = lang === 'en' ? en : es
+    })
+    document.querySelectorAll('[data-alt-es]').forEach((el) => {
+      const es = el.getAttribute('data-alt-es') || ''
+      const en = el.getAttribute('data-alt-en') || es
+      el.setAttribute('alt', lang === 'en' ? en : es)
+    })
+  }
+
+  const initTherapyPeptideLang = () => applyTherapyPeptideLang(getTherapyPeptideLang())
+  document.addEventListener('DOMContentLoaded', initTherapyPeptideLang)
+  document.addEventListener('astro:page-load', initTherapyPeptideLang)
+  window.addEventListener('languageChanged', (e) => {
+    const lang = e?.detail?.language || getTherapyPeptideLang()
+    applyTherapyPeptideLang(lang)
+  })
+</script>

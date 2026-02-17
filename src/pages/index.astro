@@ -27,7 +27,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       <div class="hero-slide opacity-100 transition-opacity duration-700 ease-out">
         <div 
           class="absolute inset-0 w-full h-full bg-cover bg-center"
-          style="background-image:url('/img/services/hero-index.jpeg')"
+          style="background-image:url('/img/services/hero-index.jpeg?v=2')"
           aria-label="Renasci Hero"
         ></div>
         <div class="absolute inset-0 bg-black/40"></div>
@@ -119,7 +119,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
 
     <!-- Título del hero (solo visible en slide 0) -->
     <div id="heroTitle" class="relative z-10 px-6 max-w-4xl mx-auto sm:ml-8 lg:ml-16">
-      <h1 class="font-hero-allura text-white text-4xl md:text-6xl lg:text-7xl font-normal tracking-tight mb-6 text-center md:text-left" id="heroTitleText">
+      <h1 class="font-rougescript text-white text-4xl md:text-6xl lg:text-7xl font-normal tracking-tight mb-6 text-center md:text-left" id="heroTitleText">
         <span data-i18n="hero.renew_prefix">Renueva tu</span> <span data-i18n="hero.renew_highlight">Piel</span>
       </h1>
       <p class="text-white/80 text-base md:text-xl leading-relaxed mb-6 text-left max-w-md md:max-w-lg" style="text-align: justify;">
@@ -141,12 +141,12 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     <!-- Overlay de slide 1 (solo visible en imagen de membresía) -->
     <div id="heroMembershipOverlay" class="absolute inset-0 z-10" style="display:none">
       <div class="absolute left-0 right-0 top-20 sm:top-24 md:hidden px-6">
-        <h2 class="font-display text-white text-center text-2xl sm:text-3xl font-bold tracking-tight mb-4">
+        <h2 class="font-rougescript text-white text-center text-2xl sm:text-3xl font-bold tracking-tight mb-4">
           <span data-i18n="hero.memberships_title_prefix">Conoce Nuestras</span> <span class="text-[#F3A2A7]" data-i18n="hero.memberships_title_highlight">Membresías</span>
         </h2>
       </div>
       <div class="absolute right-6 sm:right-10 lg:right-16 top-28 sm:top-32 lg:top-36 hidden md:block">
-        <h2 class="font-display text-white text-right text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+        <h2 class="font-rougescript text-white text-right text-5xl lg:text-6xl font-bold tracking-tight mb-4">
           <span data-i18n="hero.memberships_title_prefix">Conoce Nuestras</span> <span class="text-[#F3A2A7]" data-i18n="hero.memberships_title_highlight">Membresías</span>
         </h2>
       </div>
@@ -212,7 +212,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="text-black">
-          <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F3A2A7] text-white text-xs font-semibold mr-3">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F3A2A7] text-black text-xs font-semibold mr-3">
             <span data-i18n="home.announce.igniterf_badge">Novedad</span>
           </span>
           <span class="font-display text-lg md:text-xl font-bold">
@@ -264,15 +264,14 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
 
   <style>
     @font-face {
-      font-family: 'Brittany';
-      src: url('/fonts/Brittany.woff2') format('woff2'),
-           url('/fonts/Brittany.ttf') format('truetype');
+      font-family: 'Rouge Script';
+      src: url('/src/styles/fonts/RougeScript-Regular.ttf') format('truetype');
       font-weight: 400;
       font-style: normal;
       font-display: swap;
     }
-    .font-brittany {
-      font-family: 'Brittany', cursive;
+    .font-rougescript {
+      font-family: 'Rouge Script', cursive;
       letter-spacing: -0.02em;
       font-style: italic;
     }
@@ -288,28 +287,30 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       const filterPills = document.querySelectorAll('.filter-pill');
       const serviceCards = document.querySelectorAll('.service-card');
 
-      filterPills.forEach(pill => {
-        pill.addEventListener('click', function() {
-          const filter = this.dataset.filter;
+      filterPills.forEach((pill) => {
+        pill.addEventListener('click', (event) => {
+          const pillEl = event.currentTarget as HTMLElement | null;
+          if (!pillEl) return;
+          const filter = pillEl.dataset.filter;
           
-          // Update active pill
-          filterPills.forEach(p => {
-            p.classList.remove('active', 'bg-primary', 'text-white');
-            p.classList.add('bg-gray-100', 'text-gray-700');
+          filterPills.forEach((p) => {
+            const pEl = p as HTMLElement;
+            pEl.classList.remove('active', 'bg-primary', 'text-white');
+            pEl.classList.add('bg-gray-100', 'text-gray-700');
           });
           
-          this.classList.add('active', 'bg-primary', 'text-white');
-          this.classList.remove('bg-gray-100', 'text-gray-700');
+          pillEl.classList.add('active', 'bg-primary', 'text-white');
+          pillEl.classList.remove('bg-gray-100', 'text-gray-700');
           
-          // Filter cards
-          serviceCards.forEach(card => {
-            const category = card.dataset.category;
+          serviceCards.forEach((card) => {
+            const cardEl = card as HTMLElement;
+            const category = cardEl.dataset.category;
             if (filter === 'all' || category === filter) {
-              card.style.display = 'block';
-              card.classList.remove('hidden');
+              cardEl.style.display = 'block';
+              cardEl.classList.remove('hidden');
             } else {
-              card.style.display = 'none';
-              card.classList.add('hidden');
+              cardEl.style.display = 'none';
+              cardEl.classList.add('hidden');
             }
           });
         });
@@ -397,8 +398,8 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
         <div class="order-1 lg:order-2">
           <div class="relative">
             <img 
-              src="/images/med-spa-room.jpg"
-              alt="Sala de tratamiento en Renasci Medical Spa"
+              src="/img/services/spa.jpg"
+              alt="Renasci Medical Spa"
               class="w-full h-96 lg:h-[500px] object-cover rounded-[48px]"
               loading="lazy"
             />
@@ -903,11 +904,11 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       const script = (url.searchParams.get('script') || '').toLowerCase();
       if (!el) return;
       if (script === 'sacramento') {
-        el.classList.remove('font-hero-allura');
+        el.classList.remove('font-hero-elmatia');
         el.classList.add('font-hero-sacramento');
       } else {
         el.classList.remove('font-hero-sacramento');
-        el.classList.add('font-hero-allura');
+        el.classList.add('font-hero-elmatia');
       }
     })();
   </script>
