@@ -299,32 +299,18 @@ export const serviciosUnificados: ServicioUnificado[] = [
   },
   // IV/IM Therapy
   {
-    id: 'iv-drips',
-    slug: 'iv-drips',
-    title: { es: 'Suero IV (Drips)', en: 'IV Drips' },
-    description: { es: 'Terapias intravenosas para hidratación y recuperación.', en: 'Intravenous therapies for hydration and recovery.' },
-    excerpt: { es: 'Hidratación y recuperación inmediata.', en: 'Immediate hydration and recovery.' },
+    id: 'iv-therapy',
+    slug: 'iv-therapy',
+    title: { es: 'Terapia IV', en: 'IV Therapy' },
+    description: { es: 'Terapia intravenosa e intramuscular para bienestar, energía y recuperación.', en: 'Intravenous and intramuscular therapy for wellness, energy and recovery.' },
+    excerpt: { es: 'Nutrientes esenciales con absorción máxima y soporte integral.', en: 'Essential nutrients with maximum absorption and comprehensive support.' },
     category: 'iv-im-therapy',
     categoryName: serviceCategories['iv-im-therapy'],
     icon: '💧',
     precio: 'Por definir',
     image: '/images/med-spa-room.jpg',
-    benefits: ['Hidratación','Recuperación'],
-    href: '/services/iv-drips'
-  },
-  {
-    id: 'im-injections',
-    slug: 'im-injections',
-    title: { es: 'Inyecciones IM', en: 'IM Injections' },
-    description: { es: 'Terapias intramusculares para soporte rápido.', en: 'Intramuscular therapies for rapid support.' },
-    excerpt: { es: 'Soporte rápido intramuscular.', en: 'Rapid intramuscular support.' },
-    category: 'iv-im-therapy',
-    categoryName: serviceCategories['iv-im-therapy'],
-    icon: '💉',
-    precio: 'Por definir',
-    image: '/images/med-spa-room.jpg',
-    benefits: ['Soporte rápido'],
-    href: '/services/im-injections'
+    benefits: ['Hidratación','Energía','Recuperación'],
+    href: '/services/iv-therapy'
   },
   // Rellenos
   {

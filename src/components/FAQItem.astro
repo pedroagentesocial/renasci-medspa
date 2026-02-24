@@ -6,6 +6,10 @@ export interface Props {
   class?: string;
   questionKey?: string;
   answerKey?: string;
+  questionEs?: string;
+  questionEn?: string;
+  answerEs?: string;
+  answerEn?: string;
 }
 
 const { 
@@ -14,11 +18,17 @@ const {
   isOpen = false,
   class: className = '',
   questionKey = '',
-  answerKey = ''
+  answerKey = '',
+  questionEs = '',
+  questionEn = '',
+  answerEs = '',
+  answerEn = ''
 } = Astro.props;
 
 // Generar ID único para accesibilidad
 const faqId = `faq-${Math.random().toString(36).substr(2, 9)}`;
+const hasBilingualQuestion = questionEs !== '' || questionEn !== '';
+const hasBilingualAnswer = answerEs !== '' || answerEn !== '';
 ---
 
 <div class={`faq-item border-b border-gray-100 ${className}`}>
@@ -29,7 +39,13 @@ const faqId = `faq-${Math.random().toString(36).substr(2, 9)}`;
     data-faq-trigger
   >
     <h3 class="font-display font-semibold text-lg text-dark pr-4 leading-relaxed">
-      {questionKey ? <span data-i18n={questionKey}>{question}</span> : question}
+      {questionKey ? (
+        <span data-i18n={questionKey}>{question}</span>
+      ) : hasBilingualQuestion ? (
+        <span data-t-es={questionEs || question} data-t-en={questionEn || questionEs || question}>{questionEs || question}</span>
+      ) : (
+        question
+      )}
     </h3>
     
     <div class="faq-icon flex-shrink-0 w-7 h-7 sm:w-6 sm:h-6 text-[#F3A2A7] transition-transform duration-300">
@@ -52,7 +68,13 @@ const faqId = `faq-${Math.random().toString(36).substr(2, 9)}`;
   >
     <div class="pb-6 pr-10">
       <p class="text-graytxt leading-relaxed">
-        {answerKey ? <span data-i18n={answerKey}>{answer}</span> : answer}
+        {answerKey ? (
+          <span data-i18n={answerKey}>{answer}</span>
+        ) : hasBilingualAnswer ? (
+          <span data-t-es={answerEs || answer} data-t-en={answerEn || answerEs || answer}>{answerEs || answer}</span>
+        ) : (
+          answer
+        )}
       </p>
     </div>
   </div>
@@ -64,10 +86,13 @@ const faqId = `faq-${Math.random().toString(36).substr(2, 9)}`;
     const faqTriggers = document.querySelectorAll('[data-faq-trigger]');
     
     faqTriggers.forEach(trigger => {
-      trigger.addEventListener('click', function() {
-        const content = this.nextElementSibling;
-        const icon = this.querySelector('.faq-icon svg');
-        const isOpen = this.getAttribute('aria-expanded') === 'true';
+      trigger.addEventListener('click', () => {
+        const content = trigger.nextElementSibling as HTMLElement | null;
+        const icon = trigger.querySelector('.faq-icon svg') as SVGElement | null;
+        if (!content || !icon) {
+          return;
+        }
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
         
         // Cerrar todos los otros FAQs (opcional - para acordeón exclusivo)
         // faqTriggers.forEach(otherTrigger => {
@@ -83,15 +108,13 @@ const faqId = `faq-${Math.random().toString(36).substr(2, 9)}`;
         // });
         
         if (isOpen) {
-          // Cerrar
-          this.setAttribute('aria-expanded', 'false');
+          trigger.setAttribute('aria-expanded', 'false');
           content.setAttribute('aria-hidden', 'true');
           content.style.maxHeight = '0';
           content.style.opacity = '0';
           icon.style.transform = 'rotate(0deg)';
         } else {
-          // Abrir
-          this.setAttribute('aria-expanded', 'true');
+          trigger.setAttribute('aria-expanded', 'true');
           content.setAttribute('aria-hidden', 'false');
           content.style.maxHeight = content.scrollHeight + 'px';
           content.style.opacity = '1';

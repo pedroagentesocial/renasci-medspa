@@ -115,15 +115,7 @@ const pageText = {
     <div class="absolute inset-0 bg-black/55"></div>
     <div class="relative z-10 max-w-4xl mx-auto px-6">
       <h1 class="font-display font-bold text-4xl md:text-6xl text-white mb-4" data-t-es={pageText.es.heroTitle} data-t-en={pageText.en.heroTitle}>{pageText[lang].heroTitle}</h1>
-    </div>
-  </section>
-
-  <section class="py-16 lg:py-20 bg-white text-gray-900">
-    <div class="container mx-auto px-6">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="font-display font-bold text-3xl md:text-4xl text-[#F3A2A7] mb-6" data-t-es={pageText.es.introTitle} data-t-en={pageText.en.introTitle}>{pageText[lang].introTitle}</h2>
-        <p class="text-lg text-gray-700 leading-relaxed" data-t-es={pageText.es.introText} data-t-en={pageText.en.introText}>{pageText[lang].introText}</p>
-      </div>
+      <p class="text-lg md:text-xl text-white/90 leading-relaxed" data-t-es={pageText.es.introText} data-t-en={pageText.en.introText}>{pageText[lang].introText}</p>
     </div>
   </section>
 
@@ -165,117 +157,305 @@ const pageText = {
 
   <section class="py-16 lg:py-20 bg-gray-50 text-gray-900">
     <div class="container mx-auto px-6">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/BPC-157.jpg');"></div>
-          <div class="absolute inset-0 bg-black/55"></div>
-          <div class="relative z-10 p-6 flex flex-col h-full text-center">
-            <div>
-              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.bpcTitle} data-t-en={pageText.en.cards.bpcTitle}>{pageText[lang].cards.bpcTitle}</h3>
-              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
-                <span class="flex-1 h-px bg-white/70"></span>
-                <span>$200</span>
-                <span class="flex-1 h-px bg-white/70"></span>
+      <div class="space-y-12">
+        <div>
+          <h2 class="font-display font-bold text-3xl md:text-4xl text-[#F3A2A7] mb-2 text-center" data-t-es="Wellness e Inyecciones de Péptidos" data-t-en="Wellness & Peptide Injections">Wellness e Inyecciones de Péptidos</h2>
+          <p class="text-sm text-gray-600 text-center mb-6" data-t-es="(~30 días de suministro)" data-t-en="(~30 day supply)">(~30 días de suministro)</p>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/NAD.png');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="NAD+ 1000 mg vial" data-t-en="NAD+ 1000 mg vial">NAD+ 1000 mg vial</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$150</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
               </div>
-              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.bpcDesc} data-t-en={pageText.en.cards.bpcDesc}>{pageText[lang].cards.bpcDesc}</p>
             </div>
-            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/NAD.png');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="NAD+ 2000 mg vial" data-t-en="NAD+ 2000 mg vial">NAD+ 2000 mg vial</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$275</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+              </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-gradient-to-br from-[#F3A2A7]/90 to-[#AABFA8]/90"></div>
+              <div class="absolute inset-0 bg-black/30"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="Inyección de Glutatión" data-t-en="Glutathione Injection">Inyección de Glutatión</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$50</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+              </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/CJC-1295.jpg');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="CJC-1295 / Ipamorelin" data-t-en="CJC-1295 / Ipamorelin">CJC-1295 / Ipamorelin</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$300</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+              </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Sermorelin.jpg');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="Sermorelin" data-t-en="Sermorelin">Sermorelin</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$200</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+              </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-gradient-to-br from-[#F3A2A7]/90 to-[#AABFA8]/90"></div>
+              <div class="absolute inset-0 bg-black/30"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="Tesamorelin" data-t-en="Tesamorelin">Tesamorelin</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$350</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+              </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-gradient-to-br from-[#F3A2A7]/90 to-[#AABFA8]/90"></div>
+              <div class="absolute inset-0 bg-black/30"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="AOD-9604" data-t-en="AOD-9604">AOD-9604</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$300</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+              </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Vitamin-d.jpg');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="Inyección de Vitamina D" data-t-en="Vitamin D Injection">Inyección de Vitamina D</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$75</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/CJC-1295.jpg');"></div>
-          <div class="absolute inset-0 bg-black/55"></div>
-          <div class="relative z-10 p-6 flex flex-col h-full text-center">
-            <div>
-              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.cjcTitle} data-t-en={pageText.en.cards.cjcTitle}>{pageText[lang].cards.cjcTitle}</h3>
-              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
-                <span class="flex-1 h-px bg-white/70"></span>
-                <span>$200</span>
-                <span class="flex-1 h-px bg-white/70"></span>
+
+        <div>
+          <h2 class="font-display font-bold text-3xl md:text-4xl text-[#F3A2A7] mb-6 text-center" data-t-es="Recuperación y Antienvejecimiento" data-t-en="Recovery & Anti-Aging">Recuperación y Antienvejecimiento</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/BPC-157.jpg');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="BPC-157 (Spray nasal)" data-t-en="BPC-157 (Nasal Spray)">BPC-157 (Spray nasal)</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$200</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
               </div>
-              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.cjcDesc} data-t-en={pageText.en.cards.cjcDesc}>{pageText[lang].cards.cjcDesc}</p>
             </div>
-            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/GhKu.png');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="Crema GHK-CU" data-t-en="GHK-CU Cream">Crema GHK-CU</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$80 - $120</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Sermorelin.jpg');"></div>
-          <div class="absolute inset-0 bg-black/55"></div>
-          <div class="relative z-10 p-6 flex flex-col h-full text-center">
-            <div>
-              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.sermorelinTitle} data-t-en={pageText.en.cards.sermorelinTitle}>{pageText[lang].cards.sermorelinTitle}</h3>
-              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
-                <span class="flex-1 h-px bg-white/70"></span>
-                <span>$200</span>
-                <span class="flex-1 h-px bg-white/70"></span>
+
+        <div>
+          <h2 class="font-display font-bold text-3xl md:text-4xl text-[#F3A2A7] mb-6 text-center" data-t-es="Salud y Rendimiento Sexual" data-t-en="Sexual Health & Performance">Salud y Rendimiento Sexual</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-gradient-to-br from-[#F3A2A7]/90 to-[#AABFA8]/90"></div>
+              <div class="absolute inset-0 bg-black/30"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="PT-141 (Spray nasal)" data-t-en="PT-141 (Nasal Spray)">PT-141 (Spray nasal)</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$200</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
               </div>
-              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.sermorelinDesc} data-t-en={pageText.en.cards.sermorelinDesc}>{pageText[lang].cards.sermorelinDesc}</p>
             </div>
-            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-gradient-to-br from-[#F3A2A7]/90 to-[#AABFA8]/90"></div>
+              <div class="absolute inset-0 bg-black/30"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="Crema Scream (Tópica)" data-t-en="Scream Cream (Topical)">Crema Scream (Tópica)</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$100</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/NAD.png');"></div>
-          <div class="absolute inset-0 bg-black/55"></div>
-          <div class="relative z-10 p-6 flex flex-col h-full text-center">
-            <div>
-              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.nadTitle} data-t-en={pageText.en.cards.nadTitle}>{pageText[lang].cards.nadTitle}</h3>
-              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
-                <span class="flex-1 h-px bg-white/70"></span>
-                <span>1000mg $150 / 2000mg $275</span>
-                <span class="flex-1 h-px bg-white/70"></span>
+
+        <div>
+          <h2 class="font-display font-bold text-3xl md:text-4xl text-[#F3A2A7] mb-6 text-center" data-t-es="Terapias de Crecimiento Capilar - Mujeres" data-t-en="Hair Growth Therapies - Women">Terapias de Crecimiento Capilar - Mujeres</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Hair-growth.jpg');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="Fluocinolona / Minoxidil / Tretinoína" data-t-en="Fluocinolone / Minoxidil / Tretinoin">Fluocinolona / Minoxidil / Tretinoína</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$80</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
               </div>
-              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.nadDesc} data-t-en={pageText.en.cards.nadDesc}>{pageText[lang].cards.nadDesc}</p>
             </div>
-            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Hair-growth.jpg');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="Minoxidil / Arginina / Espironolactona" data-t-en="Minoxidil / Arginine / Spironolactone">Minoxidil / Arginina / Espironolactona</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$140</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/GhKu.png');"></div>
-          <div class="absolute inset-0 bg-black/55"></div>
-          <div class="relative z-10 p-6 flex flex-col h-full text-center">
-            <div>
-              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.ghkuTitle} data-t-en={pageText.en.cards.ghkuTitle}>{pageText[lang].cards.ghkuTitle}</h3>
-              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
-                <span class="flex-1 h-px bg-white/70"></span>
-                <span>$80-$120</span>
-                <span class="flex-1 h-px bg-white/70"></span>
+
+        <div>
+          <h2 class="font-display font-bold text-3xl md:text-4xl text-[#F3A2A7] mb-6 text-center" data-t-es="Terapias de Crecimiento Capilar - Hombres" data-t-en="Hair Growth Therapies - Men">Terapias de Crecimiento Capilar - Hombres</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Hair-growth.jpg');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="Finasterida / Ketoconazol / Minoxidil / Espironolactona / Tretinoína" data-t-en="Finasteride / Ketoconazole / Minoxidil / Spironolactone / Tretinoin">Finasterida / Ketoconazol / Minoxidil / Espironolactona / Tretinoína</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$120</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
               </div>
-              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.ghkuDesc} data-t-en={pageText.en.cards.ghkuDesc}>{pageText[lang].cards.ghkuDesc}</p>
             </div>
-            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
-          </div>
-        </div>
-        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Vitamin-d.jpg');"></div>
-          <div class="absolute inset-0 bg-black/55"></div>
-          <div class="relative z-10 p-6 flex flex-col h-full text-center">
-            <div>
-              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.vitaminTitle} data-t-en={pageText.en.cards.vitaminTitle}>{pageText[lang].cards.vitaminTitle}</h3>
-              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
-                <span class="flex-1 h-px bg-white/70"></span>
-                <span>$76</span>
-                <span class="flex-1 h-px bg-white/70"></span>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Hair-growth.jpg');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="Finasterida / Tretinoína" data-t-en="Finasteride / Tretinoin">Finasterida / Tretinoína</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$160</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
               </div>
-              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.vitaminDesc} data-t-en={pageText.en.cards.vitaminDesc}>{pageText[lang].cards.vitaminDesc}</p>
             </div>
-            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
-          </div>
-        </div>
-        <div class="relative rounded-2xl overflow-hidden min-h-[340px] text-white lg:col-start-2">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Hair-growth.jpg');"></div>
-          <div class="absolute inset-0 bg-black/55"></div>
-          <div class="relative z-10 p-6 flex flex-col h-full text-center">
-            <div>
-              <h3 class="font-display font-bold text-2xl mb-2" data-t-es={pageText.es.cards.hairTitle} data-t-en={pageText.en.cards.hairTitle}>{pageText[lang].cards.hairTitle}</h3>
-              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
-                <span class="flex-1 h-px bg-white/70"></span>
-                <span>$145</span>
-                <span class="flex-1 h-px bg-white/70"></span>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Hair-growth.jpg');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="Finasterida (Solo)" data-t-en="Finasteride (Solo)">Finasterida (Solo)</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$40</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
               </div>
-              <p class="text-sm text-white/90 mb-4" data-t-es={pageText.es.cards.hairDesc} data-t-en={pageText.en.cards.hairDesc}>{pageText[lang].cards.hairDesc}</p>
             </div>
-            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+            <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Hair-growth.jpg');"></div>
+              <div class="absolute inset-0 bg-black/55"></div>
+              <div class="relative z-10 p-6 flex flex-col h-full text-center">
+                <div>
+                  <h3 class="font-display font-bold text-xl mb-2" data-t-es="Finasterida / Fluocinolona / Minoxidil / Tretinoína" data-t-en="Finasteride / Fluocinolone / Minoxidil / Tretinoin">Finasterida / Fluocinolona / Minoxidil / Tretinoína</h3>
+                  <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                    <span class="flex-1 h-px bg-white/70"></span>
+                    <span>$145</span>
+                    <span class="flex-1 h-px bg-white/70"></span>
+                  </div>
+                </div>
+                <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es={pageText.es.cta} data-t-en={pageText.en.cta}>{pageText[lang].cta}</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

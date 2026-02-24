@@ -88,16 +88,6 @@ const services = [
     ]
   },
   { 
-    group: "Tratamientos Especializados", 
-    items: [
-      { t: "Restauración Capilar con PRF", href: "/services/restauracion-capilar-prf", price: "" },
-      { t: "O-Shot Terapia con Plaquetas", href: "/services/o-shot-terapia", price: "" },
-      { t: "Puppet Lines Injections", href: "/services/puppet-lines-injections", price: "" },
-      { t: "Lifting de Cuello Nefertiti", href: "/services/lifting-nefertiti", price: "" },
-      { t: "Tratamiento Botox Lip Flip (giro de labio)", href: "/services/botox-lip-flip-especializado", price: "" }
-    ]
-  },
-  { 
     group: "Body & Intimate", 
     items: [
       { t: "O-Shot", href: "/services/o-shot-prp", price: "" },
@@ -196,7 +186,7 @@ const services = [
     <div class="flex items-center gap-2 sm:gap-3">
       <!-- Botón Llamar (Desktop) -->
       <a 
-        href="tel:+18019967427"
+        href="tel:+13856092840"
         class="flex items-center justify-center bg-[#AABFA8] text-white rounded-full w-10 h-10 md:w-auto md:h-auto md:rounded-[48px] md:px-3 md:py-2 font-semibold text-xs md:text-sm transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EFBBBC]/50"
         aria-label="Llamar Renasci"
         id="call-button"
@@ -204,7 +194,7 @@ const services = [
         <svg class="w-5 h-5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
         </svg>
-        <span class="hidden lg:inline ml-2">(801) 996-7427</span>
+        <span class="hidden lg:inline ml-2">385 609 2840</span>
       </a>
 
       <!-- CTA Agendar (icono en móvil) -->
@@ -313,28 +303,8 @@ const services = [
                   </a>
                 </li>
                 <li>
-                  <a href="/services/botox-no-sweat-treatment" class={`block ${isActive('/services/botox-no-sweat-treatment') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span class="menu-item-label" data-label-es="Tratamiento Botox No‑Sweat (hiperhidrosis)" data-label-en="Botox No-Sweat Treatment (hyperhidrosis)">Botox No-Sweat Treatment (hyperhidrosis)</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/services/botox-lip-flip" class={`block ${isActive('/services/botox-lip-flip') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span class="menu-item-label" data-label-es="Botox Lip Flip" data-label-en="Botox Lip Flip">Botox Lip Flip</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/services/mini-lip-enhancement" class={`block ${isActive('/services/mini-lip-enhancement') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span class="menu-item-label" data-label-es="Mini Aumento de Labios" data-label-en="Mini Lip Enhancement">Mini Lip Enhancement</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/services/full-lip-augmentation" class={`block ${isActive('/services/full-lip-augmentation') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span class="menu-item-label" data-label-es="Aumento Completo de Labios" data-label-en="Full Lip Augmentation">Full Lip Augmentation</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/services/mega-lip-augmentation" class={`block ${isActive('/services/mega-lip-augmentation') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span class="menu-item-label" data-label-es="Mega Aumento de Labios" data-label-en="Mega Lip Augmentation">Mega Lip Augmentation</span>
+                  <a href="/services/dermal-fillers" class={`block ${isActive('/services/dermal-fillers') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
+                    <span class="menu-item-label" data-label-es="Rellenos Dérmicos" data-label-en="Dermal Fillers">Dermal Fillers</span>
                   </a>
                 </li>
               </ul>
@@ -384,52 +354,11 @@ const services = [
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4 rounded-[48px]"><span data-i18n="services.biostimulators_title">Biostimulators</span></div>
+                <a href="/services/biostimulators" class="sidebar-primary-link block bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4 transition hover:opacity-90 rounded-[48px]">
+                  <span data-i18n="services.biostimulators_title">Biostimulators</span>
+                </a>
               </div>
               <ul class="space-y-2">
-                <li>
-                  <a href="/services/collagen-stimulation-sculptra" class={`block ${isActive('/services/collagen-stimulation-sculptra') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span class="menu-item-label" data-label-es="Estimulación de Colágeno con Sculptra" data-label-en="Collagen Stimulation with Sculptra">Collagen Stimulation with Sculptra</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/services/mega-collagen-stimulation-sculptra" class={`block ${isActive('/services/mega-collagen-stimulation-sculptra') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span class="menu-item-label" data-label-es="Mega Estimulación de Colágeno con Sculptra" data-label-en="Mega Collagen Stimulation with Sculptra">Mega Collagen Stimulation with Sculptra</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/services/mini-chin-reduction" class={`block ${isActive('/services/mini-chin-reduction') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span class="menu-item-label" data-label-es="Mini Reducción de Papada" data-label-en="Mini Chin Reduction">Mini Chin Reduction</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/services/brazilian-butt-lift" class={`block ${isActive('/services/brazilian-butt-lift') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span class="menu-item-label" data-label-es="Brazilian Butt Lift" data-label-en="Brazilian Butt Lift">Brazilian Butt Lift</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/services/renasci-prf-gel-therapy" class={`block ${isActive('/services/renasci-prf-gel-therapy') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span class="menu-item-label" data-label-es="Terapia Gel PRF de Renasci" data-label-en="Renasci PRF Gel Therapy">Renasci PRF Gel Therapy</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <div class="mt-6 mb-3">
-                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4 rounded-[48px]"><span data-i18n="services.specialized_title">Specialized Treatments</span></div>
-              </div>
-              <ul class="space-y-2">
-                <li>
-                  <a href="/services/puppet-lines-injections" class={`block ${isActive('/services/puppet-lines-injections') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span class="menu-item-label" data-label-es="Inyecciones Puppet Lines (líneas faciales)" data-label-en="Puppet Lines Injections (facial lines)">Puppet Lines Injections (facial lines)</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/services/nefertiti-neck-lift" class={`flex items-center ${isActive('/services/nefertiti-neck-lift') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span class="menu-item-label" data-label-es="Lifting de Cuello Nefertiti" data-label-en="Nefertiti Neck Lift">Nefertiti Neck Lift</span>
-                    <span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#C8A08C]/15 border border-[#C8A08C]/40 text-black text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#C8A08C]"></span>Premier</span>
-                  </a>
-                </li>
               </ul>
             </li>
             <li>
@@ -474,56 +403,6 @@ const services = [
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4 rounded-[48px]"><span data-i18n="services.neurotoxins_title">Botox & Neuromodulators</span></div>
-              </div>
-              <ul class="space-y-2">
-                <li>
-                  <a href="/services/xeomin" class={`flex items-center ${isActive('/services/xeomin') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Xeomin</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-black text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
-                </li>
-                <li>
-                  <a href="/services/dysport" class={`flex items-center ${isActive('/services/dysport') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Dysport</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-black text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
-                </li>
-                <li>
-                  <a href="/services/botox-trap" class={`flex items-center ${isActive('/services/botox-trap') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Botox Trap</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-black text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
-                </li>
-                <li>
-                  <a href="/services/migraine-botox" class={`flex items-center ${isActive('/services/migraine-botox') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Migraine Botox</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-black text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <div class="mt-6 mb-3">
-                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4 rounded-[48px]"><span data-i18n="services.regenerative_title">Regenerative Medicine Therapies</span></div>
-              </div>
-              <ul class="space-y-2">
-                <li>
-                  <a href="/services/semaglutide" class={`flex items-center ${isActive('/services/semaglutide') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span>Semaglutide</span>
-                    <span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-black text-[11px]"> 
-                      <span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>
-                      Membership
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/services/ozempic-mounjaro" class={`flex items-center ${isActive('/services/ozempic-mounjaro') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>
-                    <span>Ozempic/Mounjaro</span>
-                    <span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-black text-[11px]"> 
-                      <span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>
-                      Membership
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/services/ozone-therapy" class={`block ${isActive('/services/ozone-therapy') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Ozone Therapy</a>
-                </li>
-                <li>
-                  <a href="/services/exosomes" class={`block ${isActive('/services/exosomes') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Exosomes</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <div class="mt-6 mb-3">
                 <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4 rounded-[48px]"><span data-i18n="services.groups.hair_skin">Hair and Skin Treatments</span></div>
               </div>
               <ul class="space-y-2">
@@ -563,18 +442,11 @@ const services = [
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4 rounded-[48px]"><span data-i18n="services.microneedling_title">Microneedling</span></div>
+                <a href="/services/microneedling" class="sidebar-primary-link block bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4 transition hover:opacity-90 rounded-[48px]">
+                  <span data-i18n="services.microneedling_title">Microneedling</span>
+                </a>
               </div>
               <ul class="space-y-2">
-                <li>
-                  <a href="/services/microneedling-face-neck" class={`flex items-center ${isActive('/services/microneedling-face-neck') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Face + Neck</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-black text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
-                </li>
-                <li>
-                  <a href="/services/microneedling-face-neck-decollete" class={`flex items-center ${isActive('/services/microneedling-face-neck-decollete') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Face + Neck + Décolleté</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-black text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
-                </li>
-                <li>
-                  <a href="/services/microneedling-stretch-marks" class={`flex items-center ${isActive('/services/microneedling-stretch-marks') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}><span>Stretch marks (depends on area)</span><span class="ml-2 inline-flex items-center gap-1 px-2 py-[2px] rounded-full bg-[#1DD1A1]/15 border border-[#1DD1A1]/40 text-black text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-[#1DD1A1]"></span>Membership</span></a>
-                </li>
               </ul>
             </li>
             <li>
@@ -619,11 +491,11 @@ const services = [
             </li>
             <li>
               <div class="mt-6 mb-3">
-                <div class="bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4 rounded-[48px]"><span data-i18n="services.ivim_title">IV/IM Therapy</span></div>
+                <a href="/services/iv-therapy" class="sidebar-primary-link block bg-[#F3A2A7] text-white font-bold text-xl tracking-wide py-1 px-4 transition hover:opacity-90 rounded-[48px]">
+                  <span data-i18n="services.ivim_title">IV Therapy</span>
+                </a>
               </div>
               <ul class="space-y-2">
-                <li><a href="/services/iv-drips" class={`block ${isActive('/services/iv-drips') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>Drips</a></li>
-                <li><a href="/services/im-injections" class={`block ${isActive('/services/im-injections') ? 'text-[#F3A2A7]' : 'text-white'} text-base font-medium py-1 px-2 hover:text-[#F3A2A7] transition`}>IM injections</a></li>
               </ul>
             </li>
             <li>
@@ -678,14 +550,14 @@ const services = [
           <!-- Mobile CTA Buttons -->
           <div class="mt-6 space-y-3">
             <a 
-              href="tel:+1-801-996-7427"
+              href="tel:+13856092840"
               class="flex items-center justify-center gap-2 bg-[#AABFA8] hover:bg-[#AABFA8]/90 text-white rounded-[48px] px-4 py-3 font-semibold text-sm transition-all duration-200 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#AABFA8]/50"
               aria-label="Llamar Renasci"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
               </svg>
-              (801) 996-7427
+              385 609 2840
             </a>
             <CTAButton 
               variant="primary"
@@ -1074,8 +946,6 @@ const services = [
       'Inyectables & Rellenos Dérmicos': 'Injectables & Dermal Fillers',
       'Biostimulators': 'Bioestimuladores',
       'Bioestimuladores': 'Biostimulators',
-      'Specialized Treatments': 'Tratamientos Especializados',
-      'Tratamientos Especializados': 'Specialized Treatments',
       'Weight Loss & Wellness': 'Pérdida de Peso y Bienestar',
       'Pérdida de Peso y Bienestar': 'Weight Loss & Wellness',
       'Botox & Neuromodulators': 'Botox y Neuromoduladores',
@@ -1104,9 +974,6 @@ const services = [
       'BraBella (rollito de brasier)': 'RollBella (bra roll)',
       'Restauración Capilar con PRF': 'Hair Restoration Treatment with PRP',
       'O-Shot Terapia con Plaquetas': 'Vaginal Rejuvenation with PRP (O-Shot)',
-      'Inyecciones PuppetMaster (líneas faciales)': 'Puppet Lines Injections (facial lines)',
-      'Lifting de Cuello Nefertiti': 'Nefertiti Neck Lift',
-      'Tratamiento Botox Lip Flip (giro de labio)': 'Botox Lip Flip',
       'Mini Chin Up (reducción de papada)': 'Mini Chin Reduction',
       'PRF-Ection (gel PRF)': 'Renasci PRF Gel Therapy',
       'Microneedling + PRP': 'Microneedling + PRP',
@@ -1133,7 +1000,6 @@ const services = [
       'Mega Estimulación de Colágeno con Sculptra': 'Mega Collagen Stimulation with Sculptra',
       'Mini Reducción de Papada': 'Mini Chin Reduction',
       'Terapia Gel PRF de Renasci': 'Renasci PRF Gel Therapy',
-      'Inyecciones Puppet Lines (líneas faciales)': 'Puppet Lines Injections (facial lines)',
       'Inyección B12 + Fat Blaster (Doble Efecto)': 'B12 Injection + Fat Blaster (Double Effect)',
       'Consulta de Medicina Alternativa (Obtén tu tarjeta)': 'Alternative Medicine Consultation (Get Carded)',
       'Inyecciones Fat Blaster': 'Fat Blaster Injections',

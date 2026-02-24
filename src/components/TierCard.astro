@@ -63,7 +63,7 @@ const effectiveBadgeColor = Astro.props.badgeColor;
   {effectiveBadgeText && (
     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
       <span 
-        class={`${effectiveBadgeImportance === 'primary' ? 'px-7 py-2.5 text-sm font-bold ring-2 ring-white/50' : 'px-5 py-2 text-sm font-semibold ring-1 ring-white/30'} rounded-full text-white ${effectiveBadgeColor ? '' : 'bg-primary'}`}
+        class={`${effectiveBadgeImportance === 'primary' ? 'px-7 py-2.5 text-sm font-bold ring-2 ring-white/50' : 'px-5 py-2 text-sm font-semibold ring-1 ring-white/30'} rounded-full text-black ${effectiveBadgeColor ? '' : 'bg-primary'}`}
         style={effectiveBadgeColor ? `background-color:${effectiveBadgeColor}` : ''}
         data-badge-el
       >

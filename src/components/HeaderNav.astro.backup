@@ -273,7 +273,7 @@ const services = [
       <!-- Redes Sociales -->
       <div class="hidden md:flex items-center gap-1 md:gap-2">
         <a 
-          href="https://instagram.com/renasci" 
+          href="https://www.instagram.com/renascimedicalspa/" 
           target="_blank" 
           rel="noopener noreferrer"
           class="social-link text-white hover:text-[#E94594] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded p-1 md:p-1.5"
@@ -375,7 +375,7 @@ const services = [
             <h4 class="font-semibold text-gray-900 mb-4">Síguenos</h4>
             <div class="flex gap-4">
               <a 
-                href="https://instagram.com/renasci" 
+                href="https://www.instagram.com/renascimedicalspa/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 class="text-gray-600 hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded p-2"

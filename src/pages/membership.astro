@@ -152,7 +152,7 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
               variant="light"
               ctaClass="bg-[#1DD1A1] text-white hover:opacity-90 border-2 border-[#1DD1A1] focus-visible:ring-[#1DD1A1] focus-visible:ring-offset-white"
               titleClass="text-3xl md:text-4xl text-black"
-              hoverBorderColor="#F3A2A7"
+              hoverBorderColor="#1DD1A1"
               badgeText="Mejor Precio"
               badgeTextEn="Best Price"
               badgeColor="#1DD1A1"
@@ -337,7 +337,7 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
             </div>
             <div>
               <div class="font-bold text-lg text-text">María González</div>
-              <div class="text-sm text-graytxt">Miembro Glow - 8 meses</div>
+              <div class="text-sm text-graytxt" data-t-es="Miembro Glow - 8 meses" data-t-en="Glow Member - 8 months">Miembro Glow - 8 meses</div>
             </div>
           </div>
           
@@ -349,7 +349,7 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
             ))}
           </div>
           
-          <p class="text-graytxt italic leading-relaxed group-hover:text-text transition-colors duration-300">
+          <p class="text-graytxt italic leading-relaxed group-hover:text-text transition-colors duration-300" data-t-es="&quot;El plan Glow ha sido increíble. Los descuentos me han permitido probar tratamientos que antes no podía costear, y el servicio prioritario es fantástico. Mi piel nunca se había visto mejor.&quot;" data-t-en="&quot;The Glow plan has been incredible. The discounts let me try treatments I couldn’t afford before, and the priority service is fantastic. My skin has never looked better.&quot;">
             "El plan Glow ha sido increíble. Los descuentos me han permitido probar tratamientos que antes no podía costear, y el servicio prioritario es fantástico. Mi piel nunca se había visto mejor."
           </p>
         </div>
@@ -362,7 +362,7 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
             </div>
             <div>
               <div class="font-bold text-lg text-text">Ana Rodríguez</div>
-              <div class="text-sm text-graytxt">Miembro Elite - 1 año</div>
+              <div class="text-sm text-graytxt" data-t-es="Miembro Elite - 1 año" data-t-en="Elite Member - 1 year">Miembro Elite - 1 año</div>
             </div>
           </div>
           
@@ -374,7 +374,7 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
             ))}
           </div>
           
-          <p class="text-graytxt italic leading-relaxed group-hover:text-text transition-colors duration-300">
+          <p class="text-graytxt italic leading-relaxed group-hover:text-text transition-colors duration-300" data-t-es="&quot;La experiencia Elite es incomparable. Mi concierge personal hace que todo sea perfecto, y los tratamientos ilimitados han transformado completamente mi rutina de belleza.&quot;" data-t-en="&quot;The Elite experience is unmatched. My personal concierge makes everything perfect, and the unlimited treatments have completely transformed my beauty routine.&quot;">
             "La experiencia Elite es incomparable. Mi concierge personal hace que todo sea perfecto, y los tratamientos ilimitados han transformado completamente mi rutina de belleza."
           </p>
         </div>
@@ -387,7 +387,7 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
             </div>
             <div>
               <div class="font-bold text-lg text-text">Carmen López</div>
-              <div class="text-sm text-graytxt">Miembro Rack - 6 meses</div>
+              <div class="text-sm text-graytxt" data-t-es="Miembro Rack - 6 meses" data-t-en="Rack Member - 6 months">Miembro Rack - 6 meses</div>
             </div>
           </div>
           
@@ -399,7 +399,7 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
             ))}
           </div>
           
-          <p class="text-graytxt italic leading-relaxed group-hover:text-text transition-colors duration-300">
+          <p class="text-graytxt italic leading-relaxed group-hover:text-text transition-colors duration-300" data-t-es="&quot;Perfecto para empezar. El plan Rack me dio la confianza para probar Renasci, y ahora estoy considerando actualizar al Glow. ¡Los resultados hablan por sí solos!&quot;" data-t-en="&quot;Perfect for getting started. The Rack plan gave me the confidence to try Renasci, and now I’m considering upgrading to Glow. The results speak for themselves!&quot;">
             "Perfecto para empezar. El plan Rack me dio la confianza para probar Renasci, y ahora estoy considerando actualizar al Glow. ¡Los resultados hablan por sí solos!"
           </p>
         </div>
@@ -434,31 +434,55 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
           <FAQItem 
             question="¿Puedo cambiar de plan en cualquier momento?"
             answer="Sí, puedes actualizar tu plan en cualquier momento. Los downgrades se aplican al siguiente ciclo de facturación para que no pierdas beneficios ya pagados."
+            questionEs="¿Puedo cambiar de plan en cualquier momento?"
+            questionEn="Can I change plans at any time?"
+            answerEs="Sí, puedes actualizar tu plan en cualquier momento. Los downgrades se aplican al siguiente ciclo de facturación para que no pierdas beneficios ya pagados."
+            answerEn="Yes, you can upgrade at any time. Downgrades take effect on the next billing cycle so you don’t lose already-paid benefits."
           />
           
           <FAQItem 
             question="¿Qué pasa si no uso todos mis tratamientos incluidos?"
             answer="Los tratamientos incluidos se acumulan hasta por 3 meses. Después de este período, se renuevan automáticamente. También puedes transferir tratamientos a familiares directos."
+            questionEs="¿Qué pasa si no uso todos mis tratamientos incluidos?"
+            questionEn="What happens if I don’t use all my included treatments?"
+            answerEs="Los tratamientos incluidos se acumulan hasta por 3 meses. Después de este período, se renuevan automáticamente. También puedes transferir tratamientos a familiares directos."
+            answerEn="Included treatments roll over for up to 3 months. After that, they renew automatically. You can also transfer treatments to immediate family."
           />
           
           <FAQItem 
             question="¿Hay compromiso de permanencia?"
             answer="No requerimos contratos a largo plazo. Puedes cancelar tu membresía en cualquier momento con 30 días de aviso previo."
+            questionEs="¿Hay compromiso de permanencia?"
+            questionEn="Is there a long-term commitment?"
+            answerEs="No requerimos contratos a largo plazo. Puedes cancelar tu membresía en cualquier momento con 30 días de aviso previo."
+            answerEn="We don’t require long-term contracts. You can cancel your membership at any time with 30 days’ notice."
           />
           
           <FAQItem 
             question="¿Los descuentos se aplican a productos también?"
             answer="Sí, todos los descuentos de membresía se aplican tanto a servicios como a productos de nuestra línea exclusiva de cuidado de la piel."
+            questionEs="¿Los descuentos se aplican a productos también?"
+            questionEn="Do discounts apply to products too?"
+            answerEs="Sí, todos los descuentos de membresía se aplican tanto a servicios como a productos de nuestra línea exclusiva de cuidado de la piel."
+            answerEn="Yes, membership discounts apply to both services and our exclusive skincare products."
           />
           
           <FAQItem 
             question="¿Puedo pausar mi membresía temporalmente?"
             answer="Sí, ofrecemos pausas de membresía por hasta 3 meses por año por razones médicas, viajes o circunstancias especiales."
+            questionEs="¿Puedo pausar mi membresía temporalmente?"
+            questionEn="Can I pause my membership temporarily?"
+            answerEs="Sí, ofrecemos pausas de membresía por hasta 3 meses por año por razones médicas, viajes o circunstancias especiales."
+            answerEn="Yes, we offer membership pauses for up to 3 months per year for medical reasons, travel, or special circumstances."
           />
           
           <FAQItem 
             question="¿Hay beneficios adicionales por ser miembro de larga duración?"
             answer="Absolutamente. Después de 6 meses, recibes beneficios de lealtad adicionales, y después de 1 año, acceso a tratamientos exclusivos y eventos especiales."
+            questionEs="¿Hay beneficios adicionales por ser miembro de larga duración?"
+            questionEn="Are there additional benefits for long-term members?"
+            answerEs="Absolutamente. Después de 6 meses, recibes beneficios de lealtad adicionales, y después de 1 año, acceso a tratamientos exclusivos y eventos especiales."
+            answerEn="Absolutely. After 6 months you receive loyalty benefits, and after 1 year you get access to exclusive treatments and special events."
           />
         </div>
       </div>
@@ -525,10 +549,12 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
 
   // Efecto ripple para botones
    function initRippleEffect() {
-     document.querySelectorAll('.ripple-effect').forEach(button => {
-       button.addEventListener('click', function(e: MouseEvent) {
+    const rippleButtons = document.querySelectorAll<HTMLElement>('.ripple-effect');
+    rippleButtons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        const e = event as MouseEvent;
          const ripple = document.createElement('span');
-         const rect = this.getBoundingClientRect();
+        const rect = button.getBoundingClientRect();
          const size = Math.max(rect.width, rect.height);
          const x = e.clientX - rect.left - size / 2;
          const y = e.clientY - rect.top - size / 2;
@@ -539,7 +565,7 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
          ripple.style.top = y + 'px';
          ripple.classList.add('ripple');
          
-         this.appendChild(ripple);
+        button.appendChild(ripple);
          
          setTimeout(() => {
            ripple.remove();
@@ -658,7 +684,7 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
            </div>
            <h3 class="text-2xl font-bold text-text mb-2">¡Solicitud Enviada!</h3>
            <p class="text-graytxt mb-4">Nos pondremos en contacto contigo dentro de las próximas 24 horas para agendar tu consulta gratuita.</p>
-           <p class="text-sm text-graytxt">También puedes llamarnos directamente al <a href="tel:+1234567890" class="text-primary font-semibold">(385) 555-0123</a></p>
+           <p class="text-sm text-graytxt">También puedes llamarnos directamente al <a href="tel:+13856092840" class="text-primary font-semibold">385 609 2840</a></p>
          </div>
        `;
      } catch (error) {
@@ -855,10 +881,11 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
     const params = new URLSearchParams(window.location.search)
     const urlLang = params.get('lang')
     const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language')
-    const lang = urlLang === 'en' || urlLang === 'es' ? urlLang : (storedLang === 'en' ? 'en' : (window.i18nManager?.getCurrentLanguage?.() || document.documentElement.lang || 'es'))
+    const manager = (window as any).i18nManager as { getCurrentLanguage?: () => string } | undefined
+    const lang = urlLang === 'en' || urlLang === 'es' ? urlLang : (storedLang === 'en' ? 'en' : (manager?.getCurrentLanguage?.() || document.documentElement.lang || 'es'))
     const nodes = Array.from(document.querySelectorAll('[data-t-es]'))
     nodes.forEach((n) => { const es = n.getAttribute('data-t-es')||''; const en = n.getAttribute('data-t-en')||es; n.textContent = (lang==='en')? en : es })
   }
   document.addEventListener('DOMContentLoaded', applyMembershipLang)
-  window.addEventListener('languageChanged', (e) => { const lang = e.detail?.language || 'es'; const nodes = Array.from(document.querySelectorAll('[data-t-es]')); nodes.forEach((n) => { const es = n.getAttribute('data-t-es')||''; const en = n.getAttribute('data-t-en')||es; n.textContent = (lang==='en')? en : es }) })
+  window.addEventListener('languageChanged', (event) => { const detail = (event as any).detail as { language?: string } | undefined; const lang = detail?.language || 'es'; const nodes = Array.from(document.querySelectorAll('[data-t-es]')); nodes.forEach((n) => { const es = n.getAttribute('data-t-es')||''; const en = n.getAttribute('data-t-en')||es; n.textContent = (lang==='en')? en : es }) })
 </script>

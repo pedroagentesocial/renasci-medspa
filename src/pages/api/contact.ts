@@ -10,10 +10,14 @@ export const POST: APIRoute = async ({ request }) => {
     const service = formData.get('service') as string;
     const message = formData.get('message') as string;
 
-    // Basic validation
-    if (!name || !email) {
-      return new Response(JSON.stringify({ 
-        error: 'Name and email are required' 
+    const trimmedName = name?.trim() || '';
+    const trimmedMessage = message?.trim() || '';
+    const trimmedEmail = email?.trim() || '';
+    const trimmedPhone = phone?.trim() || '';
+
+    if (!trimmedName || !trimmedMessage) {
+      return new Response(JSON.stringify({
+        error: 'Name and message are required'
       }), {
         status: 400,
         headers: {
@@ -22,17 +26,41 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return new Response(JSON.stringify({ 
-        error: 'Invalid email format' 
+    if (!trimmedEmail && !trimmedPhone) {
+      return new Response(JSON.stringify({
+        error: 'Phone or email is required'
       }), {
         status: 400,
         headers: {
           'Content-Type': 'application/json'
         }
       });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (trimmedEmail && !emailRegex.test(trimmedEmail)) {
+      return new Response(JSON.stringify({
+        error: 'Invalid email format'
+      }), {
+        status: 400,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+    }
+
+    if (trimmedPhone) {
+      const digits = trimmedPhone.replace(/\D/g, '');
+      if (digits.length < 10) {
+        return new Response(JSON.stringify({
+          error: 'Invalid phone format'
+        }), {
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+      }
     }
 
     // Log the contact form submission (in production, you'd save to database or send email)

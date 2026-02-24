@@ -8,9 +8,7 @@ import CTAButton from './CTAButton.astro';
       <div class="flex items-center justify-center mb-4">
         <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
         <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z" />
-          </svg>
+          <img src="/icons/flor-renasci.svg" alt="Renasci" class="w-5 h-5 object-contain icon-pink" loading="lazy" />
         </span>
         <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
       </div>
@@ -25,9 +23,7 @@ import CTAButton from './CTAButton.astro';
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         <div class="p-6">
           <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <svg class="w-10 h-10 text-[#F3A2A7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-            </svg>
+            <img src="/icons/dollar.png" alt="Descuentos" class="w-10 h-10 object-contain icon-pink" loading="lazy" />
           </div>
           <h3 class="font-semibold text-lg text-black mb-2"><span data-i18n="membership.benefit_discounts_title">Descuentos Exclusivos</span></h3>
           <p class="text-black/70"><span data-i18n="membership.benefit_discounts_text">Descubre descuentos exclusivos en servicios seleccionados</span></p>
@@ -35,9 +31,7 @@ import CTAButton from './CTAButton.astro';
         
         <div class="p-6">
           <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <svg class="w-10 h-10 text-[#F3A2A7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-            </svg>
+            <img src="/icons/lock.png" alt="Acceso prioritario" class="w-10 h-10 object-contain icon-pink" loading="lazy" />
           </div>
           <h3 class="font-semibold text-lg text-black mb-2"><span data-i18n="membership.benefit_priority_title">Acceso Prioritario</span></h3>
           <p class="text-black/70"><span data-i18n="membership.benefit_priority_text">Reserva tus citas con prioridad y flexibilidad</span></p>
@@ -45,9 +39,7 @@ import CTAButton from './CTAButton.astro';
         
         <div class="p-6">
           <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <svg class="w-10 h-10 text-[#F3A2A7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-            </svg>
+            <img src="/icons/heart.png" alt="Beneficios especiales" class="w-10 h-10 object-contain icon-pink" loading="lazy" />
           </div>
           <h3 class="font-semibold text-lg text-black mb-2"><span data-i18n="membership.benefit_special_title">Beneficios Especiales</span></h3>
           <p class="text-black/70"><span data-i18n="membership.benefit_special_text">Tratamientos gratuitos y productos exclusivos</span></p>
@@ -67,3 +59,9 @@ import CTAButton from './CTAButton.astro';
     </div>
   </div>
 </section>
+
+<style>
+  .icon-pink {
+    filter: brightness(0) saturate(100%) invert(69%) sepia(22%) saturate(1624%) hue-rotate(309deg) brightness(96%) contrast(93%);
+  }
+</style>

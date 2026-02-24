@@ -260,8 +260,7 @@ const briefExcerptsEn = new Map([
   ['/services/peptides-ghku','Multi‑function peptide for repair support.'],
   ['/services/peptides-vitamin-d','Optimizes vitamin D levels for overall health.'],
   ['/services/peptides-hair-growth','Targeted peptides to strengthen and stimulate hair growth.'],
-  ['/services/iv-drips','Hydration and vitamins via IV infusion.'],
-  ['/services/im-injections','Vitamins and medications via intramuscular injection.'],
+  ['/services/iv-therapy','Intravenous and intramuscular therapy for wellness and recovery.'],
 ])
 titleOverrides.set('/services/prp-face-neck', { es:'PRP — Rostro + Cuello', en:'PRP — Face + Neck' })
 titleOverrides.set('/services/prp-face-neck-decollete', { es:'PRP — Rostro + Cuello + Escote', en:'PRP — Face + Neck + Décolleté' })
@@ -285,10 +284,8 @@ briefExcerpts.set('/services/peptides-vitamin-d','Optimiza niveles de vitamina D
 briefExcerpts.set('/services/peptides-hair-growth','Péptidos dirigidos para fortalecer y estimular crecimiento capilar.')
 briefExcerpts.set('/services/prp-stretch-marks','PRP focal para atenuar estrías según zona.')
 // IV/IM Therapy titles and excerpts
-titleOverrides.set('/services/iv-drips', { es:'Drips (IV)', en:'Drips' })
-titleOverrides.set('/services/im-injections', { es:'Inyecciones IM', en:'IM injections' })
-briefExcerpts.set('/services/iv-drips','Hidratación y vitaminas vía infusión IV.')
-briefExcerpts.set('/services/im-injections','Vitaminas y fármacos por inyección intramuscular.')
+titleOverrides.set('/services/iv-therapy', { es:'Terapia IV', en:'IV Therapy' })
+briefExcerpts.set('/services/iv-therapy','Nutrientes y medicación con absorción máxima.')
 function getService(h) {
   const s = byHref.get(h)
   if (s) {
@@ -362,8 +359,8 @@ function getBadgeFor(service){
 function getBadgeClass(label){
   const v = String(label || '').toLowerCase()
   if (v.includes('premier')) return 'bg-[#FFD700] text-black'
-  if (v.includes('membership') || v.includes('membresía')) return 'bg-[#10B981] text-white'
-  return 'bg-[#F3A2A7] text-white'
+  if (v.includes('membership') || v.includes('membresía')) return 'bg-[#10B981] text-black'
+  return 'bg-[#F3A2A7] text-black'
 }
 
 const langParam = Astro.url.searchParams.get('lang')
@@ -530,7 +527,7 @@ function getGroupLabel(title){
                   <div class="carousel-item">
                     <div class="relative">
                       {getBadgeFor(servicio) && (
-                        <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#10B981] text-white shadow-sm`}>{getBadgeFor(servicio)}</span>
+                        <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#10B981] text-black shadow-sm`}>{getBadgeFor(servicio)}</span>
                       )}
                       <ServiceCard service={servicio} lang={lang} class="service-item shadow-none hover:shadow-none" />
                     </div>
@@ -589,7 +586,7 @@ function getGroupLabel(title){
               {group.hrefs.map((h) => getService(h)).filter(Boolean).map((servicio) => (
                 <div class="relative">
                   {getBadgeFor(servicio) && (
-                    <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#10B981] text-white shadow-sm`}>{getBadgeFor(servicio)}</span>
+                    <span class={`badge-overlay inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#10B981] text-black shadow-sm`}>{getBadgeFor(servicio)}</span>
                   )}
                   <ServiceCard service={servicio} lang={lang} class="service-item shadow-none hover:shadow-none" />
                 </div>

@@ -3,7 +3,11 @@ export interface Hotspot {
   x: number;
   y: number;
   title: string;
+  titleEs?: string;
+  titleEn?: string;
   line: string;
+  lineEs?: string;
+  lineEn?: string;
   href: string;
   targetX?: number;
   targetY?: number;
@@ -163,14 +167,15 @@ const { hotspots } = Astro.props;
 
       // Keyboard navigation
       button.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
+        const keyEvent = e as KeyboardEvent;
+        if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
           if (window.innerWidth < 768) {
-            e.preventDefault();
+            keyEvent.preventDefault();
             showMobileSheet(index);
           }
           // En desktop, el enlace funcionará normalmente
         }
-        if (e.key === 'Escape') {
+        if (keyEvent.key === 'Escape') {
           hideTooltip();
           if (window.innerWidth < 768) {
             hideMobileSheet();

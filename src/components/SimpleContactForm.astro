@@ -2,72 +2,205 @@
 import CTAButton from './CTAButton.astro';
 ---
 
-<section class="pt-12 lg:pt-16 pb-16 lg:pb-24 bg-white">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto text-black">
-      <div class="flex items-center justify-center mb-4">
-        <div class="flex-1 h-[2px] bg-black/10"></div>
-        <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12c0 3.866-3.582 7-8 7-1.07 0-2.088-.18-3.02-.51L5 20l1.52-3.04A7.98 7.98 0 013 12c0-3.866 3.582-7 8-7s8 3.134 8 7z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11h8M8 14h6" />
-          </svg>
-        </span>
-        <div class="flex-1 h-[2px] bg-black/10"></div>
+<section class="bg-white">
+  <div class="grid lg:grid-cols-[1.1fr_0.9fr]">
+    <div class="px-6 sm:px-10 lg:px-16 py-12 lg:py-16">
+      <div class="text-center text-black mb-8">
+        <div class="inline-flex flex-col items-center">
+          <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl" data-t-es="Empieza ahora tu tratamiento" data-t-en="Start your treatment now">Empieza ahora tu tratamiento</h2>
+          <div class="mt-4 h-[3px] w-32 bg-black"></div>
+        </div>
       </div>
-      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl mb-3"><span data-i18n="start.cta_title">Empieza ahora tu tratamiento</span></h2>
-      <p class="text-lg md:text-xl text-black/80 mb-8"><span data-i18n="start.cta_subtitle">Renasci te espera con atención personalizada y resultados profesionales.</span></p>
-    </div>
 
-    <div class="max-w-xl mx-auto bg-white rounded-2xl p-6 shadow-card border-2 border-[#F3A2A7]">
-      <form method="post" action="/api/contact" class="space-y-4" id="simple-contact-form">
+      <div class="bg-white rounded-2xl p-6">
+        <form method="post" action="/api/contact" class="space-y-4" id="simple-contact-form">
         <div>
-          <label for="name" class="block text-sm font-semibold text-text mb-2"><span data-i18n="form.name">Nombre</span> *</label>
-          <input type="text" id="name" name="name" required class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors" placeholder="Tu nombre" data-i18n="form.placeholder_name" />
+          <input type="text" id="name" name="name" required class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors" placeholder="Nombre completo" data-t-placeholder-es="Nombre completo" data-t-placeholder-en="Full name" />
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label for="phone" class="block text-sm font-semibold text-text mb-2"><span data-i18n="form.phone">Teléfono</span></label>
-            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors" placeholder="(385) 555-0123" data-i18n="form.placeholder_phone" />
+            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors" placeholder="Número de teléfono" data-t-placeholder-es="Número de teléfono" data-t-placeholder-en="Phone Number" />
           </div>
           <div>
-            <label for="email" class="block text-sm font-semibold text-text mb-2"><span data-i18n="form.email">Email</span> *</label>
-            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors" placeholder="tu@email.com" data-i18n="form.placeholder_email" />
+            <input type="email" id="email" name="email" class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors" placeholder="Email" data-t-placeholder-es="Email" data-t-placeholder-en="Email" />
           </div>
         </div>
 
         <div>
-          <label for="service" class="block text-sm font-semibold text-text mb-2"><span data-i18n="form.service">Servicio de interés</span></label>
-          <select id="service" name="service" class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors bg-white">
-            <option value="" data-i18n="form.service_select">Selecciona un servicio</option>
-            <option value="botox" data-i18n="form.options.botox">Botox</option>
-            <option value="fillers" data-i18n="form.options.fillers">Rellenos Dérmicos</option>
-            <option value="sculptra" data-i18n="form.options.sculptra">Sculptra</option>
-            <option value="skincare" data-i18n="form.options.skincare">Cuidado de la Piel</option>
-            <option value="laser" data-i18n="form.options.laser">Tratamientos Láser</option>
-            <option value="other" data-i18n="form.options.other">Otro</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="message" class="block text-sm font-semibold text-text mb-2"><span data-i18n="form.message">Mensaje</span></label>
-          <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors resize-none" placeholder="Cuéntanos tus objetivos o preguntas" data-i18n="form.placeholder_message"></textarea>
+          <textarea id="message" name="message" rows="1" class="w-full px-4 py-3 border-2 border-[#F3A2A7] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#F3A2A7] focus:border-[#F3A2A7] transition-colors resize-none" placeholder="Mensaje" data-t-placeholder-es="Mensaje" data-t-placeholder-en="Message"></textarea>
         </div>
 
         <div class="flex items-start gap-3">
-          <input type="checkbox" id="consent" name="consent" required class="mt-1 w-5 h-5 rounded border-2 border-[#F3A2A7] focus:ring-2 focus:ring-[#F3A2A7]" />
-          <label for="consent" class="text-sm text-graytxt"><span data-i18n="form.consent_prefix">Acepto ser contactado por Renasci y el tratamiento de mis datos de acuerdo a la</span> <a href="/privacy" class="text-primary"><span data-i18n="footer.privacy">Política de Privacidad</span></a>.</label>
+          <input type="checkbox" id="consent" name="consent" required class="mt-1 w-4 h-4 rounded-[4px] border border-gray-300 focus:ring-2 focus:ring-[#F3A2A7]" />
+          <label for="consent" class="text-sm text-graytxt">
+            <span data-t-es="Al ingresar tu número de teléfono, aceptas recibir mensajes de texto de nuestra parte. Pueden aplicar cargos por mensajes y datos. Puedes responder ALTO o CANCELAR para darte de baja. Consulta nuestra " data-t-en="By Entering Your Phone Number, You Are Agreeing To Receive Text Messages From Us. Message Rates May Apply. You Can Reply STOP or UNSUBSCRIBE To Opt-Out. See our ">Al ingresar tu número de teléfono, aceptas recibir mensajes de texto de nuestra parte. Pueden aplicar cargos por mensajes y datos. Puedes responder ALTO o CANCELAR para darte de baja. Consulta nuestra </span><a href="/privacy" class="text-primary"><span data-t-es="Política de Privacidad" data-t-en="Privacy Policy">Política de Privacidad</span></a><span data-t-es=" para más detalles." data-t-en=" for additional details."> para más detalles.</span>
+          </label>
         </div>
-        <p class="text-xs text-gray-500 mt-2">Al ingresar tu número de teléfono, aceptas recibir mensajes de texto de nuestra parte. Pueden aplicar cargos por mensajes y datos. La frecuencia de mensajes puede variar. Responde AYUDA para más información. Puedes responder ALTO o CANCELAR para darte de baja. / By entering your phone number, you are agreeing to receive text messages from us. Message & data rates may apply. Message frequency may vary. Reply HELP for more information. You can reply STOP or UNSUBSCRIBE to opt-out.</p>
 
-        <CTAButton type="submit" variant="primary" className="w-full py-3 text-lg">
+        <button type="submit" id="simple-contact-submit" class="inline-flex items-center justify-center px-6 py-3 rounded-[48px] font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7]/50 min-h-[44px] bg-[#F3A2A7] text-white hover:opacity-90 active:translate-y-[1px] shadow-sm hover:shadow-md w-full text-lg disabled:opacity-60 disabled:cursor-not-allowed">
           <span data-i18n="cta.send">Enviar</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
           </svg>
-        </CTAButton>
-      </form>
+        </button>
+        <span id="simple-contact-tooltip" class="hidden fixed z-50 max-w-[260px] rounded-xl bg-black/90 text-white text-xs px-3 py-2 shadow-lg pointer-events-none" data-t-es="Completa nombre, mensaje, teléfono o email y acepta el consentimiento." data-t-en="Complete name, message, phone or email, and accept consent.">Completa nombre, mensaje, teléfono o email y acepta el consentimiento.</span>
+        </form>
+      </div>
+    </div>
+
+    <div class="relative min-h-[320px] lg:min-h-[420px]">
+      <iframe
+        title="Renasci Medical Spa Map"
+        class="absolute inset-0 w-full h-full"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=6770+S+900+E,+Midvale,+UT+84047&output=embed"
+      ></iframe>
     </div>
   </div>
 </section>
+
+<script>
+  const getCurrentLanguage = (): 'en' | 'es' => {
+    if (typeof window === 'undefined') return 'es';
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') return urlLang;
+    const stored = window.localStorage?.getItem('language') || window.localStorage?.getItem('renasci-language');
+    if (stored === 'en' || stored === 'es') return stored;
+    const windowWithI18n = window as unknown as {
+      i18nManager?: {
+        getCurrentLanguage?: () => string;
+      };
+    };
+    const managerLang = windowWithI18n.i18nManager?.getCurrentLanguage?.();
+    if (managerLang === 'en' || managerLang === 'es') return managerLang;
+    return document.documentElement.lang === 'en' ? 'en' : 'es';
+  };
+
+  const applySimpleContactLang = (lang: 'en' | 'es') => {
+    document.querySelectorAll('[data-t-es]').forEach((el) => {
+      const text = el.getAttribute(lang === 'en' ? 'data-t-en' : 'data-t-es');
+      if (text !== null) {
+        el.textContent = text;
+      }
+    });
+
+    document.querySelectorAll('[data-t-placeholder-es]').forEach((el) => {
+      const placeholder = el.getAttribute(lang === 'en' ? 'data-t-placeholder-en' : 'data-t-placeholder-es');
+      if (placeholder !== null) {
+        el.setAttribute('placeholder', placeholder);
+      }
+    });
+  };
+
+  const initSimpleContactLang = () => applySimpleContactLang(getCurrentLanguage());
+
+  document.addEventListener('DOMContentLoaded', initSimpleContactLang);
+  document.addEventListener('astro:page-load', initSimpleContactLang);
+  window.addEventListener('languageChanged', (event: Event) => {
+    const customEvent = event as CustomEvent<{ language?: string }>;
+    const lang = customEvent.detail?.language;
+    if (lang === 'en' || lang === 'es') {
+      applySimpleContactLang(lang);
+    } else {
+      initSimpleContactLang();
+    }
+  });
+
+  const initSimpleContactValidation = () => {
+    const form = document.getElementById('simple-contact-form') as HTMLFormElement | null;
+    if (!form) return;
+    const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const tooltip = document.getElementById('simple-contact-tooltip') as HTMLSpanElement | null;
+    if (!submitButton) return;
+
+    const nameInput = form.querySelector('#name') as HTMLInputElement | null;
+    const phoneInput = form.querySelector('#phone') as HTMLInputElement | null;
+    const emailInput = form.querySelector('#email') as HTMLInputElement | null;
+    const messageInput = form.querySelector('#message') as HTMLTextAreaElement | null;
+    const consentInput = form.querySelector('#consent') as HTMLInputElement | null;
+
+    const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    const isValidPhone = (value: string) => {
+      const digits = value.replace(/\D/g, '');
+      return digits.length >= 10;
+    };
+
+    const isFormValid = () => {
+      const name = nameInput?.value.trim() || '';
+      const phone = phoneInput?.value.trim() || '';
+      const email = emailInput?.value.trim() || '';
+      const message = messageInput?.value.trim() || '';
+      const consent = !!consentInput?.checked;
+
+      if (!name || !message || !consent) return false;
+
+      const hasPhone = phone.length > 0;
+      const hasEmail = email.length > 0;
+      if (!hasPhone && !hasEmail) return false;
+
+      if (hasEmail && !isValidEmail(email)) return false;
+      if (hasPhone && !isValidPhone(phone)) return false;
+
+      return true;
+    };
+
+    const updateSubmitState = () => {
+      const valid = isFormValid();
+      submitButton.disabled = !valid;
+      if (tooltip) {
+        tooltip.classList.toggle('hidden', valid);
+      }
+    };
+
+    const showTooltip = () => {
+      if (!tooltip) return;
+      if (!submitButton.disabled) {
+        tooltip.classList.add('hidden');
+        return;
+      }
+      tooltip.classList.remove('hidden');
+    };
+
+    const hideTooltip = () => {
+      tooltip?.classList.add('hidden');
+    };
+
+    const positionTooltip = (event: MouseEvent) => {
+      if (!tooltip || !submitButton.disabled) return;
+      const offset = 14;
+      tooltip.style.left = `${event.clientX + offset}px`;
+      tooltip.style.top = `${event.clientY + offset}px`;
+    };
+
+    updateSubmitState();
+    requestAnimationFrame(updateSubmitState);
+    setTimeout(updateSubmitState, 0);
+
+    [nameInput, phoneInput, emailInput, messageInput].forEach((input) => {
+      input?.addEventListener('input', updateSubmitState);
+      input?.addEventListener('change', updateSubmitState);
+    });
+    consentInput?.addEventListener('change', updateSubmitState);
+    form.addEventListener('input', updateSubmitState);
+    form.addEventListener('change', updateSubmitState);
+
+    submitButton.addEventListener('mouseenter', showTooltip);
+    submitButton.addEventListener('mouseleave', hideTooltip);
+    submitButton.addEventListener('mousemove', positionTooltip);
+    submitButton.addEventListener('focus', showTooltip);
+    submitButton.addEventListener('blur', hideTooltip);
+
+    form.addEventListener('submit', (event) => {
+      if (!isFormValid()) {
+        event.preventDefault();
+        updateSubmitState();
+      }
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', initSimpleContactValidation);
+  document.addEventListener('astro:page-load', initSimpleContactValidation);
+</script>

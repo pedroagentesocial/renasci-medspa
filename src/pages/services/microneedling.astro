@@ -1,56 +1,254 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import CTAButton from '../../components/CTAButton.astro';
 import TransformCTA from '../../components/TransformCTA.astro';
+import SimpleContactForm from '../../components/SimpleContactForm.astro';
 ---
 
-<BaseLayout title="Microneedling - Renasci Medical Spa" description="Microneedling para estimular colágeno y mejorar textura de la piel.">
-  <section class="pt-24 pb-16 md:pt-32 bg-black text-white text-center">
-    <div class="container mx-auto px-4">
-      <div class="max-w-5xl mx-auto">
-        <h1 class="font-display font-bold text-5xl md:text-6xl mb-4">Microneedling</h1>
-        <p class="text-lg md:text-xl text-white/80 mb-8">Rejuvenecimiento facial que estimula la producción natural de colágeno y mejora la textura de la piel.</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <CTAButton label="Agenda Online" href="/contact" variant="ghost" />
-          <CTAButton label="Llama Ahora" href="tel:+13855550123" variant="primary" className="!bg-[#1DD1A1] hover:!bg-[#16C79A]" />
-          <CTAButton label="Ver Detalles" href="#detalles" variant="ghost" />
+<BaseLayout
+  title="Microneedling - Renasci Med Spa"
+  description="Microneedling at Renasci Med Spa to stimulate collagen and elastin for healthier, radiant skin."
+>
+  <section class="py-28 md:py-36 text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/hero-services.jpg')"></div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative px-6 max-w-4xl mx-auto">
+      <h1 class="font-display font-bold text-4xl md:text-5xl text-white">
+        <span data-t-es="MICRONEEDLING EN RENASCI MED SPA" data-t-en="MICRONEEDLING AT RENASCI MED SPA">MICRONEEDLING EN RENASCI MED SPA</span>
+      </h1>
+    </div>
+  </section>
+
+  <nav class="bg-background py-6">
+    <div class="container mx-auto px-6">
+      <ol class="flex items-center space-x-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-primary transition-colors"><span data-t-es="Inicio" data-t-en="Home">Inicio</span></a></li>
+        <li class="text-gray-400">/</li>
+        <li><a href="/services" class="hover:text-primary transition-colors"><span data-t-es="Servicios" data-t-en="Services">Servicios</span></a></li>
+        <li class="text-gray-400">/</li>
+        <li class="text-gray-900 font-medium"><span data-t-es="Microneedling" data-t-en="Microneedling">Microneedling</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="py-12 lg:py-16 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+        <div class="relative bg-white rounded-3xl overflow-hidden min-h-[360px] lg:min-h-[520px]">
+          <img
+            src="/img/services/microneedling-face.jpg"
+            alt="Microneedling"
+            data-alt-es="Microneedling"
+            data-alt-en="Microneedling"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
         </div>
-        <div class="mt-10 flex items-center justify-center">
-          <span class="h-[2px] w-20 bg-white/60"></span>
-          <span class="mx-3 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center">•</span>
-          <span class="h-[2px] w-20 bg-white/60"></span>
+        <div class="flex">
+          <div class="bg-white rounded-3xl border border-gray-200 p-8 lg:p-10 w-full">
+            <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-6" data-t-es="MICRONEEDLING EN RENASCI MED SPA" data-t-en="MICRONEEDLING AT RENASCI MED SPA">MICRONEEDLING EN RENASCI MED SPA</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6" data-t-es="En Renasci Med Spa nos especializamos en los tratamientos cosméticos más avanzados, incluyendo microneedling SkinPen® y microneedling con radiofrecuencia (RF). Estos procedimientos mínimamente invasivos activan la respuesta natural de reparación de tu piel para producir colágeno y elastina, mejorando textura, tono y salud general. Ya sea que quieras tratar líneas finas, arrugas, cicatrices de acné o flacidez, personalizamos cada tratamiento según tus necesidades." data-t-en="At Renasci Med Spa, we specialize in the latest and most advanced cosmetic treatments, including SkinPen® microneedling and radiofrequency (RF) microneedling. These minimally invasive procedures trigger your skin’s natural healing response to produce collagen and elastin, improving texture, tone, and overall skin health. Whether you’re addressing fine lines, wrinkles, acne scars, or loose skin, our team customizes each treatment to your skin’s unique needs.">En Renasci Med Spa nos especializamos en los tratamientos cosméticos más avanzados, incluyendo microneedling SkinPen® y microneedling con radiofrecuencia (RF). Estos procedimientos mínimamente invasivos activan la respuesta natural de reparación de tu piel para producir colágeno y elastina, mejorando textura, tono y salud general. Ya sea que quieras tratar líneas finas, arrugas, cicatrices de acné o flacidez, personalizamos cada tratamiento según tus necesidades.</p>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6" data-t-es="Nuestro equipo médico está comprometido con ayudarte a verte y sentirte mejor con tratamientos seguros, efectivos y personalizados. Si buscas una forma no quirúrgica de rejuvenecer tu piel, Renasci Med Spa en Cottonwood Heights, UT, es tu destino para resultados naturales y radiantes." data-t-en="Our experienced medical professionals are committed to helping you look and feel your best with safe, effective treatments and personalized care. If you’re looking for a non-surgical way to rejuvenate your skin, Renasci Med Spa in Cottonwood Heights, UT, is your destination for natural, radiant results.">Nuestro equipo médico está comprometido con ayudarte a verte y sentirte mejor con tratamientos seguros, efectivos y personalizados. Si buscas una forma no quirúrgica de rejuvenecer tu piel, Renasci Med Spa en Cottonwood Heights, UT, es tu destino para resultados naturales y radiantes.</p>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 max-w-4xl mx-auto">
+        <h3 class="font-display font-bold text-2xl text-[#F3A2A7] mb-4 text-center" data-t-es="Beneficios del Microneedling" data-t-en="Benefits of Microneedling">Beneficios del Microneedling</h3>
+        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+          <li data-t-es="Solución no invasiva para el rejuvenecimiento de la piel" data-t-en="Non-invasive solution for skin rejuvenation">Solución no invasiva para el rejuvenecimiento de la piel</li>
+          <li data-t-es="Mejora líneas finas y arrugas" data-t-en="Improves fine lines and wrinkles">Mejora líneas finas y arrugas</li>
+          <li data-t-es="Reduce cicatrices de acné y textura irregular" data-t-en="Reduces acne scars and uneven texture">Reduce cicatrices de acné y textura irregular</li>
+          <li data-t-es="Estimula la producción de colágeno y elastina" data-t-en="Stimulates collagen and elastin production">Estimula la producción de colágeno y elastina</li>
+          <li data-t-es="Tensa y reafirma la piel de forma natural" data-t-en="Tightens and firms the skin naturally">Tensa y reafirma la piel de forma natural</li>
+          <li data-t-es="Minimiza la apariencia de poros" data-t-en="Minimizes the appearance of pores">Minimiza la apariencia de poros</li>
+          <li data-t-es="Mejora el tono y la luminosidad de la piel" data-t-en="Enhances overall skin tone and radiance">Mejora el tono y la luminosidad de la piel</li>
+          <li data-t-es="Seguro y efectivo para la mayoría de tipos de piel" data-t-en="Safe and effective for most skin types">Seguro y efectivo para la mayoría de tipos de piel</li>
+          <li data-t-es="Tiempo de recuperación mínimo" data-t-en="Minimal downtime with quick recovery">Tiempo de recuperación mínimo</li>
+          <li data-t-es="Tratamiento personalizable según tus objetivos" data-t-en="Customizable treatment for your unique skin goals">Tratamiento personalizable según tus objetivos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-6" data-t-es="¿Qué es el RF Microneedling y cómo funciona?" data-t-en="What Is RF Microneedling, and How Does It Work?">¿Qué es el RF Microneedling y cómo funciona?</h2>
+        <p class="text-lg text-gray-700 leading-relaxed mb-6" data-t-es="El RF Microneedling lleva el microneedling tradicional un paso más allá al combinar energía de radiofrecuencia con microlesiones controladas. Las microagujas crean microcanales y las ondas de RF entregan calor en la dermis. Esta acción dual reafirma la piel, mejora la remodelación de colágeno y aumenta la elasticidad." data-t-en="RF Microneedling takes traditional microneedling a step further by combining radiofrequency energy with controlled micro-injuries. Tiny needles penetrate the skin to create microchannels, while radiofrequency waves deliver heat deep into the dermis. This dual action tightens the skin, enhances collagen remodeling, and improves elasticity.">El RF Microneedling lleva el microneedling tradicional un paso más allá al combinar energía de radiofrecuencia con microlesiones controladas. Las microagujas crean microcanales y las ondas de RF entregan calor en la dermis. Esta acción dual reafirma la piel, mejora la remodelación de colágeno y aumenta la elasticidad.</p>
+        <p class="text-lg text-gray-700 leading-relaxed mb-6" data-t-es="El resultado es una piel más firme, lisa y uniforme, con beneficios adicionales de tensión y contorno. El RF microneedling es especialmente efectivo para:" data-t-en="The result is firmer, smoother, and more even-toned skin, with added benefits for tightening and contouring. RF microneedling is especially effective for:">El resultado es una piel más firme, lisa y uniforme, con beneficios adicionales de tensión y contorno. El RF microneedling es especialmente efectivo para:</p>
+        <div class="flex flex-wrap gap-3 mb-6">
+          <span class="inline-flex items-center px-4 py-2 rounded-full border border-[#F3A2A7]/40 bg-[#F3A2A7]/10 text-sm font-semibold text-gray-800" data-t-es="Líneas finas y arrugas" data-t-en="Fine lines and wrinkles">Líneas finas y arrugas</span>
+          <span class="inline-flex items-center px-4 py-2 rounded-full border border-[#F3A2A7]/40 bg-[#F3A2A7]/10 text-sm font-semibold text-gray-800" data-t-es="Estrías" data-t-en="Stretch marks">Estrías</span>
+          <span class="inline-flex items-center px-4 py-2 rounded-full border border-[#F3A2A7]/40 bg-[#F3A2A7]/10 text-sm font-semibold text-gray-800" data-t-es="Cicatrices de acné" data-t-en="Acne scars">Cicatrices de acné</span>
+          <span class="inline-flex items-center px-4 py-2 rounded-full border border-[#F3A2A7]/40 bg-[#F3A2A7]/10 text-sm font-semibold text-gray-800" data-t-es="Poros dilatados" data-t-en="Large pores">Poros dilatados</span>
+          <span class="inline-flex items-center px-4 py-2 rounded-full border border-[#F3A2A7]/40 bg-[#F3A2A7]/10 text-sm font-semibold text-gray-800" data-t-es="Piel flácida o descolgada" data-t-en="Loose or sagging skin">Piel flácida o descolgada</span>
+          <span class="inline-flex items-center px-4 py-2 rounded-full border border-[#F3A2A7]/40 bg-[#F3A2A7]/10 text-sm font-semibold text-gray-800" data-t-es="Hiperpigmentación" data-t-en="Hyperpigmentation">Hiperpigmentación</span>
+          <span class="inline-flex items-center px-4 py-2 rounded-full border border-[#F3A2A7]/40 bg-[#F3A2A7]/10 text-sm font-semibold text-gray-800" data-t-es="Celulitis e irregularidades de textura" data-t-en="Cellulite and texture irregularities">Celulitis e irregularidades de textura</span>
+        </div>
+        <p class="text-lg text-gray-700 leading-relaxed" data-t-es="Cuando se combina con Plasma Rico en Plaquetas (PRP), los efectos rejuvenecedores se potencian. El PRP, conocido como “Oro Líquido”, utiliza los factores de crecimiento de tu propio cuerpo para acelerar la recuperación y mejorar los resultados." data-t-en="When combined with Platelet-Rich Plasma (PRP), the treatment’s rejuvenating effects are further amplified. PRP, often called “Liquid Gold,” uses your body’s own growth factors to enhance healing and boost results naturally.">Cuando se combina con Plasma Rico en Plaquetas (PRP), los efectos rejuvenecedores se potencian. El PRP, conocido como “Oro Líquido”, utiliza los factores de crecimiento de tu propio cuerpo para acelerar la recuperación y mejorar los resultados.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-gray-50 text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-2" data-t-es="Tratamientos y Precios" data-t-en="Treatments and Pricing">Tratamientos y Precios</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/microneedling-face.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2" data-t-es="MICRONEEDLING" data-t-en="MICRONEEDLING">MICRONEEDLING</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$300 por tratamiento" data-t-en="$300 per treatment">$300 por tratamiento</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-3" data-t-es="Complemento de pecho – $99" data-t-en="Chest Add-On – $99">Complemento de pecho – $99</p>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Tratamiento que estimula el colágeno para suavizar textura, líneas finas y cicatrices con tecnología Candela." data-t-en="A collagen-boosting treatment that smooths texture, fine lines, and scars using Candela technology.">Tratamiento que estimula el colágeno para suavizar textura, líneas finas y cicatrices con tecnología Candela.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/PRP-face.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2" data-t-es="MICRONEEDLING WITH PRP" data-t-en="MICRONEEDLING WITH PRP">MICRONEEDLING WITH PRP</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$425 por tratamiento" data-t-en="$425 per treatment">$425 por tratamiento</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-3" data-t-es="Complemento de pecho – $99" data-t-en="Chest Add-On – $99">Complemento de pecho – $99</p>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Potencia tus resultados con PRP (“Oro Líquido”) para acelerar la recuperación y aumentar la producción de colágeno." data-t-en="Enhance your microneedling results with PRP (“Liquid Gold”) to speed healing and boost collagen production.">Potencia tus resultados con PRP (“Oro Líquido”) para acelerar la recuperación y aumentar la producción de colágeno.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Piel-laser-general.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2" data-t-es="RF MICRONEEDLING" data-t-en="RF MICRONEEDLING">RF MICRONEEDLING</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$525 por tratamiento" data-t-en="$525 per treatment">$525 por tratamiento</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-3" data-t-es="Complemento de pecho – $99" data-t-en="Chest Add-On – $99">Complemento de pecho – $99</p>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Combina microneedling con energía de radiofrecuencia para tensar la piel y mejorar la elasticidad en profundidad." data-t-en="Combines microneedling with gentle radiofrequency energy to tighten skin and improve elasticity at a deeper level.">Combina microneedling con energía de radiofrecuencia para tensar la piel y mejorar la elasticidad en profundidad.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 mt-6 max-w-5xl mx-auto">
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/PRP-decollet.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2" data-t-es="RF MICRONEEDLING WITH PRP" data-t-en="RF MICRONEEDLING WITH PRP">RF MICRONEEDLING WITH PRP</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$650 por tratamiento" data-t-en="$650 per treatment">$650 por tratamiento</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-3" data-t-es="Complemento de pecho – $99" data-t-en="Chest Add-On – $99">Complemento de pecho – $99</p>
+              <p class="text-sm text-white/90 mb-3" data-t-es="Opción premium que combina RF microneedling con PRP para máxima firmeza, reparación y luminosidad." data-t-en="This premium option merges RF microneedling with PRP for maximum skin tightening, repair, and glow.">Opción premium que combina RF microneedling con PRP para máxima firmeza, reparación y luminosidad.</p>
+              <p class="text-sm font-semibold text-white mb-4" data-t-es="Oferta especial: compra paquete de 3 y la cuarta sesión a mitad de precio." data-t-en="Special Offer: Buy a package of 3, get one treatment half off!">Oferta especial: compra paquete de 3 y la cuarta sesión a mitad de precio.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/spa.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-4" data-t-es="MEJORAS ADICIONALES" data-t-en="ADD-ON ENHANCEMENTS">MEJORAS ADICIONALES</h3>
+              <p class="text-sm text-white/90 mb-3" data-t-es="Potencia tus resultados con uno de estos boosters personalizados:" data-t-en="Take your results further with one of these customized boosters:">Potencia tus resultados con uno de estos boosters personalizados:</p>
+              <ul class="text-sm text-white/90 space-y-2 mb-4">
+                <li data-t-es="Booster reafirmante – $80: mejora la firmeza y tensión de la piel." data-t-en="Firming Booster – $80: Enhances skin tightening and firmness.">Booster reafirmante – $80: mejora la firmeza y tensión de la piel.</li>
+                <li data-t-es="Peeling químico medio – $60: mejora el tono y la luminosidad." data-t-en="Medium Chemical Peel – $60: Improves skin tone and radiance.">Peeling químico medio – $60: mejora el tono y la luminosidad.</li>
+                <li data-t-es="Peeling químico avanzado – $100: trata pigmentación y textura profundas." data-t-en="Advanced Chemical Peel – $100: Targets deeper pigmentation and texture.">Peeling químico avanzado – $100: trata pigmentación y textura profundas.</li>
+                <li data-t-es="Procedimientos láser – Precio personalizado: ideal para refinar y renovar la piel post-tratamiento." data-t-en="Laser Procedures – Custom Pricing: Great for refining and resurfacing skin post-treatment.">Procedimientos láser – Precio personalizado: ideal para refinar y renovar la piel post-tratamiento.</li>
+              </ul>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <nav class="bg-white py-6 border-b border-gray-100">
-    <div class="container mx-auto px-4">
-      <ol class="flex items-center space-x-2 text-sm text-text/70">
-        <li><a href="/" class="hover:text-primary transition-colors">Inicio</a></li>
-        <li>/</li>
-        <li><a href="/services" class="hover:text-primary transition-colors">Servicios</a></li>
-        <li>/</li>
-        <li class="text-text font-medium">Microneedling</li>
-      </ol>
-    </div>
-  </nav>
-
-  <section id="detalles" class="py-16 lg:py-24 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
-        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&h=900&fit=crop&crop=center" alt="Microneedling" class="w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow" loading="lazy" />
-        <div class="space-y-6">
-          <h2 class="font-display font-bold text-3xl lg:text-4xl text-text">Renueva tu piel con Microneedling</h2>
-          <p class="text-text/80">El microneedling utiliza microagujas para estimular colágeno y elastina, reduciendo poros, líneas finas y cicatrices para una piel más firme y suave.</p>
-          <div class="grid sm:grid-cols-2 gap-6">
-            <div class="rounded-2xl border border-gray-200 p-6">
-              <p class="text-sm text-text/60">Precio desde</p>
-              <p class="text-2xl font-bold text-primary">Por definir</p>
+  <section class="py-12 lg:py-16 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-10 max-w-3xl mx-auto">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-3" data-t-es="What to Expect During Your Microneedling or RF Microneedling Session" data-t-en="What to Expect During Your Microneedling or RF Microneedling Session">What to Expect During Your Microneedling or RF Microneedling Session</h2>
+        <p class="text-lg text-gray-700" data-t-es="Your comfort and safety are our top priorities. Each session includes:" data-t-en="Your comfort and safety are our top priorities. Each session includes:">Your comfort and safety are our top priorities. Each session includes:</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-gray-50 rounded-2xl border border-gray-200 p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-[30%] max-w-[88px]">
+              <img src="/icons/flor-renasci.svg" alt="Renasci" class="w-full h-auto" />
             </div>
-            <div class="rounded-2xl border border-gray-200 p-6">
-              <p class="text-sm text-text/60">Duración</p>
-              <p class="text-2xl font-bold text-primary">45 minutos</p>
+            <div class="w-[70%]">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2" data-t-es="Consultation" data-t-en="Consultation">Consultation</h3>
+              <p class="text-gray-700" data-t-es="We’ll assess your skin and determine which microneedling treatment best suits your goals." data-t-en="We’ll assess your skin and determine which microneedling treatment best suits your goals.">We’ll assess your skin and determine which microneedling treatment best suits your goals.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 rounded-2xl border border-gray-200 p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-[30%] max-w-[88px]">
+              <img src="/icons/flor-renasci.svg" alt="Renasci" class="w-full h-auto" />
+            </div>
+            <div class="w-[70%]">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2" data-t-es="Preparation" data-t-en="Preparation">Preparation</h3>
+              <p class="text-gray-700" data-t-es="A numbing cream is applied before the procedure. Please arrive 30 minutes early." data-t-en="A numbing cream is applied before the procedure. Please arrive 30 minutes early.">A numbing cream is applied before the procedure. Please arrive 30 minutes early.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 rounded-2xl border border-gray-200 p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-[30%] max-w-[88px]">
+              <img src="/icons/flor-renasci.svg" alt="Renasci" class="w-full h-auto" />
+            </div>
+            <div class="w-[70%]">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2" data-t-es="Treatment" data-t-en="Treatment">Treatment</h3>
+              <p class="text-gray-700" data-t-es="Tiny sterile needles create controlled micro-injuries while stimulating your skin’s natural repair process. RF microneedling treatments also deliver gentle heat energy to tighten and rejuvenate deeper layers." data-t-en="Tiny sterile needles create controlled micro-injuries while stimulating your skin’s natural repair process. RF microneedling treatments also deliver gentle heat energy to tighten and rejuvenate deeper layers.">Tiny sterile needles create controlled micro-injuries while stimulating your skin’s natural repair process. RF microneedling treatments also deliver gentle heat energy to tighten and rejuvenate deeper layers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 rounded-2xl border border-gray-200 p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-[30%] max-w-[88px]">
+              <img src="/icons/flor-renasci.svg" alt="Renasci" class="w-full h-auto" />
+            </div>
+            <div class="w-[70%]">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2" data-t-es="Optional PRP Application" data-t-en="Optional PRP Application">Optional PRP Application</h3>
+              <p class="text-gray-700" data-t-es="If selected, PRP is infused directly into the skin to enhance healing and collagen production." data-t-en="If selected, PRP is infused directly into the skin to enhance healing and collagen production.">If selected, PRP is infused directly into the skin to enhance healing and collagen production.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6 max-w-xl mx-auto">
+        <div class="bg-gray-50 rounded-2xl border border-gray-200 p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-[30%] max-w-[88px]">
+              <img src="/icons/flor-renasci.svg" alt="Renasci" class="w-full h-auto" />
+            </div>
+            <div class="w-[70%]">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2" data-t-es="Cuidados posteriores" data-t-en="Aftercare">Cuidados posteriores</h3>
+              <p class="text-gray-700" data-t-es="Es normal presentar enrojecimiento o sensibilidad leve durante 24–48 horas. Evita ingredientes activos por una semana y usa SPF a diario." data-t-en="Expect mild redness or sensitivity for 24–48 hours. Avoid active skincare ingredients for one week and always apply SPF daily.">Es normal presentar enrojecimiento o sensibilidad leve durante 24–48 horas. Evita ingredientes activos por una semana y usa SPF a diario.</p>
             </div>
           </div>
         </div>
@@ -58,41 +256,177 @@ import TransformCTA from '../../components/TransformCTA.astro';
     </div>
   </section>
 
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h3 class="font-display font-bold text-3xl text-text">Beneficios</h3>
-        <p class="text-text/70">Resultados visibles con mínima recuperación</p>
+  <section class="py-12 lg:py-16 bg-gray-50 text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-10 max-w-3xl mx-auto">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-3" data-t-es="¿Por qué elegir Nouvelle Aesthetic and Wellness?" data-t-en="Why Choose Nouvelle Aesthetic and Wellness?">¿Por qué elegir Nouvelle Aesthetic and Wellness?</h2>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-        <div class="bg-white rounded-2xl p-6 shadow"><h4 class="font-semibold text-lg text-text mb-2">Estimula colágeno</h4><p class="text-text/70 text-sm">Mejora firmeza y elasticidad.</p></div>
-        <div class="bg-white rounded-2xl p-6 shadow"><h4 class="font-semibold text-lg text-text mb-2">Suaviza textura</h4><p class="text-text/70 text-sm">Reduce poros y líneas finas.</p></div>
-        <div class="bg-white rounded-2xl p-6 shadow"><h4 class="font-semibold text-lg text-text mb-2">Mejora cicatrices</h4><p class="text-text/70 text-sm">Atenúa cicatrices de acné.</p></div>
-        <div class="bg-white rounded-2xl p-6 shadow"><h4 class="font-semibold text-lg text-text mb-2">Recuperación rápida</h4><p class="text-text/70 text-sm">Vuelta a actividades en horas.</p></div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-[30%] max-w-[88px]">
+              <img src="/icons/flor-renasci.svg" alt="Renasci" class="w-full h-auto" />
+            </div>
+            <div class="w-[70%]">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2" data-t-es="Especialistas expertos" data-t-en="Expert Providers">Especialistas expertos</h3>
+              <p class="text-gray-700" data-t-es="Nuestro equipo utiliza sistemas avanzados de microneedling y RF de grado médico para resultados superiores." data-t-en="Our team uses advanced, medical-grade microneedling and RF systems for superior results.">Nuestro equipo utiliza sistemas avanzados de microneedling y RF de grado médico para resultados superiores.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-[30%] max-w-[88px]">
+              <img src="/icons/flor-renasci.svg" alt="Renasci" class="w-full h-auto" />
+            </div>
+            <div class="w-[70%]">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2" data-t-es="Cuidado personalizado" data-t-en="Customized Care">Cuidado personalizado</h3>
+              <p class="text-gray-700" data-t-es="Cada plan se adapta a tu tipo de piel y preocupaciones específicas." data-t-en="Each treatment plan is tailored to your unique skin type and concerns.">Cada plan se adapta a tu tipo de piel y preocupaciones específicas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-[30%] max-w-[88px]">
+              <img src="/icons/flor-renasci.svg" alt="Renasci" class="w-full h-auto" />
+            </div>
+            <div class="w-[70%]">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2" data-t-es="Resultados naturales" data-t-en="Natural Results">Resultados naturales</h3>
+              <p class="text-gray-700" data-t-es="Nos enfocamos en realzar tu belleza, no en cambiarla." data-t-en="We focus on enhancing your beauty, not altering it.">Nos enfocamos en realzar tu belleza, no en cambiarla.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-[30%] max-w-[88px]">
+              <img src="/icons/flor-renasci.svg" alt="Renasci" class="w-full h-auto" />
+            </div>
+            <div class="w-[70%]">
+              <h3 class="font-display font-bold text-xl text-gray-900 mb-2" data-t-es="Experiencia confiable" data-t-en="Trusted Experience">Experiencia confiable</h3>
+              <p class="text-gray-700" data-t-es="Nuestro compromiso con la seguridad e innovación garantiza una experiencia cómoda y satisfactoria." data-t-en="Our commitment to safety and innovation ensures a comfortable, rewarding experience.">Nuestro compromiso con la seguridad e innovación garantiza una experiencia cómoda y satisfactoria.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12"><h3 class="font-display font-bold text-3xl text-text">Proceso</h3></div>
-      <div class="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        <div class="text-center"><div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6"><span class="font-bold text-primary text-2xl">1</span></div><h4 class="font-bold text-xl text-text mb-2">Evaluación</h4><p class="text-text/70">Diagnóstico y plan personalizado.</p></div>
-        <div class="text-center"><div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6"><span class="font-bold text-primary text-2xl">2</span></div><h4 class="font-bold text-xl text-text mb-2">Aplicación</h4><p class="text-text/70">Microagujas con precisión controlada.</p></div>
-        <div class="text-center"><div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6"><span class="font-bold text-primary text-2xl">3</span></div><h4 class="font-bold text-xl text-text mb-2">Recuperación</h4><p class="text-text/70">Mejora progresiva en 1–2 semanas.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-10"><h3 class="font-display font-bold text-3xl text-text">Preguntas Frecuentes</h3></div>
-      <div class="max-w-4xl mx-auto space-y-6">
-        <div class="bg-white rounded-2xl border border-gray-200 p-6"><h4 class="font-semibold text-lg text-text mb-2">¿Es doloroso?</h4><p class="text-text/70">Molestia mínima con crema anestésica.</p></div>
-        <div class="bg-white rounded-2xl border border-gray-200 p-6"><h4 class="font-semibold text-lg text-text mb-2">¿Cuántas sesiones?</h4><p class="text-text/70">Usualmente 3–4 sesiones según objetivos.</p></div>
+  <section class="py-16 bg-[#AABFA8] text-white">
+    <div class="container mx-auto px-6">
+      <div class="h-[3px] w-28 bg-white/60 mb-6 mx-auto animate-in fade-in duration-500"></div>
+      <h3 class="font-display font-bold text-4xl lg:text-5xl text-white text-center mb-10 animate-in fade-in slide-in-from-bottom-2 duration-500" data-t-es="Preguntas Frecuentes" data-t-en="FAQs">Preguntas Frecuentes</h3>
+      <div class="max-w-4xl mx-auto divide-y divide-white/30">
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500" open>
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Duele el microneedling?" data-t-en="Does microneedling hurt?">¿Duele el microneedling?</span>
+            <span class="faq-icon text-white">-</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Se aplica anestesia tópica para minimizar molestias. La mayoría de pacientes describe una sensación de presión o cosquilleo." data-t-en="We apply a topical numbing cream to minimize discomfort. Most patients describe a mild pressure or tingling sensation.">Se aplica anestesia tópica para minimizar molestias. La mayoría de pacientes describe una sensación de presión o cosquilleo.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-100">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Cuánto tiempo dura el downtime?" data-t-en="How long is the downtime?">¿Cuánto tiempo dura el downtime?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Es normal tener enrojecimiento leve por 24–48 horas. La mayoría retoma sus actividades al día siguiente." data-t-en="Mild redness is normal for 24–48 hours. Most people return to normal activities the next day.">Es normal tener enrojecimiento leve por 24–48 horas. La mayoría retoma sus actividades al día siguiente.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-200">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Cuántas sesiones necesito?" data-t-en="How many sessions will I need?">¿Cuántas sesiones necesito?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Depende de tu piel y objetivos. En general se recomiendan 3–6 sesiones, espaciadas cada 4–6 semanas." data-t-en="It depends on your skin and goals. Typically 3–6 sessions are recommended, spaced 4–6 weeks apart.">Depende de tu piel y objetivos. En general se recomiendan 3–6 sesiones, espaciadas cada 4–6 semanas.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Cuándo veré resultados?" data-t-en="When will I see results?">¿Cuándo veré resultados?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Algunos cambios se notan en días, pero los mejores resultados aparecen entre 4–6 semanas conforme aumenta el colágeno." data-t-en="Some changes appear in days, but the best results show up in 4–6 weeks as collagen builds.">Algunos cambios se notan en días, pero los mejores resultados aparecen entre 4–6 semanas conforme aumenta el colágeno.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-500">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Qué diferencia hay entre microneedling y RF microneedling?" data-t-en="What is the difference between microneedling and RF microneedling?">¿Qué diferencia hay entre microneedling y RF microneedling?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="RF microneedling combina microagujas con energía de radiofrecuencia para mayor firmeza y remodelación profunda." data-t-en="RF microneedling combines micro-needling with radiofrequency energy for deeper tightening and remodeling.">RF microneedling combina microagujas con energía de radiofrecuencia para mayor firmeza y remodelación profunda.</p>
+        </details>
       </div>
     </div>
   </section>
 
   <TransformCTA />
+  <SimpleContactForm />
 </BaseLayout>
+
+<script>
+  const initMicroneedlingFaq = () => {
+    const items = Array.from(document.querySelectorAll('.faq-item')) as HTMLElement[];
+    if (!items.length) return;
+
+    const updateItem = (item: HTMLElement) => {
+      const summary = item.querySelector('.faq-question');
+      const icon = item.querySelector('.faq-icon');
+      if (!summary || !icon) return;
+      const isOpen = item.hasAttribute('open');
+      icon.textContent = isOpen ? '-' : '+';
+    };
+
+    const closeOthers = (current: HTMLElement) => {
+      items.forEach((item) => {
+        if (item !== current) item.removeAttribute('open');
+      });
+    };
+
+    const updateAll = () => {
+    items.forEach(updateItem);
+    };
+
+    items.forEach((item) => {
+      const summary = item.querySelector('summary');
+      if (!summary) return;
+      summary.addEventListener('click', () => {
+        requestAnimationFrame(() => {
+          if (item.hasAttribute('open')) {
+            closeOthers(item);
+          }
+          updateAll();
+        });
+      });
+    });
+
+    updateAll();
+  };
+
+  document.addEventListener('DOMContentLoaded', initMicroneedlingFaq);
+  document.addEventListener('astro:page-load', initMicroneedlingFaq);
+
+  const getMicroneedlingLang = () => {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') return urlLang;
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+    if (storedLang === 'en' || storedLang === 'es') return storedLang;
+    return document.documentElement.lang === 'en' ? 'en' : 'es';
+  };
+
+  const applyMicroneedlingLang = (lang: string) => {
+    document.querySelectorAll('[data-t-es]').forEach((el) => {
+      const es = el.getAttribute('data-t-es') || '';
+      const en = el.getAttribute('data-t-en') || es;
+      el.textContent = lang === 'en' ? en : es;
+    });
+    document.querySelectorAll('[data-alt-es]').forEach((el) => {
+      const es = el.getAttribute('data-alt-es') || '';
+      const en = el.getAttribute('data-alt-en') || es;
+      el.setAttribute('alt', lang === 'en' ? en : es);
+    });
+  };
+
+  const initMicroneedlingLang = () => applyMicroneedlingLang(getMicroneedlingLang());
+
+  document.addEventListener('DOMContentLoaded', initMicroneedlingLang);
+  document.addEventListener('astro:page-load', initMicroneedlingLang);
+  window.addEventListener('languageChanged', () => {
+    initMicroneedlingLang();
+  });
+</script>
