@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TransformCTA from '../../components/TransformCTA.astro';
+import SimpleContactForm from '../../components/SimpleContactForm.astro';
+---
+
+<BaseLayout 
+  title="Stem Cells Treatment - Renasci Medical Spa"
+  description="Terapias con células madre para restauración capilar y bienestar íntimo con enfoque médico. Agenda tu cita en Renasci Medical Spa."
+>
+  <section class="py-28 md:py-36 text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/hero-services.jpg')"></div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative px-6 max-w-4xl mx-auto">
+      <h1 class="font-display font-bold text-4xl md:text-5xl text-white">
+        <span data-t-es="Tratamientos con Células Madre" data-t-en="Stem Cells Treatment">Tratamientos con Células Madre</span>
+      </h1>
+    </div>
+  </section>
+
+  <nav class="bg-background py-6">
+    <div class="container mx-auto px-6">
+      <ol class="flex items-center space-x-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-primary transition-colors"><span data-t-es="Inicio" data-t-en="Home">Inicio</span></a></li>
+        <li class="text-gray-400">/</li>
+        <li><a href="/services" class="hover:text-primary transition-colors"><span data-t-es="Servicios" data-t-en="Services">Servicios</span></a></li>
+        <li class="text-gray-400">/</li>
+        <li class="text-gray-900 font-medium"><span data-t-es="Tratamientos con Células Madre" data-t-en="Stem Cells Treatment">Tratamientos con Células Madre</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="py-12 lg:py-16 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+        <div class="relative bg-white rounded-3xl overflow-hidden min-h-[360px] lg:min-h-[520px]">
+          <img 
+            src="/img/services/Hair-restoration-PRP.jpg"
+            alt="Tratamientos con Células Madre"
+            data-alt-es="Tratamientos con Células Madre"
+            data-alt-en="Stem Cells Treatment"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="flex">
+          <div class="bg-white rounded-3xl border border-gray-200 p-8 lg:p-10 w-full">
+            <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-6" data-t-es="Tratamientos con Células Madre" data-t-en="Stem Cells Treatment">Tratamientos con Células Madre</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6" data-t-es="Los tratamientos con células madre apoyan procesos regenerativos para mejorar tejido, vitalidad y bienestar. En Renasci ofrecemos protocolos personalizados para restauración capilar y rejuvenecimiento íntimo con evaluación médica y seguimiento continuo." data-t-en="Stem cell treatments support regenerative processes to improve tissue quality, vitality, and wellness. At Renasci we offer personalized protocols for hair restoration and intimate rejuvenation with medical evaluation and ongoing follow-up.">Los tratamientos con células madre apoyan procesos regenerativos para mejorar tejido, vitalidad y bienestar. En Renasci ofrecemos protocolos personalizados para restauración capilar y rejuvenecimiento íntimo con evaluación médica y seguimiento continuo.</p>
+            <h3 class="font-semibold text-lg text-gray-900 mb-3" data-t-es="Beneficios:" data-t-en="Benefits:">Beneficios:</h3>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700 mb-8">
+              <li data-t-es="Soporte regenerativo personalizado" data-t-en="Personalized regenerative support">Soporte regenerativo personalizado</li>
+              <li data-t-es="Mejora de la calidad del tejido" data-t-en="Improved tissue quality">Mejora de la calidad del tejido</li>
+              <li data-t-es="Planes con evaluación clínica" data-t-en="Clinically guided plans">Planes con evaluación clínica</li>
+              <li data-t-es="Seguimiento para resultados sostenibles" data-t-en="Follow-up for lasting results">Seguimiento para resultados sostenibles</li>
+              <li data-t-es="Enfoque médico seguro" data-t-en="Safe, medical approach">Enfoque médico seguro</li>
+            </ul>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-gray-50 text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-2" data-t-es="Tratamientos" data-t-en="Treatments">Tratamientos</h2>
+        <p class="text-lg text-gray-700" data-t-es="Opciones con células madre" data-t-en="Stem cell options">Opciones con células madre</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Hair-restoration-PRP.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2">Hair Restoration Treatment with Stem Cells</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$2500" data-t-en="$2500">$2500</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Protocolo regenerativo para fortalecer folículos y mejorar densidad capilar." data-t-en="Regenerative protocol to strengthen follicles and improve hair density.">Protocolo regenerativo para fortalecer folículos y mejorar densidad capilar.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Vaginal-PRP.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2">Vaginal Rejuvenation with Stem Cells (O-Shot)</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="Consulta" data-t-en="Consultation">Consulta</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Enfoque regenerativo para mejorar confort, hidratación y sensibilidad." data-t-en="Regenerative approach to improve comfort, hydration, and sensitivity.">Enfoque regenerativo para mejorar confort, hidratación y sensibilidad.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-[#AABFA8] text-white">
+    <div class="container mx-auto px-6">
+      <div class="h-[3px] w-28 bg-white/60 mb-6 mx-auto animate-in fade-in duration-500"></div>
+      <h3 class="font-display font-bold text-4xl lg:text-5xl text-white text-center mb-10 animate-in fade-in slide-in-from-bottom-2 duration-500" data-t-es="Preguntas Frecuentes" data-t-en="FAQs">Preguntas Frecuentes</h3>
+      <div class="max-w-4xl mx-auto divide-y divide-white/30">
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500" open>
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Qué beneficios ofrecen las terapias con células madre?" data-t-en="What benefits do stem cell therapies offer?">¿Qué beneficios ofrecen las terapias con células madre?</span>
+            <span class="faq-icon text-white">-</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Apoyan la regeneración de tejidos, mejoran calidad y ayudan a recuperar funcionalidad según el área tratada." data-t-en="They support tissue regeneration, improve quality, and help restore function based on the treated area.">Apoyan la regeneración de tejidos, mejoran calidad y ayudan a recuperar funcionalidad según el área tratada.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-100">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Cómo se define el protocolo?" data-t-en="How is the protocol defined?">¿Cómo se define el protocolo?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Se realiza una evaluación clínica para establecer objetivos, indicar el tratamiento adecuado y definir el seguimiento." data-t-en="A clinical evaluation sets goals, selects the right treatment, and defines follow-up.">Se realiza una evaluación clínica para establecer objetivos, indicar el tratamiento adecuado y definir el seguimiento.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-200">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Hay tiempo de recuperación?" data-t-en="Is there downtime?">¿Hay tiempo de recuperación?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="La recuperación depende del área tratada, pero suele ser mínima con indicaciones claras de cuidado." data-t-en="Recovery depends on the treated area, but it is usually minimal with clear aftercare guidance.">La recuperación depende del área tratada, pero suele ser mínima con indicaciones claras de cuidado.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿En cuánto tiempo se notan resultados?" data-t-en="When will I see results?">¿En cuánto tiempo se notan resultados?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Los resultados son graduales y varían según el protocolo y las necesidades individuales." data-t-en="Results are gradual and vary by protocol and individual needs.">Los resultados son graduales y varían según el protocolo y las necesidades individuales.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <TransformCTA />
+  <SimpleContactForm />
+</BaseLayout>
+
+<script>
+  const initStemFaq = () => {
+    const items = Array.from(document.querySelectorAll('.faq-item'));
+    if (!items.length) return;
+
+    const updateItem = (item: Element) => {
+      const summary = item.querySelector('.faq-question');
+      const icon = item.querySelector('.faq-icon');
+      if (!summary || !icon) return;
+      const isOpen = item.hasAttribute('open');
+      icon.textContent = isOpen ? '-' : '+';
+    };
+
+    const closeOthers = (current: Element) => {
+      items.forEach((item) => {
+        if (item !== current) item.removeAttribute('open');
+      });
+    };
+
+    const updateAll = () => {
+      items.forEach(updateItem);
+    };
+
+    items.forEach((item) => {
+      const summary = item.querySelector('summary');
+      if (!summary) return;
+      summary.addEventListener('click', () => {
+        requestAnimationFrame(() => {
+          if (item.hasAttribute('open')) {
+            closeOthers(item);
+          }
+          updateAll();
+        });
+      });
+    });
+
+    updateAll();
+  };
+
+  document.addEventListener('DOMContentLoaded', initStemFaq);
+  document.addEventListener('astro:page-load', initStemFaq);
+
+  const getStemLang = () => {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') return urlLang;
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+    if (storedLang === 'en' || storedLang === 'es') return storedLang;
+    return document.documentElement.lang === 'en' ? 'en' : 'es';
+  };
+
+  const applyStemLang = (lang: 'en' | 'es') => {
+    document.querySelectorAll('[data-t-es]').forEach((el) => {
+      const es = el.getAttribute('data-t-es') || '';
+      const en = el.getAttribute('data-t-en') || es;
+      el.textContent = lang === 'en' ? en : es;
+    });
+    document.querySelectorAll('[data-alt-es]').forEach((el) => {
+      const es = el.getAttribute('data-alt-es') || '';
+      const en = el.getAttribute('data-alt-en') || es;
+      el.setAttribute('alt', lang === 'en' ? en : es);
+    });
+  };
+
+  const initStemLang = () => applyStemLang(getStemLang());
+
+  document.addEventListener('DOMContentLoaded', initStemLang);
+  document.addEventListener('astro:page-load', initStemLang);
+  window.addEventListener('languageChanged', () => {
+    initStemLang();
+  });
+</script>

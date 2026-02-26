@@ -1,62 +1,93 @@
 ---
-import ServicesShowcase from './ServicesShowcase.astro';
+const serviceCards = [
+  { title: { es: 'Inyectables', en: 'Injectables' }, href: '/services/injectables-treatments', image: '/img/services/Injection-general.jpg' },
+  { title: { es: 'Corporal', en: 'Body' }, href: '/services/body-treatments', image: '/img/services/Body-intimo-general.jpg.avif' },
+  { title: { es: 'Facial', en: 'Face' }, href: '/services/facial-treatments', image: '/img/services/Cheekbone-lift.jpg' },
+  { title: { es: 'Terapia IV', en: 'IV Therapy' }, href: '/services/iv-therapy', image: '/img/services/Drips.jpeg' },
+  { title: { es: 'Láser', en: 'Laser' }, href: '/services/igniterf', image: '/img/ignateRF.png' },
+]
 ---
 
-<section class="py-0 bg-white">
-  <div class="max-w-none w-full px-0">
-    <div class="space-y-0">
-      <ServicesShowcase 
-        title="Inyectables & Rellenos Dérmicos" 
-        subtitle="Resultados naturales y prevención de arrugas"
-        imageSrc="/img/services/Injection-general.jpg" 
-        imageAlt="Sala de tratamiento Renasci"
-        items={[
-          { label: 'Neurotoxin Injections', href: '/services/neurotoxin-injections', icon: 'syringe' },
-          { label: 'Botox Lip Flip', href: '/services/botox-lip-flip', icon: 'sparkle' },
-          { label: 'Full Lip Augmentation', href: '/services/full-lip-augmentation', icon: 'dropper' }
-        ]}
-        iconBgClass="bg-[#F3A2A7]"
-        contentBgClass="bg-white"
-        contentTextClass="text-black"
-        titleKey="services.injectables_title"
-        subtitleKey="services.injectables_subtitle"
-      />
-
-      <ServicesShowcase 
-        title="Piel & PRP" 
-        subtitle="PRP y renovación de la piel"
-        imageSrc="/img/services/PRP-face.jpg" 
-        imageAlt="Tratamientos de piel con PRP"
-        items={[
-          { label: 'PRP — Face + Neck', href: '/services/prp-face-neck', icon: 'dropper' },
-          { label: 'PRP — Face + Neck + Décolleté', href: '/services/prp-face-neck-decollete', icon: 'dropper' },
-          { label: 'PRP — Stretch Marks', href: '/services/prp-stretch-marks', icon: 'dropper' }
-        ]}
-        reverse={true}
-        iconBgClass="bg-[#AABFA8]"
-        contentBgClass="bg-white"
-        contentTextClass="text-black"
-        titleKey="services.skin_title"
-        subtitleKey="services.skin_subtitle"
-        
-      />
-
-      <ServicesShowcase 
-        title="Body & Intimate"
-        subtitle="Bienestar íntimo y recuperación"
-        imageSrc="/img/services/Body-intimo-general.jpg.avif"
-        imageAlt="Tratamientos corporales e íntimos"
-        items={[
-          { label: 'Brazilian Butt Lift', href: '/services/brazilian-butt-lift', icon: 'face' },
-          { label: 'Vaginal Rejuvenation PRP', href: '/services/vaginal-rejuvenation-prp', icon: 'heart' },
-          { label: 'BananaRoll (CoolSculpting)', href: '/services/bananaroll', icon: 'face' }
-        ]}
-        iconBgClass="bg-[#C8A08C]"
-        contentBgClass="bg-white"
-        contentTextClass="text-black"
-        titleKey="services.body_title"
-        subtitleKey="services.body_subtitle"
-      />
+<section class="py-12 lg:py-16 bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8">
+      <div class="inline-flex flex-col items-center">
+        <div class="h-[2px] w-full bg-black mb-3"></div>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-black" data-t-es="Nuestros Servicios" data-t-en="Our Services">Nuestros Servicios</h2>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      {serviceCards.map((card) => (
+        <a
+          href={card.href}
+          class="group block rounded-2xl overflow-hidden bg-white"
+          data-service-card
+          data-title-es={card.title.es}
+          data-title-en={card.title.en}
+        >
+          <div class="h-40 sm:h-44 lg:h-40 w-full bg-gray-100">
+            <img
+              src={card.image}
+              alt={card.title.es}
+              class={`w-full h-full object-cover ${card.title.es === 'Láser' ? 'laser-image' : ''}`}
+              loading="lazy"
+            />
+          </div>
+          <div class="px-4 py-4 text-center">
+            <h3 class="text-sm sm:text-base font-semibold text-gray-900 transition-colors group-hover:text-[#E94594]" data-card-title>
+              {card.title.es}
+            </h3>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="mt-10 text-center">
+      <a href="/services" class="inline-flex items-center justify-center rounded-full bg-[#F3A2A7] px-6 py-3 text-white font-semibold transition-opacity hover:opacity-90" data-t-es="Ver todos los servicios" data-t-en="View all services">
+        Ver todos los servicios
+      </a>
     </div>
   </div>
 </section>
+
+<script>
+  type Lang = 'es' | 'en';
+  const getOurServicesLang = (): Lang => {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') return urlLang as Lang;
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+    if (storedLang === 'en' || storedLang === 'es') return storedLang as Lang;
+    const managerLang = (window as any).i18nManager?.getCurrentLanguage?.();
+    if (managerLang === 'en' || managerLang === 'es') return managerLang as Lang;
+    return document.documentElement.lang === 'en' ? 'en' : 'es';
+  };
+
+  const applyOurServicesLang = (lang: Lang) => {
+    document.querySelectorAll('[data-service-card]').forEach((card) => {
+      const el = card as HTMLElement;
+      const titleEl = el.querySelector('[data-card-title]') as HTMLElement | null;
+      const es = el.getAttribute('data-title-es') || '';
+      const en = el.getAttribute('data-title-en') || es;
+      if (titleEl) titleEl.textContent = lang === 'en' ? en : es;
+    });
+    document.querySelectorAll('[data-t-es]').forEach((el) => {
+      const node = el as HTMLElement;
+      const es = node.getAttribute('data-t-es') || '';
+      const en = node.getAttribute('data-t-en') || es;
+      node.textContent = lang === 'en' ? en : es;
+    });
+  };
+
+  const initOurServicesLang = () => applyOurServicesLang(getOurServicesLang());
+  document.addEventListener('DOMContentLoaded', initOurServicesLang);
+  document.addEventListener('astro:page-load', initOurServicesLang);
+  window.addEventListener('languageChanged', (e) => {
+    const detail = (e as CustomEvent).detail as { language?: Lang } | undefined;
+    const lang = detail?.language === 'en' || detail?.language === 'es' ? detail.language : getOurServicesLang();
+    applyOurServicesLang(lang);
+  });
+</script>
+
+<style>
+  .laser-image { object-position: center 10%; }
+</style>

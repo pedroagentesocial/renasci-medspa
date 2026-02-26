@@ -1,22 +1,159 @@
 ---
+const testimonials = [
+  {
+    name: 'Isabella M.',
+    textEs: 'Espacio hermoso, personal amable y resultados que superaron mis expectativas.',
+    textEn: 'Beautiful space, kind staff, and results that exceeded my expectations.'
+  },
+  {
+    name: 'Daniela R.',
+    textEs: 'Escucharon lo que quería y me hicieron sentir cómoda todo el tiempo.',
+    textEn: 'They listened to what I wanted and made me feel comfortable the entire time.'
+  },
+  {
+    name: 'Sofía L.',
+    textEs: 'Mi piel se ve fresca y natural. Definitivamente regresaré.',
+    textEn: 'My skin looks refreshed and natural. I will absolutely be back.'
+  },
+  {
+    name: 'Camila G.',
+    textEs: 'Profesional, limpio y el equipo realmente sabe lo que hace.',
+    textEn: 'Professional, clean, and the team is truly knowledgeable.'
+  },
+  {
+    name: 'Valeria P.',
+    textEs: 'Me encantó el enfoque personalizado. Todo se sintió cuidadoso y seguro.',
+    textEn: 'Loved the personalized approach. Everything felt thoughtful and safe.'
+  },
+  {
+    name: 'Mariana C.',
+    textEs: 'Los resultados fueron sutiles pero impresionantes. Justo lo que quería.',
+    textEn: 'The results were subtle but impressive. Exactly what I wanted.'
+  }
+];
+
+const googleLogoUrl = 'https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg';
 ---
 
-<section class="py-16 bg-black text-white">
+<section class="py-16 bg-[#F3A2A7]">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-8">
-      <h2 class="font-display font-bold text-3xl md:text-4xl">Testimonios</h2>
-      <p class="text-white/70">Conoce la experiencia de nuestros clientes</p>
+    <div class="text-center mb-10">
+      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white" data-t-es="Testimonios" data-t-en="Testimonials">Testimonios</h2>
     </div>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="p-6 rounded-2xl border border-white/10">
-        <p class="text-white/80">“Excelente atención y resultados visibles.”</p>
+    <div class="relative max-w-3xl mx-auto">
+      <div class="relative min-h-[260px] sm:min-h-[240px]">
+        {testimonials.map((testimonial, index) => (
+          <div
+            class={`absolute inset-0 flex flex-col items-center text-center transition-all duration-500 ${
+              index === 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+            }`}
+            data-testimonial-slide
+            data-testimonial={index}
+          >
+            <div class="relative bg-white text-black rounded-3xl px-6 py-6 shadow-lg max-w-2xl">
+              <p class="text-base sm:text-lg leading-relaxed">“<span data-t-es={testimonial.textEs} data-t-en={testimonial.textEn}>{testimonial.textEs}</span>”</p>
+              <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45"></span>
+            </div>
+            <div class="mt-6 text-white font-semibold text-lg">{testimonial.name}</div>
+            <div class="mt-2 flex items-center gap-2 text-white/90 text-sm">
+              <img src={googleLogoUrl} alt="Google" class="w-5 h-5" loading="lazy" />
+              <span data-t-es="Reseñas de Google" data-t-en="Google Reviews">Reseñas de Google</span>
+            </div>
+          </div>
+        ))}
       </div>
-      <div class="p-6 rounded-2xl border border_white/10">
-        <p class="text-white/80">“Personal altamente capacitado y amable.”</p>
-      </div>
-      <div class="p-6 rounded-2xl border border-white/10">
-        <p class="text-white/80">“Volvería sin dudarlo.”</p>
+      <div class="mt-6 flex justify-center gap-2" data-testimonial-dots>
+        {testimonials.map((_, index) => (
+          <button
+            class={`h-2.5 w-2.5 rounded-full transition ${
+              index === 0 ? 'bg-white' : 'bg-white/40'
+            }`}
+            data-testimonial-dot={index}
+            data-aria-es={`Ir al testimonio ${index + 1}`}
+            data-aria-en={`Go to testimonial ${index + 1}`}
+            aria-label={`Ir al testimonio ${index + 1}`}
+          ></button>
+        ))}
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const getTestimonialsLang = () => {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') return urlLang;
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+    if (storedLang === 'en' || storedLang === 'es') return storedLang;
+    const managerLang = (window as any).i18nManager?.getCurrentLanguage?.();
+    if (managerLang === 'en' || managerLang === 'es') return managerLang;
+    return document.documentElement.lang === 'en' ? 'en' : 'es';
+  };
+
+  const applyTestimonialsLang = (lang: 'en' | 'es') => {
+    document.querySelectorAll('[data-t-es]').forEach((el) => {
+      const node = el as HTMLElement;
+      const es = node.getAttribute('data-t-es') || '';
+      const en = node.getAttribute('data-t-en') || es;
+      node.textContent = lang === 'en' ? en : es;
+    });
+    document.querySelectorAll('[data-aria-es]').forEach((el) => {
+      const node = el as HTMLElement;
+      const es = node.getAttribute('data-aria-es') || '';
+      const en = node.getAttribute('data-aria-en') || es;
+      node.setAttribute('aria-label', lang === 'en' ? en : es);
+    });
+  };
+
+  const initTestimonialsLang = () => applyTestimonialsLang(getTestimonialsLang());
+  document.addEventListener('DOMContentLoaded', initTestimonialsLang);
+  document.addEventListener('astro:page-load', initTestimonialsLang);
+  window.addEventListener('languageChanged', (e) => {
+    const detail = (e as CustomEvent).detail as { language?: 'en' | 'es' } | undefined;
+    const lang = detail?.language === 'en' || detail?.language === 'es' ? detail.language : getTestimonialsLang();
+    applyTestimonialsLang(lang);
+  });
+
+  const slides = Array.from(document.querySelectorAll('[data-testimonial-slide]')) as HTMLElement[];
+  const dots = Array.from(document.querySelectorAll('[data-testimonial-dot]')) as HTMLButtonElement[];
+  if (slides.length) {
+    let currentIndex = 0;
+    let intervalId: number | undefined;
+
+    const setActive = (nextIndex: number) => {
+      slides.forEach((slide, index) => {
+        slide.classList.toggle('opacity-100', index === nextIndex);
+        slide.classList.toggle('translate-y-0', index === nextIndex);
+        slide.classList.toggle('opacity-0', index !== nextIndex);
+        slide.classList.toggle('translate-y-4', index !== nextIndex);
+        slide.classList.toggle('pointer-events-none', index !== nextIndex);
+      });
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('bg-white', index === nextIndex);
+        dot.classList.toggle('bg-white/40', index !== nextIndex);
+      });
+    };
+
+    const startAuto = () => {
+      intervalId = window.setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        setActive(currentIndex);
+      }, 5000);
+    };
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const target = Number(dot.dataset.testimonialDot || 0);
+        currentIndex = target;
+        setActive(currentIndex);
+        if (intervalId !== undefined) {
+          window.clearInterval(intervalId);
+        }
+        startAuto();
+      });
+    });
+
+    startAuto();
+  }
+</script>

@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import TransformCTA from '../../components/TransformCTA.astro'
+import SimpleContactForm from '../../components/SimpleContactForm.astro'
+import { getLocaleFromUrl } from '../../i18n/config'
+
+const langParam = Astro.url.searchParams.get('lang')
+const pathLocale = getLocaleFromUrl(Astro.url)
+const lang = (langParam === 'es' || langParam === 'en') ? langParam : pathLocale
+
+const pageText = {
+  es: { title: 'Inyectables' },
+  en: { title: 'Injectables' },
+}
+
+const cards = [
+  { title: { es: 'Inyecciones de Neurotoxina', en: 'Neurotoxin Injections' }, href: '/services/neurotoxin-injections', image: '/img/services/hero-services.jpg' },
+  { title: { es: 'Rellenos Dérmicos', en: 'Dermal Fillers' }, href: '/services/dermal-fillers', image: '/img/services/Lip-filler-image.jpg' },
+  { title: { es: 'Inyecciones PRP', en: 'PRP Injections' }, href: '/services/prp-injections', image: '/img/services/PRP-face.jpg' },
+  { title: { es: 'Bioestimuladores', en: 'Biostimulators' }, href: '/services/biostimulators', image: '/img/services/Sculptra.jpg.avif' },
+]
+---
+
+<BaseLayout title={pageText[lang].title} lang={lang}>
+  <section class="hero-injectables">
+    <div class="hero-inner text-center">
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white" data-page-title data-title-es={pageText.es.title} data-title-en={pageText.en.title}>
+        {pageText[lang].title}
+      </h1>
+    </div>
+  </section>
+  <section class="py-12 sm:py-16 lg:py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 justify-items-center">
+        {cards.map((card) => (
+          <a
+            href={card.href}
+            class="group block rounded-2xl overflow-hidden bg-white w-full max-w-[260px]"
+            data-card
+            data-title-es={card.title.es}
+            data-title-en={card.title.en}
+          >
+            <div class="h-44 sm:h-48 lg:h-44 w-full bg-gray-100">
+              <img src={card.image} alt={card.title[lang] ?? card.title.en} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="px-4 py-4 text-center">
+              <h3 class="text-sm sm:text-base font-semibold text-gray-900 transition-colors group-hover:text-[#E94594]" data-card-title>
+                {card.title[lang] ?? card.title.en}
+              </h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <TransformCTA />
+  <SimpleContactForm />
+</BaseLayout>
+
+<style is:global>
+  .hero-injectables{ background:#000; color:#fff; min-height:40vh; display:flex; align-items:center; justify-content:center; padding-top:64px; padding-bottom:48px; position:relative; background-image:url('/img/services/hero-services.jpg'); background-size:cover; background-position:center }
+  .hero-injectables::after{ content:""; position:absolute; inset:0; background:rgba(0,0,0,0.4) }
+  .hero-injectables .hero-inner{ position:relative; z-index:1 }
+  @media (min-width:640px){ .hero-injectables{ min-height:45vh; padding-top:80px; padding-bottom:64px } }
+  @media (min-width:1024px){ .hero-injectables{ min-height:50vh; padding-top:96px; padding-bottom:80px } }
+  .hero-inner{ max-width:1120px; margin:0 auto; padding:0 16px }
+</style>
+
+<script>
+  type Lang = 'es' | 'en'
+  const getInjectablesLang = (): Lang => {
+    const params = new URLSearchParams(window.location.search)
+    const urlLang = params.get('lang')
+    if (urlLang === 'en' || urlLang === 'es') return urlLang as Lang
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language')
+    if (storedLang === 'en' || storedLang === 'es') return storedLang as Lang
+    const managerLang = (window as any).i18nManager?.getCurrentLanguage?.()
+    if (managerLang === 'en' || managerLang === 'es') return managerLang as Lang
+    return document.documentElement.lang === 'en' ? 'en' : 'es'
+  }
+
+  const applyInjectablesLang = (lang: Lang) => {
+    const titleEl = document.querySelector('[data-page-title]') as HTMLElement | null
+    if (titleEl) {
+      const es = titleEl.getAttribute('data-title-es') || ''
+      const en = titleEl.getAttribute('data-title-en') || es
+      titleEl.textContent = lang === 'en' ? en : es
+    }
+    document.querySelectorAll('[data-card]').forEach((card) => {
+      const el = card as HTMLElement
+      const titleEl = el.querySelector('[data-card-title]') as HTMLElement | null
+      const es = el.getAttribute('data-title-es') || ''
+      const en = el.getAttribute('data-title-en') || es
+      if (titleEl) titleEl.textContent = lang === 'en' ? en : es
+    })
+  }
+
+  const initInjectablesLang = () => applyInjectablesLang(getInjectablesLang())
+  document.addEventListener('DOMContentLoaded', initInjectablesLang)
+  document.addEventListener('astro:page-load', initInjectablesLang)
+  window.addEventListener('languageChanged', (e) => {
+    const detail = (e as CustomEvent).detail as { language?: Lang } | undefined
+    const lang = detail?.language === 'en' || detail?.language === 'es' ? detail.language : getInjectablesLang()
+    applyInjectablesLang(lang)
+  })
+</script>

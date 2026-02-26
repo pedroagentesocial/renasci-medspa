@@ -1,0 +1,252 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TransformCTA from '../../components/TransformCTA.astro';
+import SimpleContactForm from '../../components/SimpleContactForm.astro';
+---
+
+<BaseLayout 
+  title="Body Contouring Treatments - Renasci Medical Spa"
+  description="Tratamientos de contorno corporal para definir áreas específicas con enfoque personalizado. Agenda tu cita en Renasci Medical Spa."
+>
+  <section class="py-28 md:py-36 text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/thighbella-aplication.jpg')"></div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative px-6 max-w-4xl mx-auto">
+      <h1 class="font-display font-bold text-4xl md:text-5xl text-white">
+        <span data-t-es="Contorno Corporal" data-t-en="Body Contouring">Contorno Corporal</span>
+      </h1>
+    </div>
+  </section>
+
+  <nav class="bg-background py-6">
+    <div class="container mx-auto px-6">
+      <ol class="flex items-center space-x-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-primary transition-colors"><span data-t-es="Inicio" data-t-en="Home">Inicio</span></a></li>
+        <li class="text-gray-400">/</li>
+        <li><a href="/services" class="hover:text-primary transition-colors"><span data-t-es="Servicios" data-t-en="Services">Servicios</span></a></li>
+        <li class="text-gray-400">/</li>
+        <li class="text-gray-900 font-medium"><span data-t-es="Contorno Corporal" data-t-en="Body Contouring">Contorno Corporal</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="py-12 lg:py-16 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+        <div class="relative bg-white rounded-3xl overflow-hidden min-h-[360px] lg:min-h-[520px]">
+          <img 
+            src="/img/services/mini-chin-bio.jpg"
+            alt="Contorno Corporal"
+            data-alt-es="Contorno Corporal"
+            data-alt-en="Body Contouring"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="flex">
+          <div class="bg-white rounded-3xl border border-gray-200 p-8 lg:p-10 w-full">
+            <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-6" data-t-es="Contorno Corporal" data-t-en="Body Contouring">Contorno Corporal</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6" data-t-es="Los tratamientos de contorno corporal están diseñados para definir áreas específicas como mentón, muslos, espalda y zona del bikini. Cada plan se personaliza según tu anatomía y objetivos para lograr un resultado equilibrado." data-t-en="Body contouring treatments are designed to define specific areas such as chin, thighs, bra roll, and bikini area. Each plan is tailored to your anatomy and goals for balanced results.">Los tratamientos de contorno corporal están diseñados para definir áreas específicas como mentón, muslos, espalda y zona del bikini. Cada plan se personaliza según tu anatomía y objetivos para lograr un resultado equilibrado.</p>
+            <h3 class="font-semibold text-lg text-gray-900 mb-3" data-t-es="Beneficios:" data-t-en="Benefits:">Beneficios:</h3>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700 mb-8">
+              <li data-t-es="Definición de áreas localizadas" data-t-en="Definition of targeted areas">Definición de áreas localizadas</li>
+              <li data-t-es="Protocolos personalizados" data-t-en="Personalized protocols">Protocolos personalizados</li>
+              <li data-t-es="Mejoría visible del contorno" data-t-en="Visible contour improvement">Mejoría visible del contorno</li>
+              <li data-t-es="Enfoque médico y seguro" data-t-en="Safe, medical approach">Enfoque médico y seguro</li>
+              <li data-t-es="Seguimiento para resultados sostenibles" data-t-en="Follow-up for lasting results">Seguimiento para resultados sostenibles</li>
+            </ul>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-gray-50 text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-2" data-t-es="Tratamientos" data-t-en="Treatments">Tratamientos</h2>
+        <p class="text-lg text-gray-700" data-t-es="Opciones para cada zona del cuerpo" data-t-en="Options for each body area">Opciones para cada zona del cuerpo</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/mini-chin-bio.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2">ChinBella (chin/double chin) Premier</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-2">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$1100" data-t-en="$1100">$1100</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Define el área del mentón y reduce apariencia de papada." data-t-en="Defines the chin area and reduces the appearance of a double chin.">Define el área del mentón y reduce apariencia de papada.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/thighbella-aplication.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2">ThighBella (thighs)</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$1400" data-t-en="$1400">$1400</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Mejora definición y suaviza la apariencia de los muslos." data-t-en="Improves definition and smooths the appearance of the thighs.">Mejora definición y suaviza la apariencia de los muslos.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/brabella.jpeg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2">RollBella (bra roll)</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$1100" data-t-en="$1100">$1100</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Ayuda a definir el contorno en la zona de brasier." data-t-en="Helps define contour in the bra roll area.">Ayuda a definir el contorno en la zona de brasier.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/bananaroll-aplication.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2">BananaRoll (bikini area)</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$1200" data-t-en="$1200">$1200</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Define y suaviza la zona inferior para un contorno uniforme." data-t-en="Defines and smooths the lower area for an even contour.">Define y suaviza la zona inferior para un contorno uniforme.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-[#AABFA8] text-white">
+    <div class="container mx-auto px-6">
+      <div class="h-[3px] w-28 bg-white/60 mb-6 mx-auto animate-in fade-in duration-500"></div>
+      <h3 class="font-display font-bold text-4xl lg:text-5xl text-white text-center mb-10 animate-in fade-in slide-in-from-bottom-2 duration-500" data-t-es="Preguntas Frecuentes" data-t-en="FAQs">Preguntas Frecuentes</h3>
+      <div class="max-w-4xl mx-auto divide-y divide-white/30">
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500" open>
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Qué áreas se pueden tratar?" data-t-en="What areas can be treated?">¿Qué áreas se pueden tratar?</span>
+            <span class="faq-icon text-white">-</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Mentón, muslos, rollito de brasier y zona del bikini, entre otras." data-t-en="Chin, thighs, bra roll, and bikini area, among others.">Mentón, muslos, rollito de brasier y zona del bikini, entre otras.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-100">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Se necesita evaluación previa?" data-t-en="Is an evaluation required?">¿Se necesita evaluación previa?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Sí, para definir el protocolo ideal según tu anatomía y metas." data-t-en="Yes, to define the best protocol for your anatomy and goals.">Sí, para definir el protocolo ideal según tu anatomía y metas.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-200">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Hay tiempo de recuperación?" data-t-en="Is there downtime?">¿Hay tiempo de recuperación?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="La mayoría de los pacientes retoman actividades normales el mismo día." data-t-en="Most patients resume normal activities the same day.">La mayoría de los pacientes retoman actividades normales el mismo día.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Cuándo se ven resultados?" data-t-en="When will I see results?">¿Cuándo se ven resultados?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Los resultados varían por zona y protocolo; suelen notarse gradualmente." data-t-en="Results vary by area and protocol and are typically gradual.">Los resultados varían por zona y protocolo; suelen notarse gradualmente.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <TransformCTA />
+  <SimpleContactForm />
+</BaseLayout>
+
+<script>
+  const initBodyFaq = () => {
+    const items = Array.from(document.querySelectorAll('.faq-item'));
+    if (!items.length) return;
+
+    const updateItem = (item: Element) => {
+      const summary = item.querySelector('.faq-question');
+      const icon = item.querySelector('.faq-icon');
+      if (!summary || !icon) return;
+      const isOpen = item.hasAttribute('open');
+      icon.textContent = isOpen ? '-' : '+';
+    };
+
+    const closeOthers = (current: Element) => {
+      items.forEach((item) => {
+        if (item !== current) item.removeAttribute('open');
+      });
+    };
+
+    const updateAll = () => {
+      items.forEach(updateItem);
+    };
+
+    items.forEach((item) => {
+      const summary = item.querySelector('summary');
+      if (!summary) return;
+      summary.addEventListener('click', () => {
+        requestAnimationFrame(() => {
+          if (item.hasAttribute('open')) {
+            closeOthers(item);
+          }
+          updateAll();
+        });
+      });
+    });
+
+    updateAll();
+  };
+
+  document.addEventListener('DOMContentLoaded', initBodyFaq);
+  document.addEventListener('astro:page-load', initBodyFaq);
+
+  const getBodyLang = () => {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') return urlLang;
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+    if (storedLang === 'en' || storedLang === 'es') return storedLang;
+    return document.documentElement.lang === 'en' ? 'en' : 'es';
+  };
+
+  const applyBodyLang = (lang: 'en' | 'es') => {
+    document.querySelectorAll('[data-t-es]').forEach((el) => {
+      const es = el.getAttribute('data-t-es') || '';
+      const en = el.getAttribute('data-t-en') || es;
+      el.textContent = lang === 'en' ? en : es;
+    });
+    document.querySelectorAll('[data-alt-es]').forEach((el) => {
+      const es = el.getAttribute('data-alt-es') || '';
+      const en = el.getAttribute('data-alt-en') || es;
+      el.setAttribute('alt', lang === 'en' ? en : es);
+    });
+  };
+
+  const initBodyLang = () => applyBodyLang(getBodyLang());
+
+  document.addEventListener('DOMContentLoaded', initBodyLang);
+  document.addEventListener('astro:page-load', initBodyLang);
+  window.addEventListener('languageChanged', () => {
+    initBodyLang();
+  });
+</script>

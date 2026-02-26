@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TransformCTA from '../../components/TransformCTA.astro';
+import SimpleContactForm from '../../components/SimpleContactForm.astro';
+---
+
+<BaseLayout 
+  title="PRP Injections - Renasci Medical Spa"
+  description="Inyecciones de PRP para rejuvenecimiento, regeneración y restauración capilar. Agenda tu cita en Renasci Medical Spa."
+>
+  <section class="py-28 md:py-36 text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/PRP-face.jpg')"></div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative px-6 max-w-4xl mx-auto">
+      <h1 class="font-display font-bold text-4xl md:text-5xl text-white">
+        <span data-t-es="Inyecciones PRP" data-t-en="PRP Injections">Inyecciones PRP</span>
+      </h1>
+    </div>
+  </section>
+
+  <nav class="bg-background py-6">
+    <div class="container mx-auto px-6">
+      <ol class="flex items-center space-x-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-primary transition-colors"><span data-t-es="Inicio" data-t-en="Home">Inicio</span></a></li>
+        <li class="text-gray-400">/</li>
+        <li><a href="/services" class="hover:text-primary transition-colors"><span data-t-es="Servicios" data-t-en="Services">Servicios</span></a></li>
+        <li class="text-gray-400">/</li>
+        <li class="text-gray-900 font-medium"><span data-t-es="Inyecciones PRP" data-t-en="PRP Injections">Inyecciones PRP</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="py-12 lg:py-16 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+        <div class="relative bg-white rounded-3xl overflow-hidden min-h-[360px] lg:min-h-[520px]">
+          <img 
+            src="/img/services/PRP-decollet.jpg"
+            alt="Inyecciones PRP"
+            data-alt-es="Inyecciones PRP"
+            data-alt-en="PRP Injections"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="flex">
+          <div class="bg-white rounded-3xl border border-gray-200 p-8 lg:p-10 w-full">
+            <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-6" data-t-es="Inyecciones PRP" data-t-en="PRP Injections">Inyecciones PRP</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6" data-t-es="El PRP (Plasma Rico en Plaquetas) utiliza tu propia sangre para concentrar factores de crecimiento y estimular reparación, regeneración y producción de colágeno. En Renasci personalizamos cada protocolo para piel, cicatrices, estrías, salud íntima y restauración capilar." data-t-en="PRP (Platelet-Rich Plasma) uses your own blood to concentrate growth factors and stimulate repair, regeneration, and collagen production. At Renasci we tailor each protocol for skin, scars, stretch marks, intimate wellness, and hair restoration.">El PRP (Plasma Rico en Plaquetas) utiliza tu propia sangre para concentrar factores de crecimiento y estimular reparación, regeneración y producción de colágeno. En Renasci personalizamos cada protocolo para piel, cicatrices, estrías, salud íntima y restauración capilar.</p>
+            <h3 class="font-semibold text-lg text-gray-900 mb-3" data-t-es="Beneficios:" data-t-en="Benefits:">Beneficios:</h3>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700 mb-8">
+              <li data-t-es="Mejora textura y luminosidad de la piel" data-t-en="Improves skin texture and radiance">Mejora textura y luminosidad de la piel</li>
+              <li data-t-es="Apoya regeneración de tejidos" data-t-en="Supports tissue regeneration">Apoya regeneración de tejidos</li>
+              <li data-t-es="Ayuda en estrías y cicatrices" data-t-en="Helps with stretch marks and scars">Ayuda en estrías y cicatrices</li>
+              <li data-t-es="Estimula crecimiento capilar" data-t-en="Stimulates hair growth">Estimula crecimiento capilar</li>
+              <li data-t-es="Protocolos personalizados con seguimiento" data-t-en="Personalized protocols with follow-up">Protocolos personalizados con seguimiento</li>
+            </ul>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-gray-50 text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-2" data-t-es="Tratamientos" data-t-en="Treatments">Tratamientos</h2>
+        <p class="text-lg text-gray-700" data-t-es="Opciones PRP personalizadas" data-t-en="Personalized PRP options">Opciones PRP personalizadas</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/PRP-face.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2">Face + Neck</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$550" data-t-en="$550">$550</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Rejuvenecimiento y mejora de textura en rostro y cuello." data-t-en="Rejuvenation and texture improvement for face and neck.">Rejuvenecimiento y mejora de textura en rostro y cuello.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/PRP-decollet.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2">Face + Neck + Décolleté</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$650" data-t-en="$650">$650</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Cobertura completa para rostro, cuello y escote." data-t-en="Comprehensive coverage for face, neck, and décolleté.">Cobertura completa para rostro, cuello y escote.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/PRP-stretch.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2">Stretch marks (depends on area)</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-4">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$450" data-t-en="$450">$450</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Apoyo regenerativo para mejorar apariencia de estrías." data-t-en="Regenerative support to improve stretch marks appearance.">Apoyo regenerativo para mejorar apariencia de estrías.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Vaginal-PRP.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2">Vaginal Rejuvenation with PRP (O-Shot)</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-2">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$1200" data-t-en="$1200">$1200</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <div class="text-xs text-white/80 mb-4" data-t-es="3 sesiones $3000" data-t-en="3 sessions $3000">3 sesiones $3000</div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Protocolos PRP para bienestar íntimo y sensibilidad." data-t-en="PRP protocols for intimate wellness and sensitivity.">Protocolos PRP para bienestar íntimo y sensibilidad.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white lg:col-start-2">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Hair-restoration-PRP.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-2">Hair Restoration Treatment with PRP</h3>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-2">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$300" data-t-en="$300">$300</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <div class="text-xs text-white/80 mb-4" data-t-es="3 sesiones $750" data-t-en="3 sessions $750">3 sesiones $750</div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Estimulación capilar con PRP para fortalecer folículos." data-t-en="PRP hair stimulation to strengthen follicles.">Estimulación capilar con PRP para fortalecer folículos.</p>
+            </div>
+            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center" data-t-es="AGENDAR AHORA" data-t-en="BOOK NOW">AGENDAR AHORA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-[#AABFA8] text-white">
+    <div class="container mx-auto px-6">
+      <div class="h-[3px] w-28 bg-white/60 mb-6 mx-auto animate-in fade-in duration-500"></div>
+      <h3 class="font-display font-bold text-4xl lg:text-5xl text-white text-center mb-10 animate-in fade-in slide-in-from-bottom-2 duration-500" data-t-es="Preguntas Frecuentes" data-t-en="FAQs">Preguntas Frecuentes</h3>
+      <div class="max-w-4xl mx-auto divide-y divide-white/30">
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500" open>
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Qué es el PRP?" data-t-en="What is PRP?">¿Qué es el PRP?</span>
+            <span class="faq-icon text-white">-</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Es un concentrado de plaquetas obtenido de tu propia sangre que apoya la regeneración y la producción de colágeno." data-t-en="It is a platelet concentrate derived from your own blood that supports regeneration and collagen production.">Es un concentrado de plaquetas obtenido de tu propia sangre que apoya la regeneración y la producción de colágeno.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-100">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Cuántas sesiones necesito?" data-t-en="How many sessions do I need?">¿Cuántas sesiones necesito?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Depende del área y tus objetivos; normalmente se recomienda un plan inicial y seguimiento." data-t-en="It depends on the area and your goals; an initial plan with follow-up is typically recommended.">Depende del área y tus objetivos; normalmente se recomienda un plan inicial y seguimiento.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-200">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Hay tiempo de recuperación?" data-t-en="Is there any downtime?">¿Hay tiempo de recuperación?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="El tiempo de recuperación es mínimo y varía según el área tratada." data-t-en="Downtime is minimal and varies depending on the treated area.">El tiempo de recuperación es mínimo y varía según el área tratada.</p>
+        </details>
+        <details class="faq-item group py-6 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300">
+          <summary class="faq-question cursor-pointer text-white font-semibold text-xl lg:text-2xl flex items-center justify-between transition-all duration-300 hover:translate-x-1">
+            <span data-t-es="¿Cuándo se notan los resultados?" data-t-en="When will I see results?">¿Cuándo se notan los resultados?</span>
+            <span class="faq-icon text-white">+</span>
+          </summary>
+          <p class="mt-4 text-white/85 text-base lg:text-lg leading-relaxed group-open:animate-in group-open:fade-in group-open:slide-in-from-top-2 group-open:duration-300" data-t-es="Los cambios son progresivos; muchos pacientes notan mejoras en semanas." data-t-en="Results are gradual; many patients notice improvements within weeks.">Los cambios son progresivos; muchos pacientes notan mejoras en semanas.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <TransformCTA />
+  <SimpleContactForm />
+</BaseLayout>
+
+<script>
+  const initPrpFaq = () => {
+    const items = Array.from(document.querySelectorAll('.faq-item'));
+    if (!items.length) return;
+
+    const updateItem = (item: Element) => {
+      const summary = item.querySelector('.faq-question');
+      const icon = item.querySelector('.faq-icon');
+      if (!summary || !icon) return;
+      const isOpen = item.hasAttribute('open');
+      icon.textContent = isOpen ? '-' : '+';
+    };
+
+    const closeOthers = (current: Element) => {
+      items.forEach((item) => {
+        if (item !== current) item.removeAttribute('open');
+      });
+    };
+
+    const updateAll = () => {
+      items.forEach(updateItem);
+    };
+
+    items.forEach((item) => {
+      const summary = item.querySelector('summary');
+      if (!summary) return;
+      summary.addEventListener('click', () => {
+        requestAnimationFrame(() => {
+          if (item.hasAttribute('open')) {
+            closeOthers(item);
+          }
+          updateAll();
+        });
+      });
+    });
+
+    updateAll();
+  };
+
+  document.addEventListener('DOMContentLoaded', initPrpFaq);
+  document.addEventListener('astro:page-load', initPrpFaq);
+
+  const getPrpLang = () => {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') return urlLang;
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+    if (storedLang === 'en' || storedLang === 'es') return storedLang;
+    return document.documentElement.lang === 'en' ? 'en' : 'es';
+  };
+
+  const applyPrpLang = (lang: 'en' | 'es') => {
+    document.querySelectorAll('[data-t-es]').forEach((el) => {
+      const es = el.getAttribute('data-t-es') || '';
+      const en = el.getAttribute('data-t-en') || es;
+      el.textContent = lang === 'en' ? en : es;
+    });
+    document.querySelectorAll('[data-alt-es]').forEach((el) => {
+      const es = el.getAttribute('data-alt-es') || '';
+      const en = el.getAttribute('data-alt-en') || es;
+      el.setAttribute('alt', lang === 'en' ? en : es);
+    });
+  };
+
+  const initPrpLang = () => applyPrpLang(getPrpLang());
+
+  document.addEventListener('DOMContentLoaded', initPrpLang);
+  document.addEventListener('astro:page-load', initPrpLang);
+  window.addEventListener('languageChanged', () => {
+    initPrpLang();
+  });
+</script>

@@ -1,18 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTAButton from '../components/CTAButton.astro';
-import ServiceCard from '../components/ServiceCard.astro';
  
 import HeroHotspots from '../components/HeroHotspots.astro';
 import OurServices from '../components/ourservices.astro';
 import MembershipCTA from '../components/MembershipCTA.astro';
-import CarouselServices from '../components/CarouselServices.astro';
 import SimpleContactForm from '../components/SimpleContactForm.astro';
 import FAQ from '../components/FAQ.astro';
-import { serviciosUnificados } from '../data/services-unified';
-
-// Obtener servicios destacados (primeros 8 servicios)
-const serviciosHome = serviciosUnificados.slice(0, 8);
+import TestimonialsSection from '../components/TestimonialsSection.astro';
 ---
 
 <BaseLayout 
@@ -205,10 +200,25 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     </div>
   </section>
 
-  <CarouselServices />
+  <style>
+    @font-face {
+      font-family: 'Rouge Script';
+      src: url('/src/styles/fonts/RougeScript-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    .font-rougescript {
+      font-family: 'Rouge Script', cursive;
+      letter-spacing: -0.02em;
+      font-style: italic;
+    }
+  </style>
+
+  <OurServices />
 
   <!-- Announcement: IgniteRF -->
-  <section class="py-6 bg-[#AABFA8]/10">
+  <section class="py-6 bg-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="text-black">
@@ -231,53 +241,6 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
       </div>
     </div>
   </section>
-
-  <section class="pt-6 md:pt-8 pb-10 md:pb-12 bg-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center text-black">
-      <div class="flex items-center justify-center mb-4">
-        <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-        <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z" />
-          </svg>
-        </span>
-        <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-      </div>
-      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl mb-3" data-i18n="start.cta_title">
-        Empieza ahora tu tratamiento
-      </h2>
-      <p class="text-lg md:text-xl text-black/80 mb-6 leading-relaxed" data-i18n="start.cta_subtitle">
-        Renasci te espera con atención personalizada y resultados profesionales.
-      </p>
-      <CTAButton 
-        href="/contact"
-        variant="primary"
-        className="inline-flex items-center gap-2 hover:gap-3 transition-all duration-200 bg-[#F3A2A7] text-white focus-visible:ring-[#F3A2A7]/50"
-      >
-        <span data-i18n="cta.book_now">Agendar Ahora</span>
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-      </CTAButton>
-    </div>
-  </section>
-
-  <style>
-    @font-face {
-      font-family: 'Rouge Script';
-      src: url('/src/styles/fonts/RougeScript-Regular.ttf') format('truetype');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-    .font-rougescript {
-      font-family: 'Rouge Script', cursive;
-      letter-spacing: -0.02em;
-      font-style: italic;
-    }
-  </style>
-
-  <OurServices />
 
   <MembershipCTA />
 
@@ -347,47 +310,25 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
     </div>
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="flex items-center justify-center mb-6">
-        <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-        <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z" />
-          </svg>
-        </span>
-        <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-12 lg:gap-16 items-start">
         <!-- Content -->
-        <div class="order-2 lg:order-1">
+        <div class="order-2 lg:order-1 lg:mt-12 w-full lg:max-w-none">
           <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-black mb-6">
-            <span data-i18n="about.title_prefix">Experiencia y</span>
-            <span class="text-[#F3A2A7]" data-i18n="about.title_highlight">Excelencia</span>
+            Renasci® <span class="text-[#F3A2A7]">Experience</span>
           </h2>
-          <p class="text-lg text-black/80 mb-6 leading-relaxed" data-i18n="about.paragraph1">
-            En Renasci Medical Spa, combinamos la más avanzada tecnología médica con un enfoque personalizado para cada cliente. Nuestro equipo de especialistas certificados se dedica a brindar resultados excepcionales en un ambiente seguro y profesional.
+          <p class="text-lg text-black/80 mb-6 leading-relaxed max-w-none">
+            At Renasci Medical Spa, we combine advanced medical technology with a personalized approach for every client. Our certified specialists deliver exceptional results in a safe, professional environment.
           </p>
-          <p class="text-lg text-black/80 mb-8 leading-relaxed" data-i18n="about.paragraph2">
-            Desde tratamientos de rejuvenecimiento facial hasta procedimientos corporales innovadores, cada servicio está diseñado para realzar tu belleza natural y aumentar tu confianza.
+          <p class="text-lg text-black/80 mb-8 leading-relaxed max-w-none">
+            From facial rejuvenation to innovative body treatments, every service is designed to enhance your natural beauty and boost your confidence.
           </p>
-          
-          <!-- Stats -->
-          <div class="grid grid-cols-2 gap-6 mb-8">
-            <div class="text-center p-4 bg-black/5 backdrop-blur-sm rounded-lg">
-              <div class="font-display font-bold text-2xl text-[#AABFA8] mb-1">500+</div>
-              <div class="text-sm text-black/70 uppercase tracking-wide"><span data-i18n="about.stats_clients">Clientes Satisfechos</span></div>
-            </div>
-            <div class="text-center p-4 bg-black/5 backdrop-blur-sm rounded-lg">
-              <div class="font-display font-bold text-2xl text-[#AABFA8] mb-1">5+</div>
-              <div class="text-sm text-black/70 uppercase tracking-wide"><span data-i18n="about.stats_years">Años de Experiencia</span></div>
-            </div>
-          </div>
 
           <CTAButton 
             href="/about"
             variant="primary"
             className="inline-flex items-center gap-2 hover:gap-3 transition-all duration-200"
           >
-            <span data-i18n="cta.learn_more">Conoce Más Sobre Nosotros</span>
+            <span>More about us</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
@@ -395,12 +336,12 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
         </div>
 
         <!-- Image -->
-        <div class="order-1 lg:order-2">
+        <div class="order-1 lg:order-2 -mx-4 sm:-mx-6 lg:mx-0 lg:-ml-6">
           <div class="relative">
             <img 
-              src="/img/services/spa.jpg"
+              src="/img/about.jpg"
               alt="Renasci Medical Spa"
-              class="w-full h-96 lg:h-[500px] object-cover rounded-[48px]"
+              class="w-full h-80 sm:h-96 lg:h-[520px] object-contain"
               loading="lazy"
             />
             <!-- Enhanced Decorative elements -->
@@ -413,6 +354,7 @@ const serviciosHome = serviciosUnificados.slice(0, 8);
   </section>
 
   <FAQ />
+  <TestimonialsSection />
   <SimpleContactForm />
 
   
