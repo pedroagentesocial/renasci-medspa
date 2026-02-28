@@ -106,9 +106,8 @@ const serviceLinks = [
 
       <!-- CTA Agendar (icono en móvil) -->
       <a 
-        href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD"
-        target="_blank"
-        rel="noopener"
+        href="#book-now"
+        data-booking-trigger="boulevard"
         class="flex items-center justify-center bg-[#C69C87] text-white rounded-full w-10 h-10 md:w-auto md:h-auto md:rounded-[48px] md:px-3 md:py-2 font-semibold text-xs md:text-sm transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C69C87]/50"
         aria-label="Agendar Ahora"
       >
@@ -152,7 +151,7 @@ const serviceLinks = [
 
   <div
     id="mobile-menu"
-    class="lg:hidden absolute left-0 right-0 top-full bg-white shadow-lg border-t border-gray-100 hidden"
+    class="lg:hidden absolute left-0 right-0 top-full bg-white shadow-lg border-t border-gray-100 hidden max-h-[calc(100vh-64px)] overflow-y-auto overscroll-contain"
     aria-hidden="true"
   >
     <nav class="px-6 py-4">
@@ -203,25 +202,42 @@ const serviceLinks = [
 
 </header>
 
-<!-- fixed-bottom-cta removed as requested -->
-
-<div id="scheduler-modal" class="fixed inset-0 z-[9997] hidden">
-  <div id="scheduler-backdrop" class="absolute inset-0 bg-black/60"></div>
-  <div class="absolute inset-x-4 md:inset-x-12 lg:inset-x-24 top-16 bottom-16 bg-white rounded-2xl shadow-2xl overflow-hidden">
-    <div class="flex items-center justify-between px-4 py-3 border-b">
-      <div class="font-semibold text-dark"><span data-i18n="cta.book_now">Agendar Ahora</span></div>
-      <button id="scheduler-close" class="rounded-full p-2 text-dark hover:bg-black/5">✕</button>
+<div id="boulevard-panel-modal" class="fixed inset-0 z-[9997] opacity-0 pointer-events-none transition-opacity duration-300">
+  <div id="boulevard-panel-backdrop" class="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300"></div>
+  <div id="boulevard-panel" class="absolute left-0 top-0 h-full w-full max-w-[520px] bg-white shadow-2xl overflow-hidden flex flex-col transform -translate-x-full transition-transform duration-300 relative">
+    <div id="boulevard-panel-loading" class="absolute inset-0 flex flex-col items-center justify-center text-center px-6 bg-white">
+      <div class="text-base font-semibold text-black">Cargando agenda...</div>
+      <div class="text-sm text-black/70 mt-2">Si no aparece, inténtalo de nuevo en unos segundos.</div>
     </div>
-    <iframe id="scheduler-frame" class="w-full h-full" src="" loading="lazy"></iframe>
+    <iframe id="boulevard-panel-frame" class="w-full h-full" src="" loading="lazy"></iframe>
   </div>
-  </div>
+</div>
 
 <style>
-  /* fixed-bottom-cta removed */
 </style>
 
 <script>
-  // Navbar scroll behavior
+  (function (a) {
+    var b = {
+      businessId: '3fdd50b8-7139-46c6-b272-20a94ddbbf3d',
+    };
+
+    var c = a.createElement('script');
+    var d = a.querySelector('script');
+
+    c.src = 'https://static.joinboulevard.com/injector.min.js';
+    c.async = true;
+    c.onload = function () {
+      (window as any).blvd.init(b);
+    };
+
+    if (d && d.parentNode) {
+      d.parentNode.insertBefore(c, d);
+    } else {
+      document.head.appendChild(c);
+    }
+  })(document);
+
   function initNavbarScroll() {
     const header = document.getElementById('siteHeader');
     const logo = document.getElementById('brandLogo');
@@ -260,33 +276,64 @@ const serviceLinks = [
     updateNavbar();
   }
 
-  function initScheduler() {
-    const schedulerUrlValue = document.getElementById('siteHeader')?.getAttribute('data-scheduler-url') ?? '';
-    let u = schedulerUrlValue || 'https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD';
-    const modal = document.getElementById('scheduler-modal');
-    const frame = document.getElementById('scheduler-frame') as HTMLIFrameElement | null;
-    const backdrop = document.getElementById('scheduler-backdrop');
-    const closeButton = document.getElementById('scheduler-close');
-    if (!modal || !frame || !backdrop || !closeButton) return;
+  function initBoulevardPanel() {
+    const modal = document.getElementById('boulevard-panel-modal');
+    const frame = document.getElementById('boulevard-panel-frame') as HTMLIFrameElement | null;
+    const backdrop = document.getElementById('boulevard-panel-backdrop');
+    const panel = document.getElementById('boulevard-panel');
+    const loading = document.getElementById('boulevard-panel-loading');
+    if (!modal || !frame || !backdrop || !panel || !loading) return null;
     const modalEl = modal as HTMLElement;
     const frameEl = frame as HTMLIFrameElement;
     const backdropEl = backdrop as HTMLElement;
-    const closeEl = closeButton as HTMLElement;
+    const panelEl = panel as HTMLElement;
+    const loadingEl = loading as HTMLElement;
+    const businessId = '3fdd50b8-7139-46c6-b272-20a94ddbbf3d';
+    const getBoulevardUrl = () => {
+      const w = window as any;
+      if (w.blvd && typeof w.blvd.url === 'string' && w.blvd.url.length > 0) return w.blvd.url;
+      return `https://www.joinblvd.com/b/${businessId}/widget`;
+    };
     function close() {
-      modalEl.classList.add('hidden');
+      modalEl.classList.remove('opacity-100', 'pointer-events-auto');
+      modalEl.classList.add('opacity-0', 'pointer-events-none');
+      backdropEl.classList.remove('opacity-100');
+      backdropEl.classList.add('opacity-0');
+      panelEl.classList.remove('translate-x-0');
+      panelEl.classList.add('-translate-x-full');
       frameEl.src = '';
+      loadingEl.classList.remove('hidden');
       document.body.style.overflow = '';
     }
-    function trigger() {
-      modalEl.classList.remove('hidden');
-      frameEl.src = u;
+    function open() {
+      modalEl.classList.remove('opacity-0', 'pointer-events-none');
+      modalEl.classList.add('opacity-100', 'pointer-events-auto');
+      backdropEl.classList.remove('opacity-0');
+      backdropEl.classList.add('opacity-100');
+      panelEl.classList.remove('-translate-x-full');
+      panelEl.classList.add('translate-x-0');
+      loadingEl.classList.remove('hidden');
+      frameEl.src = getBoulevardUrl();
       document.body.style.overflow = 'hidden';
     }
-    (window as any).__triggerScheduler = trigger;
-    (window as any).__openScheduler = trigger;
+    frameEl.addEventListener('load', () => {
+      loadingEl.classList.add('hidden');
+    });
     backdropEl.addEventListener('click', close);
-    closeEl.addEventListener('click', close);
-    document.addEventListener('keydown', (e) => { const k = (e as KeyboardEvent).key; if (k === 'Escape' && !modalEl.classList.contains('hidden')) close(); });
+    document.addEventListener('keydown', (e) => { const k = (e as KeyboardEvent).key; if (k === 'Escape' && !modalEl.classList.contains('pointer-events-none')) close(); });
+    return { open };
+  }
+
+  function initBoulevardTrigger() {
+    const triggers = document.querySelectorAll('[data-booking-trigger="boulevard"]');
+    if (!triggers.length) return;
+    const panelApi = initBoulevardPanel();
+    triggers.forEach((el) => {
+      el.addEventListener('click', (event) => {
+        event.preventDefault();
+        panelApi?.open();
+      });
+    });
   }
 
   // Call button ripple effect
@@ -477,7 +524,7 @@ const serviceLinks = [
     initCallButtonRipple();
     initServicesDropdown();
     initMegaMenu();
-    initScheduler();
+    initBoulevardTrigger();
     initMobileMenu();
     initHeaderLang();
   });
