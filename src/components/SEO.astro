@@ -26,7 +26,7 @@ const {
 } = Astro.props;
 
 // Construct full URLs
-const siteUrl = "https://tu-dominio.com";
+const siteUrl = Astro.site?.toString() ?? import.meta.env.SITE ?? "https://pedroagentesocial.github.io";
 const fullUrl = new URL(url, siteUrl).toString();
 const fullImageUrl = new URL(image, siteUrl).toString();
 const canonical = canonicalUrl ? new URL(canonicalUrl, siteUrl).toString() : fullUrl;
