@@ -54,24 +54,6 @@ import TransformCTA from '../components/TransformCTA.astro';
           Únete a nuestra comunidad exclusiva y descubre una nueva dimensión de cuidado personal con beneficios únicos, tratamientos premium y atención personalizada.
         </p>
         
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <CTAButton 
-            href="#planes"
-            variant="primary"
-            className="px-8 py-4 text-lg font-semibold bg-[#F3A2A7] text-white hover:opacity-90 focus-visible:ring-[#F3A2A7]/50"
-          >
-            <span data-t-es="Ver Planes de Membresía" data-t-en="View Membership Plans">Ver Planes de Membresía</span>
-          </CTAButton>
-          
-          <CTAButton 
-            href="#contacto"
-            variant="mint"
-            className="px-8 py-4 text-lg font-semibold focus-visible:ring-[#AABFA8]/50"
-          >
-            <span data-t-es="Consulta Gratuita" data-t-en="Free Consultation">Consulta Gratuita</span>
-          </CTAButton>
-        </div>
         
         <!-- Stats animados -->
         <div class="hidden">
@@ -127,7 +109,7 @@ import TransformCTA from '../components/TransformCTA.astro';
           <TierCard
               title="Signature Glow Membership"
               titleEn="Signature Glow Membership"
-              price="$100"
+              price="$99"
               period="mes"
               periodEn="month"
               description="Precios exclusivos y beneficios wellness para mantener tu glow todo el año."
@@ -135,22 +117,20 @@ import TransformCTA from '../components/TransformCTA.astro';
               features={[
                 "Botox / Tox: $12 por unidad",
                 "15% OFF en faciales médicos",
-                "15% OFF en dermal fillers",
-                "Inyección mensual de vitamina B12 incluida",
+                "$60 OFF en dermal fillers",
                 "10% OFF en IV Therapy",
                 "10% OFF en tratamientos de péptidos",
-                "Priority booking y promociones exclusivas",
-                "Mantenimiento estético continuo personalizado"
+                "10% OFF Wellness Performance Shots",
+                "Priority booking y promociones exclusivas"
               ]}
               featuresEn={[
                 "Botox / Tox: $12 per unit",
                 "15% OFF medical facials",
-                "15% OFF dermal fillers",
-                "Monthly vitamin B12 injection included",
+                "$60 OFF dermal fillers",
                 "10% OFF IV Therapy",
                 "10% OFF peptide treatments",
-                "Priority booking and exclusive promotions",
-                "Personalized continuous aesthetic maintenance"
+                "10% OFF Wellness Performance Shots",
+                "Priority booking and exclusive promotions"
               ]}
               ctaText="Unirme a Signature Glow"
               ctaTextEn="Join Signature Glow"
@@ -175,25 +155,23 @@ import TransformCTA from '../components/TransformCTA.astro';
               descriptionEn="Premium membership with elevated aesthetic results and advanced benefits."
               features={[
                 "Botox / Tox: $10 por unidad",
-                "$150 OFF en dermal fillers",
                 "20% OFF en faciales médicos",
+                "$150 OFF en dermal fillers",
                 "20% OFF en IV Therapy",
                 "15% OFF en tratamientos de péptidos",
-                "Inyección mensual de B12 o Fat Blaster incluida",
-                "Evaluación médica cada 6 meses",
+                "20% OFF Wellness Performance Shots",
                 "Priority booking y promociones exclusivas",
-                "Mantenimiento estético continuo personalizado"
+                "Evaluación médica cada 6 meses"
               ]}
               featuresEn={[
                 "Botox / Tox: $10 per unit",
-                "$150 OFF dermal fillers",
                 "20% OFF medical facials",
+                "$150 OFF dermal fillers",
                 "20% OFF IV Therapy",
                 "15% OFF peptide treatments",
-                "Monthly B12 or Fat Blaster injection included",
-                "Medical evaluation every 6 months",
+                "20% OFF Wellness Performance Shots",
                 "Priority booking and exclusive promotions",
-                "Personalized continuous aesthetic maintenance"
+                "Medical evaluation every 6 months"
               ]}
               ctaText="Unirme a Signature Elite"
               ctaTextEn="Join Signature Elite"
@@ -245,18 +223,18 @@ import TransformCTA from '../components/TransformCTA.astro';
             </tr>
             <tr class="bg-white">
               <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Faciales médicos" data-t-en="Medical Facials">Faciales médicos</td>
-              <td class="px-5 py-4 text-gray-700">15% OFF</td>
+              <td class="px-5 py-4 text-gray-700">$80 OFF</td>
               <td class="px-5 py-4 text-gray-700">20% OFF</td>
             </tr>
             <tr class="bg-white">
               <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Dermal Fillers" data-t-en="Dermal Fillers">Dermal Fillers</td>
-              <td class="px-5 py-4 text-gray-700">15% OFF</td>
+              <td class="px-5 py-4 text-gray-700">$60 OFF</td>
               <td class="px-5 py-4 text-gray-700">$150 OFF</td>
             </tr>
             <tr class="bg-white">
-              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Inyección mensual" data-t-en="Monthly Injection">Inyección mensual</td>
-              <td class="px-5 py-4 text-gray-700" data-t-es="B12 incluida" data-t-en="B12 included">B12 incluida</td>
-              <td class="px-5 py-4 text-gray-700" data-t-es="B12 o Fat Blaster incluida" data-t-en="B12 or Fat Blaster included">B12 o Fat Blaster incluida</td>
+              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Wellness Performance Shots" data-t-en="Wellness Performance Shots">Wellness Performance Shots</td>
+              <td class="px-5 py-4 text-gray-700">10% OFF</td>
+              <td class="px-5 py-4 text-gray-700">20% OFF</td>
             </tr>
             <tr class="bg-white">
               <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="IV Therapy" data-t-en="IV Therapy">IV Therapy</td>

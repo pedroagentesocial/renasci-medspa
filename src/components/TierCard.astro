@@ -112,24 +112,25 @@ const effectiveBadgeColor = Astro.props.badgeColor;
       </ul>
     </div>
     
-    <!-- CTA Button -->
-    <div class="mt-auto">
-      <a 
-        href={ctaHref}
-        class={`block w-full text-center py-4 px-4 md:px-6 rounded-lg font-semibold transition-all duration-300 min-h-[44px] flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
-          ctaClass
-            ? ctaClass
-            : (highlight 
-                ? 'bg-primary text-white hover:bg-primary/90' 
-                : (variant === 'dark' 
-                    ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20 focus-visible:ring-white focus-visible:ring-offset-black' 
-                    : 'bg-soft text-dark hover:bg-primary hover:text-white border-2 border-transparent hover:border-primary focus-visible:ring-primary focus-visible:ring-offset-white'))
-        }`}
-        data-cta-el
-      >
-        {ctaText}
-      </a>
-    </div>
+    {ctaText && (
+      <div class="mt-auto">
+        <a 
+          href={ctaHref}
+          class={`block w-full text-center py-4 px-4 md:px-6 rounded-lg font-semibold transition-all duration-300 min-h-[44px] flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+            ctaClass
+              ? ctaClass
+              : (highlight 
+                  ? 'bg-primary text-white hover:bg-primary/90' 
+                  : (variant === 'dark' 
+                      ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20 focus-visible:ring-white focus-visible:ring-offset-black' 
+                      : 'bg-soft text-dark hover:bg-primary hover:text-white border-2 border-transparent hover:border-primary focus-visible:ring-primary focus-visible:ring-offset-white'))
+          }`}
+          data-cta-el
+        >
+          {ctaText}
+        </a>
+      </div>
+    )}
   </div>
 </div>
 
