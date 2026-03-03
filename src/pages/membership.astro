@@ -4,11 +4,13 @@ import TierCard from '../components/TierCard.astro';
 import CTAButton from '../components/CTAButton.astro';
 import FAQItem from '../components/FAQItem.astro';
 import SimpleContactForm from '../components/SimpleContactForm.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
+import TransformCTA from '../components/TransformCTA.astro';
 ---
 
 <BaseLayout 
   title="Membresías - Renasci Medical Spa"
-  description="Descubre nuestros planes de membresía: Renasci Vital y Renasci Vital + Premier. Beneficios en inyecciones, neurotoxinas, Ozempic/Semaglutide, microneedling y PRP, más evaluaciones personalizadas."
+  description="Descubre nuestras membresías Signature Glow y Signature Elite con precios exclusivos, beneficios wellness e inyecciones mensuales incluidas."
 >
   <!-- Hero Section Renovado -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -100,96 +102,101 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
   <!-- Sección Elige tu Plan Perfecto (MOVIDA AQUÍ) -->
   <section id="planes" class="py-20 bg-white text-black">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <div class="flex items-center justify-center mb-4">
-          <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-          <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8M8 12h8" />
-            </svg>
-          </span>
-          <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
+      <div class="relative text-center mb-16">
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full bg-[#F3A2A7]/15 blur-3xl"></div>
+        <div class="absolute -bottom-12 left-8 w-40 h-40 rounded-full bg-[#1DD1A1]/10 blur-2xl"></div>
+        <div class="relative inline-flex flex-col items-center gap-4 px-8 py-8 sm:px-10 sm:py-10 bg-white/90 backdrop-blur border border-[#F3A2A7]/30 rounded-3xl shadow-[0_20px_50px_rgba(243,162,167,0.25)]">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.2em] text-[#B76B71] bg-[#F3A2A7]/15 uppercase" data-t-es="Membresías Signature" data-t-en="Signature Memberships">Membresías Signature</span>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 tracking-tight" data-t-es="Elige tu Membresía Signature" data-t-en="Choose Your Signature Membership">Elige tu Membresía Signature</h2>
+          <p class="text-lg md:text-xl text-black/70 max-w-3xl leading-relaxed" data-t-es="Beneficios exclusivos y precios preferenciales diseñados para mantener tu glow todo el año." data-t-en="Exclusive benefits and preferred pricing designed to keep your glow year‑round.">
+            Beneficios exclusivos y precios preferenciales diseñados para mantener tu glow todo el año.
+          </p>
+          <div class="flex items-center gap-3 text-sm text-black/60">
+            <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
+            <span data-t-es="Dos niveles, un solo glow" data-t-en="Two tiers, one glow">Dos niveles, un solo glow</span>
+            <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
+          </div>
         </div>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-[#F3A2A7] mb-6 tracking-tight" data-t-es="Elige tu Plan Perfecto" data-t-en="Choose Your Perfect Plan">Elige tu Plan Perfecto</h2>
-        <p class="text-xl text-black/80 max-w-3xl mx-auto leading-relaxed" data-t-es="Cada plan está diseñado para diferentes necesidades y presupuestos. Todos incluyen beneficios exclusivos y atención personalizada." data-t-en="Each plan is designed for different needs and budgets. All include exclusive benefits and personalized care.">
-          Cada plan está diseñado para diferentes necesidades y presupuestos. 
-          Todos incluyen beneficios exclusivos y atención personalizada.
-        </p>
       </div>
       
       <!-- Mobile: Stack vertical con Glow al centro (order-2) -->
       <!-- Desktop: Grid de 3 columnas con Glow destacado -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        <!-- Renasci Vital -->
+        <!-- Signature Glow -->
         <div class="order-1 lg:order-1 plan-card">
           <TierCard
-              title="Renasci Vital"
-              titleEn="Renasci Vital"
-              price="USD $100"
+              title="Signature Glow Membership"
+              titleEn="Signature Glow Membership"
+              price="$100"
               period="mes"
               periodEn="month"
-              description="Beneficios esenciales y una inyección mensual incluida para mantener tu bienestar."
-              descriptionEn="Essential benefits and one monthly injection included to maintain your wellness."
+              description="Precios exclusivos y beneficios wellness para mantener tu glow todo el año."
+              descriptionEn="Exclusive pricing and wellness perks to keep you glowing year‑round."
               features={[
-                "1 inyección mensual incluida (B12 Energy Shot o Fat Blaster Shot)",
-                "20% off en Ozempic/Semaglutide",
-                "20% de descuento en neurotoxinas (Botox, Dysport, Xeomin)",
-                "10% de descuento en microneedling o PRP básico",
-                "Consulta médica estética anual gratuita"
+                "Botox / Tox: $12 por unidad",
+                "15% OFF en faciales médicos",
+                "15% OFF en dermal fillers",
+                "Inyección mensual de vitamina B12 incluida",
+                "10% OFF en IV Therapy",
+                "10% OFF en tratamientos de péptidos",
+                "Priority booking y promociones exclusivas",
+                "Mantenimiento estético continuo personalizado"
               ]}
               featuresEn={[
-                "1 monthly injection included (B12 Energy Shot or Fat Blaster Shot)",
-                "20% off Ozempic/Semaglutide",
-                "20% off neuromodulators (Botox, Dysport, Xeomin)",
-                "10% off microneedling or basic PRP",
-                "Free annual aesthetic medical consultation"
+                "Botox / Tox: $12 per unit",
+                "15% OFF medical facials",
+                "15% OFF dermal fillers",
+                "Monthly vitamin B12 injection included",
+                "10% OFF IV Therapy",
+                "10% OFF peptide treatments",
+                "Priority booking and exclusive promotions",
+                "Personalized continuous aesthetic maintenance"
               ]}
-              ctaText="Unirme a Renasci Vital"
-              ctaTextEn="Join Renasci Vital"
+              ctaText="Unirme a Signature Glow"
+              ctaTextEn="Join Signature Glow"
               ctaHref="#contacto"
               class="h-full min-h-[30rem] bg-white text-black border-2 border-[#1DD1A1] hover:ring-2 hover:ring-[#1DD1A1]"
               variant="light"
               ctaClass="bg-[#1DD1A1] text-white hover:opacity-90 border-2 border-[#1DD1A1] focus-visible:ring-[#1DD1A1] focus-visible:ring-offset-white"
               titleClass="text-3xl md:text-4xl text-black"
               hoverBorderColor="#1DD1A1"
-              badgeText="Mejor Precio"
-              badgeTextEn="Best Price"
-              badgeColor="#1DD1A1"
-              badgeImportance="secondary"
             />
         </div>
 
-        <!-- Renasci Vital + Premier -->
+        <!-- Signature Elite -->
         <div class="order-2 lg:order-2 plan-card-featured">
           <TierCard
-              title="Renasci Vital + Premier"
-              titleEn="Renasci Vital + Premier"
-              price="USD $200"
+              title="Signature Elite Membership"
+              titleEn="Signature Elite Membership"
+              price="$189"
               period="mes"
               periodEn="month"
-              description="Beneficios ampliados, mayores descuentos y seguimiento médico personalizado."
-              descriptionEn="Expanded benefits, greater discounts, and personalized medical follow-up."
+              description="Membresía premium con resultados estéticos elevados y beneficios avanzados."
+              descriptionEn="Premium membership with elevated aesthetic results and advanced benefits."
               features={[
-                "1 inyección mensual incluida (B12 Energy Shot o Fat Blaster Shot)",
-                "20% off en Ozempic/Semaglutide",
-                "30% de descuento en neurotoxinas (Botox, Dysport, Xeomin)",
-                "10% de descuento en microneedling o PRP básico",
-                "15% de descuento en dermal fillers y lip augmentation",
-                "15% de descuento en tratamientos especializados (O‑Shot, Nefertiti Lift, ChinBella)",
-                "Evaluación médica + plan de rejuvenecimiento cada 6 meses"
+                "Botox / Tox: $10 por unidad",
+                "$150 OFF en dermal fillers",
+                "20% OFF en faciales médicos",
+                "20% OFF en IV Therapy",
+                "15% OFF en tratamientos de péptidos",
+                "Inyección mensual de B12 o Fat Blaster incluida",
+                "Evaluación médica cada 6 meses",
+                "Priority booking y promociones exclusivas",
+                "Mantenimiento estético continuo personalizado"
               ]}
               featuresEn={[
-                "1 monthly injection included (B12 Energy Shot or Fat Blaster Shot)",
-                "20% off Ozempic/Semaglutide",
-                "30% off neuromodulators (Botox, Dysport, Xeomin)",
-                "10% off microneedling or basic PRP",
-                "15% off dermal fillers and lip augmentation",
-                "15% off specialized treatments (O‑Shot, Nefertiti Lift, ChinBella)",
-                "Medical evaluation + rejuvenation plan every 6 months"
+                "Botox / Tox: $10 per unit",
+                "$150 OFF dermal fillers",
+                "20% OFF medical facials",
+                "20% OFF IV Therapy",
+                "15% OFF peptide treatments",
+                "Monthly B12 or Fat Blaster injection included",
+                "Medical evaluation every 6 months",
+                "Priority booking and exclusive promotions",
+                "Personalized continuous aesthetic maintenance"
               ]}
-              ctaText="Unirme a Vital + Premier"
-              ctaTextEn="Join Vital + Premier"
+              ctaText="Unirme a Signature Elite"
+              ctaTextEn="Join Signature Elite"
               ctaHref="#contacto"
               highlight={false}
               badgeImportance="primary"
@@ -212,200 +219,71 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
     .plan-card-featured .tier-card .text-graytxt{ color:#000 !important }
   </style>
 
-  <!-- Sección de Beneficios con Iconos Animados -->
-  <section class="py-20 bg-white text-black">
+  <section class="py-16 bg-white text-black">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <div class="flex items-center justify-center mb-4">
-          <div class="flex-1 h-[2px] bg-gray-200"></div>
-          <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8M8 12h8" />
-            </svg>
-          </span>
-          <div class="flex-1 h-[2px] bg-gray-200"></div>
-        </div>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 mb-6">
-          <span data-t-es="¿Por qué elegir" data-t-en="Why choose">¿Por qué elegir</span> <span class="text-[#F3A2A7]">Renasci</span>?
-        </h2>
-        <p class="text-xl text-black/80 max-w-3xl mx-auto">
-          <span data-t-es="Más que un spa, somos tu partner en el journey hacia tu mejor versión" data-t-en="More than a spa, we are your partner on the journey to your best self">Más que un spa, somos tu partner en el journey hacia tu mejor versión</span>
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F3A2A7]/10 text-[#B76B71] text-xs font-semibold tracking-[0.2em] uppercase" data-t-es="Comparativa Signature" data-t-en="Signature Comparison">Comparativa Signature</div>
+        <h2 class="benefits-title font-display font-bold text-3xl md:text-4xl text-gray-900 mt-4 mb-4" data-t-es="Beneficios lado a lado" data-t-en="Benefits Side by Side">Beneficios lado a lado</h2>
+        <p class="text-lg text-black/70 max-w-3xl mx-auto" data-t-es="Visualiza rápido la diferencia entre Glow y Elite." data-t-en="See the Glow vs Elite difference at a glance.">
+          Visualiza rápido la diferencia entre Glow y Elite.
         </p>
       </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Beneficio 1 -->
-        <div class="benefit-card group bg-white p-8 rounded-2xl hover:shadow-xl transition-all duration-500 border border-gray-200 hover:border-primary/30">
-          <div class="benefit-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-            </svg>
-          </div>
-          <h3 class="font-bold text-xl text-gray-900 mb-4" data-t-es="Descuentos Exclusivos" data-t-en="Exclusive Discounts">Descuentos Exclusivos</h3>
-          <p class="text-gray-700 leading-relaxed" data-t-es="Hasta 30% de descuento en todos nuestros servicios y productos premium" data-t-en="Up to 30% off all our services and premium products">Hasta 30% de descuento en todos nuestros servicios y productos premium</p>
-        </div>
-        
-        <!-- Beneficio 2 -->
-        <div class="benefit-card group bg-white p-8 rounded-2xl hover:shadow-xl transition-all duration-500 border border-gray-200 hover:border-primary/30">
-          <div class="benefit-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h3 class="font-bold text-xl text-gray-900 mb-4" data-t-es="Acceso Prioritario" data-t-en="Priority Access">Acceso Prioritario</h3>
-          <p class="text-gray-700 leading-relaxed" data-t-es="Reserva tus citas con prioridad y accede a horarios exclusivos para miembros" data-t-en="Book your appointments with priority and access exclusive member times">Reserva tus citas con prioridad y accede a horarios exclusivos para miembros</p>
-        </div>
-        
-        <!-- Beneficio 3 -->
-        <div class="benefit-card group bg-white p-8 rounded-2xl hover:shadow-xl transition-all duración-500 border border-gray-200 hover:border-primary/30">
-          <div class="benefit-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-            </svg>
-          </div>
-          <h3 class="font-bold text-xl text-gray-900 mb-4" data-t-es="Atención Personalizada" data-t-en="Personalized Care">Atención Personalizada</h3>
-          <p class="text-gray-700 leading-relaxed" data-t-es="Plan de tratamiento personalizado y seguimiento continuo de tus resultados" data-t-en="Personalized treatment plan and continuous tracking of your results">Plan de tratamiento personalizado y seguimiento continuo de tus resultados</p>
-        </div>
-        
-        <!-- Beneficio 4 -->
-        <div class="benefit-card group bg-white p-8 rounded-2xl hover:shadow-xl transition-all duración-500 border border-gray-200 hover:border-primary/30">
-          <div class="benefit-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-            </svg>
-          </div>
-          <h3 class="font-bold text-xl text-gray-900 mb-4" data-t-es="Productos Premium" data-t-en="Premium Products">Productos Premium</h3>
-          <p class="text-gray-700 leading-relaxed" data-t-es="Kit completo de productos para el hogar y acceso a líneas exclusivas" data-t-en="Complete home product kit and access to exclusive lines">Kit completo de productos para el hogar y acceso a líneas exclusivas</p>
-        </div>
-        
-        <!-- Beneficio 5 -->
-        <div class="benefit-card group bg-white p-8 rounded-2xl hover:shadow-xl transition-all duración-500 border border-gray-200 hover:border-primary/30">
-          <div class="benefit-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
-          </div>
-          <h3 class="font-bold text-xl text-gray-900 mb-4" data-t-es="Comunidad Exclusiva" data-t-en="Exclusive Community">Comunidad Exclusiva</h3>
-          <p class="text-gray-700 leading-relaxed" data-t-es="Eventos especiales, workshops y acceso a nuestra comunidad VIP" data-t-en="Special events, workshops, and access to our VIP community">Eventos especiales, workshops y acceso a nuestra comunidad VIP</p>
-        </div>
-        
-        <!-- Beneficio 6 -->
-        <div class="benefit-card group bg-white p-8 rounded-2xl hover:shadow-xl transition-all duración-500 border border-gray-200 hover:border-primary/30">
-          <div class="benefit-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 109.75 9.75A9.75 9.75 0 0012 2.25z"></path>
-            </svg>
-          </div>
-          <h3 class="font-bold text-xl text_gray-900 mb-4" data-t-es="Soporte 24/7" data-t-en="24/7 Support">Soporte 24/7</h3>
-          <p class="text_gray-700 leading-relaxed" data-t-es="Atención personalizada cuando la necesites, con soporte dedicado para miembros" data-t-en="Personalized attention whenever you need it, with dedicated member support">Atención personalizada cuando la necesites, con soporte dedicado para miembros</p>
-        </div>
+      <div class="overflow-x-auto border border-gray-200 rounded-2xl">
+        <table class="min-w-full text-sm md:text-base">
+          <thead class="bg-[#F3A2A7]/10">
+            <tr>
+              <th class="px-5 py-4 text-left font-semibold text-gray-900" data-t-es="Beneficio" data-t-en="Benefit">Beneficio</th>
+              <th class="px-5 py-4 text-left font-semibold text-gray-900">Signature Glow</th>
+              <th class="px-5 py-4 text-left font-semibold text-gray-900">Signature Elite</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="bg-white">
+              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Botox / Tox" data-t-en="Botox / Tox">Botox / Tox</td>
+              <td class="px-5 py-4 text-gray-700" data-t-es="$12 por unidad" data-t-en="$12 per unit">$12 por unidad</td>
+              <td class="px-5 py-4 text-gray-700" data-t-es="$10 por unidad" data-t-en="$10 per unit">$10 por unidad</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Faciales médicos" data-t-en="Medical Facials">Faciales médicos</td>
+              <td class="px-5 py-4 text-gray-700">15% OFF</td>
+              <td class="px-5 py-4 text-gray-700">20% OFF</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Dermal Fillers" data-t-en="Dermal Fillers">Dermal Fillers</td>
+              <td class="px-5 py-4 text-gray-700">15% OFF</td>
+              <td class="px-5 py-4 text-gray-700">$150 OFF</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Inyección mensual" data-t-en="Monthly Injection">Inyección mensual</td>
+              <td class="px-5 py-4 text-gray-700" data-t-es="B12 incluida" data-t-en="B12 included">B12 incluida</td>
+              <td class="px-5 py-4 text-gray-700" data-t-es="B12 o Fat Blaster incluida" data-t-en="B12 or Fat Blaster included">B12 o Fat Blaster incluida</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="IV Therapy" data-t-en="IV Therapy">IV Therapy</td>
+              <td class="px-5 py-4 text-gray-700">10% OFF</td>
+              <td class="px-5 py-4 text-gray-700">20% OFF</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Tratamientos de péptidos" data-t-en="Peptide Treatments">Tratamientos de péptidos</td>
+              <td class="px-5 py-4 text-gray-700">10% OFF</td>
+              <td class="px-5 py-4 text-gray-700">15% OFF</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Evaluación médica" data-t-en="Medical Evaluation">Evaluación médica</td>
+              <td class="px-5 py-4 text-gray-700" data-t-es="—" data-t-en="—">—</td>
+              <td class="px-5 py-4 text-gray-700" data-t-es="Cada 6 meses" data-t-en="Every 6 months">Cada 6 meses</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Priority booking y promociones" data-t-en="Priority Booking & Promotions">Priority booking y promociones</td>
+              <td class="px-5 py-4 text-gray-700" data-t-es="Sí" data-t-en="Yes">Sí</td>
+              <td class="px-5 py-4 text-gray-700" data-t-es="Sí" data-t-en="Yes">Sí</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
-
-
-
-  <!-- Testimonios Interactivos -->
-  <section class="py-20 bg-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <div class="flex items-center justify-center mb-4">
-          <div class="flex-1 h-[2px] bg-gray-200"></div>
-          <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8M8 12h8" />
-            </svg>
-          </span>
-          <div class="flex-1 h-[2px] bg-gray-200"></div>
-        </div>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-text mb-6">
-          <span data-t-es="Historias de" data-t-en="Stories of">Historias de</span> <span class="text-[#F3A2A7]" data-t-es="Transformación" data-t-en="Transformation">Transformación</span>
-        </h2>
-        <p class="text-xl text-graytxt max-w-3xl mx-auto" data-t-es="Descubre cómo nuestros miembros han transformado su vida con Renasci" data-t-en="Discover how our members have transformed their lives with Renasci">
-          Descubre cómo nuestros miembros han transformado su vida con Renasci
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <!-- Testimonio 1 -->
-        <div class="testimonial-card bg-white/10 rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-white/10 hover:border-primary/30 group">
-          <div class="flex items-center mb-6">
-            <div class="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-              M
-            </div>
-            <div>
-              <div class="font-bold text-lg text-text">María González</div>
-              <div class="text-sm text-graytxt" data-t-es="Miembro Glow - 8 meses" data-t-en="Glow Member - 8 months">Miembro Glow - 8 meses</div>
-            </div>
-          </div>
-          
-          <div class="flex mb-4">
-            {[...Array(5)].map(() => (
-              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-              </svg>
-            ))}
-          </div>
-          
-          <p class="text-graytxt italic leading-relaxed group-hover:text-text transition-colors duration-300" data-t-es="&quot;El plan Glow ha sido increíble. Los descuentos me han permitido probar tratamientos que antes no podía costear, y el servicio prioritario es fantástico. Mi piel nunca se había visto mejor.&quot;" data-t-en="&quot;The Glow plan has been incredible. The discounts let me try treatments I couldn’t afford before, and the priority service is fantastic. My skin has never looked better.&quot;">
-            "El plan Glow ha sido increíble. Los descuentos me han permitido probar tratamientos que antes no podía costear, y el servicio prioritario es fantástico. Mi piel nunca se había visto mejor."
-          </p>
-        </div>
-        
-        <!-- Testimonio 2 -->
-        <div class="testimonial-card bg-white/10 rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-white/10 hover:border-primary/30 group">
-          <div class="flex items-center mb-6">
-            <div class="w-16 h-16 bg-gradient-to-br from-secondary to-secondary/80 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-              A
-            </div>
-            <div>
-              <div class="font-bold text-lg text-text">Ana Rodríguez</div>
-              <div class="text-sm text-graytxt" data-t-es="Miembro Elite - 1 año" data-t-en="Elite Member - 1 year">Miembro Elite - 1 año</div>
-            </div>
-          </div>
-          
-          <div class="flex mb-4">
-            {[...Array(5)].map(() => (
-              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-              </svg>
-            ))}
-          </div>
-          
-          <p class="text-graytxt italic leading-relaxed group-hover:text-text transition-colors duration-300" data-t-es="&quot;La experiencia Elite es incomparable. Mi concierge personal hace que todo sea perfecto, y los tratamientos ilimitados han transformado completamente mi rutina de belleza.&quot;" data-t-en="&quot;The Elite experience is unmatched. My personal concierge makes everything perfect, and the unlimited treatments have completely transformed my beauty routine.&quot;">
-            "La experiencia Elite es incomparable. Mi concierge personal hace que todo sea perfecto, y los tratamientos ilimitados han transformado completamente mi rutina de belleza."
-          </p>
-        </div>
-        
-        <!-- Testimonio 3 -->
-        <div class="testimonial-card bg-white/10 rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-white/10 hover:border-primary/30 group">
-          <div class="flex items-center mb-6">
-            <div class="w-16 h-16 bg-gradient-to-br from-primary/80 to-secondary rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-              C
-            </div>
-            <div>
-              <div class="font-bold text-lg text-text">Carmen López</div>
-              <div class="text-sm text-graytxt" data-t-es="Miembro Rack - 6 meses" data-t-en="Rack Member - 6 months">Miembro Rack - 6 meses</div>
-            </div>
-          </div>
-          
-          <div class="flex mb-4">
-            {[...Array(5)].map(() => (
-              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-              </svg>
-            ))}
-          </div>
-          
-          <p class="text-graytxt italic leading-relaxed group-hover:text-text transition-colors duration-300" data-t-es="&quot;Perfecto para empezar. El plan Rack me dio la confianza para probar Renasci, y ahora estoy considerando actualizar al Glow. ¡Los resultados hablan por sí solos!&quot;" data-t-en="&quot;Perfect for getting started. The Rack plan gave me the confidence to try Renasci, and now I’m considering upgrading to Glow. The results speak for themselves!&quot;">
-            "Perfecto para empezar. El plan Rack me dio la confianza para probar Renasci, y ahora estoy considerando actualizar al Glow. ¡Los resultados hablan por sí solos!"
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <TestimonialsSection />
 
   <!-- FAQ Mejorado con Animaciones -->
   <section class="py-20 bg-white">
@@ -489,6 +367,7 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
     </div>
   </section>
 
+  <TransformCTA />
   <SimpleContactForm />
 </BaseLayout>
 
@@ -509,7 +388,7 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
     }, observerOptions);
 
     // Observar elementos animables
-    document.querySelectorAll('.benefit-card, .testimonial-card, .plan-card, .plan-card-featured, .contact-info-item').forEach(el => {
+    document.querySelectorAll('.benefit-card, .testimonial-card, .plan-card, .plan-card-featured, .contact-info-item, .benefits-title').forEach(el => {
       observer.observe(el);
     });
   }
@@ -825,7 +704,8 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
   .testimonial-card,
   .plan-card,
   .plan-card-featured,
-  .contact-info-item {
+  .contact-info-item,
+  .benefits-title {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease-out;
@@ -835,7 +715,8 @@ import SimpleContactForm from '../components/SimpleContactForm.astro';
   .testimonial-card.animate-in,
   .plan-card.animate-in,
   .plan-card-featured.animate-in,
-  .contact-info-item.animate-in {
+  .contact-info-item.animate-in,
+  .benefits-title.animate-in {
     opacity: 1;
     transform: translateY(0);
   }

@@ -2,53 +2,105 @@
 import CTAButton from './CTAButton.astro';
 ---
 
-<section class="pt-6 md:pt-8 pb-8 lg:pb-12 bg-white">
+<section class="py-16 lg:py-20 bg-gradient-to-br from-[#FDF4F5] via-white to-[#F6FFFB]">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-4xl mx-auto">
-      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-black mb-6">
-        <span data-i18n="membership.join_title_prefix">Únete a Nuestra</span>
-        <span class="text-black" data-i18n="membership.join_title_highlight">Membresía</span>
-      </h2>
-      <p class="text-lg md:text-xl text-black/80 mb-8 leading-relaxed">
-        <span data-i18n="membership.join_subtitle">Accede a descuentos exclusivos, tratamientos prioritarios y beneficios especiales diseñados para nuestros miembros más valorados.</span>
-      </p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <div class="p-6">
-          <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <img src="/icons/dollar.png" alt="Descuentos" class="w-10 h-10 object-contain icon-pink" loading="lazy" />
-          </div>
-          <h3 class="font-semibold text-lg text-black mb-2"><span data-i18n="membership.benefit_discounts_title">Descuentos Exclusivos</span></h3>
-          <p class="text-black/70"><span data-i18n="membership.benefit_discounts_text">Descubre descuentos exclusivos en servicios seleccionados</span></p>
+    <div class="grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
+      <div class="text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-[#F3A2A7]/30 text-[#B76B71] text-xs font-semibold tracking-[0.2em] uppercase">
+          <span data-i18n="membership.join_title_prefix">Membresías Signature</span>
         </div>
-        
-        <div class="p-6">
-          <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <img src="/icons/lock.png" alt="Acceso prioritario" class="w-10 h-10 object-contain icon-pink" loading="lazy" />
-          </div>
-          <h3 class="font-semibold text-lg text-black mb-2"><span data-i18n="membership.benefit_priority_title">Acceso Prioritario</span></h3>
-          <p class="text-black/70"><span data-i18n="membership.benefit_priority_text">Reserva tus citas con prioridad y flexibilidad</span></p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-black mt-5 mb-5">
+          <span data-i18n="membership.join_title_highlight">Glow constante con beneficios reales</span>
+        </h2>
+        <p class="text-lg md:text-xl text-black/70 mb-8 leading-relaxed">
+          <span data-i18n="membership.join_subtitle">Precio preferencial, prioridad en agenda y un plan de mantenimiento estético pensado para ti.</span>
+        </p>
+        <div class="flex flex-wrap items-center gap-3 justify-center lg:justify-start mb-8">
+          <span class="px-4 py-2 rounded-full bg-white text-black border border-[#F3A2A7]/30 text-sm font-semibold">Signature Glow</span>
+          <span class="px-4 py-2 rounded-full bg-[#F3A2A7] text-white text-sm font-semibold">Signature Elite</span>
         </div>
-        
-        <div class="p-6">
-          <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <img src="/icons/heart.png" alt="Beneficios especiales" class="w-10 h-10 object-contain icon-pink" loading="lazy" />
-          </div>
-          <h3 class="font-semibold text-lg text-black mb-2"><span data-i18n="membership.benefit_special_title">Beneficios Especiales</span></h3>
-          <p class="text-black/70"><span data-i18n="membership.benefit_special_text">Tratamientos gratuitos y productos exclusivos</span></p>
-        </div>
+        <CTAButton 
+          href="/membership"
+          variant="primary"
+          className="inline-flex items-center gap-2 hover:gap-3 transition-all duration-200 bg-[#F3A2A7] text-white focus-visible:ring-[#F3A2A7]/50"
+        >
+          <span data-i18n="membership.view_membership">Ver Beneficios y Planes</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </CTAButton>
       </div>
 
-      <CTAButton 
-        href="/membership"
-        variant="primary"
-        className="inline-flex items-center gap-2 hover:gap-3 transition-all duration-200 bg-[#F3A2A7] text-white focus-visible:ring-[#F3A2A7]/50"
-      >
-        <span data-i18n="membership.view_membership">Conoce Nuestra Membresía</span>
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-      </CTAButton>
+      <div class="bg-white rounded-3xl border border-[#F3A2A7]/20 shadow-[0_24px_60px_rgba(243,162,167,0.18)] p-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="flex gap-4">
+            <span class="w-10 h-10 rounded-full bg-[#F3A2A7]/15 text-[#B76B71] flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </span>
+            <div>
+              <h3 class="font-semibold text-base text-black" data-i18n="membership.benefit_discounts_title">Tox desde $12 y $10</h3>
+              <p class="text-black/60 text-sm" data-i18n="membership.benefit_discounts_text">Precios especiales por unidad en Glow y Elite.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="w-10 h-10 rounded-full bg-[#AABFA8]/20 text-[#6D8C7B] flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </span>
+            <div>
+              <h3 class="font-semibold text-base text-black" data-i18n="membership.benefit_priority_title">Faciales y fillers con descuento</h3>
+              <p class="text-black/60 text-sm" data-i18n="membership.benefit_priority_text">Hasta 20% OFF y $150 OFF en Elite.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="w-10 h-10 rounded-full bg-[#F3A2A7]/15 text-[#B76B71] flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </span>
+            <div>
+              <h3 class="font-semibold text-base text-black" data-i18n="membership.benefit_special_title">IV Therapy y Peptides</h3>
+              <p class="text-black/60 text-sm" data-i18n="membership.benefit_special_text">Descuentos especiales para bienestar continuo.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="w-10 h-10 rounded-full bg-[#AABFA8]/20 text-[#6D8C7B] flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </span>
+            <div>
+              <h3 class="font-semibold text-base text-black">B12 mensual incluida</h3>
+              <p class="text-black/60 text-sm">Fat Blaster incluido en Signature Elite.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="w-10 h-10 rounded-full bg-[#F3A2A7]/15 text-[#B76B71] flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </span>
+            <div>
+              <h3 class="font-semibold text-base text-black">Priority booking</h3>
+              <p class="text-black/60 text-sm">Citas preferentes y promociones exclusivas.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="w-10 h-10 rounded-full bg-[#AABFA8]/20 text-[#6D8C7B] flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </span>
+            <div>
+              <h3 class="font-semibold text-base text-black">Glow planificado</h3>
+              <p class="text-black/60 text-sm">Mantenimiento estético continuo personalizado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

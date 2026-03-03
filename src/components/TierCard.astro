@@ -134,7 +134,7 @@ const effectiveBadgeColor = Astro.props.badgeColor;
 </div>
 
 <script>
-  function applyTierCardLang(el, lang){
+  function applyTierCardLang(el = document.querySelector('.tier-card') || document.body, lang = 'es'){
     try {
       const t = el.getAttribute(lang === 'en' ? 'data-title-en' : 'data-title-es') || ''
       const d = el.getAttribute(lang === 'en' ? 'data-desc-en' : 'data-desc-es') || ''
@@ -165,12 +165,12 @@ const effectiveBadgeColor = Astro.props.badgeColor;
     const params = new URLSearchParams(window.location.search)
     const urlLang = params.get('lang')
     const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language')
-    const lang = urlLang === 'en' || urlLang === 'es' ? urlLang : (storedLang === 'en' ? 'en' : (window.i18nManager?.getCurrentLanguage?.() || document.documentElement.lang || 'es'))
+    const lang = urlLang === 'en' || urlLang === 'es' ? urlLang : (storedLang === 'en' ? 'en' : (document.documentElement.lang || 'es'))
     document.querySelectorAll('.tier-card').forEach((el) => applyTierCardLang(el, lang))
   }
   document.addEventListener('DOMContentLoaded', initTierCards)
-  window.addEventListener('languageChanged', (e) => {
-    const lang = e.detail?.language || 'es'
+  window.addEventListener('languageChanged', () => {
+    const lang = document.documentElement.lang || 'es'
     document.querySelectorAll('.tier-card').forEach((el) => applyTierCardLang(el, lang))
   })
 </script>

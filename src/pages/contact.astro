@@ -9,9 +9,11 @@ import TransformCTA from '../components/TransformCTA.astro';
   title="Contacto - Renasci Medical Spa"
   description="Contáctanos para agendar tu consulta gratuita. Estamos aquí para ayudarte en tu transformación de belleza y bienestar."
 >
-  <section class="pt-24 pb-16 md:pt-32 bg-black text-white text-center">
+  <section class="relative pt-24 pb-16 md:pt-32 text-white text-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-[center_top] lg:bg-[center_10%]" style="background-image: url('/img/about.jpg')" aria-label="Renasci Experience"></div>
+    <div class="absolute inset-0 bg-black/55"></div>
     <div class="container mx-auto px-4">
-      <div class="max-w-5xl mx-auto">
+      <div class="relative max-w-5xl mx-auto">
         <h1 class="font-display font-bold text-5xl md:text-6xl mb-4"><span data-t-es="Contáctanos" data-t-en="Contact Us">Contáctanos</span></h1>
         <p class="text-lg md:text-xl text-white/80 mb-8" data-t-es="Tu transformación comienza con una consulta gratuita. Estamos listos para ayudarte." data-t-en="Your transformation begins with a free consultation. We are ready to help you.">Tu transformación comienza con una consulta gratuita. Estamos listos para ayudarte.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
