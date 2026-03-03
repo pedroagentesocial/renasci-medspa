@@ -604,13 +604,17 @@ import TransformCTA from '../components/TransformCTA.astro';
      });
    }
 
-  // Inicializar todo cuando el DOM esté listo
-  document.addEventListener('DOMContentLoaded', () => {
+  let membershipInitialized = false;
+  const initMembershipPage = () => {
+    if (membershipInitialized) return;
+    membershipInitialized = true;
     initAnimations();
     initCounters();
     initRippleEffect();
     initTypingEffect();
-  });
+  };
+  document.addEventListener('DOMContentLoaded', initMembershipPage);
+  document.addEventListener('astro:page-load', initMembershipPage);
 </script>
 
 <style>
@@ -768,5 +772,6 @@ import TransformCTA from '../components/TransformCTA.astro';
     nodes.forEach((n) => { const es = n.getAttribute('data-t-es')||''; const en = n.getAttribute('data-t-en')||es; n.textContent = (lang==='en')? en : es })
   }
   document.addEventListener('DOMContentLoaded', applyMembershipLang)
+  document.addEventListener('astro:page-load', applyMembershipLang)
   window.addEventListener('languageChanged', (event) => { const detail = (event as any).detail as { language?: string } | undefined; const lang = detail?.language || 'es'; const nodes = Array.from(document.querySelectorAll('[data-t-es]')); nodes.forEach((n) => { const es = n.getAttribute('data-t-es')||''; const en = n.getAttribute('data-t-en')||es; n.textContent = (lang==='en')? en : es }) })
 </script>
