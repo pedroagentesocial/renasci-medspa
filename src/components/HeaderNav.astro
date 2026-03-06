@@ -106,7 +106,7 @@ const serviceLinks = [
 
       <!-- CTA Agendar (icono en móvil) -->
       <a 
-        href="#book-now"
+        href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget"
         data-booking-trigger="boulevard"
         class="flex items-center justify-center bg-[#C69C87] text-white rounded-full w-10 h-10 md:w-auto md:h-auto md:rounded-[48px] md:px-3 md:py-2 font-semibold text-xs md:text-sm transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C69C87]/50"
         aria-label="Agendar Ahora"
@@ -202,14 +202,39 @@ const serviceLinks = [
 
 </header>
 
-<div id="boulevard-panel-modal" class="fixed inset-0 z-[9997] opacity-0 pointer-events-none transition-opacity duration-300">
-  <div id="boulevard-panel-backdrop" class="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300"></div>
-  <div id="boulevard-panel" class="absolute left-0 top-0 h-full w-full max-w-[520px] bg-white shadow-2xl overflow-hidden flex flex-col transform -translate-x-full transition-transform duration-300 relative">
-    <div id="boulevard-panel-loading" class="absolute inset-0 flex flex-col items-center justify-center text-center px-6 bg-white">
-      <div class="text-base font-semibold text-black">Cargando agenda...</div>
-      <div class="text-sm text-black/70 mt-2">Si no aparece, inténtalo de nuevo en unos segundos.</div>
+<div id="booking-modal" class="fixed inset-0 z-[9999] hidden" aria-hidden="true">
+  <div id="booking-modal-backdrop" class="absolute inset-0 bg-black/60"></div>
+  <div class="absolute inset-0 flex items-center justify-center p-3 md:p-6">
+    <div id="booking-modal-panel" class="relative w-full max-w-[1100px] h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl">
+      <button
+        id="booking-modal-close"
+        type="button"
+        class="absolute top-3 right-3 z-20 w-10 h-10 rounded-full bg-black/70 text-white flex items-center justify-center hover:bg-black/85 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+        aria-label="Cerrar agenda"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <iframe
+        id="booking-modal-frame"
+        class="w-full h-full"
+        loading="lazy"
+        title="Agenda Boulevard"
+        src=""
+      ></iframe>
+      <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20">
+        <a
+          id="booking-modal-fallback-link"
+          href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-full bg-black/70 text-white px-4 py-2 text-xs font-semibold hover:bg-black/85"
+        >
+          Abrir agenda en ventana externa
+        </a>
+      </div>
     </div>
-    <iframe id="boulevard-panel-frame" class="w-full h-full" src="" loading="lazy"></iframe>
   </div>
 </div>
 
@@ -229,6 +254,12 @@ const serviceLinks = [
     c.async = true;
     c.onload = function () {
       (window as any).blvd.init(b);
+      const w = window as any;
+      if (w.blvd && typeof w.blvd.close === 'function') {
+        w.blvd.close();
+      }
+      (window as any).__boulevardReady = true;
+      window.dispatchEvent(new CustomEvent('boulevard:ready'));
     };
 
     if (d && d.parentNode) {
@@ -276,63 +307,44 @@ const serviceLinks = [
     updateNavbar();
   }
 
-  function initBoulevardPanel() {
-    const modal = document.getElementById('boulevard-panel-modal');
-    const frame = document.getElementById('boulevard-panel-frame') as HTMLIFrameElement | null;
-    const backdrop = document.getElementById('boulevard-panel-backdrop');
-    const panel = document.getElementById('boulevard-panel');
-    const loading = document.getElementById('boulevard-panel-loading');
-    if (!modal || !frame || !backdrop || !panel || !loading) return null;
-    const modalEl = modal as HTMLElement;
-    const frameEl = frame as HTMLIFrameElement;
-    const backdropEl = backdrop as HTMLElement;
-    const panelEl = panel as HTMLElement;
-    const loadingEl = loading as HTMLElement;
-    const businessId = '3fdd50b8-7139-46c6-b272-20a94ddbbf3d';
-    const getBoulevardUrl = () => {
-      const w = window as any;
-      if (w.blvd && typeof w.blvd.url === 'string' && w.blvd.url.length > 0) return w.blvd.url;
-      return `https://www.joinblvd.com/b/${businessId}/widget`;
-    };
-    function close() {
-      modalEl.classList.remove('opacity-100', 'pointer-events-auto');
-      modalEl.classList.add('opacity-0', 'pointer-events-none');
-      backdropEl.classList.remove('opacity-100');
-      backdropEl.classList.add('opacity-0');
-      panelEl.classList.remove('translate-x-0');
-      panelEl.classList.add('-translate-x-full');
-      frameEl.src = '';
-      loadingEl.classList.remove('hidden');
-      document.body.style.overflow = '';
-    }
-    function open() {
-      modalEl.classList.remove('opacity-0', 'pointer-events-none');
-      modalEl.classList.add('opacity-100', 'pointer-events-auto');
-      backdropEl.classList.remove('opacity-0');
-      backdropEl.classList.add('opacity-100');
-      panelEl.classList.remove('-translate-x-full');
-      panelEl.classList.add('translate-x-0');
-      loadingEl.classList.remove('hidden');
-      frameEl.src = getBoulevardUrl();
-      document.body.style.overflow = 'hidden';
-    }
-    frameEl.addEventListener('load', () => {
-      loadingEl.classList.add('hidden');
-    });
-    backdropEl.addEventListener('click', close);
-    document.addEventListener('keydown', (e) => { const k = (e as KeyboardEvent).key; if (k === 'Escape' && !modalEl.classList.contains('pointer-events-none')) close(); });
-    return { open };
-  }
-
   function initBoulevardTrigger() {
-    const triggers = document.querySelectorAll('[data-booking-trigger="boulevard"]');
-    if (!triggers.length) return;
-    const panelApi = initBoulevardPanel();
-    triggers.forEach((el) => {
-      el.addEventListener('click', (event) => {
-        event.preventDefault();
-        panelApi?.open();
-      });
+    const w = window as any;
+    if (w.__boulevardClickBound) return;
+    w.__boulevardClickBound = true;
+    const modal = document.getElementById('booking-modal') as HTMLElement | null;
+    const frame = document.getElementById('booking-modal-frame') as HTMLIFrameElement | null;
+    const closeButton = document.getElementById('booking-modal-close') as HTMLButtonElement | null;
+    const backdrop = document.getElementById('booking-modal-backdrop') as HTMLElement | null;
+    const bookingUrl = 'https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget';
+    if (!modal || !frame || !closeButton || !backdrop) return;
+
+    const closeModal = () => {
+      modal.classList.add('hidden');
+      modal.setAttribute('aria-hidden', 'true');
+      frame.src = '';
+      document.body.style.overflow = '';
+    };
+    const openModal = () => {
+      modal.classList.remove('hidden');
+      modal.setAttribute('aria-hidden', 'false');
+      frame.src = bookingUrl;
+      document.body.style.overflow = 'hidden';
+    };
+
+    closeButton.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (event) => {
+      if ((event as KeyboardEvent).key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement | null;
+      const trigger = target?.closest?.('[data-booking-trigger="boulevard"]') as HTMLElement | null;
+      if (!trigger) return;
+      event.preventDefault();
+      openModal();
     });
   }
 
@@ -518,8 +530,7 @@ const serviceLinks = [
     });
   }
 
-  // Initialize all functionality when DOM is loaded
-  document.addEventListener('DOMContentLoaded', () => {
+  const initHeaderInteractions = () => {
     initNavbarScroll();
     initCallButtonRipple();
     initServicesDropdown();
@@ -527,9 +538,11 @@ const serviceLinks = [
     initBoulevardTrigger();
     initMobileMenu();
     initHeaderLang();
-  });
+  };
 
-  document.addEventListener('astro:page-load', initHeaderLang);
+  document.addEventListener('DOMContentLoaded', initHeaderInteractions);
+  document.addEventListener('astro:page-load', initHeaderInteractions);
+
   window.addEventListener('languageChanged', (e) => {
     const detail = (e as CustomEvent).detail as { language?: 'en' | 'es' } | undefined;
     const lang = detail?.language === 'en' || detail?.language === 'es' ? detail.language : getHeaderLang();
@@ -766,4 +779,5 @@ const serviceLinks = [
     background: inherit;
     z-index: 10;
   }
+
 </style>
