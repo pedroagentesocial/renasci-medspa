@@ -101,14 +101,65 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
         />
         </div>
       </div>
-      <!-- Slide 1: Image -->
-      <div class="hero-slide opacity-0 pointer-events-none transition-opacity duration-700 ease-out membership-slide">
-        <div 
-          class="absolute inset-0 w-full h-full bg-cover bg-center membership-bg"
-          style="background-image:url('/img/banner2.png')"
-          aria-label="Renasci Membership"
-        ></div>
-        <div class="absolute inset-0 bg-black/40"></div>
+      <!-- Slide 1: Membership Video -->
+      <div class="hero-slide opacity-0 pointer-events-none transition-opacity duration-700 ease-out">
+        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" aria-label="Renasci Memberships">
+          <source src="/video/hero4.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-black/45"></div>
+        <div class="absolute inset-0 z-10 flex items-center justify-end px-6 sm:px-10 lg:px-16">
+          <div class="max-w-xl text-right">
+            <h2 class="font-rougescript text-white text-4xl sm:text-5xl lg:text-7xl tracking-tight mb-4" data-t-es="Membresías que Elevan tu Rutina" data-t-en="Memberships that Elevate your Routine">
+              Membresías que Elevan tu Rutina
+            </h2>
+            <a href="/membership" class="inline-flex items-center gap-2 px-7 py-3 rounded-[48px] font-semibold bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200">
+              <span data-t-es="Descubrir Membresías" data-t-en="Explore Memberships">Descubrir Membresías</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2: IV Therapy Video -->
+      <div class="hero-slide opacity-0 pointer-events-none transition-opacity duration-700 ease-out">
+        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" aria-label="Renasci IV Therapy">
+          <source src="/video/hero3.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-black/45"></div>
+        <div class="absolute inset-0 z-10 flex items-center justify-start px-6 sm:px-10 lg:px-16">
+          <div class="max-w-xl text-left">
+            <h2 class="font-rougescript text-white text-4xl sm:text-5xl lg:text-7xl tracking-tight mb-4" data-t-es="Recarga Total con IV Therapy" data-t-en="Total Recharge with IV Therapy">
+              Recarga Total con IV Therapy
+            </h2>
+            <a href="/services/iv-therapy" class="inline-flex items-center gap-2 px-7 py-3 rounded-[48px] font-semibold bg-[#F3A2A7] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200">
+              <span data-t-es="Ver IV Therapy" data-t-en="View IV Therapy">Ver IV Therapy</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 3: Dermal Fillers Video -->
+      <div class="hero-slide opacity-0 pointer-events-none transition-opacity duration-700 ease-out">
+        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" aria-label="Renasci Dermal Fillers">
+          <source src="/video/hero2.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-black/45"></div>
+        <div class="absolute inset-0 z-10 flex items-center justify-end px-6 sm:px-10 lg:px-16">
+          <div class="max-w-xl text-right">
+            <h2 class="font-rougescript text-white text-4xl sm:text-5xl lg:text-7xl tracking-tight mb-4" data-t-es="Dermal Fillers con Efecto Wow" data-t-en="Dermal Fillers with a Wow Effect">
+              Dermal Fillers con Efecto Wow
+            </h2>
+            <a href="/services/dermal-fillers" class="inline-flex items-center gap-2 px-7 py-3 rounded-[48px] font-semibold bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200">
+              <span data-t-es="Ver Dermal Fillers" data-t-en="View Dermal Fillers">Ver Dermal Fillers</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -126,42 +177,6 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
           class="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-[48px] font-semibold bg-[#F3A2A7] text-white text-sm md:text-base hover:opacity-90 active:translate-y-[1px] transition-all duración-200 focus-visible:ring-2 ring-[#F3A2A7]/50 min-h-[38px] md:min-h-[44px]"
         >
           <span data-i18n="cta.view_services">Conoce nuestros servicios</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Overlay de slide 1 (solo visible en imagen de membresía) -->
-    <div id="heroMembershipOverlay" class="absolute inset-0 z-10" style="display:none">
-      <div class="absolute left-0 right-0 top-20 sm:top-24 md:hidden px-6">
-        <h2 class="font-rougescript text-white text-center text-3xl sm:text-4xl tracking-tight mb-4">
-          <span data-i18n="hero.memberships_title_prefix">Conoce Nuestras</span> <span class="text-[#F3A2A7]" data-i18n="hero.memberships_title_highlight">Membresías</span>
-        </h2>
-      </div>
-      <div class="absolute right-6 sm:right-10 lg:right-16 top-28 sm:top-32 lg:top-36 hidden md:block">
-        <h2 class="font-rougescript text-white text-right text-6xl lg:text-7xl tracking-tight mb-4">
-          <span data-i18n="hero.memberships_title_prefix">Conoce Nuestras</span> <span class="text-[#F3A2A7]" data-i18n="hero.memberships_title_highlight">Membresías</span>
-        </h2>
-      </div>
-      <div class="absolute left-0 right-0 bottom-24 sm:bottom-28 md:hidden flex justify-center px-6">
-        <a 
-          href="/membership" 
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-[48px] font-semibold text-sm bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#AABFA8]/50 min-h-[44px] w-full max-w-xs justify-center"
-        >
-          <span data-i18n="cta.go_membership">Ir a Membresía</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
-      </div>
-      <div class="absolute right-6 sm:right-10 lg:right-16 bottom-12 sm:bottom-16 lg:bottom-20 hidden md:block">
-        <a 
-          href="/membership" 
-          class="inline-flex items-center gap-2 px-8 py-4 rounded-[48px] font-semibold bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#AABFA8]/50 min-h-[44px]"
-        >
-          <span data-i18n="cta.go_membership">Ir a Membresía</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
           </svg>
@@ -189,6 +204,26 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
       </button>
       <!-- Indicator for slide 1 -->
       <button class="indicator" data-slide="1" aria-label="Slide 2">
+        <div class="bar w-28 md:w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>
+        <div class="circle w-6 h-6">
+          <svg class="w-6 h-6" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/>
+            <circle class="circle-progress" cx="12" cy="12" r="9" stroke="#F3A2A7" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="56.5" stroke-dashoffset="56.5"/>
+          </svg>
+        </div>
+      </button>
+      <!-- Indicator for slide 2 -->
+      <button class="indicator" data-slide="2" aria-label="Slide 3">
+        <div class="bar w-28 md:w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>
+        <div class="circle w-6 h-6">
+          <svg class="w-6 h-6" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/>
+            <circle class="circle-progress" cx="12" cy="12" r="9" stroke="#F3A2A7" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="56.5" stroke-dashoffset="56.5"/>
+          </svg>
+        </div>
+      </button>
+      <!-- Indicator for slide 3 -->
+      <button class="indicator" data-slide="3" aria-label="Slide 4">
         <div class="bar w-28 md:w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>
         <div class="circle w-6 h-6">
           <svg class="w-6 h-6" viewBox="0 0 24 24">
@@ -391,6 +426,34 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
   // Initialize on DOM load
   document.addEventListener('DOMContentLoaded', initHeroCallButtonRipple);
 
+  const getIndexLang = () => {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') return urlLang;
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+    if (storedLang === 'en' || storedLang === 'es') return storedLang;
+    const managerLang = (window as any).i18nManager?.getCurrentLanguage?.();
+    if (managerLang === 'en' || managerLang === 'es') return managerLang;
+    return document.documentElement.lang === 'en' ? 'en' : 'es';
+  };
+
+  const applyIndexHeroVideoLang = (lang: 'es' | 'en') => {
+    document.querySelectorAll('#heroSlides [data-t-es]').forEach((el) => {
+      const es = el.getAttribute('data-t-es') || '';
+      const en = el.getAttribute('data-t-en') || es;
+      el.textContent = lang === 'en' ? en : es;
+    });
+  };
+
+  const initIndexHeroVideoLang = () => applyIndexHeroVideoLang(getIndexLang() as 'es' | 'en');
+  document.addEventListener('DOMContentLoaded', initIndexHeroVideoLang);
+  document.addEventListener('astro:page-load', initIndexHeroVideoLang);
+  window.addEventListener('languageChanged', (e) => {
+    const detail = (e as CustomEvent).detail as { language?: 'es' | 'en' } | undefined;
+    const nextLang = detail?.language === 'en' || detail?.language === 'es' ? detail.language : getIndexLang();
+    applyIndexHeroVideoLang(nextLang as 'es' | 'en');
+  });
+
   // Hero slider logic
   (function initHeroSlider() {
     const slideDuration = 20000; // 20s per slide
@@ -400,73 +463,71 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
     const toggleIcon = document.getElementById('heroToggleIcon') as SVGElement | null;
     let current = 0;
     let advanceTimer: number | null = null;
+    let progressRaf: number | null = null;
     let isPaused = false;
     let remainingMs = slideDuration;
-    let lastProgress = 0;
+    let startedAt = Date.now();
     let pausedByVisibility = false;
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function freezeIndicators() {
-      const activeInd = indicators[current];
+    const stopProgressLoop = () => {
+      if (progressRaf) {
+        window.cancelAnimationFrame(progressRaf);
+        progressRaf = null;
+      }
+    };
+
+    const setIndicatorProgress = (index: number, progress: number) => {
+      const activeInd = indicators[index];
       if (!activeInd) return;
-      const bar = activeInd.querySelector('.bar') as HTMLElement | null;
       const fill = activeInd.querySelector('.bar .fill') as HTMLElement | null;
-      if (bar && fill) {
-        const bw = bar.getBoundingClientRect().width;
-        const fw = fill.getBoundingClientRect().width;
+      if (fill) {
         fill.style.transition = 'none';
-        if (bw > 0) {
-          lastProgress = Math.min(1, Math.max(0, fw / bw));
-          fill.style.width = `${lastProgress * 100}%`;
-          remainingMs = Math.max(1, Math.round(slideDuration * (1 - lastProgress)));
+        fill.style.width = `${Math.max(0, Math.min(1, progress)) * 100}%`;
+      }
+    };
+
+    const updateIndicatorStates = () => {
+      indicators.forEach((ind, i) => {
+        const fill = ind.querySelector('.bar .fill') as HTMLElement | null;
+        if (fill && i !== current) {
+          fill.style.transition = 'none';
+          fill.style.width = '0%';
+        }
+        if (i === current) {
+          ind.classList.add('active');
+          ind.classList.remove('inactive');
         } else {
-          lastProgress = 0;
-          remainingMs = slideDuration;
+          ind.classList.add('inactive');
+          ind.classList.remove('active');
         }
-      }
-      const circle = activeInd.querySelector('.circle .circle-progress') as SVGCircleElement | null;
-      if (circle) {
-        const cs = window.getComputedStyle(circle);
-        const dash = cs.getPropertyValue('stroke-dashoffset') || circle.style.strokeDashoffset || '0';
-        circle.style.transition = 'none';
-        circle.style.strokeDashoffset = dash;
-      }
-    }
+      });
+    };
 
-    function animateIndicator(indEl: HTMLElement, active: boolean) {
-      const barFill = indEl.querySelector('.bar .fill') as HTMLElement | null;
-      const circleProg = indEl.querySelector('.circle .circle-progress') as SVGCircleElement | null;
-      if (active) {
-        indEl.classList.add('active');
-        indEl.classList.remove('inactive');
-        if (barFill) {
-          barFill.style.transition = 'none';
-          barFill.style.width = '0%';
-          void barFill.offsetWidth;
-          barFill.style.transition = `width ${slideDuration}ms linear`;
-          barFill.style.width = '100%';
+    const startProgressLoop = () => {
+      stopProgressLoop();
+      const tick = () => {
+        if (isPaused) return;
+        const elapsed = Date.now() - startedAt;
+        const progress = remainingMs > 0 ? elapsed / remainingMs : 1;
+        setIndicatorProgress(current, progress);
+        if (progress < 1) {
+          progressRaf = window.requestAnimationFrame(tick);
         }
-        if (circleProg) {
-          circleProg.style.transition = 'none';
-          circleProg.style.strokeDashoffset = '56.5';
-        }
-      } else {
-        indEl.classList.add('inactive');
-        indEl.classList.remove('active');
-        if (barFill) {
-          barFill.style.transition = 'none';
-          barFill.style.width = '0%';
-        }
-        if (circleProg) {
-          circleProg.style.transition = 'none';
-          circleProg.style.strokeDashoffset = '56.5';
-          void circleProg.getBoundingClientRect();
-          circleProg.style.transition = `stroke-dashoffset ${slideDuration}ms linear`;
-          circleProg.style.strokeDashoffset = '0';
-        }
-      }
-    }
+      };
+      progressRaf = window.requestAnimationFrame(tick);
+    };
 
-    function setActive(index: number) {
+    const scheduleAdvance = () => {
+      if (advanceTimer) {
+        window.clearTimeout(advanceTimer);
+        advanceTimer = null;
+      }
+      if (!isPaused) {
+        advanceTimer = window.setTimeout(() => setActive((current + 1) % slides.length, true), remainingMs);
+      }
+    };
+
+    function setActive(index: number, resetDuration = true) {
       current = index;
       slides.forEach((s, i) => {
         if (i === index) {
@@ -478,29 +539,24 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
         }
       });
       const titleEl = document.getElementById('heroTitle');
-      const membershipEl = document.getElementById('heroMembershipOverlay');
       if (titleEl) {
         titleEl.style.display = index === 0 ? '' : 'none';
       }
-      if (membershipEl) {
-        (membershipEl as HTMLElement).style.display = index === 1 ? '' : 'none';
+      if (resetDuration) {
+        remainingMs = slideDuration;
       }
-      indicators.forEach((ind, i) => animateIndicator(ind, i === index));
+      startedAt = Date.now();
+      updateIndicatorStates();
+      setIndicatorProgress(current, 0);
       try { localStorage.setItem('heroSliderCurrent', String(current)); } catch {}
-      lastProgress = 0;
-      remainingMs = slideDuration;
-      if (advanceTimer) window.clearTimeout(advanceTimer);
-      if (!isPaused) {
-        advanceTimer = window.setTimeout(() => setActive((current + 1) % slides.length), remainingMs);
-      } else {
-        freezeIndicators();
-      }
+      scheduleAdvance();
+      startProgressLoop();
     }
 
     indicators.forEach(ind => {
       ind.addEventListener('click', () => {
         const target = parseInt(ind.getAttribute('data-slide') || '0', 10);
-        if (target !== current) setActive(target);
+        if (target !== current) setActive(target, true);
       });
     });
 
@@ -527,34 +583,23 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
     setActive(initialIndex);
 
     function setPlayState(paused: boolean) {
+      if (paused === isPaused) return;
+      const elapsed = Date.now() - startedAt;
+      if (!isPaused) {
+        remainingMs = Math.max(1, remainingMs - elapsed);
+      }
       isPaused = paused;
-      if (advanceTimer) { window.clearTimeout(advanceTimer); advanceTimer = null; }
-      if (paused) {
-        freezeIndicators();
-      } else {
-        // Resume from the current progress without restarting
-        const activeInd = indicators[current];
-        if (activeInd) {
-          const bar = activeInd.querySelector('.bar') as HTMLElement | null;
-          const fill = activeInd.querySelector('.bar .fill') as HTMLElement | null;
-          if (bar && fill) {
-            fill.style.transition = 'none';
-            void (fill as any).offsetWidth;
-            fill.style.transition = `width ${remainingMs}ms linear`;
-            fill.style.width = '100%';
-          }
-          const circle = activeInd.querySelector('.circle .circle-progress') as SVGCircleElement | null;
-          if (circle) {
-            circle.style.transition = 'none';
-            void circle.getBoundingClientRect();
-            circle.style.transition = `stroke-dashoffset ${remainingMs}ms linear`;
-            circle.style.strokeDashoffset = '0';
-          }
-        }
-        advanceTimer = window.setTimeout(() => setActive((current + 1) % slides.length), remainingMs);
+      if (advanceTimer) {
+        window.clearTimeout(advanceTimer);
+        advanceTimer = null;
+      }
+      stopProgressLoop();
+      if (!paused) {
+        startedAt = Date.now();
+        scheduleAdvance();
+        startProgressLoop();
       }
       if (toggleIcon) {
-        // Update icon: pause when playing, play when paused
         toggleIcon.innerHTML = paused
           ? '<polygon points="8,5 8,19 19,12" fill="currentColor" />'
           : '<rect x="6" y="5" width="4" height="14" rx="1" stroke-width="2" /><rect x="14" y="5" width="4" height="14" rx="1" stroke-width="2" />';
