@@ -1,0 +1,235 @@
+[1mdiff --git a/src/pages/index.astro b/src/pages/index.astro[m
+[1mindex 9f9d0e1..9acc545 100644[m
+[1m--- a/src/pages/index.astro[m
+[1m+++ b/src/pages/index.astro[m
+[36m@@ -101,14 +101,65 @@[m [mimport TestimonialsSection from '../components/TestimonialsSection.astro';[m
+         />[m
+         </div>[m
+       </div>[m
+[31m-      <!-- Slide 1: Image -->[m
+[31m-      <div class="hero-slide opacity-0 pointer-events-none transition-opacity duration-700 ease-out membership-slide">[m
+[31m-        <div [m
+[31m-          class="absolute inset-0 w-full h-full bg-cover bg-center membership-bg"[m
+[31m-          style="background-image:url('/img/banner2.png')"[m
+[31m-          aria-label="Renasci Membership"[m
+[31m-        ></div>[m
+[31m-        <div class="absolute inset-0 bg-black/40"></div>[m
+[32m+[m[32m      <!-- Slide 1: Membership Video -->[m
+[32m+[m[32m      <div class="hero-slide opacity-0 pointer-events-none transition-opacity duration-700 ease-out">[m
+[32m+[m[32m        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" aria-label="Renasci Memberships">[m
+[32m+[m[32m          <source src="/video/hero4.mp4" type="video/mp4" />[m
+[32m+[m[32m        </video>[m
+[32m+[m[32m        <div class="absolute inset-0 bg-black/45"></div>[m
+[32m+[m[32m        <div class="absolute inset-0 z-10 flex items-center justify-end px-6 sm:px-10 lg:px-16">[m
+[32m+[m[32m          <div class="max-w-xl text-right">[m
+[32m+[m[32m            <h2 class="font-rougescript text-white text-4xl sm:text-5xl lg:text-7xl tracking-tight mb-4" data-t-es="Membresías que Elevan tu Rutina" data-t-en="Memberships that Elevate your Routine">[m
+[32m+[m[32m              Membresías que Elevan tu Rutina[m
+[32m+[m[32m            </h2>[m
+[32m+[m[32m            <a href="/membership" class="inline-flex items-center gap-2 px-7 py-3 rounded-[48px] font-semibold bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200">[m
+[32m+[m[32m              <span data-t-es="Descubrir Membresías" data-t-en="Explore Memberships">Descubrir Membresías</span>[m
+[32m+[m[32m              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">[m
+[32m+[m[32m                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>[m
+[32m+[m[32m              </svg>[m
+[32m+[m[32m            </a>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m      <!-- Slide 2: IV Therapy Video -->[m
+[32m+[m[32m      <div class="hero-slide opacity-0 pointer-events-none transition-opacity duration-700 ease-out">[m
+[32m+[m[32m        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" aria-label="Renasci IV Therapy">[m
+[32m+[m[32m          <source src="/video/hero3.mp4" type="video/mp4" />[m
+[32m+[m[32m        </video>[m
+[32m+[m[32m        <div class="absolute inset-0 bg-black/45"></div>[m
+[32m+[m[32m        <div class="absolute inset-0 z-10 flex items-center justify-start px-6 sm:px-10 lg:px-16">[m
+[32m+[m[32m          <div class="max-w-xl text-left">[m
+[32m+[m[32m            <h2 class="font-rougescript text-white text-4xl sm:text-5xl lg:text-7xl tracking-tight mb-4" data-t-es="Recarga Total con IV Therapy" data-t-en="Total Recharge with IV Therapy">[m
+[32m+[m[32m              Recarga Total con IV Therapy[m
+[32m+[m[32m            </h2>[m
+[32m+[m[32m            <a href="/services/iv-therapy" class="inline-flex items-center gap-2 px-7 py-3 rounded-[48px] font-semibold bg-[#F3A2A7] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200">[m
+[32m+[m[32m              <span data-t-es="Ver IV Therapy" data-t-en="View IV Therapy">Ver IV Therapy</span>[m
+[32m+[m[32m              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">[m
+[32m+[m[32m                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>[m
+[32m+[m[32m              </svg>[m
+[32m+[m[32m            </a>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m      <!-- Slide 3: Dermal Fillers Video -->[m
+[32m+[m[32m      <div class="hero-slide opacity-0 pointer-events-none transition-opacity duration-700 ease-out">[m
+[32m+[m[32m        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" aria-label="Renasci Dermal Fillers">[m
+[32m+[m[32m          <source src="/video/hero2.mp4" type="video/mp4" />[m
+[32m+[m[32m        </video>[m
+[32m+[m[32m        <div class="absolute inset-0 bg-black/45"></div>[m
+[32m+[m[32m        <div class="absolute inset-0 z-10 flex items-center justify-end px-6 sm:px-10 lg:px-16">[m
+[32m+[m[32m          <div class="max-w-xl text-right">[m
+[32m+[m[32m            <h2 class="font-rougescript text-white text-4xl sm:text-5xl lg:text-7xl tracking-tight mb-4" data-t-es="Dermal Fillers con Efecto Wow" data-t-en="Dermal Fillers with a Wow Effect">[m
+[32m+[m[32m              Dermal Fillers con Efecto Wow[m
+[32m+[m[32m            </h2>[m
+[32m+[m[32m            <a href="/services/dermal-fillers" class="inline-flex items-center gap-2 px-7 py-3 rounded-[48px] font-semibold bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200">[m
+[32m+[m[32m              <span data-t-es="Ver Dermal Fillers" data-t-en="View Dermal Fillers">Ver Dermal Fillers</span>[m
+[32m+[m[32m              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">[m
+[32m+[m[32m                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>[m
+[32m+[m[32m              </svg>[m
+[32m+[m[32m            </a>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </div>[m
+       </div>[m
+     </div>[m
+ [m
+[36m@@ -133,42 +184,6 @@[m [mimport TestimonialsSection from '../components/TestimonialsSection.astro';[m
+       </div>[m
+     </div>[m
+ [m
+[31m-    <!-- Overlay de slide 1 (solo visible en imagen de membresía) -->[m
+[31m-    <div id="heroMembershipOverlay" class="absolute inset-0 z-10" style="display:none">[m
+[31m-      <div class="absolute left-0 right-0 top-20 sm:top-24 md:hidden px-6">[m
+[31m-        <h2 class="font-rougescript text-white text-center text-3xl sm:text-4xl tracking-tight mb-4">[m
+[31m-          <span data-i18n="hero.memberships_title_prefix">Conoce Nuestras</span> <span class="text-[#F3A2A7]" data-i18n="hero.memberships_title_highlight">Membresías</span>[m
+[31m-        </h2>[m
+[31m-      </div>[m
+[31m-      <div class="absolute right-6 sm:right-10 lg:right-16 top-28 sm:top-32 lg:top-36 hidden md:block">[m
+[31m-        <h2 class="font-rougescript text-white text-right text-6xl lg:text-7xl tracking-tight mb-4">[m
+[31m-          <span data-i18n="hero.memberships_title_prefix">Conoce Nuestras</span> <span class="text-[#F3A2A7]" data-i18n="hero.memberships_title_highlight">Membresías</span>[m
+[31m-        </h2>[m
+[31m-      </div>[m
+[31m-      <div class="absolute left-0 right-0 bottom-24 sm:bottom-28 md:hidden flex justify-center px-6">[m
+[31m-        <a [m
+[31m-          href="/membership" [m
+[31m-          class="inline-flex items-center gap-2 px-6 py-3 rounded-[48px] font-semibold text-sm bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#AABFA8]/50 min-h-[44px] w-full max-w-xs justify-center"[m
+[31m-        >[m
+[31m-          <span data-i18n="cta.go_membership">Ir a Membresía</span>[m
+[31m-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">[m
+[31m-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>[m
+[31m-          </svg>[m
+[31m-        </a>[m
+[31m-      </div>[m
+[31m-      <div class="absolute right-6 sm:right-10 lg:right-16 bottom-12 sm:bottom-16 lg:bottom-20 hidden md:block">[m
+[31m-        <a [m
+[31m-          href="/membership" [m
+[31m-          class="inline-flex items-center gap-2 px-8 py-4 rounded-[48px] font-semibold bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#AABFA8]/50 min-h-[44px]"[m
+[31m-        >[m
+[31m-          <span data-i18n="cta.go_membership">Ir a Membresía</span>[m
+[31m-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">[m
+[31m-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>[m
+[31m-          </svg>[m
+[31m-        </a>[m
+[31m-      </div>[m
+[31m-    </div>[m
+[31m-[m
+     <!-- Slider Indicators (bar for activo, círculo para inactivo) -->[m
+     <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 md:gap-4 z-10">[m
+       <button id="heroToggle" class="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-full bg-white/20 text-white hover:bg-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50" aria-label="Pause slider">[m
+[36m@@ -197,6 +212,26 @@[m [mimport TestimonialsSection from '../components/TestimonialsSection.astro';[m
+           </svg>[m
+         </div>[m
+       </button>[m
+[32m+[m[32m      <!-- Indicator for slide 2 -->[m
+[32m+[m[32m      <button class="indicator" data-slide="2" aria-label="Slide 3">[m
+[32m+[m[32m        <div class="bar w-28 md:w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>[m
+[32m+[m[32m        <div class="circle w-6 h-6">[m
+[32m+[m[32m          <svg class="w-6 h-6" viewBox="0 0 24 24">[m
+[32m+[m[32m            <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/>[m
+[32m+[m[32m            <circle class="circle-progress" cx="12" cy="12" r="9" stroke="#F3A2A7" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="56.5" stroke-dashoffset="56.5"/>[m
+[32m+[m[32m          </svg>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m      </button>[m
+[32m+[m[32m      <!-- Indicator for slide 3 -->[m
+[32m+[m[32m      <button class="indicator" data-slide="3" aria-label="Slide 4">[m
+[32m+[m[32m        <div class="bar w-28 md:w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>[m
+[32m+[m[32m        <div class="circle w-6 h-6">[m
+[32m+[m[32m          <svg class="w-6 h-6" viewBox="0 0 24 24">[m
+[32m+[m[32m            <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/>[m
+[32m+[m[32m            <circle class="circle-progress" cx="12" cy="12" r="9" stroke="#F3A2A7" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="56.5" stroke-dashoffset="56.5"/>[m
+[32m+[m[32m          </svg>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m      </button>[m
+     </div>[m
+   </section>[m
+ [m
+[36m@@ -391,6 +426,34 @@[m [mimport TestimonialsSection from '../components/TestimonialsSection.astro';[m
+   // Initialize on DOM load[m
+   document.addEventListener('DOMContentLoaded', initHeroCallButtonRipple);[m
+ [m
+[32m+[m[32m  const getIndexLang = () => {[m
+[32m+[m[32m    const params = new URLSearchParams(window.location.search);[m
+[32m+[m[32m    const urlLang = params.get('lang');[m
+[32m+[m[32m    if (urlLang === 'en' || urlLang === 'es') return urlLang;[m
+[32m+[m[32m    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language');[m
+[32m+[m[32m    if (storedLang === 'en' || storedLang === 'es') return storedLang;[m
+[32m+[m[32m    const managerLang = (window as any).i18nManager?.getCurrentLanguage?.();[m
+[32m+[m[32m    if (managerLang === 'en' || managerLang === 'es') return managerLang;[m
+[32m+[m[32m    return document.documentElement.lang === 'en' ? 'en' : 'es';[m
+[32m+[m[32m  };[m
+[32m+[m
+[32m+[m[32m  const applyIndexHeroVideoLang = (lang: 'es' | 'en') => {[m
+[32m+[m[32m    document.querySelectorAll('#heroSlides [data-t-es]').forEach((el) => {[m
+[32m+[m[32m      const es = el.getAttribute('data-t-es') || '';[m
+[32m+[m[32m      const en = el.getAttribute('data-t-en') || es;[m
+[32m+[m[32m      el.textContent = lang === 'en' ? en : es;[m
+[32m+[m[32m    });[m
+[32m+[m[32m  };[m
+[32m+[m
+[32m+[m[32m  const initIndexHeroVideoLang = () => applyIndexHeroVideoLang(getIndexLang() as 'es' | 'en');[m
+[32m+[m[32m  document.addEventListener('DOMContentLoaded', initIndexHeroVideoLang);[m
+[32m+[m[32m  document.addEventListener('astro:page-load', initIndexHeroVideoLang);[m
+[32m+[m[32m  window.addEventListener('languageChanged', (e) => {[m
+[32m+[m[32m    const detail = (e as CustomEvent).detail as { language?: 'es' | 'en' } | undefined;[m
+[32m+[m[32m    const nextLang = detail?.language === 'en' || detail?.language === 'es' ? detail.language : getIndexLang();[m
+[32m+[m[32m    applyIndexHeroVideoLang(nextLang as 'es' | 'en');[m
+[32m+[m[32m  });[m
+[32m+[m
+   // Hero slider logic[m
+   (function initHeroSlider() {[m
+     const slideDuration = 20000; // 20s per slide[m
+[36m@@ -400,73 +463,71 @@[m [mimport TestimonialsSection from '../components/TestimonialsSection.astro';[m
+     const toggleIcon = document.getElementById('heroToggleIcon') as SVGElement | null;[m
+     let current = 0;[m
+     let advanceTimer: number | null = null;[m
+[32m+[m[32m    let progressRaf: number | null = null;[m
+     let isPaused = false;[m
+     let remainingMs = slideDuration;[m
+[31m-    let lastProgress = 0;[m
+[32m+[m[32m    let startedAt = Date.now();[m
+     let pausedByVisibility = false;[m
+     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;[m
+[31m-    function freezeIndicators() {[m
+[31m-      const activeInd = indicators[current];[m
+[32m+[m[32m    const stopProgressLoop = () => {[m
+[32m+[m[32m      if (progressRaf) {[m
+[32m+[m[32m        window.cancelAnimationFrame(progressRaf);[m
+[32m+[m[32m        progressRaf = null;[m
+[32m+[m[32m      }[m
+[32m+[m[32m    };[m
+[32m+[m
+[32m+[m[32m    const setIndicatorProgress = (index: number, progress: number) => {[m
+[32m+[m[32m      const activeInd = indicators[index];[m
+       if (!activeInd) return;[m
+[31m-      const bar = activeInd.querySelector('.bar') as HTMLElement | null;[m
+       const fill = activeInd.querySelector('.bar .fill') as HTMLElement | null;[m
+[31m-      if (bar && fill) {[m
+[31m-        const bw = bar.getBoundingClientRect().width;[m
+[31m-        const fw = fill.getBoundingClientRect().width;[m
+[32m+[m[32m      if (fill) {[m
+         fill.style.transition = 'none';[m
+[31m-        if (bw > 0) {[m
+[31m-          lastProgress = Math.min(1, Math.max(0, fw / bw));[m
+[31m-          fill.style.width = `${lastProgress * 100}%`;[m
+[31m-          remainingMs = Math.max(1, Math.round(slideDuration * (1 - lastProgress)));[m
+[31m-        } else {[m
+[31m-          lastProgress = 0;[m
+[31m-          remainingMs = slideDuration;[m
+[31m-        }[m
+[31m-      }[m
+[31m-      const circle = activeInd.querySelector('.circle .circle-progress') as SVGCircleElement | null;[m
+[31m-      if (circle) {[m
+[31m-        const cs = window.getComputedStyle(circle);[m
+[31m-        const dash = cs.getPropertyValue('stroke-dashoffset') || circle.style.strokeDashoffset || '0';[m
+[31m-        circle.style.transition = 'none';[m
+[31m-        circle.style.strokeDashoffset = dash;[m
+[32m+[m[32m        fill.style.width = `${Math.max(0, Math.min(1, progress)) * 100}%`;[m
+       }[m
+[31m-    }[m
+[31m-[m
+[31m-    function animateIndicator(indEl: HTMLElement, active: boolean) {[m
+[31m-      const barFill = indEl.querySelector('.bar .fill') as HTMLElement | null;[m
+[31m-      const circlePro
