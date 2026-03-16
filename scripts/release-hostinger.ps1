@@ -33,6 +33,6 @@ Write-Host "==> Haciendo push a main..."
 Invoke-Step "git push origin main"
 
 Write-Host "==> Ejecutando deploy..."
-Invoke-Step "npm run deploy"
+Invoke-Step "npm.cmd run deploy"
 
 Write-Host "==> Listo."
