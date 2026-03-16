@@ -101,14 +101,46 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
         />
         </div>
       </div>
-      <!-- Slide 1: Image -->
+      <!-- Slide 1: Video -->
       <div class="hero-slide opacity-0 pointer-events-none transition-opacity duration-700 ease-out membership-slide">
-        <div 
-          class="absolute inset-0 w-full h-full bg-cover bg-center membership-bg"
-          style="background-image:url('/img/banner2.png')"
-          aria-label="Renasci Membership"
-        ></div>
+        <video class="absolute inset-0 w-full h-full object-cover membership-bg" autoplay muted loop playsinline preload="metadata" aria-label="Renasci Membership">
+          <source src="/video/hero4.mp4" type="video/mp4" />
+        </video>
         <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+      <div class="hero-slide opacity-0 pointer-events-none transition-opacity duration-700 ease-out">
+        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" aria-label="Renasci IV Therapy">
+          <source src="/video/hero3.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-black/45"></div>
+        <div class="absolute inset-0 z-10 flex items-center justify-start px-6 sm:px-10 lg:px-16">
+          <div class="max-w-xl text-left">
+            <h2 class="font-rougescript text-white text-4xl sm:text-5xl lg:text-7xl tracking-tight mb-4" data-t-es="Recarga Total con IV Therapy" data-t-en="Total Recharge with IV Therapy">Recarga Total con IV Therapy</h2>
+            <a href="/services/iv-therapy" class="inline-flex items-center gap-2 px-7 py-3 rounded-[48px] font-semibold bg-[#F3A2A7] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200">
+              <span data-t-es="Ver IV Therapy" data-t-en="View IV Therapy">Ver IV Therapy</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide opacity-0 pointer-events-none transition-opacity duration-700 ease-out">
+        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" aria-label="Renasci Dermal Fillers">
+          <source src="/video/hero2.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-black/45"></div>
+        <div class="absolute inset-0 z-10 flex items-center justify-end px-6 sm:px-10 lg:px-16">
+          <div class="max-w-xl text-right">
+            <h2 class="font-rougescript text-white text-4xl sm:text-5xl lg:text-7xl tracking-tight mb-4" data-t-es="Dermal Fillers con Efecto Wow" data-t-en="Dermal Fillers with a Wow Effect">Dermal Fillers con Efecto Wow</h2>
+            <a href="/services/dermal-fillers" class="inline-flex items-center gap-2 px-7 py-3 rounded-[48px] font-semibold bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200">
+              <span data-t-es="Ver Dermal Fillers" data-t-en="View Dermal Fillers">Ver Dermal Fillers</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -189,6 +221,24 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
       </button>
       <!-- Indicator for slide 1 -->
       <button class="indicator" data-slide="1" aria-label="Slide 2">
+        <div class="bar w-28 md:w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>
+        <div class="circle w-6 h-6">
+          <svg class="w-6 h-6" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/>
+            <circle class="circle-progress" cx="12" cy="12" r="9" stroke="#F3A2A7" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="56.5" stroke-dashoffset="56.5"/>
+          </svg>
+        </div>
+      </button>
+      <button class="indicator" data-slide="2" aria-label="Slide 3">
+        <div class="bar w-28 md:w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>
+        <div class="circle w-6 h-6">
+          <svg class="w-6 h-6" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/>
+            <circle class="circle-progress" cx="12" cy="12" r="9" stroke="#F3A2A7" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="56.5" stroke-dashoffset="56.5"/>
+          </svg>
+        </div>
+      </button>
+      <button class="indicator" data-slide="3" aria-label="Slide 4">
         <div class="bar w-28 md:w-40 h-1 bg-white/30 rounded-full overflow-hidden"><div class="fill h-full bg-[#F3A2A7] w-0"></div></div>
         <div class="circle w-6 h-6">
           <svg class="w-6 h-6" viewBox="0 0 24 24">
@@ -390,6 +440,34 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
 
   // Initialize on DOM load
   document.addEventListener('DOMContentLoaded', initHeroCallButtonRipple);
+
+  const getIndexLang = () => {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') return urlLang;
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+    if (storedLang === 'en' || storedLang === 'es') return storedLang;
+    const managerLang = (window as any).i18nManager?.getCurrentLanguage?.();
+    if (managerLang === 'en' || managerLang === 'es') return managerLang;
+    return document.documentElement.lang === 'en' ? 'en' : 'es';
+  };
+
+  const applyIndexHeroVideoLang = (lang: 'es' | 'en') => {
+    document.querySelectorAll('#heroSlides [data-t-es]').forEach((el) => {
+      const es = el.getAttribute('data-t-es') || '';
+      const en = el.getAttribute('data-t-en') || es;
+      el.textContent = lang === 'en' ? en : es;
+    });
+  };
+
+  const initIndexHeroVideoLang = () => applyIndexHeroVideoLang(getIndexLang() as 'es' | 'en');
+  document.addEventListener('DOMContentLoaded', initIndexHeroVideoLang);
+  document.addEventListener('astro:page-load', initIndexHeroVideoLang);
+  window.addEventListener('languageChanged', (e) => {
+    const detail = (e as CustomEvent).detail as { language?: 'es' | 'en' } | undefined;
+    const nextLang = detail?.language === 'en' || detail?.language === 'es' ? detail.language : getIndexLang();
+    applyIndexHeroVideoLang(nextLang as 'es' | 'en');
+  });
 
   // Hero slider logic
   (function initHeroSlider() {
