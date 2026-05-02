@@ -1,164 +1,295 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CTAButton from '../components/CTAButton.astro';
-import ContactFormMembership from '../components/ContactFormMembership.astro';
-import TransformCTA from '../components/TransformCTA.astro';
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Contacto - Renasci Medical Spa"
   description="Contáctanos para agendar tu consulta gratuita. Estamos aquí para ayudarte en tu transformación de belleza y bienestar."
 >
-  <section class="relative pt-24 pb-16 md:pt-32 text-white text-center overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-[center_top] lg:bg-[center_10%]" style="background-image: url('/img/about.jpg')" aria-label="Renasci Experience"></div>
-    <div class="absolute inset-0 bg-black/55"></div>
-    <div class="container mx-auto px-4">
-      <div class="relative max-w-5xl mx-auto">
-        <h1 class="font-display font-bold text-5xl md:text-6xl mb-4"><span data-t-es="Contáctanos" data-t-en="Contact Us">Contáctanos</span></h1>
-        <p class="text-lg md:text-xl text-white/80 mb-8" data-t-es="Tu transformación comienza con una consulta gratuita. Estamos listos para ayudarte." data-t-en="Your transformation begins with a free consultation. We are ready to help you.">Tu transformación comienza con una consulta gratuita. Estamos listos para ayudarte.</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <CTAButton href="tel:+13856092840" variant="mint" className="!px-6 !py-3 focus-visible:ring-[#AABFA8]/50">
-            <span data-t-es="Llama Ahora" data-t-en="Call Now">Llama Ahora</span>
-          </CTAButton>
-          <CTAButton href="https://wa.me/13856092840" variant="call" className="!px-6 !py-3 focus-visible:ring-[#1DD1A1]/50">
+  <section class="relative min-h-[68vh] flex items-center overflow-hidden">
+    <img
+      src="/img/about.jpg"
+      alt="Renasci Medical Spa"
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/70"></div>
+
+    <div class="relative z-10 container mx-auto px-6 py-24 text-white">
+      <div class="max-w-3xl">
+        <p class="text-xs uppercase tracking-[0.22em] text-[#F3A2A7] font-semibold mb-4" data-t-es="Contacto" data-t-en="Get in Touch">Contacto</p>
+        <h1 class="font-display font-bold text-4xl md:text-6xl leading-tight mb-5" data-t-es="Hablemos de tu próxima cita" data-t-en="Let's talk about your next visit">Hablemos de tu próxima cita</h1>
+        <p class="text-base md:text-lg text-white/85 max-w-2xl mb-8" data-t-es="Agenda una consulta gratuita o escríbenos. Nuestro equipo te responde en menos de 24 horas para diseñar el plan que mejor se ajuste a ti." data-t-en="Book a free consultation or send us a message. Our team replies within 24 hours to craft the plan that best fits you.">Agenda una consulta gratuita o escríbenos. Nuestro equipo te responde en menos de 24 horas para diseñar el plan que mejor se ajuste a ti.</p>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking-trigger="boulevard" class="inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-7 py-3 rounded-full hover:brightness-105 transition" data-t-es="Agendar Online" data-t-en="Book Online">Agendar Online</a>
+          <a href="tel:+13856092840" class="inline-flex items-center justify-center gap-2 bg-[#AABFA8] text-white font-semibold px-7 py-3 rounded-full hover:brightness-105 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <span data-t-es="Llamar" data-t-en="Call">Llamar</span>
+          </a>
+          <a href="https://wa.me/13856092840" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border-2 border-white/80 bg-white/10 text-white font-semibold px-7 py-3 rounded-full hover:bg-white/20 transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             <span>WhatsApp</span>
-          </CTAButton>
-          <CTAButton href="#contacto" variant="primary" className="!px-6 !py-3 focus-visible:ring-[#F3A2A7]/50">
-            <span data-t-es="Agenda Online" data-t-en="Book Online">Agenda Online</span>
-          </CTAButton>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 right-6 hidden md:flex items-center gap-2 text-white/70 text-xs">
+      <span class="w-8 h-px bg-white/40"></span>
+      <span class="uppercase tracking-[0.18em]" data-t-es="Midvale, Utah" data-t-en="Midvale, Utah">Midvale, Utah</span>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-5 max-w-6xl mx-auto">
+        <a href="tel:+13856092840" class="group rounded-3xl border border-gray-200 p-7 hover:border-[#F3A2A7] hover:shadow-card-hover transition flex flex-col">
+          <div class="w-12 h-12 rounded-2xl bg-[#F3A2A7]/15 text-[#F3A2A7] flex items-center justify-center mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          </div>
+          <p class="text-xs uppercase tracking-wide text-gray-500 font-semibold mb-1" data-t-es="Llámanos" data-t-en="Call Us">Llámanos</p>
+          <p class="font-display font-bold text-xl text-gray-900 mb-2 group-hover:text-[#F3A2A7] transition">(385) 609-2840</p>
+          <p class="text-sm text-gray-600 mt-auto" data-t-es="Lun – Vie · 9 AM – 7 PM" data-t-en="Mon – Fri · 9 AM – 7 PM">Lun – Vie · 9 AM – 7 PM</p>
+        </a>
+
+        <a href="mailto:info@renascimedspa.com" class="group rounded-3xl border border-gray-200 p-7 hover:border-[#AABFA8] hover:shadow-card-hover transition flex flex-col">
+          <div class="w-12 h-12 rounded-2xl bg-[#AABFA8]/15 text-[#AABFA8] flex items-center justify-center mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          </div>
+          <p class="text-xs uppercase tracking-wide text-gray-500 font-semibold mb-1" data-t-es="Escríbenos" data-t-en="Email Us">Escríbenos</p>
+          <p class="font-display font-bold text-xl text-gray-900 mb-2 group-hover:text-[#AABFA8] transition break-words">info@renascimedspa.com</p>
+          <p class="text-sm text-gray-600 mt-auto" data-t-es="Respuesta en menos de 24 hrs" data-t-en="Reply in under 24 hrs">Respuesta en menos de 24 hrs</p>
+        </a>
+
+        <a href="https://maps.google.com/?q=6770+S+900+E,+Midvale,+UT+84047" target="_blank" rel="noopener noreferrer" class="group rounded-3xl border border-gray-200 p-7 hover:border-[#C69C87] hover:shadow-card-hover transition flex flex-col">
+          <div class="w-12 h-12 rounded-2xl bg-[#C69C87]/15 text-[#C69C87] flex items-center justify-center mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <p class="text-xs uppercase tracking-wide text-gray-500 font-semibold mb-1" data-t-es="Visítanos" data-t-en="Visit Us">Visítanos</p>
+          <p class="font-display font-bold text-xl text-gray-900 mb-2 group-hover:text-[#C69C87] transition">6770 S 900 E</p>
+          <p class="text-sm text-gray-600 mt-auto">Midvale, UT 84047</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="py-16 lg:py-20 bg-gray-50 text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-5 gap-8 lg:gap-10">
+        <div class="lg:col-span-3 bg-white rounded-3xl border border-gray-200 p-7 lg:p-10">
+          <p class="text-xs uppercase tracking-[0.16em] text-[#AABFA8] font-semibold mb-2" data-t-es="Envíanos un mensaje" data-t-en="Send us a message">Envíanos un mensaje</p>
+          <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#C69C87] mb-2" data-t-es="Cuéntanos sobre ti" data-t-en="Tell us about you">Cuéntanos sobre ti</h2>
+          <p class="text-sm text-gray-600 mb-7" data-t-es="Completa el formulario y te respondemos con un plan personalizado." data-t-en="Fill out the form and we'll reply with a personalized plan.">Completa el formulario y te respondemos con un plan personalizado.</p>
+
+          <form id="contact-form" action="/api/contact" method="POST" class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <label class="block">
+                <span class="text-sm font-semibold text-gray-700 mb-1.5 block" data-t-es="Nombre" data-t-en="Name">Nombre</span>
+                <input required type="text" name="name" autocomplete="name" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#F3A2A7]/40 focus:border-[#F3A2A7] transition" placeholder="Tu nombre" data-ph-es="Tu nombre" data-ph-en="Your name" />
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold text-gray-700 mb-1.5 block" data-t-es="Teléfono" data-t-en="Phone">Teléfono</span>
+                <input required type="tel" name="phone" autocomplete="tel" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#F3A2A7]/40 focus:border-[#F3A2A7] transition" placeholder="(385) 609-2840" data-ph-es="(385) 609-2840" data-ph-en="(385) 609-2840" />
+              </label>
+            </div>
+            <label class="block">
+              <span class="text-sm font-semibold text-gray-700 mb-1.5 block" data-t-es="Email" data-t-en="Email">Email</span>
+              <input required type="email" name="email" autocomplete="email" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#F3A2A7]/40 focus:border-[#F3A2A7] transition" placeholder="tu@email.com" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-semibold text-gray-700 mb-1.5 block" data-t-es="Servicio de interés" data-t-en="Service of interest">Servicio de interés</span>
+              <select name="service" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#F3A2A7]/40 focus:border-[#F3A2A7] transition bg-white">
+                <option value="" data-t-es="Selecciona un servicio" data-t-en="Select a service">Selecciona un servicio</option>
+                <option value="neurotoxin-injections" data-t-es="Neurotoxinas" data-t-en="Neurotoxins">Neurotoxinas</option>
+                <option value="dermal-fillers" data-t-es="Rellenos Dérmicos" data-t-en="Dermal Fillers">Rellenos Dérmicos</option>
+                <option value="iv-therapy" data-t-es="Terapia IV" data-t-en="IV Therapy">Terapia IV</option>
+                <option value="medically-supervised-weight-loss" data-t-es="Pérdida de Peso" data-t-en="Weight Loss">Pérdida de Peso</option>
+                <option value="therapy-peptide" data-t-es="Terapia con Péptidos" data-t-en="Peptide Therapy">Terapia con Péptidos</option>
+                <option value="biodentical-hormone-therapy" data-t-es="Terapia Hormonal" data-t-en="Hormone Therapy">Terapia Hormonal</option>
+                <option value="membership" data-t-es="Membresía" data-t-en="Membership">Membresía</option>
+                <option value="other" data-t-es="Otro" data-t-en="Other">Otro</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-sm font-semibold text-gray-700 mb-1.5 block" data-t-es="Mensaje" data-t-en="Message">Mensaje</span>
+              <textarea name="message" rows="4" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#F3A2A7]/40 focus:border-[#F3A2A7] transition resize-none" placeholder="Cuéntanos sobre tus objetivos..." data-ph-es="Cuéntanos sobre tus objetivos..." data-ph-en="Tell us about your goals..."></textarea>
+            </label>
+
+            <label class="flex items-start gap-3 text-xs text-gray-600">
+              <input required type="checkbox" name="consent" class="mt-1 w-4 h-4 accent-[#F3A2A7]" />
+              <span data-t-es="Acepto ser contactado por Renasci Medical Spa." data-t-en="I agree to be contacted by Renasci Medical Spa.">Acepto ser contactado por Renasci Medical Spa.</span>
+            </label>
+
+            <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-8 py-3 rounded-full hover:brightness-105 transition">
+              <span data-t-es="Enviar Mensaje" data-t-en="Send Message">Enviar Mensaje</span>
+            </button>
+
+            <p id="form-status" class="text-sm hidden"></p>
+          </form>
+        </div>
+
+        <aside class="lg:col-span-2 space-y-5">
+          <div class="bg-white rounded-3xl border border-gray-200 p-7">
+            <p class="text-xs uppercase tracking-[0.16em] text-[#F3A2A7] font-semibold mb-2" data-t-es="Horarios" data-t-en="Hours">Horarios</p>
+            <h3 class="font-display font-bold text-2xl text-gray-900 mb-5" data-t-es="Cuándo encontrarnos" data-t-en="When we're open">Cuándo encontrarnos</h3>
+            <ul class="divide-y divide-gray-100">
+              <li class="flex justify-between py-3 text-sm">
+                <span class="text-gray-700" data-t-es="Lunes – Viernes" data-t-en="Monday – Friday">Lunes – Viernes</span>
+                <span class="font-semibold text-gray-900">9 AM – 7 PM</span>
+              </li>
+              <li class="flex justify-between py-3 text-sm">
+                <span class="text-gray-700" data-t-es="Sábado" data-t-en="Saturday">Sábado</span>
+                <span class="font-semibold text-gray-900">10 AM – 6 PM</span>
+              </li>
+              <li class="flex justify-between py-3 text-sm">
+                <span class="text-gray-700" data-t-es="Domingo" data-t-en="Sunday">Domingo</span>
+                <span class="font-semibold text-gray-900">10 AM – 4 PM</span>
+              </li>
+              <li class="flex justify-between py-3 text-sm">
+                <span class="text-gray-700" data-t-es="Festivos" data-t-en="Holidays">Festivos</span>
+                <span class="text-gray-500" data-t-es="Horario especial" data-t-en="Special hours">Horario especial</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-[#AABFA8] text-white rounded-3xl p-7">
+            <p class="text-xs uppercase tracking-[0.16em] text-white/80 font-semibold mb-2" data-t-es="Atención prioritaria" data-t-en="Priority care">Atención prioritaria</p>
+            <h3 class="font-display font-bold text-2xl mb-2" data-t-es="¿Necesitas algo urgente?" data-t-en="Need something urgent?">¿Necesitas algo urgente?</h3>
+            <p class="text-sm text-white/90 mb-5" data-t-es="Llámanos directamente y te atendemos lo antes posible, incluso fuera de horario regular." data-t-en="Call us directly and we'll get back to you as soon as possible, even outside regular hours.">Llámanos directamente y te atendemos lo antes posible, incluso fuera de horario regular.</p>
+            <a href="tel:+13856092840" class="inline-flex items-center justify-center gap-2 bg-white text-[#AABFA8] font-semibold px-5 py-2.5 rounded-full hover:brightness-95 transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              <span>(385) 609-2840</span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-5 gap-8 items-stretch">
+        <div class="lg:col-span-2 flex flex-col justify-center">
+          <p class="text-xs uppercase tracking-[0.16em] text-[#C69C87] font-semibold mb-2" data-t-es="Nuestra Ubicación" data-t-en="Our Location">Nuestra Ubicación</p>
+          <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-4" data-t-es="Te esperamos en Midvale" data-t-en="We're waiting for you in Midvale">Te esperamos en Midvale</h2>
+          <p class="text-base text-gray-700 mb-6" data-t-es="Espacio acogedor con estacionamiento gratuito y fácil acceso desde toda la zona del Salt Lake Valley." data-t-en="A welcoming space with free parking and easy access from the entire Salt Lake Valley area.">Espacio acogedor con estacionamiento gratuito y fácil acceso desde toda la zona del Salt Lake Valley.</p>
+
+          <ul class="space-y-3 mb-6 text-sm">
+            <li class="flex items-start gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#F3A2A7]/15 text-[#F3A2A7] flex items-center justify-center font-bold text-xs">1</span>
+              <span class="text-gray-700"><strong class="text-gray-900" data-t-es="En auto:" data-t-en="By car:">En auto:</strong> <span data-t-es="Estacionamiento gratuito en sitio." data-t-en="Free parking on site.">Estacionamiento gratuito en sitio.</span></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#AABFA8]/15 text-[#AABFA8] flex items-center justify-center font-bold text-xs">2</span>
+              <span class="text-gray-700"><strong class="text-gray-900" data-t-es="Transporte público:" data-t-en="Public transit:">Transporte público:</strong> <span data-t-es="Parada UTA cercana." data-t-en="Nearby UTA stop.">Parada UTA cercana.</span></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#C69C87]/15 text-[#C69C87] flex items-center justify-center font-bold text-xs">3</span>
+              <span class="text-gray-700"><strong class="text-gray-900" data-t-es="Accesibilidad:" data-t-en="Accessibility:">Accesibilidad:</strong> <span data-t-es="Instalaciones totalmente accesibles." data-t-en="Fully accessible facilities.">Instalaciones totalmente accesibles.</span></span>
+            </li>
+          </ul>
+
+          <a href="https://maps.google.com/?q=6770+S+900+E,+Midvale,+UT+84047" target="_blank" rel="noopener noreferrer" class="inline-flex w-fit items-center justify-center gap-2 bg-[#F3A2A7] text-white font-semibold px-6 py-3 rounded-full hover:brightness-105 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+            <span data-t-es="Ver en Google Maps" data-t-en="View on Google Maps">Ver en Google Maps</span>
+          </a>
+        </div>
+
+        <div class="lg:col-span-3 rounded-3xl overflow-hidden border border-gray-200 min-h-[360px] lg:min-h-[440px]">
+          <iframe
+            title="Renasci Medical Spa — 6770 S 900 E, Midvale, UT 84047"
+            src="https://maps.google.com/maps?q=6770%20S%20900%20E%2C%20Midvale%2C%20UT%2084047&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0; min-height: 360px; display: block;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <div class="flex items-center justify-center mb-6">
-          <span class="h-[2px] w-16 bg-[#F3A2A7]"></span>
-          <span class="mx-3 w-10 h-10 rounded-full bg-[#F3A2A7] text-white flex items-center justify-center">•</span>
-          <span class="h-[2px] w-16 bg-[#F3A2A7]"></span>
-        </div>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-[#F3A2A7]"><span data-t-es="Múltiples Formas de Conectar" data-t-en="Multiple Ways to Connect">Múltiples Formas de Conectar</span></h2>
-        <p class="text-xl text-graytxt max-w-3xl mx-auto" data-t-es="Elige la forma más conveniente para ti: teléfono, email o visita." data-t-en="Choose the most convenient option for you: phone, email or visit.">Elige la forma más conveniente para ti: teléfono, email o visita.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div class="text-center p-8 bg-[#F3A2A7]/5 rounded-3xl hover:bg-[#F3A2A7]/10 transition-colors">
-          <div class="w-16 h-16 bg-[#F3A2A7] rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-          </div>
-          <h3 class="font-bold text-2xl text-text mb-2" data-t-es="Llámanos" data-t-en="Call Us">Llámanos</h3>
-          <p class="text-graytxt mb-3" data-t-es="Habla directamente con nuestro equipo" data-t-en="Speak directly with our team">Habla directamente con nuestro equipo</p>
-          <a href="tel:+13856092840" class="text-[#F3A2A7] font-bold text-xl">385 609 2840</a>
-          <p class="text-sm text-graytxt mt-2" data-t-es="Lun - Vie: 9:00 AM - 7:00 PM" data-t-en="Mon - Fri: 9:00 AM - 7:00 PM">Lun - Vie: 9:00 AM - 7:00 PM</p>
-        </div>
-        <div class="text-center p-8 bg-[#AABFA8]/5 rounded-3xl hover:bg-[#AABFA8]/10 transition-colors">
-          <div class="w-16 h-16 bg-[#AABFA8] rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          </div>
-          <h3 class="font-bold text-2xl text-text mb-2" data-t-es="Escríbenos" data-t-en="Write to Us">Escríbenos</h3>
-          <p class="text-graytxt mb-3" data-t-es="Responderemos pronto tu mensaje" data-t-en="We'll reply to your message soon">Responderemos pronto tu mensaje</p>
-          <a href="mailto:info@renascimedspa.com" class="text-[#AABFA8] font-bold text-xl">info@renascimedspa.com</a>
-          <p class="text-sm text-graytxt mt-2" data-t-es="Respuesta en 24 horas" data-t-en="Response within 24 hours">Respuesta en 24 horas</p>
-        </div>
-        <div class="text-center p-8 bg-logo/5 rounded-3xl hover:bg-logo/10 transition-colors">
-          <div class="w-16 h-16 bg-logo rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          </div>
-          <h3 class="font-bold text-2xl text-text mb-2" data-t-es="Visítanos" data-t-en="Visit Us">Visítanos</h3>
-          <p class="text-graytxt mb-3" data-t-es="Conoce nuestras instalaciones" data-t-en="See our facilities">Conoce nuestras instalaciones</p>
-          <p class="text-logo font-bold">6770 S 900 E, Midvale, UT 84047</p>
-        </div>
-      </div>
+  <section class="py-16 lg:py-20 bg-[#DDEAF6]">
+    <div class="container mx-auto px-6 text-center max-w-3xl">
+      <p class="text-xs uppercase tracking-[0.16em] text-[#2F4E6F] font-semibold mb-2" data-t-es="Empieza Ahora" data-t-en="Start Now">Empieza Ahora</p>
+      <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#2F4E6F] mb-4" data-t-es="Tu próxima cita está a un click" data-t-en="Your next visit is one click away">Tu próxima cita está a un click</h2>
+      <p class="text-base text-[#2F4E6F]/80 mb-7" data-t-es="Reserva online en menos de un minuto. Sin compromiso, sin estrés." data-t-en="Book online in under a minute. No commitment, no stress.">Reserva online en menos de un minuto. Sin compromiso, sin estrés.</p>
+      <a href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking-trigger="boulevard" class="inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-8 py-3.5 rounded-full hover:brightness-105 transition">
+        <span data-t-es="Agendar Consulta Gratuita" data-t-en="Book Free Consultation">Agendar Consulta Gratuita</span>
+      </a>
     </div>
   </section>
-
-  <section class="py-20 bg-white text-black">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <div class="flex items-center justify-center mb-6">
-            <span class="h-[2px] w-16 bg-[#F3A2A7]"></span>
-            <span class="mx-3 w-10 h-10 rounded-full bg-[#F3A2A7] text-white flex items-center justify-center">•</span>
-            <span class="h-[2px] w-16 bg-[#F3A2A7]"></span>
-          </div>
-          <h2 class="font-display font-bold text-4xl md:text-5xl text-[#F3A2A7]"><span data-t-es="Horarios de Atención" data-t-en="Opening Hours">Horarios de Atención</span></h2>
-          <p class="text-xl text-gray-700" data-t-es="Estamos aquí cuando nos necesites." data-t-en="We are here when you need us.">Estamos aquí cuando nos necesites.</p>
-        </div>
-        <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-200">
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="space-y-6">
-              <div class="flex justify-between items-center py-4 border-b border-gray-200"><span class="font-semibold text-black" data-t-es="Lunes - Viernes" data-t-en="Monday - Friday">Lunes - Viernes</span><span class="text-[#F3A2A7] font-bold">9:00 AM - 7:00 PM</span></div>
-              <div class="flex justify-between items-center py-4 border-b border-gray-200"><span class="font-semibold text-black" data-t-es="Sábados" data-t-en="Saturdays">Sábados</span><span class="text-[#F3A2A7] font-bold">10:00 AM - 6:00 PM</span></div>
-              <div class="flex justify-between items-center py-4 border-b border-gray-200"><span class="font-semibold text-black" data-t-es="Domingos" data-t-en="Sundays">Domingos</span><span class="text-[#F3A2A7] font-bold">10:00 AM - 4:00 PM</span></div>
-              <div class="flex justify-between items-center py-4"><span class="font-semibold text-black" data-t-es="Días Festivos" data-t-en="Holidays">Días Festivos</span><span class="text-gray-500" data-t-es="Horarios especiales" data-t-en="Special hours">Horarios especiales</span></div>
-            </div>
-            <div class="bg-white rounded-2xl p-5 md:p-6 border border-gray-100">
-              <h3 class="font-bold text-xl text-text mb-2" data-t-es="Citas de Emergencia" data-t-en="Emergency Appointments">Citas de Emergencia</h3>
-              <p class="text-graytxt mb-3" data-t-es="Para consultas urgentes fuera del horario regular, contáctanos." data-t-en="For urgent inquiries outside regular hours, contact us.">Para consultas urgentes fuera del horario regular, contáctanos.</p>
-              <CTAButton href="tel:+13856092840" variant="mint" className="!px-5 !py-2.5 focus-visible:ring-[#AABFA8]/50">
-                <span data-t-es="Contacto de Emergencia" data-t-en="Emergency Contact">Contacto de Emergencia</span>
-              </CTAButton>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <ContactFormMembership />
-
-  <section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <div class="flex items-center justify-center mb-6">
-          <span class="h-[2px] w-16 bg-[#F3A2A7]"></span>
-          <span class="mx-3 w-10 h-10 rounded-full bg-[#F3A2A7] text-white flex items-center justify-center">•</span>
-          <span class="h-[2px] w-16 bg-[#F3A2A7]"></span>
-        </div>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-[#F3A2A7]"><span data-t-es="Nuestra Ubicación" data-t-en="Our Location">Nuestra Ubicación</span></h2>
-        <p class="text-xl text-graytxt" data-t-es="Fácil acceso y estacionamiento gratuito." data-t-en="Easy access and free parking.">Fácil acceso y estacionamiento gratuito.</p>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
-        <div class="space-y-8">
-          <div class="bg-gray-50 rounded-3xl p-8">
-            <h3 class="font-bold text-2xl text-text mb-6"><span data-t-es="Cómo Llegar" data-t-en="How to Get Here">Cómo Llegar</span></h3>
-            <div class="space-y-6">
-              <div class="flex items-start space-x-4"><div class="w-8 h-8 bg-[#F3A2A7] rounded-full flex items-center justify-center"><span class="text-white font-bold text-sm">1</span></div><div><h4 class="font-semibold text-text mb-1" data-t-es="En Auto" data-t-en="By Car">En Auto</h4><p class="text-graytxt" data-t-es="Estacionamiento gratuito disponible." data-t-en="Free parking available.">Estacionamiento gratuito disponible.</p></div></div>
-              <div class="flex items-start space-x-4"><div class="w-8 h-8 bg-[#AABFA8] rounded-full flex items-center justify-center"><span class="text-white font-bold text-sm">2</span></div><div><h4 class="font-semibold text-text mb-1" data-t-es="Transporte Público" data-t-en="Public Transport">Transporte Público</h4><p class="text-graytxt" data-t-es="Parada cercana." data-t-en="Nearby stop.">Parada cercana.</p></div></div>
-              <div class="flex items-start space-x-4"><div class="w-8 h-8 bg-logo rounded-full flex items-center justify-center"><span class="text-white font-bold text-sm">3</span></div><div><h4 class="font-semibold text-text mb-1">Accesibilidad</h4><p class="text-graytxt">Instalaciones accesibles.</p></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="rounded-3xl h-96 flex items-center justify-center relative overflow-hidden bg-cover bg-center" style="background-image: url('/img/services/transform.JPG')">
-          <div class="absolute inset-0 bg-black/30"></div>
-          <div class="relative z-10 text-center">
-            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-              <svg class="w-8 h-8 text-[#F3A2A7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            </div>
-            <h3 class="font-bold text-xl text-text mb-2">Renasci Medical Spa</h3>
-            <p class="text-graytxt">6770 S 900 E, Midvale, UT 84047</p>
-            <CTAButton href="https://maps.google.com/?q=6770+S+900+E,+Midvale,+UT+84047" variant="primary">
-              <span data-t-es="Ver en Google Maps" data-t-en="View on Google Maps">Ver en Google Maps</span>
-            </CTAButton>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <TransformCTA />
 </BaseLayout>
 
 <script>
-  function applyContactLang(){
-    const params = new URLSearchParams(window.location.search)
-    const urlLang = params.get('lang')
-    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language')
-    const lang = urlLang === 'en' || urlLang === 'es' ? urlLang : (storedLang === 'en' ? 'en' : (window.i18nManager?.getCurrentLanguage?.() || document.documentElement.lang || 'es'))
-    const nodes = Array.from(document.querySelectorAll('[data-t-es]'))
-    nodes.forEach((n) => { const es = n.getAttribute('data-t-es')||''; const en = n.getAttribute('data-t-en')||es; n.textContent = (lang==='en')? en : es })
-  }
-  document.addEventListener('DOMContentLoaded', applyContactLang)
-  window.addEventListener('languageChanged', (e) => { const lang = e.detail?.language || 'es'; const nodes = Array.from(document.querySelectorAll('[data-t-es]')); nodes.forEach((n) => { const es = n.getAttribute('data-t-es')||''; const en = n.getAttribute('data-t-en')||es; n.textContent = (lang==='en')? en : es }) })
+  type Lang = 'en' | 'es';
+
+  const getContactLang = (): Lang => {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') return urlLang;
+    const stored = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+    if (stored === 'en' || stored === 'es') return stored;
+    return document.documentElement.lang === 'en' ? 'en' : 'es';
+  };
+
+  const applyContactLang = (lang: Lang) => {
+    document.querySelectorAll<HTMLElement>('[data-t-es]').forEach((el) => {
+      const es = el.getAttribute('data-t-es') || '';
+      const en = el.getAttribute('data-t-en') || es;
+      el.textContent = lang === 'en' ? en : es;
+    });
+    document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[data-ph-es]').forEach((el) => {
+      const es = el.getAttribute('data-ph-es') || '';
+      const en = el.getAttribute('data-ph-en') || es;
+      el.placeholder = lang === 'en' ? en : es;
+    });
+  };
+
+  const initContactLang = () => applyContactLang(getContactLang());
+
+  document.addEventListener('DOMContentLoaded', initContactLang);
+  document.addEventListener('astro:page-load', initContactLang);
+  window.addEventListener('languageChanged', (e: Event) => {
+    const detail = (e as CustomEvent).detail;
+    const lang: Lang = detail?.language === 'en' ? 'en' : 'es';
+    applyContactLang(lang);
+  });
+
+  const initContactForm = () => {
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const status = document.getElementById('form-status');
+    if (!form || !status) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      status.classList.remove('hidden', 'text-red-600', 'text-green-600');
+      status.textContent = getContactLang() === 'en' ? 'Sending…' : 'Enviando…';
+      status.classList.add('text-gray-600');
+
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data });
+        if (!res.ok) throw new Error('Network error');
+        form.reset();
+        status.classList.remove('text-gray-600', 'text-red-600');
+        status.classList.add('text-green-600');
+        status.textContent = getContactLang() === 'en'
+          ? 'Thanks — we\'ll get back to you shortly.'
+          : 'Gracias — te responderemos pronto.';
+      } catch {
+        status.classList.remove('text-gray-600', 'text-green-600');
+        status.classList.add('text-red-600');
+        status.textContent = getContactLang() === 'en'
+          ? 'Something went wrong. Please try again or call us.'
+          : 'Hubo un problema. Inténtalo de nuevo o llámanos.';
+      }
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', initContactForm);
+  document.addEventListener('astro:page-load', initContactForm);
 </script>
