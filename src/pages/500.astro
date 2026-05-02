@@ -69,30 +69,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <script>
-  const apply500Lang = (lang: 'en' | 'es') => {
-    document.querySelectorAll('[data-t-es]').forEach((el) => {
-      const es = el.getAttribute('data-t-es') || '';
-      const en = el.getAttribute('data-t-en') || es;
-      el.textContent = lang === 'en' ? en : es;
-    });
-  };
-
-  const get500Lang = (): 'en' | 'es' => {
-    const params = new URLSearchParams(window.location.search);
-    const urlLang = params.get('lang');
-    if (urlLang === 'en' || urlLang === 'es') return urlLang;
-    const stored = localStorage.getItem('renasci-language') || localStorage.getItem('language');
-    if (stored === 'en' || stored === 'es') return stored;
-    return document.documentElement.lang === 'en' ? 'en' : 'es';
-  };
-
-  const init500Lang = () => apply500Lang(get500Lang());
   const initRetry = () => {
     const btn = document.getElementById('retry-btn');
     btn?.addEventListener('click', () => window.location.reload());
   };
-
-  document.addEventListener('DOMContentLoaded', () => { init500Lang(); initRetry(); });
-  document.addEventListener('astro:page-load', () => { init500Lang(); initRetry(); });
-  window.addEventListener('languageChanged', init500Lang);
+  document.addEventListener('DOMContentLoaded', initRetry);
+  document.addEventListener('astro:page-load', initRetry);
 </script>

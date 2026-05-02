@@ -34,6 +34,21 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      (function () {
+        try {
+          var urlLang = new URLSearchParams(location.search).get('lang');
+          var stored = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+          var nav = (navigator.language || '').toLowerCase();
+          var lang = (urlLang === 'en' || urlLang === 'es') ? urlLang
+                   : (stored === 'en' || stored === 'es') ? stored
+                   : nav.indexOf('en') === 0 ? 'en'
+                   : 'es';
+          document.documentElement.lang = lang;
+          document.documentElement.setAttribute('data-lang', lang);
+        } catch (e) {}
+      })();
+    </script>
     <script type="module">
       class I18nManager {
         constructor() {
@@ -5580,22 +5595,26 @@ const {
         resolveInitialLang() {
           const urlLang = new URLSearchParams(window.location.search).get('lang');
           if (urlLang === 'en' || urlLang === 'es') return urlLang;
-          const saved = localStorage.getItem('language') || localStorage.getItem('renasci-language');
+          const saved = localStorage.getItem('renasci-language') || localStorage.getItem('language');
           if (saved === 'en' || saved === 'es') return saved;
           const docLang = document.documentElement.lang;
           if (docLang === 'en' || docLang === 'es') return docLang;
+          const nav = (navigator.language || '').toLowerCase();
+          if (nav.startsWith('en')) return 'en';
           return 'es';
         }
         switchLanguage(lang) {
           this.currentLang = lang === 'en' ? 'en' : 'es';
-          localStorage.setItem('language', this.currentLang);
           localStorage.setItem('renasci-language', this.currentLang);
+          localStorage.setItem('language', this.currentLang);
           document.documentElement.lang = this.currentLang;
           this.updateLanguageSwitcher();
           this.translations = this.dict[this.currentLang] || {};
           this.applyTranslations();
           const evt = new CustomEvent('languageApplied', { detail: { language: this.currentLang } });
           window.dispatchEvent(evt);
+          const legacy = new CustomEvent('languageChanged', { detail: { language: this.currentLang } });
+          window.dispatchEvent(legacy);
         }
         async loadTranslations(lang) { this.translations = this.dict[lang] || {}; }
         getNested(obj, path) {
@@ -5604,17 +5623,14 @@ const {
           } catch { return undefined }
         }
         applyTranslations() {
-          const elements = document.querySelectorAll('[data-i18n]');
-          elements.forEach((el) => {
+          const lang = this.currentLang;
+          // Dict-driven keys
+          document.querySelectorAll('[data-i18n]').forEach((el) => {
             const key = el.getAttribute('data-i18n');
-            let value = this.getNested(this.translations, key);
-            if (typeof value === 'string') {
-              if (el.hasAttribute('placeholder')) {
-                el.setAttribute('placeholder', value);
-              } else {
-                el.innerHTML = value;
-              }
-            }
+            const value = this.getNested(this.translations, key);
+            if (typeof value !== 'string') return;
+            if (el.hasAttribute('placeholder')) el.setAttribute('placeholder', value);
+            else el.innerHTML = value;
           });
           const titleEl = document.querySelector('title[data-i18n]');
           if (titleEl) {
@@ -5622,6 +5638,22 @@ const {
             const value = this.getNested(this.translations, key);
             if (typeof value === 'string') titleEl.textContent = value;
           }
+          // Inline string variants used by service pages and content sections
+          document.querySelectorAll('[data-t-es]').forEach((el) => {
+            const es = el.getAttribute('data-t-es') || '';
+            const en = el.getAttribute('data-t-en') || es;
+            el.textContent = lang === 'en' ? en : es;
+          });
+          document.querySelectorAll('[data-alt-es]').forEach((el) => {
+            const es = el.getAttribute('data-alt-es') || '';
+            const en = el.getAttribute('data-alt-en') || es;
+            el.setAttribute('alt', lang === 'en' ? en : es);
+          });
+          document.querySelectorAll('[data-ph-es]').forEach((el) => {
+            const es = el.getAttribute('data-ph-es') || '';
+            const en = el.getAttribute('data-ph-en') || es;
+            el.setAttribute('placeholder', lang === 'en' ? en : es);
+          });
         }
         updateLanguageSwitcher() {
           const btn = document.querySelector('.language-switcher-button');
@@ -5645,11 +5677,22 @@ const {
         getCurrentLanguage() { return this.currentLang; }
       }
       let i18nManager;
+      const bootI18n = () => {
+        if (!i18nManager) {
+          i18nManager = new I18nManager();
+          window.i18nManager = i18nManager;
+        } else {
+          i18nManager.applyTranslations();
+          i18nManager.updateLanguageSwitcher();
+          document.documentElement.lang = i18nManager.getCurrentLanguage();
+        }
+      };
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => { i18nManager = new I18nManager(); window.i18nManager = i18nManager; });
+        document.addEventListener('DOMContentLoaded', bootI18n);
       } else {
-        i18nManager = new I18nManager(); window.i18nManager = i18nManager;
+        bootI18n();
       }
+      document.addEventListener('astro:page-load', bootI18n);
     </script>
     <SEO title={seoTitle} description={seoDescription} url={Astro.url.pathname} image={seoImage} locale={lang} keywords={seoKeywords} />
     <link rel="preconnect" href="https://fonts.googleapis.com">

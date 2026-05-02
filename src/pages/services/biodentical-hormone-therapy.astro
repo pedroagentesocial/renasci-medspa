@@ -194,34 +194,4 @@ import SimpleContactForm from '../../components/SimpleContactForm.astro';
 
   document.addEventListener('DOMContentLoaded', initBhrtFaq);
   document.addEventListener('astro:page-load', initBhrtFaq);
-
-  const getBhrtLang = () => {
-    const params = new URLSearchParams(window.location.search);
-    const urlLang = params.get('lang');
-    if (urlLang === 'en' || urlLang === 'es') return urlLang;
-    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language');
-    if (storedLang === 'en' || storedLang === 'es') return storedLang;
-    return document.documentElement.lang === 'en' ? 'en' : 'es';
-  };
-
-  const applyBhrtLang = (lang: 'en' | 'es') => {
-    document.querySelectorAll('[data-t-es]').forEach((el) => {
-      const es = el.getAttribute('data-t-es') || '';
-      const en = el.getAttribute('data-t-en') || es;
-      el.textContent = lang === 'en' ? en : es;
-    });
-    document.querySelectorAll('[data-alt-es]').forEach((el) => {
-      const es = el.getAttribute('data-alt-es') || '';
-      const en = el.getAttribute('data-alt-en') || es;
-      el.setAttribute('alt', lang === 'en' ? en : es);
-    });
-  };
-
-  const initBhrtLang = () => applyBhrtLang(getBhrtLang());
-
-  document.addEventListener('DOMContentLoaded', initBhrtLang);
-  document.addEventListener('astro:page-load', initBhrtLang);
-  window.addEventListener('languageChanged', () => {
-    initBhrtLang();
-  });
 </script>

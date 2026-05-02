@@ -228,36 +228,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   type Lang = 'en' | 'es';
 
   const getContactLang = (): Lang => {
-    const params = new URLSearchParams(window.location.search);
-    const urlLang = params.get('lang');
-    if (urlLang === 'en' || urlLang === 'es') return urlLang;
-    const stored = localStorage.getItem('renasci-language') || localStorage.getItem('language');
-    if (stored === 'en' || stored === 'es') return stored;
-    return document.documentElement.lang === 'en' ? 'en' : 'es';
+    const html = document.documentElement.getAttribute('data-lang') || document.documentElement.lang;
+    return html === 'en' ? 'en' : 'es';
   };
-
-  const applyContactLang = (lang: Lang) => {
-    document.querySelectorAll<HTMLElement>('[data-t-es]').forEach((el) => {
-      const es = el.getAttribute('data-t-es') || '';
-      const en = el.getAttribute('data-t-en') || es;
-      el.textContent = lang === 'en' ? en : es;
-    });
-    document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[data-ph-es]').forEach((el) => {
-      const es = el.getAttribute('data-ph-es') || '';
-      const en = el.getAttribute('data-ph-en') || es;
-      el.placeholder = lang === 'en' ? en : es;
-    });
-  };
-
-  const initContactLang = () => applyContactLang(getContactLang());
-
-  document.addEventListener('DOMContentLoaded', initContactLang);
-  document.addEventListener('astro:page-load', initContactLang);
-  window.addEventListener('languageChanged', (e: Event) => {
-    const detail = (e as CustomEvent).detail;
-    const lang: Lang = detail?.language === 'en' ? 'en' : 'es';
-    applyContactLang(lang);
-  });
 
   const initContactForm = () => {
     const form = document.getElementById('contact-form') as HTMLFormElement | null;
