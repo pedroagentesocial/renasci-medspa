@@ -8,9 +8,13 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://renascimedspa.com',
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover'
+  },
   integrations: [
-    react(), 
-    tailwind(), 
+    react(),
+    tailwind(),
     icon(),
     sitemap()
   ],
