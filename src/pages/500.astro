@@ -1,134 +1,98 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CTAButton from '../components/CTAButton.astro';
-import { t } from '../i18n/config';
-import { dict } from '../i18n/dict';
-import { getLocaleFromUrl } from '../i18n/config';
-
-const currentLocale = getLocaleFromUrl(Astro.url);
-
-const title = t(currentLocale, "pages.server_error", dict);
-const description = currentLocale === "es" 
-  ? "Error interno del servidor. Nuestro equipo está trabajando para solucionarlo."
-  : "Internal server error. Our team is working to fix it.";
 ---
 
-<BaseLayout 
-  title={title}
-  description={description}
-  seoTitle={`500 - ${title} | Renasci Medical Spa`}
-  seoDescription={description}
-  lang={currentLocale}
+<BaseLayout
+  title="Error del Servidor - Renasci Medical Spa"
+  description="Ocurrió un error temporal. Nuestro equipo ya está trabajando para resolverlo. Vuelve a intentarlo en unos minutos."
+  seoTitle="500 - Error del Servidor | Renasci Medical Spa"
 >
-  <div class="min-h-screen flex items-center justify-center px-4 py-20">
-    <div class="max-w-md mx-auto text-center">
-      <!-- 500 Illustration -->
-      <div class="mb-8">
-        <div class="text-8xl font-bold text-primary/20 mb-4">500</div>
-        <div class="w-24 h-24 mx-auto bg-soft rounded-full flex items-center justify-center">
-          <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
-          </svg>
-        </div>
+  <section class="relative min-h-[78vh] flex items-center justify-center overflow-hidden">
+    <img
+      src="/img/about.jpg"
+      alt="Renasci Medical Spa"
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-black/65"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center text-white">
+      <p class="font-display font-bold text-7xl md:text-9xl text-[#F3A2A7] leading-none mb-2 animate-[pulse-gentle_3s_ease-in-out_infinite]">500</p>
+      <p class="text-xs uppercase tracking-[0.18em] text-white/80 font-semibold mb-6" data-t-es="Error del Servidor" data-t-en="Server Error">Error del Servidor</p>
+
+      <h1 class="font-display font-bold text-3xl md:text-5xl leading-tight mb-5" data-t-es="Algo salió mal por aquí" data-t-en="Something went wrong on our end">Algo salió mal por aquí</h1>
+
+      <p class="text-base md:text-lg text-white/90 max-w-xl mx-auto mb-8" data-t-es="Tuvimos un problema temporal. Nuestro equipo ya está trabajando para solucionarlo. Por favor, intenta de nuevo en unos minutos." data-t-en="We had a temporary issue. Our team is already working to fix it. Please try again in a few minutes.">Tuvimos un problema temporal. Nuestro equipo ya está trabajando para solucionarlo. Por favor, intenta de nuevo en unos minutos.</p>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <button id="retry-btn" type="button" class="inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-7 py-3 rounded-full hover:brightness-105 transition" data-t-es="Intentar de Nuevo" data-t-en="Try Again">Intentar de Nuevo</button>
+        <a href="/" class="inline-flex items-center justify-center border-2 border-white/80 bg-white/10 text-white font-semibold px-7 py-3 rounded-full hover:bg-white/20 transition" data-t-es="Volver al Inicio" data-t-en="Back to Home">Volver al Inicio</a>
       </div>
+    </div>
+  </section>
 
-      <!-- Content -->
-      <div class="space-y-4 mb-8">
-        <h1 class="text-2xl font-heading font-bold text-dark">
-          {currentLocale === "es" ? "Error del servidor" : "Server error"}
-        </h1>
-        
-        <p class="text-dark/70 leading-relaxed">
-          {currentLocale === "es" 
-            ? "Algo salió mal en nuestros servidores. Nuestro equipo técnico ya está trabajando para solucionarlo. Por favor, inténtalo de nuevo en unos minutos."
-            : "Something went wrong on our servers. Our technical team is already working to fix it. Please try again in a few minutes."
-          }
-        </p>
-      </div>
+  <section class="py-14 lg:py-16 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-xs uppercase tracking-[0.16em] text-[#AABFA8] font-semibold mb-2" data-t-es="¿El Problema Persiste?" data-t-en="Still Not Working?">¿El Problema Persiste?</p>
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#C69C87] mb-4" data-t-es="Estamos para ayudarte" data-t-en="We're here to help">Estamos para ayudarte</h2>
+        <p class="text-base text-gray-700 mb-10" data-t-es="Si necesitas asistencia inmediata, contáctanos directamente y con gusto te atendemos." data-t-en="If you need immediate assistance, reach out directly and we'll gladly help.">Si necesitas asistencia inmediata, contáctanos directamente y con gusto te atendemos.</p>
 
-      <!-- Actions -->
-      <div class="space-y-4">
-        <CTAButton 
-          href="/"
-          variant="primary"
-          size="lg"
-          className="w-full"
-        >
-          {t(currentLocale, "cta.back_home", dict)}
-        </CTAButton>
-
-        <button 
-          onclick="window.location.reload()"
-          class="w-full px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-2xl font-semibold transition-all duration-200 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-          aria-label={currentLocale === "es" ? "Recargar página" : "Reload page"}
-        >
-          {currentLocale === "es" ? "Intentar de nuevo" : "Try again"}
-        </button>
-      </div>
-
-      <!-- Contact Support -->
-      <div class="mt-8 pt-6 border-t border-soft">
-        <p class="text-sm text-dark/60 mb-3">
-          {currentLocale === "es" ? "¿El problema persiste?" : "Problem persists?"}
-        </p>
-        
-        <div class="space-y-2">
-          <p class="text-sm text-dark/70">
-            {currentLocale === "es" 
-              ? "Contáctanos directamente:"
-              : "Contact us directly:"
-            }
-          </p>
-          
-          <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm">
-            <a 
-              href="tel:+1-000-000-0000" 
-              class="text-primary hover:text-primary/80 transition-colors flex items-center space-x-1"
-              aria-label={currentLocale === "es" ? "Llamar por teléfono" : "Call by phone"}
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <a href="tel:+13856092840" class="group flex items-center gap-4 rounded-2xl border border-gray-200 p-5 hover:border-[#F3A2A7] hover:shadow-card-hover transition text-left">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-[#AABFA8]/15 text-[#AABFA8] flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
               </svg>
-              <span>+1 (000) 000-0000</span>
-            </a>
-            
-            <a 
-              href="mailto:info@renasci.com" 
-              class="text-primary hover:text-primary/80 transition-colors flex items-center space-x-1"
-              aria-label={currentLocale === "es" ? "Enviar email" : "Send email"}
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wide text-gray-500 font-semibold mb-0.5" data-t-es="Llámanos" data-t-en="Call Us">Llámanos</p>
+              <p class="font-display font-bold text-lg text-gray-900 group-hover:text-[#F3A2A7] transition">(385) 609-2840</p>
+            </div>
+          </a>
+
+          <a href="mailto:info@renascimedspa.com" class="group flex items-center gap-4 rounded-2xl border border-gray-200 p-5 hover:border-[#F3A2A7] hover:shadow-card-hover transition text-left">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-[#F3A2A7]/15 text-[#F3A2A7] flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
               </svg>
-              <span>info@renasci.com</span>
-            </a>
-          </div>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wide text-gray-500 font-semibold mb-0.5" data-t-es="Escríbenos" data-t-en="Email Us">Escríbenos</p>
+              <p class="font-display font-bold text-lg text-gray-900 group-hover:text-[#F3A2A7] transition">info@renascimedspa.com</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 
-<style>
-  /* Add subtle animation to the illustration */
-  .text-8xl {
-    animation: pulse 2s ease-in-out infinite;
-  }
-  
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.7;
-    }
-  }
-  
-  /* Ensure proper focus states */
-  a:focus-visible,
-  button:focus-visible {
-    outline: 2px solid #E94594;
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
-</style>
+<script>
+  const apply500Lang = (lang: 'en' | 'es') => {
+    document.querySelectorAll('[data-t-es]').forEach((el) => {
+      const es = el.getAttribute('data-t-es') || '';
+      const en = el.getAttribute('data-t-en') || es;
+      el.textContent = lang === 'en' ? en : es;
+    });
+  };
+
+  const get500Lang = (): 'en' | 'es' => {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') return urlLang;
+    const stored = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+    if (stored === 'en' || stored === 'es') return stored;
+    return document.documentElement.lang === 'en' ? 'en' : 'es';
+  };
+
+  const init500Lang = () => apply500Lang(get500Lang());
+  const initRetry = () => {
+    const btn = document.getElementById('retry-btn');
+    btn?.addEventListener('click', () => window.location.reload());
+  };
+
+  document.addEventListener('DOMContentLoaded', () => { init500Lang(); initRetry(); });
+  document.addEventListener('astro:page-load', () => { init500Lang(); initRetry(); });
+  window.addEventListener('languageChanged', init500Lang);
+</script>
