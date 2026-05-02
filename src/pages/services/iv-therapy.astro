@@ -58,7 +58,7 @@ import SimpleContactForm from '../../components/SimpleContactForm.astro';
               <li data-t-es="Seguro y efectivo" data-t-en="Safe and effective">Seguro y efectivo</li>
               <li data-t-es="Plan de tratamiento personalizado para tus necesidades" data-t-en="Customized treatment plan to meet your unique needs">Plan de tratamiento personalizado para tus necesidades</li>
             </ul>
-            <a href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
+            <a href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking-trigger="boulevard" class="inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
           </div>
         </div>
       </div>
@@ -71,155 +71,264 @@ import SimpleContactForm from '../../components/SimpleContactForm.astro';
         <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#F3A2A7] mb-2" data-t-es="Tratamientos" data-t-en="Treatments">Treatments</h2>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
           <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Drips.jpeg');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
             <div>
               <h3 class="font-display font-bold text-xl mb-2" data-t-es="Pure Hydration Therapy" data-t-en="Pure Hydration Therapy">Pure Hydration Therapy</h3>
-              <p class="text-sm text-white/90 font-semibold mb-3" data-t-es="$115" data-t-en="$115">$115</p>
-              <p class="text-sm text-white/90 mb-4" data-t-es="Hidratación intravenosa médica para restauración rápida de líquidos y electrolitos." data-t-en="Medical IV hydration for rapid restoration of fluids and electrolytes.">Hidratación intravenosa médica para restauración rápida de líquidos y electrolitos.</p>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Beneficios clínicos:" data-t-en="Clinical benefits:">Beneficios clínicos:</p>
-              <ul class="list-disc pl-5 space-y-1 text-sm text-white/90 mb-4 text-left mx-auto">
-                <li data-t-es="Deshidratación" data-t-en="Dehydration">Deshidratación</li>
-                <li data-t-es="Fatiga física" data-t-en="Physical fatigue">Fatiga física</li>
-                <li data-t-es="Recuperación general" data-t-en="General recovery">Recuperación general</li>
-                <li data-t-es="Bienestar y balance corporal" data-t-en="Wellness and body balance">Bienestar y balance corporal</li>
-              </ul>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Componentes:" data-t-en="Components:">Componentes:</p>
-              <p class="text-sm text-white/90" data-t-es="Solución IV de fluidos." data-t-en="IV fluid solution.">Solución IV de fluidos.</p>
+              <p class="text-sm text-white/85 mb-2" data-t-es="Hidratación • Balance • Recuperación" data-t-en="Hydration • Balance • Recovery">Hidratación • Balance • Recuperación</p>
+              <div class="flex items-center gap-3 text-white/95 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span class="font-display font-bold text-2xl" data-t-es="$115" data-t-en="$115">$115</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Diseñado para hidratar y reponer rápidamente." data-t-en="Designed for fast hydration and replenishment.">Diseñado para hidratar y reponer rápidamente.</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Incluye:" data-t-en="Includes:">Incluye:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Solución IV de fluidos" data-t-en="IV fluid solution">Solución IV de fluidos</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Ideal para:" data-t-en="Ideal for:">Ideal para:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Deshidratación" data-t-en="Dehydration">Deshidratación</li>
+                    <li data-t-es="Fatiga física" data-t-en="Physical fatigue">Fatiga física</li>
+                    <li data-t-es="Recuperación general" data-t-en="General recovery">Recuperación general</li>
+                    <li data-t-es="Bienestar y balance corporal" data-t-en="Wellness and body balance">Bienestar y balance corporal</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Setup.jpg');"></div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Essential-Wellness-Drip.jpg');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
             <div>
               <h3 class="font-display font-bold text-xl mb-2" data-t-es="Essential Wellness Drip" data-t-en="Essential Wellness Drip">Essential Wellness Drip</h3>
-              <p class="text-sm text-white/90 font-semibold mb-3" data-t-es="$145" data-t-en="$145">$145</p>
-              <p class="text-sm text-white/90 mb-4" data-t-es="Terapia base de micronutrientes intravenosos para soporte metabólico e inmunológico." data-t-en="Foundational IV micronutrient therapy for metabolic and immune support.">Terapia base de micronutrientes intravenosos para soporte metabólico e inmunológico.</p>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Beneficios clínicos:" data-t-en="Clinical benefits:">Beneficios clínicos:</p>
-              <ul class="list-disc pl-5 space-y-1 text-sm text-white/90 mb-4 text-left mx-auto">
-                <li data-t-es="Optimización del sistema inmune" data-t-en="Immune system optimization">Optimización del sistema inmune</li>
-                <li data-t-es="Producción de energía celular" data-t-en="Cellular energy production">Producción de energía celular</li>
-                <li data-t-es="Soporte antioxidante" data-t-en="Antioxidant support">Soporte antioxidante</li>
-                <li data-t-es="Recuperación pre y post procedimiento" data-t-en="Pre- and post-procedure recovery">Recuperación pre y post procedimiento</li>
-                <li data-t-es="Salud cutánea y antienvejecimiento" data-t-en="Skin health and anti-aging">Salud cutánea y antienvejecimiento</li>
-              </ul>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Componentes:" data-t-en="Components:">Componentes:</p>
-              <p class="text-sm text-white/90" data-t-es="Vitamina C, Vitamina B12, Complejo B, Magnesio, Fluidoterapia IV." data-t-en="Vitamin C, Vitamin B12, B Complex, Magnesium, IV fluid therapy.">Vitamina C, Vitamina B12, Complejo B, Magnesio, Fluidoterapia IV.</p>
+              <p class="text-sm text-white/85 mb-2" data-t-es="Hidratación • Energía • Bienestar" data-t-en="Hydration • Energy • Wellness">Hidratación • Energía • Bienestar</p>
+              <div class="flex items-center gap-3 text-white/95 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span class="font-display font-bold text-2xl" data-t-es="$145" data-t-en="$145">$145</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Terapia IV diseñada para apoyar hidratación, energía y bienestar general." data-t-en="IV therapy designed to support hydration, energy, and overall wellness.">Terapia IV diseñada para apoyar hidratación, energía y bienestar general.</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Ideal para:" data-t-en="IDEAL FOR:">Ideal para:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Soporte de hidratación" data-t-en="Hydration support">Soporte de hidratación</li>
+                    <li data-t-es="Energía baja" data-t-en="Low energy">Energía baja</li>
+                    <li data-t-es="Soporte inmune" data-t-en="Immune support">Soporte inmune</li>
+                    <li data-t-es="Recuperación pre y post" data-t-en="Pre & post recovery">Recuperación pre y post</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Incluye:" data-t-en="INCLUDES:">Incluye:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Vitamina C" data-t-en="Vitamin C">Vitamina C</li>
+                    <li data-t-es="B12" data-t-en="B12">B12</li>
+                    <li data-t-es="Complejo B" data-t-en="B-Complex">Complejo B</li>
+                    <li data-t-es="Magnesio" data-t-en="Magnesium">Magnesio</li>
+                    <li data-t-es="Fluidos IV" data-t-en="IV Fluids">Fluidos IV</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
           <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/first.jpg');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
             <div>
               <h3 class="font-display font-bold text-xl mb-2" data-t-es="Energy & Performance Therapy" data-t-en="Energy & Performance Therapy">Energy & Performance Therapy</h3>
-              <p class="text-sm text-white/90 font-semibold mb-3" data-t-es="$165" data-t-en="$165">$165</p>
-              <p class="text-sm text-white/90 mb-4" data-t-es="Optimización metabólica y rendimiento físico con soporte nutricional intravenoso avanzado." data-t-en="Metabolic optimization and physical performance with advanced IV nutritional support.">Optimización metabólica y rendimiento físico con soporte nutricional intravenoso avanzado.</p>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Beneficios clínicos:" data-t-en="Clinical benefits:">Beneficios clínicos:</p>
-              <ul class="list-disc pl-5 space-y-1 text-sm text-white/90 mb-4 text-left mx-auto">
-                <li data-t-es="Mejora del rendimiento físico" data-t-en="Improved physical performance">Mejora del rendimiento físico</li>
-                <li data-t-es="Apoyo en desarrollo muscular" data-t-en="Muscle development support">Apoyo en desarrollo muscular</li>
-                <li data-t-es="Incremento de energía" data-t-en="Energy boost">Incremento de energía</li>
-                <li data-t-es="Recuperación deportiva" data-t-en="Sports recovery">Recuperación deportiva</li>
-              </ul>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Componentes:" data-t-en="Components:">Componentes:</p>
-              <p class="text-sm text-white/90" data-t-es="Essential Wellness + Ácido Fólico, L-Carnitina, Complejo de Aminoácidos." data-t-en="Essential Wellness + Folic Acid, L-Carnitine, Amino Acid Complex.">Essential Wellness + Ácido Fólico, L-Carnitina, Complejo de Aminoácidos.</p>
+              <p class="text-sm text-white/85 mb-2" data-t-es="Energía • Fuerza • Recuperación" data-t-en="Energy • Strength • Recovery">Energía • Fuerza • Recuperación</p>
+              <div class="flex items-center gap-3 text-white/95 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span class="font-display font-bold text-2xl" data-t-es="$165" data-t-en="$165">$165</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Diseñado para mejorar energía y rendimiento." data-t-en="Designed to enhance energy and performance.">Diseñado para mejorar energía y rendimiento.</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Incluye:" data-t-en="Includes:">Incluye:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Vita-Complex (vitaminas B)" data-t-en="Vita-Complex (B vitamins)">Vita-Complex (vitaminas B)</li>
+                    <li data-t-es="B12 (Methylcobalamin)" data-t-en="B12 (Methylcobalamin)">B12 (Methylcobalamin)</li>
+                    <li data-t-es="Vitamina C" data-t-en="Vitamin C">Vitamina C</li>
+                    <li data-t-es="L-Carnitina" data-t-en="L-Carnitine">L-Carnitina</li>
+                    <li data-t-es="Mezcla de aminoácidos" data-t-en="Amino Acid Blend">Mezcla de aminoácidos</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Ideal para:" data-t-en="Ideal for:">Ideal para:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Energía extra" data-t-en="Energy boost">Energía extra</li>
+                    <li data-t-es="Rendimiento físico" data-t-en="Physical performance">Rendimiento físico</li>
+                    <li data-t-es="Recuperación muscular" data-t-en="Muscle recovery">Recuperación muscular</li>
+                    <li data-t-es="Estilo de vida activo" data-t-en="Active lifestyle">Estilo de vida activo</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
           <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/second.jpg');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
             <div>
               <h3 class="font-display font-bold text-xl mb-2" data-t-es="Muscle Recovery & Repair" data-t-en="Muscle Recovery & Repair">Muscle Recovery & Repair</h3>
-              <p class="text-sm text-white/90 font-semibold mb-3" data-t-es="$175" data-t-en="$175">$175</p>
-              <p class="text-sm text-white/90 mb-4" data-t-es="Terapia enfocada en regeneración muscular y reducción de inflamación sistémica." data-t-en="Therapy focused on muscle regeneration and systemic inflammation reduction.">Terapia enfocada en regeneración muscular y reducción de inflamación sistémica.</p>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Beneficios clínicos:" data-t-en="Clinical benefits:">Beneficios clínicos:</p>
-              <ul class="list-disc pl-5 space-y-1 text-sm text-white/90 mb-4 text-left mx-auto">
-                <li data-t-es="Reparación tisular" data-t-en="Tissue repair">Reparación tisular</li>
-                <li data-t-es="Disminución de inflamación" data-t-en="Reduced inflammation">Disminución de inflamación</li>
-                <li data-t-es="Protección antioxidante" data-t-en="Antioxidant protection">Protección antioxidante</li>
-                <li data-t-es="Recuperación acelerada" data-t-en="Accelerated recovery">Recuperación acelerada</li>
-              </ul>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Componentes:" data-t-en="Components:">Componentes:</p>
-              <p class="text-sm text-white/90" data-t-es="Essential Wellness + Aminoácidos, Glutamina, Ácido Alfa Lipoico." data-t-en="Essential Wellness + Amino Acids, Glutamine, Alpha Lipoic Acid.">Essential Wellness + Aminoácidos, Glutamina, Ácido Alfa Lipoico.</p>
+              <p class="text-sm text-white/85 mb-2" data-t-es="Recuperación • Reparación • Rendimiento" data-t-en="Recovery • Repair • Performance">Recuperación • Reparación • Rendimiento</p>
+              <div class="flex items-center gap-3 text-white/95 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span class="font-display font-bold text-2xl" data-t-es="$175" data-t-en="$175">$175</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Terapia IV diseñada para apoyar recuperación muscular, reducir inflamación y mejorar rendimiento." data-t-en="IV therapy designed to support muscle recovery, reduce inflammation, and enhance performance.">Terapia IV diseñada para apoyar recuperación muscular, reducir inflamación y mejorar rendimiento.</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Ideal para:" data-t-en="IDEAL FOR:">Ideal para:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Recuperación muscular" data-t-en="Muscle recovery">Recuperación muscular</li>
+                    <li data-t-es="Soporte antiinflamatorio" data-t-en="Inflammation support">Soporte antiinflamatorio</li>
+                    <li data-t-es="Estilo de vida activo" data-t-en="Active lifestyle">Estilo de vida activo</li>
+                    <li data-t-es="Recuperación post-entreno" data-t-en="Post-workout recovery">Recuperación post-entreno</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Incluye:" data-t-en="INCLUDES:">Incluye:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Essential Wellness" data-t-en="Essential Wellness">Essential Wellness</li>
+                    <li data-t-es="Mezcla de aminoácidos" data-t-en="Amino Acid Blend">Mezcla de aminoácidos</li>
+                    <li data-t-es="Glutamina" data-t-en="Glutamine">Glutamina</li>
+                    <li data-t-es="Ácido Alfa Lipoico" data-t-en="Alpha Lipoic Acid">Ácido Alfa Lipoico</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/spa.jpg');"></div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Relax-Anti-Stress-Therapy.jpg');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
             <div>
               <h3 class="font-display font-bold text-xl mb-2" data-t-es="Relax & Anti-Stress Therapy" data-t-en="Relax & Anti-Stress Therapy">Relax & Anti-Stress Therapy</h3>
-              <p class="text-sm text-white/90 font-semibold mb-3" data-t-es="$175" data-t-en="$175">$175</p>
-              <p class="text-sm text-white/90 mb-4" data-t-es="Protocolo intravenoso para modulación del estrés y relajación neuromuscular." data-t-en="IV protocol for stress modulation and neuromuscular relaxation.">Protocolo intravenoso para modulación del estrés y relajación neuromuscular.</p>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Beneficios clínicos:" data-t-en="Clinical benefits:">Beneficios clínicos:</p>
-              <ul class="list-disc pl-5 space-y-1 text-sm text-white/90 mb-4 text-left mx-auto">
-                <li data-t-es="Regulación del sistema nervioso" data-t-en="Nervous system regulation">Regulación del sistema nervioso</li>
-                <li data-t-es="Relajación muscular" data-t-en="Muscle relaxation">Relajación muscular</li>
-                <li data-t-es="Apoyo en cefaleas y migrañas" data-t-en="Support for headaches and migraines">Apoyo en cefaleas y migrañas</li>
-                <li data-t-es="Reducción de estrés oxidativo" data-t-en="Reduced oxidative stress">Reducción de estrés oxidativo</li>
-              </ul>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Componentes:" data-t-en="Components:">Componentes:</p>
-              <p class="text-sm text-white/90" data-t-es="Essential Wellness + Magnesio terapéutico, Push IV de Glutatión." data-t-en="Essential Wellness + Therapeutic magnesium, IV push of glutathione.">Essential Wellness + Magnesio terapéutico, Push IV de Glutatión.</p>
+              <p class="text-sm text-white/85 mb-2" data-t-es="Calma • Alivio • Reset" data-t-en="Calm • Relief • Reset">Calma • Alivio • Reset</p>
+              <div class="flex items-center gap-3 text-white/95 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span class="font-display font-bold text-2xl" data-t-es="$175" data-t-en="$175">$175</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Diseñado para reducir estrés y favorecer relajación profunda." data-t-en="Designed to reduce stress and support deep relaxation.">Diseñado para reducir estrés y favorecer relajación profunda.</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Incluye:" data-t-en="Includes:">Incluye:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Essential Wellness" data-t-en="Essential Wellness">Essential Wellness</li>
+                    <li data-t-es="Magnesio terapéutico" data-t-en="Therapeutic magnesium">Magnesio terapéutico</li>
+                    <li data-t-es="Push IV de Glutatión" data-t-en="IV push of glutathione">Push IV de Glutatión</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Ideal para:" data-t-en="Ideal for:">Ideal para:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Regulación del sistema nervioso" data-t-en="Nervous system regulation">Regulación del sistema nervioso</li>
+                    <li data-t-es="Relajación muscular" data-t-en="Muscle relaxation">Relajación muscular</li>
+                    <li data-t-es="Apoyo en cefaleas y migrañas" data-t-en="Support for headaches and migraines">Apoyo en cefaleas y migrañas</li>
+                    <li data-t-es="Reducción de estrés oxidativo" data-t-en="Reduced oxidative stress">Reducción de estrés oxidativo</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Vitamin-d.jpg');"></div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Immune-Defense-Boost.JPG');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
             <div>
               <h3 class="font-display font-bold text-xl mb-2" data-t-es="Immune Defense Therapy" data-t-en="Immune Defense Therapy">Immune Defense Therapy</h3>
-              <p class="text-sm text-white/90 font-semibold mb-3" data-t-es="$180" data-t-en="$180">$180</p>
-              <p class="text-sm text-white/90 mb-4" data-t-es="Refuerzo inmunológico intensivo con micronutrientes y antioxidantes intravenosos." data-t-en="Intensive immune reinforcement with IV micronutrients and antioxidants.">Refuerzo inmunológico intensivo con micronutrientes y antioxidantes intravenosos.</p>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Beneficios clínicos:" data-t-en="Clinical benefits:">Beneficios clínicos:</p>
-              <ul class="list-disc pl-5 space-y-1 text-sm text-white/90 mb-4 text-left mx-auto">
-                <li data-t-es="Estimulación del sistema inmune" data-t-en="Immune system stimulation">Estimulación del sistema inmune</li>
-                <li data-t-es="Prevención y recuperación de enfermedad" data-t-en="Prevention and illness recovery">Prevención y recuperación de enfermedad</li>
-                <li data-t-es="Protección antioxidante" data-t-en="Antioxidant protection">Protección antioxidante</li>
-                <li data-t-es="Soporte celular" data-t-en="Cellular support">Soporte celular</li>
-              </ul>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Componentes:" data-t-en="Components:">Componentes:</p>
-              <p class="text-sm text-white/90" data-t-es="Essential Wellness + Vitamina C alta concentración, Zinc, Glutamina." data-t-en="Essential Wellness + High-concentration Vitamin C, Zinc, Glutamine.">Essential Wellness + Vitamina C alta concentración, Zinc, Glutamina.</p>
+              <p class="text-sm text-white/85 mb-2" data-t-es="Inmunidad • Protección • Recuperación" data-t-en="Immunity • Protection • Recovery">Inmunidad • Protección • Recuperación</p>
+              <div class="flex items-center gap-3 text-white/95 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span class="font-display font-bold text-2xl" data-t-es="$180" data-t-en="$180">$180</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Terapia IV diseñada para fortalecer tu sistema inmune y apoyar recuperación todo el año." data-t-en="IV therapy designed to strengthen your immune system and support recovery year-round.">Terapia IV diseñada para fortalecer tu sistema inmune y apoyar recuperación todo el año.</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Ideal para:" data-t-en="IDEAL FOR:">Ideal para:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Soporte inmune" data-t-en="Immune support">Soporte inmune</li>
+                    <li data-t-es="Enfermedad frecuente" data-t-en="Frequent illness">Enfermedad frecuente</li>
+                    <li data-t-es="Energía baja y estrés" data-t-en="Low energy & stress">Energía baja y estrés</li>
+                    <li data-t-es="Protección estacional" data-t-en="Seasonal protection">Protección estacional</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Incluye:" data-t-en="INCLUDES:">Incluye:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Essential Wellness (fluidos IV + vitaminas)" data-t-en="Essential Wellness (IV fluids + vitamins)">Essential Wellness (fluidos IV + vitaminas)</li>
+                    <li data-t-es="Vitamina C alta dosis" data-t-en="High-dose Vitamin C">Vitamina C alta dosis</li>
+                    <li data-t-es="Zinc" data-t-en="Zinc">Zinc</li>
+                    <li data-t-es="Glutamina" data-t-en="Glutamine">Glutamina</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Fat-blaster.jpg.webp');"></div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Metabolic-Ignite.jpg');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
             <div>
               <h3 class="font-display font-bold text-xl mb-2" data-t-es="Metabolic Boost Therapy" data-t-en="Metabolic Boost Therapy">Metabolic Boost Therapy</h3>
-              <p class="text-sm text-white/90 font-semibold mb-3" data-t-es="$185" data-t-en="$185">$185</p>
-              <p class="text-sm text-white/90 mb-4" data-t-es="Protocolo lipotrópico para optimización del metabolismo y manejo de peso." data-t-en="Lipotropic protocol for metabolic optimization and weight management.">Protocolo lipotrópico para optimización del metabolismo y manejo de peso.</p>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Beneficios clínicos:" data-t-en="Clinical benefits:">Beneficios clínicos:</p>
-              <ul class="list-disc pl-5 space-y-1 text-sm text-white/90 mb-4 text-left mx-auto">
-                <li data-t-es="Metabolismo de grasas" data-t-en="Fat metabolism">Metabolismo de grasas</li>
-                <li data-t-es="Producción de energía" data-t-en="Energy production">Producción de energía</li>
-                <li data-t-es="Soporte en pérdida de peso" data-t-en="Weight loss support">Soporte en pérdida de peso</li>
-                <li data-t-es="Mejora metabólica" data-t-en="Metabolic improvement">Mejora metabólica</li>
-              </ul>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Componentes:" data-t-en="Components:">Componentes:</p>
-              <p class="text-sm text-white/90" data-t-es="Vitamina B12, L-Carnitina, Ácido Alfa Lipoico, Inyección IM lipotrópica MIC." data-t-en="Vitamin B12, L-Carnitine, Alpha Lipoic Acid, MIC lipotropic IM injection.">Vitamina B12, L-Carnitina, Ácido Alfa Lipoico, Inyección IM lipotrópica MIC.</p>
+              <p class="text-sm text-white/85 mb-2" data-t-es="Metabolismo • Energía • Peso" data-t-en="Metabolism • Energy • Weight">Metabolismo • Energía • Peso</p>
+              <div class="flex items-center gap-3 text-white/95 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span class="font-display font-bold text-2xl" data-t-es="$185" data-t-en="$185">$185</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Protocolo lipotrópico para optimización metabólica y manejo de peso." data-t-en="Lipotropic protocol for metabolic optimization and weight management.">Protocolo lipotrópico para optimización metabólica y manejo de peso.</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Beneficios clínicos:" data-t-en="Clinical benefits:">Beneficios clínicos:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Metabolismo de grasas" data-t-en="Fat metabolism">Metabolismo de grasas</li>
+                    <li data-t-es="Producción de energía" data-t-en="Energy production">Producción de energía</li>
+                    <li data-t-es="Soporte en pérdida de peso" data-t-en="Weight loss support">Soporte en pérdida de peso</li>
+                    <li data-t-es="Mejora metabólica" data-t-en="Metabolic improvement">Mejora metabólica</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Componentes:" data-t-en="Components:">Componentes:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Vitamina B12" data-t-en="Vitamin B12">Vitamina B12</li>
+                    <li data-t-es="L-Carnitina" data-t-en="L-Carnitine">L-Carnitina</li>
+                    <li data-t-es="Ácido Alfa Lipoico" data-t-en="Alpha Lipoic Acid">Ácido Alfa Lipoico</li>
+                    <li data-t-es="Inyección IM lipotrópica MIC" data-t-en="MIC lipotropic IM injection">Inyección IM lipotrópica MIC</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+        <div class="hidden relative rounded-2xl overflow-hidden min-h-[320px] text-white">
           <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Setup.jpg');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
@@ -231,8 +340,8 @@ import SimpleContactForm from '../../components/SimpleContactForm.astro';
           </div>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Vitamin-d.jpg');"></div>
+        <div class="hidden relative rounded-2xl overflow-hidden min-h-[320px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Vitality-Reset.jpg');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
             <div>
@@ -243,7 +352,7 @@ import SimpleContactForm from '../../components/SimpleContactForm.astro';
           </div>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+        <div class="hidden relative rounded-2xl overflow-hidden min-h-[320px] text-white">
           <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Drips.jpeg');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
@@ -255,77 +364,140 @@ import SimpleContactForm from '../../components/SimpleContactForm.astro';
           </div>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
           <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/detox-hangover-recovery.jpg');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
             <div>
               <h3 class="font-display font-bold text-xl mb-2" data-t-es="Detox & Hangover Recovery" data-t-en="Detox & Hangover Recovery">Detox & Hangover Recovery</h3>
-              <p class="text-sm text-white/90 font-semibold mb-3" data-t-es="$185" data-t-en="$185">$185</p>
-              <p class="text-sm text-white/90 mb-4" data-t-es="Terapia intravenosa para detoxificación hepática y alivio sintomático." data-t-en="IV therapy for liver detoxification and symptom relief.">Terapia intravenosa para detoxificación hepática y alivio sintomático.</p>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Beneficios clínicos:" data-t-en="Clinical benefits:">Beneficios clínicos:</p>
-              <ul class="list-disc pl-5 space-y-1 text-sm text-white/90 mb-4 text-left mx-auto">
-                <li data-t-es="Detox hepático" data-t-en="Liver detox">Detox hepático</li>
-                <li data-t-es="Reducción de náuseas y cefalea" data-t-en="Reduced nausea and headache">Reducción de náuseas y cefalea</li>
-                <li data-t-es="Rehidratación rápida" data-t-en="Rapid rehydration">Rehidratación rápida</li>
-                <li data-t-es="Recuperación metabólica" data-t-en="Metabolic recovery">Recuperación metabólica</li>
-              </ul>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Componentes:" data-t-en="Components:">Componentes:</p>
-              <p class="text-sm text-white/90" data-t-es="Complejo B, Glutamina, Glutatión, Hidratación intensiva, Medicación IV según evaluación." data-t-en="B Complex, Glutamine, Glutathione, Intensive hydration, IV medication as evaluated.">Complejo B, Glutamina, Glutatión, Hidratación intensiva, Medicación IV según evaluación.</p>
+              <p class="text-sm text-white/85 mb-2" data-t-es="Detox • Alivio • Rehidratación" data-t-en="Detox • Relief • Rehydration">Detox • Alivio • Rehidratación</p>
+              <div class="flex items-center gap-3 text-white/95 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span class="font-display font-bold text-2xl" data-t-es="$185" data-t-en="$185">$185</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Diseñado para detoxificar, aliviar síntomas y rehidratar rápido." data-t-en="Designed to detox, ease symptoms, and rehydrate quickly.">Diseñado para detoxificar, aliviar síntomas y rehidratar rápido.</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Incluye:" data-t-en="Includes:">Incluye:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Complejo B" data-t-en="B Complex">Complejo B</li>
+                    <li data-t-es="Glutamina" data-t-en="Glutamine">Glutamina</li>
+                    <li data-t-es="Glutatión" data-t-en="Glutathione">Glutatión</li>
+                    <li data-t-es="Hidratación intensiva" data-t-en="Intensive hydration">Hidratación intensiva</li>
+                    <li data-t-es="Medicación IV según evaluación" data-t-en="IV medication as evaluated">Medicación IV según evaluación</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Ideal para:" data-t-en="Ideal for:">Ideal para:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Detox hepático" data-t-en="Liver detox">Detox hepático</li>
+                    <li data-t-es="Reducción de náuseas y cefalea" data-t-en="Reduced nausea and headache">Reducción de náuseas y cefalea</li>
+                    <li data-t-es="Rehidratación rápida" data-t-en="Rapid rehydration">Rehidratación rápida</li>
+                    <li data-t-es="Recuperación metabólica" data-t-en="Metabolic recovery">Recuperación metabólica</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
           <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/skin.jpg');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
             <div>
               <h3 class="font-display font-bold text-xl mb-2" data-t-es="Beauty Glow Therapy" data-t-en="Beauty Glow Therapy">Beauty Glow Therapy</h3>
-              <p class="text-sm text-white/90 font-semibold mb-3" data-t-es="$185" data-t-en="$185">$185</p>
-              <p class="text-sm text-white/90 mb-4" data-t-es="Protocolo intravenoso para salud cutánea, capilar y rejuvenecimiento." data-t-en="IV protocol for skin and hair health plus rejuvenation.">Protocolo intravenoso para salud cutánea, capilar y rejuvenecimiento.</p>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Beneficios clínicos:" data-t-en="Clinical benefits:">Beneficios clínicos:</p>
-              <ul class="list-disc pl-5 space-y-1 text-sm text-white/90 mb-4 text-left mx-auto">
-                <li data-t-es="Mejora calidad de piel" data-t-en="Improves skin quality">Mejora calidad de piel</li>
-                <li data-t-es="Fortalecimiento capilar" data-t-en="Hair strengthening">Fortalecimiento capilar</li>
-                <li data-t-es="Soporte antioxidante" data-t-en="Antioxidant support">Soporte antioxidante</li>
-                <li data-t-es="Rejuvenecimiento celular" data-t-en="Cellular rejuvenation">Rejuvenecimiento celular</li>
-              </ul>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Componentes:" data-t-en="Components:">Componentes:</p>
-              <p class="text-sm text-white/90" data-t-es="Biotina, Vitamina C, Complejo B, Glutatión, Ácido Alfa Lipoico." data-t-en="Biotin, Vitamin C, B Complex, Glutathione, Alpha Lipoic Acid.">Biotina, Vitamina C, Complejo B, Glutatión, Ácido Alfa Lipoico.</p>
+              <p class="text-sm text-white/85 mb-2" data-t-es="Piel • Cabello • Glow" data-t-en="Skin • Hair • Glow">Piel • Cabello • Glow</p>
+              <div class="flex items-center gap-3 text-white/95 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span class="font-display font-bold text-2xl" data-t-es="$185" data-t-en="$185">$185</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Protocolo IV para salud de piel y cabello más rejuvenecimiento." data-t-en="IV protocol for skin and hair health plus rejuvenation.">Protocolo IV para salud de piel y cabello más rejuvenecimiento.</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Beneficios clínicos:" data-t-en="Clinical benefits:">Beneficios clínicos:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Mejora calidad de piel" data-t-en="Improves skin quality">Mejora calidad de piel</li>
+                    <li data-t-es="Fortalecimiento capilar" data-t-en="Hair strengthening">Fortalecimiento capilar</li>
+                    <li data-t-es="Soporte antioxidante" data-t-en="Antioxidant support">Soporte antioxidante</li>
+                    <li data-t-es="Rejuvenecimiento celular" data-t-en="Cellular rejuvenation">Rejuvenecimiento celular</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Componentes:" data-t-en="Components:">Componentes:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Biotina" data-t-en="Biotin">Biotina</li>
+                    <li data-t-es="Vitamina C" data-t-en="Vitamin C">Vitamina C</li>
+                    <li data-t-es="Complejo B" data-t-en="B Complex">Complejo B</li>
+                    <li data-t-es="Glutatión" data-t-en="Glutathione">Glutatión</li>
+                    <li data-t-es="Ácido Alfa Lipoico" data-t-en="Alpha Lipoic Acid">Ácido Alfa Lipoico</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="mt-6 grid md:grid-cols-2 gap-6 md:max-w-3xl md:mx-auto lg:max-w-5xl lg:mx-auto">
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
           <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/NAD.png');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
             <div>
               <h3 class="font-display font-bold text-xl mb-2" data-t-es="NAD+ Cellular Renewal" data-t-en="NAD+ Cellular Renewal">NAD+ Cellular Renewal</h3>
-              <p class="text-sm text-white/90 font-semibold mb-3" data-t-es="$275" data-t-en="$275">$275</p>
-              <p class="text-sm text-white/90 mb-4" data-t-es="Terapia avanzada para regeneración celular y longevidad." data-t-en="Advanced therapy for cellular regeneration and longevity.">Terapia avanzada para regeneración celular y longevidad.</p>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Beneficios clínicos:" data-t-en="Clinical benefits:">Beneficios clínicos:</p>
-              <ul class="list-disc pl-5 space-y-1 text-sm text-white/90 mb-4 text-left mx-auto">
-                <li data-t-es="Reparación celular" data-t-en="Cellular repair">Reparación celular</li>
-                <li data-t-es="Optimización energética" data-t-en="Energy optimization">Optimización energética</li>
-                <li data-t-es="Función cognitiva" data-t-en="Cognitive function">Función cognitiva</li>
-                <li data-t-es="Antiaging avanzado" data-t-en="Advanced anti-aging">Antiaging avanzado</li>
-              </ul>
-              <p class="text-sm font-semibold text-white mb-2" data-t-es="Componentes:" data-t-en="Components:">Componentes:</p>
-              <p class="text-sm text-white/90" data-t-es="Protocolo individualizado según evaluación clínica." data-t-en="Individualized protocol based on clinical evaluation.">Protocolo individualizado según evaluación clínica.</p>
+              <p class="text-sm text-white/85 mb-2" data-t-es="Desde $250" data-t-en="From $250">Desde $250</p>
+              <div class="flex items-center gap-3 text-white/95 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span class="font-display font-bold text-2xl" data-t-es="NAD+" data-t-en="NAD+">NAD+</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-4" data-t-es="Terapia avanzada para energía celular, enfoque mental y antiaging." data-t-en="Advanced therapy for cellular energy, mental focus, and anti-aging.">Terapia avanzada para energía celular, enfoque mental y antiaging.</p>
+              <div class="grid grid-cols-2 gap-4 text-left mb-4">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Sesiones" data-t-en="Sessions">Sesiones</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="250 mg - $250" data-t-en="250 mg - $250">250 mg - $250</li>
+                    <li data-t-es="500 mg - $450 ★ Más popular" data-t-en="500 mg - $450 ★ Most popular">500 mg - $450 ★ Más popular</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Paquetes (Ahorra más)" data-t-en="Packages (Save more)">Paquetes (Ahorra más)</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="250 mg x 4 - $799" data-t-en="250 mg x 4 - $799">250 mg x 4 - $799</li>
+                    <li data-t-es="500 mg x 4 - $1,499 ★ Mejor valor" data-t-en="500 mg x 4 - $1,499 ★ Best value">500 mg x 4 - $1,499 ★ Mejor valor</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="max-w-lg mx-auto grid grid-cols-2 gap-4 text-left items-start">
+                <div class="flex flex-col h-full">
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2 text-center" data-t-es="NAD Beneficios" data-t-en="NAD Benefits">NAD Beneficios</p>
+                  <ul class="list-disc pl-5 text-sm text-white/90 space-y-1">
+                    <li data-t-es="Energía celular" data-t-en="Cellular energy">Energía celular</li>
+                    <li data-t-es="Claridad mental" data-t-en="Mental clarity">Claridad mental</li>
+                    <li data-t-es="Antiaging" data-t-en="Anti-aging">Antiaging</li>
+                    <li data-t-es="Recuperación" data-t-en="Recovery">Recuperación</li>
+                  </ul>
+                </div>
+                <div class="flex flex-col h-full">
+                  <p class="text-xs text-white/80 mb-2 text-center" data-t-es="Pure NAD+ Infusion" data-t-en="Pure NAD+ Infusion">Pure NAD+ Infusion</p>
+                  <ul class="list-disc pl-5 text-sm text-white/90 space-y-1">
+                    <li data-t-es="✔ Protocolo lento y seguro" data-t-en="✔ Slow and safe protocol">✔ Protocolo lento y seguro</li>
+                    <li data-t-es="✔ Supervisión médica" data-t-en="✔ Medical supervision">✔ Supervisión médica</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="relative rounded-2xl overflow-hidden min-h-[260px] text-white">
-          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/hero-services.jpg');"></div>
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Immune-Defense-Boost.JPG');"></div>
           <div class="absolute inset-0 bg-black/55"></div>
           <div class="relative z-10 p-6 flex flex-col h-full text-center">
             <div>
               <h3 class="font-display font-bold text-xl mb-2" data-t-es="Add-ons disponibles" data-t-en="Available add-ons">Add-ons disponibles</h3>
-              <ul class="list-disc pl-5 text-sm text-white/90 text-left mx-auto max-w-md columns-2 gap-6 space-y-2">
+              <ul class="list-disc pl-5 text-sm text-white/90 text-left mx-auto max-w-4xl columns-2 md:columns-3 gap-6 space-y-2">
                 <li data-t-es="Glutathione - $15" data-t-en="Glutathione - $15">Glutathione - $15</li>
                 <li data-t-es="L-Glutamine - $15" data-t-en="L-Glutamine - $15">L-Glutamine - $15</li>
                 <li data-t-es="L-Arginine - $15" data-t-en="L-Arginine - $15">L-Arginine - $15</li>
@@ -342,7 +514,249 @@ import SimpleContactForm from '../../components/SimpleContactForm.astro';
                 <li data-t-es="Dexamethasone - $15" data-t-en="Dexamethasone - $15">Dexamethasone - $15</li>
                 <li data-t-es="Pepcid - $15" data-t-en="Pepcid - $15">Pepcid - $15</li>
               </ul>
+              <div class="my-4 h-px bg-white/40"></div>
+              <ul class="text-sm text-white/90 text-left mx-auto max-w-4xl grid md:grid-cols-2 gap-3">
+                <li>
+                  <p class="font-semibold" data-t-es="Toradol - $30" data-t-en="Toradol - $30">Toradol - $30</p>
+                  <p data-t-es="Antiinflamatorio, dolor" data-t-en="Anti-inflammatory, Pain">Antiinflamatorio, dolor</p>
+                </li>
+                <li>
+                  <p class="font-semibold" data-t-es="Tri-Amino Blend - $30" data-t-en="Tri-Amino Blend - $30">Tri-Amino Blend - $30</p>
+                  <p data-t-es="Salud cardiovascular, vasodilatación (flujo sanguíneo), salud sexual, antiaging" data-t-en="Cardiovascular Health, Vasodilation (blood flow), Sexual Health, Anti-aging">Salud cardiovascular, vasodilatación (flujo sanguíneo), salud sexual, antiaging</p>
+                </li>
+                <li>
+                  <p class="font-semibold" data-t-es="Lipo (MIC) - $30" data-t-en="Lipo (MIC) - $30">Lipo (MIC) - $30</p>
+                  <p data-t-es="Metabolismo, función celular, pérdida de peso moderada" data-t-en="Metabolism, Cellular Function, Modest Weight Loss">Metabolismo, función celular, pérdida de peso moderada</p>
+                </li>
+                <li>
+                  <p class="font-semibold" data-t-es="Zofran - $30" data-t-en="Zofran - $30">Zofran - $30</p>
+                  <p data-t-es="Antináusea" data-t-en="Anti-nausea">Antináusea</p>
+                </li>
+              </ul>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 lg:pb-16 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-8">
+        <h3 class="font-display font-bold text-2xl lg:text-3xl text-black mb-3" data-t-es="Wellness Performance Shots" data-t-en="Wellness Performance Shots">Wellness Performance Shots</h3>
+        <p class="text-sm lg:text-base text-gray-500" data-t-es="Programas Metabólicos y Bienestar Personalizados" data-t-en="Personalized Metabolic & Wellness Programs">Programas Metabólicos y Bienestar Personalizados</p>
+        <p class="text-sm lg:text-base text-gray-500 mt-1" data-t-es="Cada protocolo se personaliza después de la evaluación clínica." data-t-en="Every protocol is customized after clinical assessment.">Cada protocolo se personaliza después de la evaluación clínica.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Vitamin-d.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-1" data-t-es="Vitality Reset" data-t-en="Vitality Reset">Vitality Reset</h3>
+              <p class="text-sm text-white/85 mb-3" data-t-es="Recarga total de energía" data-t-en="Total Energy Recharge">Recarga total de energía</p>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$60" data-t-en="$60">$60</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-3" data-t-es="Paquete de 4 inyecciones $200" data-t-en="4-injection package $200">Paquete de 4 inyecciones $200</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Incluye:" data-t-en="INCLUDES:">Incluye:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="B-Complex + B12" data-t-en="B-Complex + B12">B-Complex + B12</li>
+                    <li data-t-es="L-Carnitina" data-t-en="L-Carnitine">L-Carnitina</li>
+                    <li data-t-es="Mezcla de aminoácidos" data-t-en="Amino Acid Blend">Mezcla de aminoácidos</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Ideal para:" data-t-en="IDEAL FOR:">Ideal para:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Energy boost" data-t-en="Energy boost">Energy boost</li>
+                    <li data-t-es="Mental clarity & focus" data-t-en="Mental clarity & focus">Mental clarity & focus</li>
+                    <li data-t-es="Physical performance" data-t-en="Physical performance">Physical performance</li>
+                    <li data-t-es="Busy lifestyle" data-t-en="Busy lifestyle">Busy lifestyle</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking-trigger="boulevard" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center mt-4" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
+          </div>
+        </div>
+
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Drips.jpeg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-1" data-t-es="Beauty Boost Injections" data-t-en="Beauty Boost Injections">Beauty Boost Injections</h3>
+              <p class="text-sm text-white/85 mb-3" data-t-es="Cabello • Piel • Luminosidad" data-t-en="Hair • Skin • Glow">Cabello • Piel • Luminosidad</p>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$35" data-t-en="$35">$35</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-3" data-t-es="Paquete de 4 inyecciones $120" data-t-en="4-injection package $120">Paquete de 4 inyecciones $120</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Incluye:" data-t-en="INCLUDES:">Incluye:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Biotina" data-t-en="Biotin">Biotina</li>
+                    <li data-t-es="Glutatión" data-t-en="Glutathione">Glutatión</li>
+                    <li data-t-es="Vitamina C" data-t-en="Vitamin C">Vitamina C</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Ideal para:" data-t-en="IDEAL FOR:">Ideal para:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Piel opaca" data-t-en="Dull skin">Piel opaca</li>
+                    <li data-t-es="Fortalecer cabello y uñas" data-t-en="Strengthen hair and nails">Fortalecer cabello y uñas</li>
+                    <li data-t-es="Apoyo antioxidante" data-t-en="Antioxidant support">Apoyo antioxidante</li>
+                    <li data-t-es="Metabolismo y reducción de inflamación" data-t-en="Metabolism and inflammation reduction">Metabolismo y reducción de inflamación</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking-trigger="boulevard" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center mt-4" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
+          </div>
+        </div>
+
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/hero-services.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-1" data-t-es="Immune Defense Boost" data-t-en="Immune Defense Boost">Immune Defense Boost</h3>
+              <p class="text-sm text-white/85 mb-3" data-t-es="Soporte inmune y protección" data-t-en="Immune Support & Protection">Soporte inmune y protección</p>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$55" data-t-en="$55">$55</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-3" data-t-es="Paquete de 4 inyecciones $190" data-t-en="4-injection package $190">Paquete de 4 inyecciones $190</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Incluye:" data-t-en="INCLUDES:">Incluye:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Vitamin C" data-t-en="Vitamin C">Vitamin C</li>
+                    <li data-t-es="B-Complex" data-t-en="B-Complex">B-Complex</li>
+                    <li data-t-es="Glutathione" data-t-en="Glutathione">Glutathione</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Ideal para:" data-t-en="IDEAL FOR:">Ideal para:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Immune support" data-t-en="Immune support">Immune support</li>
+                    <li data-t-es="Frequent illness" data-t-en="Frequent illness">Frequent illness</li>
+                    <li data-t-es="Low energy & stress" data-t-en="Low energy & stress">Low energy & stress</li>
+                    <li data-t-es="Seasonal protection" data-t-en="Seasonal protection">Seasonal protection</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking-trigger="boulevard" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center mt-4" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
+          </div>
+        </div>
+
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Stress-Relief-Boost.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-1" data-t-es="Stress Relief Boost" data-t-en="Stress Relief Boost">Stress Relief Boost</h3>
+              <p class="text-sm text-white/85 mb-3" data-t-es="Relajación • Ánimo • Recuperación" data-t-en="Relaxation • Mood • Recovery">Relajación • Ánimo • Recuperación</p>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$55" data-t-en="$55">$55</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-3" data-t-es="Paquete de 4 inyecciones $190" data-t-en="4-injection package $190">Paquete de 4 inyecciones $190</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Incluye:" data-t-en="INCLUDES:">Incluye:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Magnesio" data-t-en="Magnesium">Magnesio</li>
+                    <li data-t-es="B-Complex / B12" data-t-en="B-Complex / B12">B-Complex / B12</li>
+                    <li data-t-es="Vitamina C" data-t-en="Vitamin C">Vitamina C</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Ideal para:" data-t-en="IDEAL FOR:">Ideal para:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Stress & anxiety support" data-t-en="Stress & anxiety support">Stress & anxiety support</li>
+                    <li data-t-es="Poor sleep" data-t-en="Poor sleep">Poor sleep</li>
+                    <li data-t-es="Muscle tension" data-t-en="Muscle tension">Muscle tension</li>
+                    <li data-t-es="Mood balance" data-t-en="Mood balance">Mood balance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking-trigger="boulevard" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center mt-4" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
+          </div>
+        </div>
+
+        <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Metabolic-Ignite.jpg');"></div>
+          <div class="absolute inset-0 bg-black/55"></div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-xl mb-1" data-t-es="Metabolic Ignite" data-t-en="Metabolic Ignite">Metabolic Ignite</h3>
+              <p class="text-sm text-white/85 mb-3" data-t-es="Apoyo en peso y activación energética" data-t-en="Weight Support & Energy Activation">Apoyo en peso y activación energética</p>
+              <div class="flex items-center gap-3 text-sm text-white/90 mb-3">
+                <span class="flex-1 h-px bg-white/70"></span>
+                <span data-t-es="$70" data-t-en="$70">$70</span>
+                <span class="flex-1 h-px bg-white/70"></span>
+              </div>
+              <p class="text-sm text-white/90 mb-3" data-t-es="Paquete de 4 inyecciones $220" data-t-en="4-injection package $220">Paquete de 4 inyecciones $220</p>
+              <div class="grid grid-cols-2 gap-4 text-left">
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Incluye:" data-t-en="INCLUDES:">Incluye:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="B12 (Methylcobalamin)" data-t-en="B12 (Methylcobalamin)">B12 (Methylcobalamin)</li>
+                    <li data-t-es="Alpha Lipoic Acid (ALA)" data-t-en="Alpha Lipoic Acid (ALA)">Alpha Lipoic Acid (ALA)</li>
+                    <li data-t-es="MICC (Lipotropic)" data-t-en="MICC (Lipotropic)">MICC (Lipotropic)</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs text-white/80 uppercase tracking-wide mb-2" data-t-es="Ideal para:" data-t-en="IDEAL FOR:">Ideal para:</p>
+                  <ul class="text-sm text-white/90 space-y-1">
+                    <li data-t-es="Weight loss support" data-t-en="Weight loss support">Weight loss support</li>
+                    <li data-t-es="Boost metabolism" data-t-en="Boost metabolism">Boost metabolism</li>
+                    <li data-t-es="Fight fatigue" data-t-en="Fight fatigue">Fight fatigue</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking-trigger="boulevard" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center mt-4" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
+          </div>
+        </div>
+
+        <div class="relative rounded-2xl overflow-hidden min-h-[330px] text-white">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/services/Vitamin-Wellness-Boosters.jpg');"></div>
+          <div class="absolute inset-0 bg-black/65"></div>
+          <div class="relative z-10 p-4 flex flex-col h-full text-center">
+            <div>
+              <h3 class="font-display font-bold text-lg mb-0.5" data-t-es="Vitamin & Wellness Boosters" data-t-en="Vitamin & Wellness Boosters">Vitamin & Wellness Boosters</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-0.5 text-left mx-auto max-w-2xl">
+                <div class="px-1 py-0.5"><p class="font-semibold text-sm leading-tight" data-t-es="Biotin" data-t-en="Biotin">Biotin</p><p class="text-[11px] text-white/85 leading-tight" data-t-es="Piel • Cabello • Uñas" data-t-en="Skin • Hair • Nails">Piel • Cabello • Uñas</p></div>
+                <div class="px-1 py-0.5"><p class="font-semibold text-sm leading-tight" data-t-es="Glutathione" data-t-en="Glutathione">Glutathione</p><p class="text-xs text-white/85 leading-tight" data-t-es="Antioxidante • Detox • Soporte de piel y ánimo • Antiinflamatorio" data-t-en="Antioxidant • Detox • Skin and mood support • Anti-inflammatory">Antioxidante • Detox • Soporte de piel y ánimo • Antiinflamatorio</p></div>
+                <div class="px-1 py-0.5"><p class="font-semibold text-sm leading-tight" data-t-es="Alpha Lipoic Acid" data-t-en="Alpha Lipoic Acid">Alpha Lipoic Acid</p><p class="text-xs text-white/85 leading-tight" data-t-es="Antioxidante • Pérdida de peso • Anti-aging • Reduce inflamación • Soporte de piel" data-t-en="Antioxidant • Weight loss • Anti-aging • Reduces inflammation • Skin support">Antioxidante • Pérdida de peso • Anti-aging • Reduce inflamación • Soporte de piel</p></div>
+                <div class="px-1 py-0.5"><p class="font-semibold text-sm leading-tight" data-t-es="Vitamin B-12" data-t-en="Vitamin B-12">Vitamin B-12</p><p class="text-xs text-white/85 leading-tight" data-t-es="Energía • Pérdida de peso • Ánimo • Cicatrización • Piel" data-t-en="Energy • Weight loss • Mood support • Wound healing • Skin">Energía • Pérdida de peso • Ánimo • Cicatrización • Piel</p></div>
+                <div class="px-1 py-0.5"><p class="font-semibold text-sm leading-tight" data-t-es="Vitamin C" data-t-en="Vitamin C">Vitamin C</p><p class="text-xs text-white/85 leading-tight" data-t-es="Inmunidad • Antioxidante • Ánimo • Cicatrización • Piel" data-t-en="Immune • Antioxidant • Mood support • Wound healing • Skin">Inmunidad • Antioxidante • Ánimo • Cicatrización • Piel</p></div>
+                <div class="px-1 py-0.5"><p class="font-semibold text-sm leading-tight" data-t-es="Magnesium" data-t-en="Magnesium">Magnesium</p><p class="text-xs text-white/85 leading-tight" data-t-es="Estrés/ansiedad • Dolor muscular • Presión arterial • Dolor de cabeza • Ritmo cardiaco" data-t-en="Stress/anxiety • Muscle pain • Blood pressure • Headache • Heart rhythm">Estrés/ansiedad • Dolor muscular • Presión arterial • Dolor de cabeza • Ritmo cardiaco</p></div>
+                <div class="px-1 py-0.5"><p class="font-semibold text-sm leading-tight" data-t-es="Lipo (MIC)" data-t-en="Lipo (MIC)">Lipo (MIC)</p><p class="text-xs text-white/85 leading-tight" data-t-es="Metabolismo • Función celular • Pérdida de peso moderada" data-t-en="Metabolism • Cellular function • Modest weight loss">Metabolismo • Función celular • Pérdida de peso moderada</p></div>
+                <div class="px-1 py-0.5"><p class="font-semibold text-sm leading-tight" data-t-es="Tri-Amino Blend" data-t-en="Tri-Amino Blend">Tri-Amino Blend</p><p class="text-xs text-white/85 leading-tight" data-t-es="Salud cardiovascular • Salud sexual" data-t-en="Cardiovascular health • Sexual health">Salud cardiovascular • Salud sexual</p></div>
+                <div class="px-1 py-0.5"><p class="font-semibold text-sm leading-tight" data-t-es="Toradol" data-t-en="Toradol">Toradol</p><p class="text-xs text-white/85 leading-tight" data-t-es="Antiinflamatorio • Dolor" data-t-en="Anti-inflammatory • Pain">Antiinflamatorio • Dolor</p></div>
+                <div class="px-1 py-0.5"><p class="font-semibold text-sm leading-tight" data-t-es="Zofran" data-t-en="Zofran">Zofran</p><p class="text-xs text-white/85 leading-tight" data-t-es="Antináusea" data-t-en="Anti-nausea">Antináusea</p></div>
+              </div>
+              <div class="grid grid-cols-2 gap-1 mt-1.5 mb-1">
+                <p class="text-xs font-semibold text-white/95 rounded-md bg-white/10 px-2 py-1.5" data-t-es="$30 POR BOOSTER" data-t-en="$30 PER BOOSTER">$30 POR BOOSTER</p>
+                <p class="text-xs font-semibold text-white/95 rounded-md bg-white/10 px-2 py-1.5" data-t-es="PAQUETE DE 4 $100" data-t-en="PACKAGE OF 4 $100">PAQUETE DE 4 $100</p>
+              </div>
+              <p class="text-xs text-white/90" data-t-es="Elige uno o combínalos según tus necesidades." data-t-en="Choose one or combine them based on your needs!">Elige uno o combínalos según tus necesidades.</p>
+            </div>
+            <a href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking-trigger="boulevard" class="mt-auto inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition self-center mt-2" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
           </div>
         </div>
       </div>
@@ -453,8 +867,41 @@ import SimpleContactForm from '../../components/SimpleContactForm.astro';
     });
   };
 
+  const initIvTherapyBookingButtons = () => {
+    const boulevardUrl = 'https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget';
+    const sections = Array.from(document.querySelectorAll('section'));
+    const treatmentsSection = sections.find((section) => section.querySelector('[data-t-en="Treatments"]'));
+    if (!treatmentsSection) return;
+
+    treatmentsSection.querySelectorAll('.relative.rounded-2xl.overflow-hidden').forEach((card) => {
+      const title = card.querySelector('h3');
+      if (!title) return;
+      const titleEn = (title.getAttribute('data-t-en') || title.textContent || '').toLowerCase();
+      if (titleEn.includes('add-ons')) return;
+      if (card.querySelector('[data-iv-book-now]')) return;
+
+      const content = card.querySelector('.relative.z-10.p-6.flex.flex-col.h-full.text-center');
+      if (!content) return;
+
+      content.classList.add('justify-between');
+
+      const button = document.createElement('a');
+      button.setAttribute('href', boulevardUrl);
+      button.setAttribute('data-booking-trigger', 'boulevard');
+      button.setAttribute('data-iv-book-now', 'true');
+      button.setAttribute('data-t-es', 'Agendar Ahora');
+      button.setAttribute('data-t-en', 'Book Now');
+      button.className = 'inline-flex items-center justify-center bg-[#F3A2A7] text-white font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition mt-4 self-center';
+      button.textContent = 'Book Now';
+
+      content.appendChild(button);
+    });
+  };
+
   const initIvTherapyLang = () => applyIvTherapyLang(getIvTherapyLang());
 
+  document.addEventListener('DOMContentLoaded', initIvTherapyBookingButtons);
+  document.addEventListener('astro:page-load', initIvTherapyBookingButtons);
   document.addEventListener('DOMContentLoaded', initIvTherapyLang);
   document.addEventListener('astro:page-load', initIvTherapyLang);
   window.addEventListener('languageChanged', () => {

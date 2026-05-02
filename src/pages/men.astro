@@ -1,0 +1,320 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const menServices = [
+  {
+    href: '/services/hormone-replacement-therapy-him',
+    image: '/img/services/Hormone-him.jpg',
+    titleEs: 'Hormone Replacement Therapy for Him',
+    titleEn: 'Hormone Replacement Therapy for Him',
+    subtitleEs: 'Energía • Fuerza • Balance',
+    subtitleEn: 'Energy • Strength • Balance',
+    copyEs: 'Plan médico personalizado para optimizar energía, masa muscular y bienestar hormonal.',
+    copyEn: 'Personalized medical plan to optimize energy, muscle mass, and hormonal wellness.'
+  },
+  {
+    href: '/services/medically-supervised-weight-loss',
+    image: '/img/men/man-medical-loss.jpg',
+    titleEs: 'Medical Weight Loss for Men',
+    titleEn: 'Medical Weight Loss for Men',
+    subtitleEs: 'Metabolismo • Enfoque • Resultados',
+    subtitleEn: 'Metabolism • Focus • Results',
+    copyEs: 'Protocolos clínicos para pérdida de peso con seguimiento médico y resultados sostenibles.',
+    copyEn: 'Clinical protocols for weight loss with medical supervision and sustainable results.'
+  },
+  {
+    href: '/services/iv-therapy',
+    image: '/img/men/man-iv-therapy.JPG',
+    titleEs: 'IV & Wellness Performance',
+    titleEn: 'IV & Wellness Performance',
+    subtitleEs: 'Recarga • Rendimiento • Recuperación',
+    subtitleEn: 'Recharge • Performance • Recovery',
+    copyEs: 'Terapias IV e inyecciones para energía, enfoque mental y recuperación física.',
+    copyEn: 'IV therapies and injections for energy, mental focus, and physical recovery.'
+  },
+  {
+    href: '/services/hair-restoration-prp',
+    image: '/img/men/man-hair-restoration.jpg',
+    titleEs: 'Hair Restoration PRP',
+    titleEn: 'Hair Restoration PRP',
+    subtitleEs: 'Cabello • Densidad • Confianza',
+    subtitleEn: 'Hair • Density • Confidence',
+    copyEs: 'Estimulación capilar con PRP para fortalecer folículos y mejorar densidad.',
+    copyEn: 'PRP hair stimulation to strengthen follicles and improve density.'
+  },
+  {
+    href: '/services/therapy-peptide',
+    image: '/img/men/man-peptide.jpg',
+    titleEs: 'Peptide Therapy for Men',
+    titleEn: 'Peptide Therapy for Men',
+    subtitleEs: 'Longevidad • Rendimiento • Composición',
+    subtitleEn: 'Longevity • Performance • Body Composition',
+    copyEs: 'Programas de péptidos personalizados para composición corporal, recuperación y bienestar.',
+    copyEn: 'Personalized peptide programs for body composition, recovery, and wellness.'
+  },
+  {
+    href: '/services/neurotoxin-injections',
+    image: '/img/men/man-botox.jpg',
+    titleEs: 'Men Botox & Expression Lines',
+    titleEn: 'Men Botox & Expression Lines',
+    subtitleEs: 'Prevención • Definición • Frescura',
+    subtitleEn: 'Prevention • Definition • Fresh Look',
+    copyEs: 'Aplicación de toxina botulínica para suavizar líneas de expresión y mantener un look masculino natural.',
+    copyEn: 'Botulinum toxin treatment to soften expression lines while preserving a natural masculine look.'
+  },
+  {
+    href: '/services/stem-cells-treatment',
+    image: '/img/men/man-regenerative.jpg',
+    titleEs: 'Regenerative Men Care',
+    titleEn: 'Regenerative Men Care',
+    subtitleEs: 'Reparación • Función • Vitalidad',
+    subtitleEn: 'Repair • Function • Vitality',
+    copyEs: 'Medicina regenerativa enfocada en recuperación, vitalidad y bienestar integral masculino.',
+    copyEn: 'Regenerative medicine focused on recovery, vitality, and comprehensive men wellness.'
+  }
+]
+
+const menTestimonials = [
+  {
+    quoteEs: 'Me apliqué botox preventivo y me veo descansado sin verme cambiado. Súper profesional.',
+    quoteEn: 'I got preventive botox and now I look rested without looking different. Super professional.',
+    name: 'Marco T.'
+  },
+  {
+    quoteEs: 'El plan de peso + IV me devolvió energía para entrenar y trabajar con mejor enfoque.',
+    quoteEn: 'The weight plan + IV gave me energy back to train and work with better focus.',
+    name: 'Daniel R.'
+  },
+  {
+    quoteEs: 'Noté mejora en piel, cabello y recuperación. El enfoque médico personalizado hace toda la diferencia.',
+    quoteEn: 'I noticed improvement in skin, hair, and recovery. The personalized medical approach makes all the difference.',
+    name: 'Luis A.'
+  }
+]
+---
+
+<BaseLayout
+  title="Men - Renasci Medical Spa"
+  description="Tratamientos y programas especializados para hombres en Renasci Medical Spa."
+  seoTitle="Men | Renasci Medical Spa"
+  seoDescription="Programas para hombres: terapia hormonal, pérdida de peso médica, IV therapy, péptidos, PRP capilar y más."
+  seoImage="/img/men/man-medical-loss.jpg"
+>
+  <section class="relative min-h-[72vh] sm:min-h-[78vh] overflow-hidden bg-black text-white">
+    <div id="men-hero-slider" class="absolute inset-0">
+      <div class="men-slide absolute inset-0 bg-cover bg-center opacity-100 transition-opacity duration-700" style="background-image: url('/img/men/man-medical-loss.jpg');"></div>
+      <div class="men-slide absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-700" style="background-image: url('/img/men/man-peptide.jpg');"></div>
+      <div class="men-slide absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-700" style="background-image: url('/img/men/man-regenerative.jpg');"></div>
+    </div>
+    <div class="absolute inset-0 bg-black/55"></div>
+
+    <div class="relative z-10 container mx-auto px-5 pt-36 pb-10 sm:pt-44 sm:pb-12 flex flex-col min-h-[72vh] sm:min-h-[78vh]">
+      <div class="max-w-3xl">
+        <p class="inline-flex items-center rounded-full bg-white/15 px-3 py-1 text-xs tracking-wide uppercase mb-4" data-t-es="Programas Especializados" data-t-en="Specialized Programs">Programas Especializados</p>
+        <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight mb-4" data-t-es="Men by Renasci" data-t-en="Men by Renasci">Men by Renasci</h1>
+        <p class="text-base sm:text-lg text-white/90 max-w-2xl mb-6" data-t-es="Tratamientos diseñados para el bienestar masculino: energía, composición corporal, rendimiento y salud integral con enfoque médico personalizado." data-t-en="Treatments designed for men wellness: energy, body composition, performance, and comprehensive health with a personalized medical approach.">Tratamientos diseñados para el bienestar masculino: energía, composición corporal, rendimiento y salud integral con enfoque médico personalizado.</p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking-trigger="boulevard" class="inline-flex items-center justify-center bg-[#AABFA8] text-white font-semibold px-6 py-3 rounded-full hover:brightness-105 transition" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
+          <a href="#men-services" class="inline-flex items-center justify-center border-2 border-[#AABFA8] bg-[#AABFA8]/15 text-white font-semibold px-6 py-3 rounded-full hover:bg-[#AABFA8]/30 transition" data-t-es="Ver Servicios" data-t-en="View Services">Ver Servicios</a>
+        </div>
+      </div>
+      <div class="mt-auto pt-8 flex justify-center gap-2">
+        <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white" aria-label="Slide 1"></button>
+        <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white/45" aria-label="Slide 2"></button>
+        <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white/45" aria-label="Slide 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-white text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div class="relative rounded-2xl overflow-hidden min-h-[280px] sm:min-h-[340px]">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/img/men/man-iv-therapy.JPG');"></div>
+          <div class="absolute inset-0 bg-black/20"></div>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-[0.12em] text-[#AABFA8] font-semibold mb-2" data-t-es="Estética Masculina Médica" data-t-en="Medical Aesthetics for Men">Estética Masculina Médica</p>
+          <p class="text-sm sm:text-base font-semibold text-gray-900/90 mb-3" data-t-es='"Verte bien también es parte de rendir mejor."' data-t-en='"Looking better is also part of performing better."'>"Verte bien también es parte de rendir mejor."</p>
+          <h2 class="font-display font-bold text-3xl lg:text-4xl leading-tight mb-4 text-[#C69C87]" data-t-es="Cuidado facial y corporal para hombres, con resultados naturales" data-t-en="Facial and body care for men, with natural-looking results">Cuidado facial y corporal para hombres, con resultados naturales</h2>
+          <p class="text-sm sm:text-base text-gray-700 mb-4" data-t-es="Cada vez más hombres integran tratamientos estéticos en su rutina de bienestar. En Renasci ofrecemos protocolos personalizados para toxina botulínica (botox), definición facial, terapia hormonal, control de peso y recuperación física, siempre con enfoque médico y elegante." data-t-en="More men are adding aesthetic treatments to their wellness routine. At Renasci, we provide personalized protocols for botulinum toxin (botox), facial definition, hormone therapy, weight management, and physical recovery, always with a medical and refined approach.">Cada vez más hombres integran tratamientos estéticos en su rutina de bienestar. En Renasci ofrecemos protocolos personalizados para toxina botulínica (botox), definición facial, terapia hormonal, control de peso y recuperación física, siempre con enfoque médico y elegante.</p>
+          <p class="text-sm sm:text-base text-gray-700 mb-6" data-t-es="Nuestro objetivo es que te veas fresco, descansado y seguro, sin perder tu esencia. Diseñamos cada plan para potenciar rendimiento, imagen y confianza en tu día a día." data-t-en="Our goal is for you to look fresh, rested, and confident without losing your essence. Every plan is designed to enhance performance, image, and confidence in daily life.">Nuestro objetivo es que te veas fresco, descansado y seguro, sin perder tu esencia. Diseñamos cada plan para potenciar rendimiento, imagen y confianza en tu día a día.</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking-trigger="boulevard" class="inline-flex items-center justify-center bg-[#AABFA8] text-white font-semibold px-6 py-3 rounded-full hover:brightness-105 transition" data-t-es="Agendar Valoración" data-t-en="Book Consultation">Agendar Valoración</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="men-services" class="py-12 lg:py-16 bg-gray-50 text-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-[#C69C87] mb-2" data-t-es="Servicios Para Hombres" data-t-en="Services for Men">Servicios Para Hombres</h2>
+        <p class="text-sm sm:text-base text-gray-600" data-t-es="Mobile-first, personalizados y con soporte médico en cada paso." data-t-en="Mobile-first, personalized, and medically guided in every step.">Mobile-first, personalizados y con soporte médico en cada paso.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {menServices.map((item) => (
+          <div class="relative rounded-2xl overflow-hidden min-h-[320px] text-white">
+            <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${item.image}');`}></div>
+            <div class="absolute inset-0 bg-black/55"></div>
+            <div class="relative z-10 p-6 flex flex-col h-full text-center">
+              <div>
+                <h3 class="font-display font-bold text-xl mb-2" data-t-es={item.titleEs} data-t-en={item.titleEn}>{item.titleEs}</h3>
+                <p class="text-sm text-white/85 mb-3" data-t-es={item.subtitleEs} data-t-en={item.subtitleEn}>{item.subtitleEs}</p>
+                <p class="text-sm text-white/90 mb-4" data-t-es={item.copyEs} data-t-en={item.copyEn}>{item.copyEs}</p>
+              </div>
+              <div class="mt-auto flex flex-col gap-2">
+                <a href={item.href} class="inline-flex items-center justify-center bg-white/20 text-white font-semibold px-4 py-2 rounded-full hover:bg-white/30 transition" data-t-es="Ver Detalles" data-t-en="View Details">Ver Detalles</a>
+                <a href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking-trigger="boulevard" class="inline-flex items-center justify-center bg-[#AABFA8] text-white font-semibold px-4 py-2 rounded-full hover:brightness-105 transition" data-t-es="Agendar Ahora" data-t-en="Book Now">Agendar Ahora</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-[#DDEAF6]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white" data-t-es="Lo que dicen nuestros pacientes Men" data-t-en="What our Men patients say">Lo que dicen nuestros pacientes Men</h2>
+      </div>
+      <div class="relative max-w-3xl mx-auto">
+        <div class="relative min-h-[260px] sm:min-h-[240px]">
+          {menTestimonials.map((item, index) => (
+            <div class={`absolute inset-0 flex flex-col items-center text-center transition-all duration-500 ${index === 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`} data-men-testimonial-slide data-men-testimonial={String(index)}>
+              <div class="relative bg-white text-black rounded-3xl px-6 py-6 shadow-lg max-w-2xl border border-[#c7d8ea]">
+                <p class="text-base sm:text-lg leading-relaxed">“<span data-t-es={item.quoteEs} data-t-en={item.quoteEn}>{item.quoteEs}</span>”</p>
+                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-r border-b border-[#c7d8ea]"></span>
+              </div>
+              <div class="mt-6 text-[#2F4E6F] font-semibold text-lg">{item.name}</div>
+              <div class="mt-2 flex items-center gap-2 text-[#3E5F82] text-sm">
+                <img src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg" alt="Google" class="w-5 h-5" loading="lazy" />
+                <span data-t-es="Reseñas de Google" data-t-en="Google Reviews">Reseñas de Google</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="mt-6 flex justify-center gap-2">
+          {menTestimonials.map((_, index) => (
+            <button class={`h-2.5 w-2.5 rounded-full transition ${index === 0 ? 'bg-[#2F4E6F]' : 'bg-[#2F4E6F]/35'}`} data-men-testimonial-dot={String(index)} data-aria-es={`Ir al testimonio ${index + 1}`} data-aria-en={`Go to testimonial ${index + 1}`} aria-label={`Ir al testimonio ${index + 1}`}></button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  (() => {
+    const getLang = () => {
+      const params = new URLSearchParams(window.location.search)
+      const qp = params.get('lang')
+      if (qp === 'es' || qp === 'en') return qp
+      const stored = localStorage.getItem('renasci-language') || localStorage.getItem('language')
+      if (stored === 'es' || stored === 'en') return stored
+      return document.documentElement.lang === 'en' ? 'en' : 'es'
+    }
+
+    const applyLang = (lang) => {
+      document.querySelectorAll('[data-t-es]').forEach((el) => {
+        const es = el.getAttribute('data-t-es') || ''
+        const en = el.getAttribute('data-t-en') || es
+        el.textContent = lang === 'en' ? en : es
+      })
+      document.querySelectorAll('[data-aria-es]').forEach((el) => {
+        const es = el.getAttribute('data-aria-es') || ''
+        const en = el.getAttribute('data-aria-en') || es
+        el.setAttribute('aria-label', lang === 'en' ? en : es)
+      })
+    }
+
+    const initSlider = () => {
+      const slides = Array.from(document.querySelectorAll('.men-slide'))
+      const dots = Array.from(document.querySelectorAll('.hero-dot'))
+      if (!slides.length || !dots.length) return
+      let index = 0
+
+      const paint = () => {
+        slides.forEach((s, i) => {
+          s.classList.toggle('opacity-100', i === index)
+          s.classList.toggle('opacity-0', i !== index)
+        })
+        dots.forEach((d, i) => {
+          d.classList.toggle('bg-white', i === index)
+          d.classList.toggle('bg-white/45', i !== index)
+        })
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          index = i
+          paint()
+        })
+      })
+
+      paint()
+      setInterval(() => {
+        index = (index + 1) % slides.length
+        paint()
+      }, 4500)
+    }
+
+    const initMenTestimonials = () => {
+      const slides = Array.from(document.querySelectorAll('[data-men-testimonial-slide]'))
+      const dots = Array.from(document.querySelectorAll('[data-men-testimonial-dot]'))
+      if (!slides.length || !dots.length) return
+      let currentIndex = 0
+      let intervalId
+
+      const setActive = (nextIndex) => {
+        slides.forEach((slide, index) => {
+          slide.classList.toggle('opacity-100', index === nextIndex)
+          slide.classList.toggle('translate-y-0', index === nextIndex)
+          slide.classList.toggle('opacity-0', index !== nextIndex)
+          slide.classList.toggle('translate-y-4', index !== nextIndex)
+          slide.classList.toggle('pointer-events-none', index !== nextIndex)
+        })
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('bg-[#2F4E6F]', index === nextIndex)
+          dot.classList.toggle('bg-[#2F4E6F]/35', index !== nextIndex)
+        })
+      }
+
+      const startAuto = () => {
+        intervalId = window.setInterval(() => {
+          currentIndex = (currentIndex + 1) % slides.length
+          setActive(currentIndex)
+        }, 5000)
+      }
+
+      dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          const target = Number(dot.getAttribute('data-men-testimonial-dot') || 0)
+          currentIndex = target
+          setActive(currentIndex)
+          if (intervalId) window.clearInterval(intervalId)
+          startAuto()
+        })
+      })
+
+      setActive(currentIndex)
+      startAuto()
+    }
+
+    const init = () => {
+      applyLang(getLang())
+      initSlider()
+      initMenTestimonials()
+    }
+
+    document.addEventListener('DOMContentLoaded', init)
+    document.addEventListener('astro:page-load', init)
+    window.addEventListener('languageChanged', (e) => {
+      const nextLang = e?.detail?.language || getLang()
+      applyLang(nextLang)
+    })
+  })()
+</script>

@@ -5675,12 +5675,19 @@ const {
   body { margin: 0; padding: 0; }
   @font-face {
     font-family: 'Elmatia';
-    src: url('/src/styles/fonts/Elmatia.ttf') format('truetype');
+    src: url('../styles/fonts/Elmatia.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
-  .font-hero-elmatia { font-family: 'Elmatia', cursive; font-weight: 400; letter-spacing: -0.02em; }
+  @font-face {
+    font-family: 'Safia March';
+    src: local('Safia March'), local('Safira March'), url('../styles/fonts/Safira March Personal Use Only.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+  }
+  .font-hero-elmatia { font-family: 'Safia March', 'Elmatia', cursive; font-weight: 400; letter-spacing: -0.02em; }
   .font-hero-allura { font-family: 'Allura', cursive; font-weight: 400; letter-spacing: -0.03em; }
   .font-hero-sacramento { font-family: 'Sacramento', cursive; font-weight: 400; letter-spacing: -0.02em; }
   body[data-path^="/services"] main > section.bg-black.text-white.text-center:first-of-type { position: relative; }

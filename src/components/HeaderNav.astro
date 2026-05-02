@@ -22,7 +22,7 @@ const serviceLinks = [
   { label: { es: 'Tratamientos Faciales', en: 'Facial Treatments' }, href: '/services/facial-treatments' },
   { label: { es: 'Contorno Corporal', en: 'Body Contouring' }, href: '/services/body-contouring-treatments' },
   { label: { es: 'Bioestimuladores', en: 'Biostimulators' }, href: '/services/biostimulators' },
-  { label: { es: 'Pérdida de Peso y Bienestar', en: 'Weight Loss & Wellness' }, href: '/services/medically-supervised-weight-loss' },
+  { label: { es: 'Pérdida de Peso', en: 'Weight Loss' }, href: '/services/medically-supervised-weight-loss' },
   { label: { es: 'Tratamientos Avanzados', en: 'Advanced Treatments' }, href: '/services/advanced-treatments' },
   { label: { es: 'Microneedling', en: 'Microneedling' }, href: '/services/microneedling' },
   { label: { es: 'Inyecciones PRP', en: 'PRP Injections' }, href: '/services/prp-injections' },
@@ -71,6 +71,10 @@ const serviceLinks = [
             </div>
           </div>
         </div>
+        <a href="/men" class={`nav-link text-sm font-semibold transition-colors inline-flex items-center gap-2 ${isActive('/men') ? 'nav-link--active' : ''}`}>
+          <span data-t-es="Men" data-t-en="Men">Men</span>
+          <span class="inline-flex items-center rounded-full bg-[#DDEAF6] text-[#2F4E6F] text-[10px] font-bold px-2 py-0.5 leading-none" data-t-es="Nuevo" data-t-en="New">Nuevo</span>
+        </a>
         <a href="/membership" class={`nav-link text-sm font-semibold transition-colors ${isActive('/membership') ? 'nav-link--active' : ''}`}><span data-i18n="nav.membership">Membresía</span></a>
         <a href="/about" class={`nav-link text-sm font-semibold transition-colors ${isActive('/about') ? 'nav-link--active' : ''}`}><span data-i18n="nav.about">Nosotros</span></a>
         <a href="/contact" class={`nav-link text-sm font-semibold transition-colors ${isActive('/contact') ? 'nav-link--active' : ''}`}><span data-i18n="nav.contact">Contacto</span></a>
@@ -182,6 +186,12 @@ const serviceLinks = [
           </div>
         </li>
         <li>
+          <a href="/men" class="flex items-center justify-between text-gray-900 font-medium py-2 hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded">
+            <span data-t-es="Men" data-t-en="Men">Men</span>
+            <span class="inline-flex items-center rounded-full bg-[#DDEAF6] text-[#2F4E6F] text-[10px] font-bold px-2 py-0.5 leading-none" data-t-es="Nuevo" data-t-en="New">Nuevo</span>
+          </a>
+        </li>
+        <li>
           <a href="/membership" class="block text-gray-900 font-medium py-2 hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded">
             <span data-i18n="nav.membership">Membresía</span>
           </a>
@@ -201,6 +211,42 @@ const serviceLinks = [
   </div>
 
 </header>
+
+<a
+  id="booking-fab"
+  href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget"
+  data-booking-trigger="boulevard"
+  class="booking-fab fixed top-1/2 right-[-8px] -translate-y-1/2 z-[120] flex items-center justify-center gap-2 bg-[#C69C87] text-white rounded-l-2xl rounded-r-none w-14 h-14 md:w-auto md:h-auto md:px-5 md:py-3 md:rounded-l-full md:rounded-r-none shadow-xl transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C69C87]/50"
+  aria-label="Book now"
+>
+  <svg class="w-6 h-6 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+  </svg>
+  <span class="hidden md:inline font-semibold text-sm" data-t-es="Agendar ahora" data-t-en="Book now">Agendar ahora</span>
+</a>
+
+<div id="promo-strip" class="fixed bottom-0 inset-x-0 z-[110] translate-y-full opacity-0 transition-all duration-500 ease-out">
+  <div class="bg-[#1A1A1A]/95 text-white border-t border-white/20 backdrop-blur-sm">
+    <div class="promo-strip-inner">
+      <div class="promo-strip-reel">
+        <div id="promo-strip-item" class="promo-strip-item animate-in fade-in slide-in-from-top-2 duration-500">
+          <span id="promo-strip-text" class="promo-strip-text" data-t-es="Wellness Performance Shots en IV Therapy" data-t-en="Wellness Performance Shots in IV Therapy">Wellness Performance Shots en IV Therapy</span>
+          <a id="promo-strip-action" href="/services/iv-therapy" class="promo-strip-action" data-t-es="Ir ahí" data-t-en="Go there">Ir ahí</a>
+        </div>
+      </div>
+      <div id="promo-strip-items" class="hidden">
+        <a data-href="/services/iv-therapy" data-btn-es="Ver servicio" data-btn-en="View service" data-t-es="Wellness Performance Shots en IV Therapy" data-t-en="Wellness Performance Shots in IV Therapy"></a>
+        <a data-href="/men" data-btn-es="Ver página" data-btn-en="View page" data-t-es="Nueva página Men: tratamientos diseñados para hombres" data-t-en="New Men page: treatments designed for men"></a>
+        <a data-href="/services/medically-supervised-weight-loss" data-btn-es="Ver servicio" data-btn-en="View service" data-t-es="Programas de Pérdida de Peso Médica" data-t-en="Medical Weight Loss Programs"></a>
+        <a data-href="/services/therapy-peptide" data-btn-es="Ver servicio" data-btn-en="View service" data-t-es="Terapia de Péptidos personalizada" data-t-en="Personalized Peptide Therapy"></a>
+        <a data-href="/services/neurotoxin-injections" data-btn-es="Ver servicio" data-btn-en="View service" data-t-es="Neurotoxinas para suavizar líneas de expresión" data-t-en="Neurotoxin treatments for smoother expression lines"></a>
+        <a data-href="/services/dermal-fillers" data-btn-es="Ver servicio" data-btn-en="View service" data-t-es="Rellenos dérmicos para volumen y contorno" data-t-en="Dermal fillers for volume and contour"></a>
+        <a data-href="/services/stem-cells-treatment" data-btn-es="Ver servicio" data-btn-en="View service" data-t-es="Tratamientos regenerativos con células madre" data-t-en="Regenerative stem cell treatments"></a>
+        <a data-href="https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget" data-booking="true" data-btn-es="Agendar" data-btn-en="Book now" data-t-es="Reserva en Renasci" data-t-en="Book now on Renasci"></a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="booking-modal" class="fixed inset-0 z-[9999] hidden" aria-hidden="true">
   <div id="booking-modal-backdrop" class="absolute inset-0 bg-black/60"></div>
@@ -281,10 +327,19 @@ const serviceLinks = [
     function updateNavbar() {
       const scrollY = window.scrollY;
       const isScrolled = scrollY > 50;
+      const promoStrip = document.getElementById('promo-strip');
       
       headerEl.setAttribute('data-scrolled', isScrolled.toString());
+      if (promoStrip) {
+        if (scrollY > 20) {
+          promoStrip.classList.remove('translate-y-full', 'opacity-0');
+          promoStrip.classList.add('translate-y-0', 'opacity-100');
+        } else {
+          promoStrip.classList.add('translate-y-full', 'opacity-0');
+          promoStrip.classList.remove('translate-y-0', 'opacity-100');
+        }
+      }
       
-      // Update logo filter based on scroll state
       if (isScrolled) {
         logoEl.style.filter = 'none';
       } else {
@@ -454,6 +509,76 @@ const serviceLinks = [
     });
   }
 
+  function initPromoStripLoop() {
+    const w = window as any;
+    if (typeof w.__promoStripCleanup === 'function') {
+      w.__promoStripCleanup();
+      w.__promoStripCleanup = undefined;
+    }
+    const stripItem = document.getElementById('promo-strip-item') as HTMLElement | null;
+    const stripText = document.getElementById('promo-strip-text') as HTMLElement | null;
+    const actionButton = document.getElementById('promo-strip-action') as HTMLAnchorElement | null;
+    const itemsContainer = document.getElementById('promo-strip-items') as HTMLElement | null;
+    if (!stripItem || !stripText || !actionButton || !itemsContainer) return;
+
+    const itemNodes = Array.from(itemsContainer.querySelectorAll('a'));
+    if (!itemNodes.length) return;
+
+    const getLang = () => {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang');
+      if (urlLang === 'en' || urlLang === 'es') return urlLang;
+      const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+      if (storedLang === 'en' || storedLang === 'es') return storedLang;
+      const managerLang = (window as any).i18nManager?.getCurrentLanguage?.();
+      if (managerLang === 'en' || managerLang === 'es') return managerLang;
+      return document.documentElement.lang === 'en' ? 'en' : 'es';
+    };
+
+    let index = 0;
+    const applyItem = (i: number) => {
+      const item = itemNodes[i] as HTMLAnchorElement;
+      const lang = getLang();
+      const text = lang === 'en' ? (item.getAttribute('data-t-en') || '') : (item.getAttribute('data-t-es') || '');
+      const buttonLabel = lang === 'en' ? (item.getAttribute('data-btn-en') || 'View service') : (item.getAttribute('data-btn-es') || 'Ver servicio');
+      const href = item.getAttribute('data-href') || '#';
+      const isBooking = item.getAttribute('data-booking') === 'true';
+      stripText.textContent = text;
+      stripText.setAttribute('data-t-es', item.getAttribute('data-t-es') || '');
+      stripText.setAttribute('data-t-en', item.getAttribute('data-t-en') || '');
+      actionButton.textContent = buttonLabel;
+      actionButton.setAttribute('href', href);
+      actionButton.setAttribute('data-t-es', item.getAttribute('data-btn-es') || 'Ver servicio');
+      actionButton.setAttribute('data-t-en', item.getAttribute('data-btn-en') || 'View service');
+      if (isBooking) {
+        actionButton.setAttribute('data-booking-trigger', 'boulevard');
+        actionButton.classList.add('promo-strip-action--cta');
+      } else {
+        actionButton.removeAttribute('data-booking-trigger');
+        actionButton.classList.remove('promo-strip-action--cta');
+      }
+    };
+
+    applyItem(index);
+
+    const transitionToNext = () => {
+      stripItem.classList.remove('animate-in', 'fade-in', 'slide-in-from-top-2', 'duration-500');
+      stripItem.classList.add('animate-out', 'fade-out', 'slide-out-to-bottom-2', 'duration-300');
+      window.setTimeout(() => {
+        index = (index + 1) % itemNodes.length;
+        applyItem(index);
+        stripItem.classList.remove('animate-out', 'fade-out', 'slide-out-to-bottom-2', 'duration-300');
+        stripItem.classList.add('animate-in', 'fade-in', 'slide-in-from-top-2', 'duration-500');
+      }, 260);
+    };
+
+    const intervalId = window.setInterval(transitionToNext, 3200);
+
+    w.__promoStripCleanup = () => {
+      window.clearInterval(intervalId);
+    };
+  }
+
   const getHeaderLang = () => {
     const params = new URLSearchParams(window.location.search);
     const urlLang = params.get('lang');
@@ -466,7 +591,7 @@ const serviceLinks = [
   };
 
   const applyHeaderLang = (lang: 'en' | 'es') => {
-    document.querySelectorAll('#siteHeader [data-t-es]').forEach((el) => {
+    document.querySelectorAll('#siteHeader [data-t-es], #booking-fab [data-t-es], #promo-strip [data-t-es]').forEach((el) => {
       const node = el as HTMLElement;
       const es = node.getAttribute('data-t-es') || '';
       const en = node.getAttribute('data-t-en') || es;
@@ -538,6 +663,7 @@ const serviceLinks = [
     initBoulevardTrigger();
     initMobileMenu();
     initHeaderLang();
+    initPromoStripLoop();
   };
 
   document.addEventListener('DOMContentLoaded', initHeaderInteractions);
@@ -778,6 +904,110 @@ const serviceLinks = [
     top: 0;
     background: inherit;
     z-index: 10;
+  }
+
+  .booking-fab {
+    animation: none;
+  }
+
+  .booking-fab:hover {
+    transform: translateY(-50%) translateX(-8px) scale(1.03);
+    filter: saturate(1.1);
+  }
+
+  .booking-fab:active {
+    transform: translateY(-50%) translateX(-4px) scale(0.98);
+  }
+
+  .promo-strip-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.75rem;
+  }
+
+  .promo-strip-reel {
+    overflow: hidden;
+    position: relative;
+    width: min(980px, 100%);
+    min-height: 2.45rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .promo-strip-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .promo-strip-text {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.98rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    opacity: 0.95;
+    text-align: center;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .promo-strip-action {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2rem;
+    padding: 0 0.9rem;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    background: #6E8B73;
+    color: #FFFFFF;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+
+  .promo-strip-action:hover {
+    filter: brightness(1.03);
+    transform: translateY(-1px);
+  }
+
+  .promo-strip-action--cta {
+    background: #C69C87;
+    color: #FFFFFF;
+  }
+
+  .promo-strip-action--cta:hover {
+    color: #FFFFFF;
+    background: #C69C87;
+  }
+
+  @media (max-width: 767px) {
+    .promo-strip-inner {
+      padding: 0.35rem 0.55rem;
+    }
+    .promo-strip-reel {
+      min-height: 2.2rem;
+    }
+    .promo-strip-item {
+      gap: 0.45rem;
+    }
+    .promo-strip-text {
+      font-size: 0.8rem;
+    }
+    .promo-strip-action {
+      min-height: 1.72rem;
+      padding: 0 0.65rem;
+      font-size: 0.65rem;
+    }
   }
 
 </style>

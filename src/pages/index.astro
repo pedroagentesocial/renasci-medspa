@@ -167,20 +167,13 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
 
     <!-- Overlay de slide 1 (solo visible en imagen de membresía) -->
     <div id="heroMembershipOverlay" class="absolute inset-0 z-10" style="display:none">
-      <div class="absolute left-0 right-0 top-20 sm:top-24 md:hidden px-6">
-        <h2 class="font-rougescript text-white text-center text-3xl sm:text-4xl tracking-tight mb-4">
+      <div class="absolute right-6 top-1/2 -translate-y-1/2 md:hidden flex flex-col items-end text-right">
+        <h2 class="font-rougescript text-white text-3xl sm:text-4xl tracking-tight mb-4">
           <span data-i18n="hero.memberships_title_prefix">Conoce Nuestras</span> <span class="text-[#F3A2A7]" data-i18n="hero.memberships_title_highlight">Membresías</span>
         </h2>
-      </div>
-      <div class="absolute right-6 sm:right-10 lg:right-16 top-28 sm:top-32 lg:top-36 hidden md:block">
-        <h2 class="font-rougescript text-white text-right text-6xl lg:text-7xl tracking-tight mb-4">
-          <span data-i18n="hero.memberships_title_prefix">Conoce Nuestras</span> <span class="text-[#F3A2A7]" data-i18n="hero.memberships_title_highlight">Membresías</span>
-        </h2>
-      </div>
-      <div class="absolute left-0 right-0 bottom-24 sm:bottom-28 md:hidden flex justify-center px-6">
         <a 
           href="/membership" 
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-[48px] font-semibold text-sm bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#AABFA8]/50 min-h-[44px] w-full max-w-xs justify-center"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-[48px] font-semibold text-sm bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#AABFA8]/50 min-h-[44px] justify-center"
         >
           <span data-i18n="cta.go_membership">Ir a Membresía</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,7 +181,10 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
           </svg>
         </a>
       </div>
-      <div class="absolute right-6 sm:right-10 lg:right-16 bottom-12 sm:bottom-16 lg:bottom-20 hidden md:block">
+      <div class="absolute right-6 sm:right-10 lg:right-16 top-1/2 -translate-y-1/2 hidden md:flex md:flex-col md:items-end md:text-right">
+        <h2 class="font-rougescript text-white text-right text-6xl lg:text-7xl tracking-tight mb-4">
+          <span data-i18n="hero.memberships_title_prefix">Conoce Nuestras</span> <span class="text-[#F3A2A7]" data-i18n="hero.memberships_title_highlight">Membresías</span>
+        </h2>
         <a 
           href="/membership" 
           class="inline-flex items-center gap-2 px-8 py-4 rounded-[48px] font-semibold bg-[#AABFA8] text-white hover:opacity-90 active:translate-y-[1px] transition-all duration-200 focus-visible:ring-2 ring-[#AABFA8]/50 min-h-[44px]"
@@ -258,8 +254,15 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
       font-style: normal;
       font-display: swap;
     }
+    @font-face {
+      font-family: 'Safia March';
+      src: local('Safia March'), local('Safia-March'), local('Safira March'), url('../styles/fonts/Safira March Personal Use Only.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
     .font-rougescript {
-      font-family: 'Fineday Style One', cursive;
+      font-family: 'Safia March', 'Fineday Style One', cursive;
       font-weight: 400;
       letter-spacing: -0.01em;
     }

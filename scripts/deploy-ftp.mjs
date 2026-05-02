@@ -3,7 +3,8 @@ dotenv()
 import ftp from 'basic-ftp'
 
 async function main() {
-  const host = process.env.FTP_HOST
+  const hostRaw = process.env.FTP_HOST || ''
+  const host = hostRaw.replace(/^ftp:\/\//i, '').replace(/^ftps:\/\//i, '')
   const user = process.env.FTP_USER
   const password = process.env.FTP_PASS
   const port = parseInt(process.env.FTP_PORT || '21', 10)

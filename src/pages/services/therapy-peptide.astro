@@ -2,11 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import SimpleContactForm from '../../components/SimpleContactForm.astro'
 import TransformCTA from '../../components/TransformCTA.astro'
-import { getLocaleFromUrl } from '../../i18n/config'
-
-const langParam = Astro.url.searchParams.get('lang')
-const pathLocale = getLocaleFromUrl(Astro.url)
-const lang = (langParam === 'es' || langParam === 'en') ? langParam : pathLocale
+const lang = 'es'
 
 const pageText = {
   es: {
@@ -504,9 +500,23 @@ const pageText = {
     })
   }
 
-  const initTherapyPeptideLang = () => applyTherapyPeptideLang(getTherapyPeptideLang())
-  document.addEventListener('DOMContentLoaded', initTherapyPeptideLang)
-  document.addEventListener('astro:page-load', initTherapyPeptideLang)
+  const initTherapyPeptideBookingTriggers = () => {
+    const boulevardUrl = 'https://www.joinblvd.com/b/3fdd50b8-7139-46c6-b272-20a94ddbbf3d/widget'
+    document.querySelectorAll('a[href="https://link.msgsndr.com/widget/booking/ZIYe8XGFfENxqvZHGTBD"]').forEach((el) => {
+      el.setAttribute('href', boulevardUrl)
+      el.setAttribute('data-booking-trigger', 'boulevard')
+      el.removeAttribute('target')
+      el.removeAttribute('rel')
+    })
+  }
+
+  const initTherapyPeptidePage = () => {
+    applyTherapyPeptideLang(getTherapyPeptideLang())
+    initTherapyPeptideBookingTriggers()
+  }
+
+  document.addEventListener('DOMContentLoaded', initTherapyPeptidePage)
+  document.addEventListener('astro:page-load', initTherapyPeptidePage)
   window.addEventListener('languageChanged', (e) => {
     const lang = e?.detail?.language || getTherapyPeptideLang()
     applyTherapyPeptideLang(lang)
