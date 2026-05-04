@@ -9,8 +9,14 @@ const pathLocale = getLocaleFromUrl(Astro.url)
 const lang = (langParam === 'es' || langParam === 'en') ? langParam : pathLocale
 
 const pageText = {
-  es: { title: 'Corporal' },
-  en: { title: 'Body' },
+  es: {
+    title: 'Tratamientos Corporales - Renasci Medical Spa',
+    description: 'Tratamientos corporales para esculpir, tonificar y revitalizar tu cuerpo: pérdida de peso médicamente supervisada y bienestar integral en Salt Lake City.'
+  },
+  en: {
+    title: 'Body Treatments - Renasci Medical Spa',
+    description: 'Body treatments to sculpt, tone and revitalize: medically supervised weight loss and holistic wellness in Salt Lake City.'
+  },
 }
 
 const cards = [
@@ -18,11 +24,11 @@ const cards = [
 ]
 ---
 
-<BaseLayout title={pageText[lang].title} lang={lang}>
+<BaseLayout title={pageText[lang].title} description={pageText[lang].description} lang={lang}>
   <section class="hero-body">
     <div class="hero-inner text-center">
-      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white" data-page-title data-title-es={pageText.es.title} data-title-en={pageText.en.title}>
-        {pageText[lang].title}
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white" data-page-title data-title-es="Corporal" data-title-en="Body">
+        {lang === 'en' ? 'Body' : 'Corporal'}
       </h1>
     </div>
   </section>

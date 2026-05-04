@@ -6,13 +6,15 @@ const pathLocale = getLocaleFromUrl(Astro.url)
 const lang = (langParam === 'es' || langParam === 'en') ? langParam : pathLocale
 const pageText = {
   es: {
-    title: 'Servicios',
+    title: 'Servicios - Renasci Medical Spa',
+    description: 'Explora nuestro catálogo completo: inyectables, fillers, microneedling, IV therapy, IgniteRF, terapia hormonal, péptidos y más. Tratamientos estéticos profesionales en Salt Lake City.',
     heroTitleLeft: 'Nuestros ',
     heroTitleRight: 'Servicios',
     heroSubtitle: 'Explora nuestras categorías y tratamientos profesionales. Selecciona una sección para ver todos los servicios disponibles.',
   },
   en: {
-    title: 'Services',
+    title: 'Services - Renasci Medical Spa',
+    description: 'Browse our full catalog: injectables, fillers, microneedling, IV therapy, IgniteRF, hormone therapy, peptides and more. Professional aesthetic treatments in Salt Lake City.',
     heroTitleLeft: 'Our ',
     heroTitleRight: 'Services',
     heroSubtitle: 'Explore our categories and professional treatments. Choose a section to see all available services.',
@@ -37,7 +39,7 @@ const serviceCards = [
 ]
 ---
 
-<BaseLayout title={pageText[lang].title} lang={lang}>
+<BaseLayout title={pageText[lang].title} description={pageText[lang].description} lang={lang}>
   <section class="hero-services">
     <div class="hero-inner text-center">
       <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight" data-hero-title>{pageText[lang].heroTitleLeft}<span class="accent-pink">{pageText[lang].heroTitleRight}</span></h1>

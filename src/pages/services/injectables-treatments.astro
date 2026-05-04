@@ -9,8 +9,14 @@ const pathLocale = getLocaleFromUrl(Astro.url)
 const lang = (langParam === 'es' || langParam === 'en') ? langParam : pathLocale
 
 const pageText = {
-  es: { title: 'Inyectables' },
-  en: { title: 'Injectables' },
+  es: {
+    title: 'Inyectables - Renasci Medical Spa',
+    description: 'Tratamientos inyectables: Botox, rellenos dérmicos, bioestimuladores y PRP para refrescar tu rostro con resultados naturales en Salt Lake City.'
+  },
+  en: {
+    title: 'Injectables - Renasci Medical Spa',
+    description: 'Injectable treatments: Botox, dermal fillers, biostimulators and PRP to refresh your face with natural results in Salt Lake City.'
+  },
 }
 
 const cards = [
@@ -21,11 +27,11 @@ const cards = [
 ]
 ---
 
-<BaseLayout title={pageText[lang].title} lang={lang}>
+<BaseLayout title={pageText[lang].title} description={pageText[lang].description} lang={lang}>
   <section class="hero-injectables">
     <div class="hero-inner text-center">
-      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white" data-page-title data-title-es={pageText.es.title} data-title-en={pageText.en.title}>
-        {pageText[lang].title}
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white" data-page-title data-title-es="Inyectables" data-title-en="Injectables">
+        {lang === 'en' ? 'Injectables' : 'Inyectables'}
       </h1>
     </div>
   </section>

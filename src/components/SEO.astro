@@ -79,11 +79,7 @@ const canonical = canonicalUrl ? new URL(canonicalUrl, siteUrl).toString() : ful
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<!-- Alternate languages -->
-{locale === 'es' && (
-  <link rel="alternate" hreflang="en" href={fullUrl.replace('/es/', '/en/')} />
-)}
-{locale === 'en' && (
-  <link rel="alternate" hreflang="es" href={fullUrl.replace('/en/', '/es/')} />
-)}
+<!-- Alternate languages: site serves both ES and EN from same URL via ?lang= query param -->
+<link rel="alternate" hreflang="es" href={fullUrl} />
+<link rel="alternate" hreflang="en" href={`${fullUrl}${fullUrl.includes('?') ? '&' : '?'}lang=en`} />
 <link rel="alternate" hreflang="x-default" href={fullUrl} />
