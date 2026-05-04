@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSchema from '../../components/PageSchema.astro';
 import CTAButton from '../../components/CTAButton.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import TransformCTA from '../../components/TransformCTA.astro';
@@ -14,7 +15,7 @@ const servicio = {
   excerpt: { es: 'Crea labios más voluminosos con técnica especializada de Botox.', en: 'Creates fuller lips with specialized Botox technique.' },
   category: 'especializados',
   precio: '$75',
-  image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=center',
+  image: '/img/services/Botox-Lip-Flip.jpg',
   benefits: ['Labios más definidos', 'Efecto natural', 'Procedimiento rápido', 'Sin tiempo de recuperación'],
   duracion: '15 minutos'
 };
@@ -25,16 +26,32 @@ const serviciosRelacionados = serviciosUnificados
   .slice(0, 3);
 ---
 
-<BaseLayout 
+<BaseLayout
   title={`${servicio.title.es} - Renasci Medical Spa`}
   description={`${servicio.excerpt.es} Precio: ${servicio.precio}. Agenda tu cita en Renasci Medical Spa y descubre los beneficios de este tratamiento.`}
+  seoImage={servicio.image}
 >
+  <PageSchema
+    type="service"
+    name={servicio.title.es}
+    nameEs={servicio.title.es}
+    nameEn={servicio.title.en}
+    description={servicio.excerpt.es}
+    url={`/services/${servicio.slug}`}
+    image={servicio.image}
+    category="Injectables"
+    parentName="Inyectables"
+    parentNameEs="Inyectables"
+    parentNameEn="Injectables"
+    parentUrl="/services/injectables-treatments"
+  />
+
   <!-- Hero del Servicio -->
   <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
     <!-- Background Image -->
-    <img 
-      src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      alt={`${servicio.title.es} treatment at medical spa`}
+    <img
+      src={servicio.image}
+      alt={`${servicio.title.es} - tratamiento en Renasci Medical Spa`}
       class="absolute inset-0 w-full h-full object-cover"
       loading="eager"
     />

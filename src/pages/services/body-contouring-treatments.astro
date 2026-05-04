@@ -1,13 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSchema from '../../components/PageSchema.astro';
 import TransformCTA from '../../components/TransformCTA.astro';
 import SimpleContactForm from '../../components/SimpleContactForm.astro';
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Body Contouring Treatments - Renasci Medical Spa"
   description="Tratamientos de contorno corporal para definir áreas específicas con enfoque personalizado. Agenda tu cita en Renasci Medical Spa."
 >
+  <PageSchema
+    type="collection"
+    name="Contorno Corporal - Renasci Medical Spa"
+    nameEs="Contorno Corporal"
+    nameEn="Body Contouring"
+    description="Tratamientos de contorno corporal para definir áreas específicas con enfoque personalizado."
+    url="/services/body-contouring-treatments"
+    image="/img/services/thighbella-aplication.jpg"
+  />
   <section class="py-28 md:py-36 text-white text-center relative overflow-hidden">
     <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/thighbella-aplication.jpg')"></div>
     <div class="absolute inset-0 bg-black/40"></div>

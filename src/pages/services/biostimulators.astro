@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSchema from '../../components/PageSchema.astro';
 import TransformCTA from '../../components/TransformCTA.astro';
 import SimpleContactForm from '../../components/SimpleContactForm.astro';
 ---
@@ -8,6 +9,20 @@ import SimpleContactForm from '../../components/SimpleContactForm.astro';
   title="Biostimulators - Renasci Med Spa"
   description="Bioestimuladores para estimular colágeno, restaurar volumen y mejorar la textura de la piel. Agenda tu cita en Renasci Med Spa."
 >
+  <PageSchema
+    type="service"
+    name="Biostimulators - Renasci Medical Spa"
+    nameEs="Bioestimuladores"
+    nameEn="Biostimulators"
+    description="Bioestimuladores como Sculptra para estimular la producción de colágeno, restaurar volumen y mejorar la textura de la piel."
+    url="/services/biostimulators"
+    image="/img/services/Sculptra.jpg.avif"
+    category="Injectables"
+    parentName="Inyectables"
+    parentNameEs="Inyectables"
+    parentNameEn="Injectables"
+    parentUrl="/services/injectables-treatments"
+  />
   <section class="py-28 md:py-36 text-white text-center relative overflow-hidden">
     <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/hero-services.jpg')"></div>
     <div class="absolute inset-0 bg-black/40"></div>

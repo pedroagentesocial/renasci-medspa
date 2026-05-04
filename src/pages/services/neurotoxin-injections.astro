@@ -1,13 +1,28 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSchema from '../../components/PageSchema.astro';
 import TransformCTA from '../../components/TransformCTA.astro';
 import SimpleContactForm from '../../components/SimpleContactForm.astro';
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Neurotoxin Injections - Renasci Medical Spa"
   description="Inyecciones de neurotoxina para suavizar líneas de expresión, prevenir nuevas arrugas y lograr resultados naturales y duraderos. Agenda tu cita en Renasci Medical Spa."
 >
+  <PageSchema
+    type="service"
+    name="Neurotoxin Injections - Renasci Medical Spa"
+    nameEs="Inyecciones de Neurotoxina"
+    nameEn="Neurotoxin Injections"
+    description="Inyecciones de neurotoxina (Botox, Dysport, Xeomin) para suavizar líneas de expresión y prevenir nuevas arrugas con resultados naturales."
+    url="/services/neurotoxin-injections"
+    image="/img/services/neurotoxins.jpg"
+    category="Injectables"
+    parentName="Inyectables"
+    parentNameEs="Inyectables"
+    parentNameEn="Injectables"
+    parentUrl="/services/injectables-treatments"
+  />
   <section class="py-28 md:py-36 text-white text-center relative overflow-hidden">
     <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/hero-services.jpg')"></div>
     <div class="absolute inset-0 bg-black/40"></div>

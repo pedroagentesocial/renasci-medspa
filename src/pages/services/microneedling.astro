@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSchema from '../../components/PageSchema.astro';
 import TransformCTA from '../../components/TransformCTA.astro';
 import SimpleContactForm from '../../components/SimpleContactForm.astro';
 ---
@@ -8,6 +9,20 @@ import SimpleContactForm from '../../components/SimpleContactForm.astro';
   title="Microneedling - Renasci Med Spa"
   description="Microneedling at Renasci Med Spa to stimulate collagen and elastin for healthier, radiant skin."
 >
+  <PageSchema
+    type="service"
+    name="Microneedling - Renasci Medical Spa"
+    nameEs="Microneedling"
+    nameEn="Microneedling"
+    description="Microneedling para estimular la producción de colágeno y elastina, mejorando la textura, firmeza y luminosidad de la piel."
+    url="/services/microneedling"
+    image="/img/services/microneedling-face.jpg"
+    category="Facial Treatments"
+    parentName="Tratamientos Faciales"
+    parentNameEs="Tratamientos Faciales"
+    parentNameEn="Facial Treatments"
+    parentUrl="/services/facial-treatments"
+  />
   <section class="py-28 md:py-36 text-white text-center relative overflow-hidden">
     <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/hero-services.jpg')"></div>
     <div class="absolute inset-0 bg-black/40"></div>

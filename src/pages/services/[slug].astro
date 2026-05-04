@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTAButton from '../../components/CTAButton.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getServicioUnificadoBySlug, serviciosUnificados, categoriasUnificadas } from '../../data/services-unified';
 
 export async function getStaticPaths() {
@@ -106,18 +108,65 @@ if (!servicio) {
 const serviciosRelacionados = categoria.servicios
   .filter((s: any) => s.slug !== servicio.slug)
   .slice(0, 3);
+
+// Schema.org Service + price extraction
+const baseUrl = 'https://renascimedspa.com';
+const serviceUrl = `${baseUrl}/services/${servicio.slug}`;
+const serviceImage = servicio.image
+  ? (servicio.image.startsWith('http') ? servicio.image : new URL(servicio.image, baseUrl).toString())
+  : `${baseUrl}/og-image.jpg`;
+const priceMatch = (servicio.precio || '').match(/\$?\s*([\d,.]+)/);
+const numericPrice = priceMatch ? priceMatch[1].replace(/,/g, '') : null;
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: servicio.title.es,
+  description: servicio.excerpt.es,
+  image: serviceImage,
+  url: serviceUrl,
+  serviceType: categoria.nombre.es,
+  category: categoria.nombre.es,
+  provider: { '@id': `${baseUrl}/#business` },
+  areaServed: [
+    { '@type': 'City', name: 'Salt Lake City' },
+    { '@type': 'City', name: 'Midvale' },
+    { '@type': 'State', name: 'Utah' }
+  ],
+  ...(numericPrice && {
+    offers: {
+      '@type': 'Offer',
+      price: numericPrice,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      url: serviceUrl,
+      seller: { '@id': `${baseUrl}/#business` }
+    }
+  })
+};
+
+const breadcrumbItems = [
+  { nameEs: 'Inicio', nameEn: 'Home', name: 'Inicio', url: '/' },
+  { nameEs: 'Servicios', nameEn: 'Services', name: 'Servicios', url: '/services' },
+  { nameEs: categoria.nombre.es, nameEn: categoria.nombre.en || categoria.nombre.es, name: categoria.nombre.es, url: `/services/${categoria.slug}` },
+  { nameEs: servicio.title.es, nameEn: servicio.title.en || servicio.title.es, name: servicio.title.es }
+];
 ---
 
-<BaseLayout 
+<BaseLayout
   title={`${servicio.title.es} - Renasci Medical Spa`}
   description={`${servicio.excerpt.es} Precio: ${servicio.precio}. Agenda tu cita en Renasci Medical Spa y descubre los beneficios de este tratamiento.`}
+  seoImage={servicio.image}
 >
+  <JsonLd schema={serviceSchema} />
+  <Breadcrumbs items={breadcrumbItems} schemaOnly />
+
   <!-- Hero del Servicio -->
   <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
     <!-- Background Image -->
-    <img 
-      src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      alt={`${servicio.title.es} treatment at medical spa`}
+    <img
+      src={servicio.image || '/img/services/hero-services.jpg'}
+      alt={`${servicio.title.es} - tratamiento en Renasci Medical Spa`}
       class="absolute inset-0 w-full h-full object-cover"
       loading="eager"
     />

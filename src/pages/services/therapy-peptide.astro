@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import PageSchema from '../../components/PageSchema.astro'
 import SimpleContactForm from '../../components/SimpleContactForm.astro'
 import TransformCTA from '../../components/TransformCTA.astro'
 const lang = 'es'
@@ -95,11 +96,21 @@ const pageText = {
 }
 ---
 
-<BaseLayout 
+<BaseLayout
   title={pageText[lang].metaTitle}
   description={pageText[lang].metaDescription}
   lang={lang}
 >
+  <PageSchema
+    type="service"
+    name="Peptide Therapy - Renasci Medical Spa"
+    nameEs="Terapia con Péptidos"
+    nameEn="Peptide Therapy"
+    description="Terapia con péptidos para apoyar energía, recuperación, metabolismo, balance hormonal y envejecimiento saludable bajo supervisión médica."
+    url="/services/therapy-peptide"
+    image="/img/services/peptide-therapy.jpg"
+    category="Wellness & Performance"
+  />
   <section class="relative min-h-[45vh] flex items-center justify-center text-center overflow-hidden">
     <img 
       src="/img/services/peptide-therapy.jpg"

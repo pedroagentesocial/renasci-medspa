@@ -1,13 +1,28 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSchema from '../../components/PageSchema.astro';
 import TransformCTA from '../../components/TransformCTA.astro';
 import SimpleContactForm from '../../components/SimpleContactForm.astro';
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Medically Supervised Weight Loss - Renasci Medical Spa"
   description="Comprehensive weight loss program under medical supervision with evaluation, personalized plan and continuous monitoring for safe, lasting results. Book your appointment at Renasci Medical Spa."
 >
+  <PageSchema
+    type="service"
+    name="Medically Supervised Weight Loss - Renasci Medical Spa"
+    nameEs="Pérdida de Peso Médicamente Supervisada"
+    nameEn="Medically Supervised Weight Loss"
+    description="Programa integral de pérdida de peso bajo supervisión médica con evaluación, plan personalizado y monitoreo continuo para resultados seguros y duraderos."
+    url="/services/medically-supervised-weight-loss"
+    image="/img/services/Supervised.jpg"
+    category="Weight Loss & Wellness"
+    parentName="Corporal"
+    parentNameEs="Corporal"
+    parentNameEn="Body"
+    parentUrl="/services/body-treatments"
+  />
   <section class="relative min-h-[36vh] md:min-h-[44vh] flex items-center justify-center text-center overflow-hidden">
     <img src="/img/services/Supervised.jpg" alt="Pérdida de peso médicamente supervisada" data-alt-es="Pérdida de peso médicamente supervisada" data-alt-en="Medically supervised weight loss" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
     <div class="absolute inset-0 bg-black/50"></div>

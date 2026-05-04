@@ -1,0 +1,103 @@
+---
+import JsonLd from './JsonLd.astro';
+
+export interface BreadcrumbItem {
+  name: string;
+  nameEs?: string;
+  nameEn?: string;
+  url?: string;
+}
+
+export interface Props {
+  items: BreadcrumbItem[];
+  baseUrl?: string;
+  variant?: 'light' | 'dark';
+  containerClass?: string;
+  schemaOnly?: boolean;
+}
+
+const {
+  items,
+  baseUrl = 'https://renascimedspa.com',
+  variant = 'light',
+  containerClass = '',
+  schemaOnly = false
+} = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, i) => {
+    const entry: Record<string, any> = {
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.nameEs || item.name,
+    };
+    if (item.url) {
+      entry.item = item.url.startsWith('http') ? item.url : new URL(item.url, baseUrl).toString();
+    }
+    return entry;
+  }),
+};
+---
+
+<JsonLd schema={schema} />
+
+{!schemaOnly && (
+<nav aria-label="Breadcrumb" class={`breadcrumbs-nav ${variant === 'dark' ? 'breadcrumbs-dark' : 'breadcrumbs-light'} ${containerClass}`}>
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+    {items.map((item, i) => (
+      <li class="flex items-center gap-2">
+        {i > 0 && (
+          <svg class="h-3.5 w-3.5 opacity-50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        )}
+        {item.url && i < items.length - 1 ? (
+          <a
+            href={item.url}
+            class="breadcrumbs-link"
+            data-t-es={item.nameEs || item.name}
+            data-t-en={item.nameEn || item.name}
+          >{item.nameEs || item.name}</a>
+        ) : (
+          <span
+            class="breadcrumbs-current"
+            aria-current="page"
+            data-t-es={item.nameEs || item.name}
+            data-t-en={item.nameEn || item.name}
+          >{item.nameEs || item.name}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+)}
+
+<style>
+  .breadcrumbs-nav {
+    width: 100%;
+  }
+  .breadcrumbs-light .breadcrumbs-link {
+    color: rgba(0, 0, 0, 0.6);
+    transition: color 200ms ease;
+  }
+  .breadcrumbs-light .breadcrumbs-link:hover {
+    color: #B76B71;
+  }
+  .breadcrumbs-light .breadcrumbs-current {
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+  }
+  .breadcrumbs-dark .breadcrumbs-link {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 200ms ease;
+  }
+  .breadcrumbs-dark .breadcrumbs-link:hover {
+    color: #ffffff;
+  }
+  .breadcrumbs-dark .breadcrumbs-current {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+  }
+</style>

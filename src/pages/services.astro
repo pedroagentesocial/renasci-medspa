@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import PageSchema from '../components/PageSchema.astro'
 import { getLocaleFromUrl } from '../i18n/config'
 const langParam = Astro.url.searchParams.get('lang')
 const pathLocale = getLocaleFromUrl(Astro.url)
@@ -40,6 +41,15 @@ const serviceCards = [
 ---
 
 <BaseLayout title={pageText[lang].title} description={pageText[lang].description} lang={lang}>
+  <PageSchema
+    type="collection"
+    name="Servicios - Renasci Medical Spa"
+    nameEs="Servicios"
+    nameEn="Services"
+    description={pageText[lang].description}
+    url="/services"
+    image="/img/services/hero-services.jpg"
+  />
   <section class="hero-services">
     <div class="hero-inner text-center">
       <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight" data-hero-title>{pageText[lang].heroTitleLeft}<span class="accent-pink">{pageText[lang].heroTitleRight}</span></h1>

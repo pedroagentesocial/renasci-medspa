@@ -1,11 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSchema from '../../components/PageSchema.astro';
 ---
 
-<BaseLayout 
+<BaseLayout
   title="IgniteRF by InMode — Plataforma RFAL Avanzada"
   description="IgniteRF es una solución avanzada para contracción de tejidos blandos, electrocoagulación, hemostasia y tratamientos fraccionados con penetración de hasta 60mm."
 >
+  <PageSchema
+    type="service"
+    name="IgniteRF by InMode - Renasci Medical Spa"
+    nameEs="IgniteRF"
+    nameEn="IgniteRF"
+    description="IgniteRF by InMode: plataforma RFAL avanzada para contracción de tejidos, contorno corporal y rejuvenecimiento facial con resultados sin cirugía."
+    url="/services/igniterf"
+    image="/img/ignateRF.png"
+    category="Skin Tightening & Body Contouring"
+  />
   <section class="relative h-screen md:h-[80vh] bg-black text-white overflow-hidden">
     <video 
       class="absolute inset-0 w-full h-full object-cover z-0" 

@@ -1,13 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSchema from '../../components/PageSchema.astro';
 import TransformCTA from '../../components/TransformCTA.astro';
 import SimpleContactForm from '../../components/SimpleContactForm.astro';
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Facial Treatments - Renasci Medical Spa"
   description="Tratamientos faciales avanzados para contorno, definición y rejuvenecimiento. Agenda tu cita en Renasci Medical Spa."
 >
+  <PageSchema
+    type="collection"
+    name="Tratamientos Faciales - Renasci Medical Spa"
+    nameEs="Tratamientos Faciales"
+    nameEn="Facial Treatments"
+    description="Tratamientos faciales avanzados para contorno, definición y rejuvenecimiento."
+    url="/services/facial-treatments"
+    image="/img/services/Cheekbone-lift.jpg"
+  />
   <section class="py-28 md:py-36 text-white text-center relative overflow-hidden">
     <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/Cheekbone-lift.jpg')"></div>
     <div class="absolute inset-0 bg-black/40"></div>

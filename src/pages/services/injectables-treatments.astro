@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import PageSchema from '../../components/PageSchema.astro'
 import TransformCTA from '../../components/TransformCTA.astro'
 import SimpleContactForm from '../../components/SimpleContactForm.astro'
 import { getLocaleFromUrl } from '../../i18n/config'
@@ -28,6 +29,15 @@ const cards = [
 ---
 
 <BaseLayout title={pageText[lang].title} description={pageText[lang].description} lang={lang}>
+  <PageSchema
+    type="collection"
+    name="Inyectables - Renasci Medical Spa"
+    nameEs="Inyectables"
+    nameEn="Injectables"
+    description={pageText[lang].description}
+    url="/services/injectables-treatments"
+    image="/img/services/Injection-general.jpg"
+  />
   <section class="hero-injectables">
     <div class="hero-inner text-center">
       <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white" data-page-title data-title-es="Inyectables" data-title-en="Injectables">

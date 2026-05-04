@@ -1,13 +1,24 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSchema from '../../components/PageSchema.astro';
 import TransformCTA from '../../components/TransformCTA.astro';
 import SimpleContactForm from '../../components/SimpleContactForm.astro';
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Bioidentical Hormone Therapy - Renasci Medical Spa"
   description="Terapia hormonal bioidéntica personalizada para equilibrio, energía y bienestar. Agenda tu cita en Renasci Medical Spa."
 >
+  <PageSchema
+    type="service"
+    name="Bioidentical Hormone Therapy - Renasci Medical Spa"
+    nameEs="Terapia Hormonal Bioidéntica"
+    nameEn="Bioidentical Hormone Therapy"
+    description="Terapia hormonal bioidéntica personalizada para restaurar el equilibrio, mejorar la energía y apoyar el bienestar integral."
+    url="/services/biodentical-hormone-therapy"
+    image="/img/services/Hormone-her.jpg"
+    category="Hormone Therapy"
+  />
   <section class="relative min-h-[45vh] flex items-center justify-center text-center overflow-hidden">
     <img
       src="/img/services/Hormone-him.jpg"

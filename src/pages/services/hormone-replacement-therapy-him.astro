@@ -1,12 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import PageSchema from '../../components/PageSchema.astro'
 import TransformCTA from '../../components/TransformCTA.astro'
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Hormone Replacement Therapy for Him - Renasci Medical Spa"
   description="Personalized hormone replacement therapy for men to support energy, mood and vitality. Book your appointment at Renasci Medical Spa."
 >
+  <PageSchema
+    type="service"
+    name="Hormone Replacement Therapy for Him - Renasci Medical Spa"
+    nameEs="Terapia de Reemplazo Hormonal para Hombres"
+    nameEn="Hormone Replacement Therapy for Him"
+    description="Terapia de reemplazo hormonal personalizada para hombres que apoya energía, ánimo, vitalidad y rendimiento."
+    url="/services/hormone-replacement-therapy-him"
+    image="/img/services/Hormone-him.jpg"
+    category="Hormone Therapy"
+  />
   <section class="pt-24 pb-16 md:pt-32 bg-black text-white text-center">
     <div class="px-6 max-w-4xl mx-auto mt-0 md:mt-4">
       <div class="inline-block bg-[#F3A2A7]/30 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-[#F3A2A7]/30"><span data-i18n="services.bhrt_title">Bioidentical Hormone Therapy (BHRT)</span></div>

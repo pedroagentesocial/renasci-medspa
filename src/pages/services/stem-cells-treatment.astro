@@ -1,13 +1,24 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSchema from '../../components/PageSchema.astro';
 import TransformCTA from '../../components/TransformCTA.astro';
 import SimpleContactForm from '../../components/SimpleContactForm.astro';
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Stem Cells Treatment - Renasci Medical Spa"
   description="Terapias con células madre para restauración capilar y bienestar íntimo con enfoque médico. Agenda tu cita en Renasci Medical Spa."
 >
+  <PageSchema
+    type="service"
+    name="Stem Cells Treatment - Renasci Medical Spa"
+    nameEs="Tratamiento con Células Madre"
+    nameEn="Stem Cells Treatment"
+    description="Terapias con células madre para restauración capilar y bienestar íntimo, con enfoque médico y resultados regenerativos."
+    url="/services/stem-cells-treatment"
+    image="/img/services/Hair-restoration-Cells.jpg"
+    category="Regenerative Medicine"
+  />
   <section class="py-28 md:py-36 text-white text-center relative overflow-hidden">
     <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/hero-services.jpg')"></div>
     <div class="absolute inset-0 bg-black/40"></div>

@@ -1,13 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSchema from '../../components/PageSchema.astro';
 import TransformCTA from '../../components/TransformCTA.astro';
 import SimpleContactForm from '../../components/SimpleContactForm.astro';
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Advanced Treatments - Renasci Medical Spa"
   description="Tratamientos avanzados para cuidado de piel, inflamación localizada y brotes quísticos. Agenda tu cita en Renasci Medical Spa."
 >
+  <PageSchema
+    type="collection"
+    name="Tratamientos Avanzados - Renasci Medical Spa"
+    nameEs="Tratamientos Avanzados"
+    nameEn="Advanced Treatments"
+    description="Tratamientos avanzados para cuidado de piel, inflamación localizada y brotes quísticos."
+    url="/services/advanced-treatments"
+    image="/img/services/hero-services.jpg"
+  />
   <section class="py-28 md:py-36 text-white text-center relative overflow-hidden">
     <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/hero-services.jpg')"></div>
     <div class="absolute inset-0 bg-black/40"></div>

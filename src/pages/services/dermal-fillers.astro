@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSchema from '../../components/PageSchema.astro';
 import TransformCTA from '../../components/TransformCTA.astro';
 import SimpleContactForm from '../../components/SimpleContactForm.astro';
 ---
@@ -8,6 +9,20 @@ import SimpleContactForm from '../../components/SimpleContactForm.astro';
   title="Dermal Fillers - Renasci Med Spa"
   description="Rellenos dérmicos para restaurar volumen, suavizar arrugas y realzar rasgos faciales. Agenda tu cita en Renasci Med Spa."
 >
+  <PageSchema
+    type="service"
+    name="Dermal Fillers - Renasci Medical Spa"
+    nameEs="Rellenos Dérmicos"
+    nameEn="Dermal Fillers"
+    description="Rellenos dérmicos para restaurar volumen, suavizar arrugas y realzar rasgos faciales con resultados naturales."
+    url="/services/dermal-fillers"
+    image="/img/services/Lip-filler-image.jpg"
+    category="Injectables"
+    parentName="Inyectables"
+    parentNameEs="Inyectables"
+    parentNameEn="Injectables"
+    parentUrl="/services/injectables-treatments"
+  />
   <section class="py-28 md:py-36 text-white text-center relative overflow-hidden">
     <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image:url('/img/services/hero-services.jpg')"></div>
     <div class="absolute inset-0 bg-black/40"></div>

@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { categoriasUnificadas, getCategoriaUnificadaBySlug } from '../../data/services-unified';
+import JsonLd from '../../components/JsonLd.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { categoriasUnificadas } from '../../data/services-unified';
 
 export async function getStaticPaths() {
   return categoriasUnificadas.map((categoria) => ({
@@ -14,20 +16,56 @@ const { categoria } = Astro.props;
 if (!categoria) {
   return Astro.redirect('/404');
 }
+
+// Schemas: CollectionPage + ItemList for the category
+const baseUrl = 'https://renascimedspa.com';
+const categoryUrl = `${baseUrl}/services/${categoria.slug}`;
+const categoryDescription = `Descubre todos nuestros tratamientos de ${categoria.nombre.es.toLowerCase()} en Renasci Medical Spa, Salt Lake City.`;
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${categoria.nombre.es} - Renasci Medical Spa`,
+  description: categoryDescription,
+  url: categoryUrl,
+  isPartOf: { '@id': `${baseUrl}/#website` },
+  about: { '@id': `${baseUrl}/#business` },
+  numberOfItems: categoria.servicios.length,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: categoria.servicios.length,
+    itemListElement: categoria.servicios.map((s: any, i: number) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${baseUrl}/services/${s.slug}`,
+      name: s.title?.es || s.title?.en || 'Servicio'
+    }))
+  }
+};
+
+const breadcrumbItems = [
+  { nameEs: 'Inicio', nameEn: 'Home', name: 'Inicio', url: '/' },
+  { nameEs: 'Servicios', nameEn: 'Services', name: 'Servicios', url: '/services' },
+  { nameEs: categoria.nombre.es, nameEn: categoria.nombre.en || categoria.nombre.es, name: categoria.nombre.es }
+];
 ---
 
 <BaseLayout
   title={`${categoria.nombre.es} - Renasci Medical Spa`}
-  description={`Descubre todos nuestros tratamientos de ${categoria.nombre.es.toLowerCase()} en Renasci Medical Spa, Salt Lake City. ${categoria.servicios.length} servicios profesionales disponibles.`}
+  description={`${categoryDescription} ${categoria.servicios.length} servicios profesionales disponibles.`}
 >
+  <JsonLd schema={collectionSchema} />
+  <Breadcrumbs items={breadcrumbItems} schemaOnly />
+
   <main class="min-h-screen bg-gray-50">
     <!-- Hero Section -->
     <section class="relative py-20 px-4 sm:px-6 lg:px-8 min-h-[60vh] flex items-center">
       <!-- Background Image -->
-      <img 
-        src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
-        alt="Medical spa treatments"
+      <img
+        src="/img/services/hero-services.jpg"
+        alt={`${categoria.nombre.es} - tratamientos en Renasci Medical Spa`}
         class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
       />
       
       <!-- Dark Overlay -->

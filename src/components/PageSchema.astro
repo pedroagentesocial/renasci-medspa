@@ -1,0 +1,94 @@
+---
+import JsonLd from './JsonLd.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+
+export interface Props {
+  type: 'service' | 'collection' | 'webpage';
+  name: string;
+  nameEs?: string;
+  nameEn?: string;
+  description: string;
+  url: string;
+  image?: string;
+  category?: string;
+  parentName?: string;
+  parentNameEs?: string;
+  parentNameEn?: string;
+  parentUrl?: string;
+}
+
+const baseUrl = 'https://renascimedspa.com';
+const {
+  type,
+  name,
+  nameEs,
+  nameEn,
+  description,
+  url,
+  image,
+  category,
+  parentName,
+  parentNameEs,
+  parentNameEn,
+  parentUrl,
+} = Astro.props;
+
+const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
+const fullImage = image
+  ? (image.startsWith('http') ? image : `${baseUrl}${image}`)
+  : `${baseUrl}/og-image.jpg`;
+
+const breadcrumbItems = [
+  { nameEs: 'Inicio', nameEn: 'Home', name: 'Inicio', url: '/' },
+  { nameEs: 'Servicios', nameEn: 'Services', name: 'Servicios', url: '/services' },
+  ...(parentUrl ? [{
+    nameEs: parentNameEs || parentName || '',
+    nameEn: parentNameEn || parentName || '',
+    name: parentName || '',
+    url: parentUrl,
+  }] : []),
+  { nameEs: nameEs || name, nameEn: nameEn || name, name },
+];
+
+let schema: Record<string, any>;
+if (type === 'service') {
+  schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name,
+    description,
+    url: fullUrl,
+    image: fullImage,
+    serviceType: category || 'Aesthetic Medical Treatment',
+    category: category,
+    provider: { '@id': `${baseUrl}/#business` },
+    areaServed: [
+      { '@type': 'City', name: 'Salt Lake City' },
+      { '@type': 'City', name: 'Midvale' },
+      { '@type': 'State', name: 'Utah' },
+    ],
+  };
+} else if (type === 'collection') {
+  schema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    description,
+    url: fullUrl,
+    isPartOf: { '@id': `${baseUrl}/#website` },
+    about: { '@id': `${baseUrl}/#business` },
+  };
+} else {
+  schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name,
+    description,
+    url: fullUrl,
+    isPartOf: { '@id': `${baseUrl}/#website` },
+  };
+}
+---
+
+<JsonLd schema={schema} />
+<Breadcrumbs items={breadcrumbItems} schemaOnly />
