@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TierCard from '../components/TierCard.astro';
-import CTAButton from '../components/CTAButton.astro';
 import FAQItem from '../components/FAQItem.astro';
 import SimpleContactForm from '../components/SimpleContactForm.astro';
 import TestimonialsSection from '../components/TestimonialsSection.astro';
@@ -12,182 +10,299 @@ import TransformCTA from '../components/TransformCTA.astro';
   title="Membresías - Renasci Medical Spa"
   description="Descubre nuestras membresías Signature Glow y Signature Elite con precios exclusivos, beneficios wellness e inyecciones mensuales incluidas."
 >
-  <!-- Hero Section Renovado -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Imagen de fondo -->
+  <!-- Hero Section Editorial -->
+  <section class="membership-hero relative flex min-h-screen items-center justify-center overflow-hidden">
     <div
-      class="absolute inset-0 w-full h-full bg-cover"
+      class="absolute inset-0 h-full w-full bg-cover"
       style="background-image:url('/img/services/hero-membership.png'); background-position: 30% 20%;"
       aria-label="Renasci Membership"
     ></div>
-    
-    <!-- Overlay para legibilidad -->
-    <div class="absolute inset-0 bg-black/40"></div>
-    
-    <!-- Animated Background Elements -->
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="floating-element absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
-      <div class="floating-element-delayed absolute top-40 right-20 w-24 h-24 bg-secondary/15 rounded-full blur-lg"></div>
-      <div class="floating-element absolute bottom-32 left-1/4 w-40 h-40 bg-primary/8 rounded-full blur-2xl"></div>
-      <div class="floating-element-delayed absolute bottom-20 right-1/3 w-28 h-28 bg-secondary/12 rounded-full blur-xl"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-black/75"></div>
+
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+      <div class="hero-orb absolute -top-24 -left-16 h-80 w-80 rounded-full bg-[#F3A2A7]/15 blur-3xl"></div>
+      <div class="hero-orb-delayed absolute -bottom-24 right-1/4 h-96 w-96 rounded-full bg-[#AABFA8]/15 blur-3xl"></div>
+      <div class="hero-orb absolute top-1/3 right-10 h-48 w-48 rounded-full bg-white/8 blur-3xl"></div>
     </div>
-    
-    <!-- Content -->
-    <div class="relative z-10 px-6 max-w-6xl mx-auto text-center">
-      <div class="hero-content">
-        <!-- Badge animado -->
-        <div class="inline-flex items-center px-4 py-2 bg-[#F3A2A7]/10 backdrop-blur-sm rounded-full text-white font-semibold text-sm mb-8 border border-[#F3A2A7]/20 animate-fade-in-up" data-t-es="Membresías Exclusivas" data-t-en="Exclusive Memberships">
-          <svg class="w-4 h-4 mr-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+
+    <div class="relative z-10 mx-auto max-w-4xl px-6 text-center text-white">
+      <span class="reveal mb-7 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.42em] text-white/85">
+        <span class="h-px w-10 bg-white/45"></span>
+        <span data-t-es="Membresías Signature" data-t-en="Signature Memberships">Membresías Signature</span>
+        <span class="h-px w-10 bg-white/45"></span>
+      </span>
+
+      <h1 class="hero-headline">
+        <span
+          class="reveal hero-word hero-word-1 font-display font-bold tracking-tight"
+          style="--reveal-delay: 80ms;"
+          data-t-es="Renueva"
+          data-t-en="Renew"
+        >Renueva</span>
+        <span
+          class="reveal hero-word hero-word-2 font-hero-elmatia text-[#F3A2A7]"
+          style="--reveal-delay: 240ms;"
+          data-t-es="tu Glow"
+          data-t-en="your Glow"
+        >tu Glow</span>
+        <span
+          class="reveal hero-word hero-word-3 font-display font-bold tracking-tight text-white/90"
+          style="--reveal-delay: 380ms;"
+          data-t-es="cada mes"
+          data-t-en="every month"
+        >cada mes</span>
+      </h1>
+
+      <p
+        class="reveal mx-auto mt-8 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg md:text-xl"
+        style="--reveal-delay: 500ms;"
+        data-t-es="Beneficios premium todo el año, atención prioritaria y precios preferenciales pensados para ti."
+        data-t-en="Year-round premium benefits, priority access and preferred pricing made for you."
+      >Beneficios premium todo el año, atención prioritaria y precios preferenciales pensados para ti.</p>
+
+      <div class="reveal mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4" style="--reveal-delay: 620ms;">
+        <a
+          href="#planes"
+          class="hero-cta-primary group inline-flex items-center gap-2 rounded-full bg-[#F3A2A7] px-8 py-4 font-semibold text-white shadow-[0_18px_36px_-12px_rgba(243,162,167,0.7)] transition-all duration-300 hover:gap-3 hover:opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+        >
+          <span data-t-es="Ver planes" data-t-en="See plans">Ver planes</span>
+          <svg class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
-          <span class="i18n-text">Membresías Exclusivas</span>
-        </div>
-        
-        <!-- Título principal con efecto typing -->
-        <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-tight">
-          <span class="typing-text" data-t-es="Transforma" data-t-en="Transform">Transforma</span><br>
-          <span class="text-[#F3A2A7] typing-text-delayed" data-t-es="Tu Belleza" data-t-en="Your Beauty">Tu Belleza</span>
-        </h1>
-        
-        <!-- Subtítulo -->
-        <p class="text-xl md:text-2xl text-white mb-12 leading-relaxed max-w-4xl mx-auto" data-t-es="Únete a nuestra comunidad exclusiva y descubre una nueva dimensión de cuidado personal con beneficios únicos, tratamientos premium y atención personalizada." data-t-en="Join our exclusive community and discover a new dimension of self-care with unique benefits, premium treatments, and personalized attention.">
-          Únete a nuestra comunidad exclusiva y descubre una nueva dimensión de cuidado personal con beneficios únicos, tratamientos premium y atención personalizada.
-        </p>
-        
-        
-        <!-- Stats animados -->
-        <div class="hidden">
-          <div class="text-center">
-            <div class="counter text-3xl md:text-4xl font-bold text-primary mb-2" data-target="500">0</div>
-            <div class="text-sm text-white">Miembros Activos</div>
-          </div>
-          <div class="text-center">
-            <div class="counter text-3xl md:text-4xl font-bold text-primary mb-2" data-target="98">0</div>
-            <div class="text-sm text-white">% Satisfacción</div>
-          </div>
-          <div class="text-center">
-            <div class="counter text-3xl md:text-4xl font-bold text-primary mb-2" data-target="25">0</div>
-            <div class="text-sm text-white">% Descuento Promedio</div>
-          </div>
-          <div class="text-center">
-            <div class="counter text-3xl md:text-4xl font-bold text-primary mb-2" data-target="24">0</div>
-            <div class="text-sm text-white">Soporte 24/7</div>
-          </div>
-        </div>
+        </a>
+        <a
+          href="tel:+13856092840"
+          class="hero-cta-secondary group inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        >
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/>
+          </svg>
+          <span data-t-es="Hablar con un especialista" data-t-en="Talk to a specialist">Hablar con un especialista</span>
+        </a>
+      </div>
+
+      <div
+        class="reveal mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-white/70 sm:text-sm"
+        style="--reveal-delay: 740ms;"
+      >
+        <span class="hero-trust-item">
+          <svg class="h-3.5 w-3.5 text-[#F3A2A7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
+          <span data-t-es="Sin permanencia" data-t-en="No commitment">Sin permanencia</span>
+        </span>
+        <span class="text-white/30">·</span>
+        <span class="hero-trust-item">
+          <svg class="h-3.5 w-3.5 text-[#F3A2A7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
+          <span data-t-es="Renovable mensual" data-t-en="Monthly renewal">Renovable mensual</span>
+        </span>
+        <span class="text-white/30">·</span>
+        <span class="hero-trust-item">
+          <svg class="h-3.5 w-3.5 text-[#F3A2A7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
+          <span data-t-es="Cancela cuando quieras" data-t-en="Cancel anytime">Cancela cuando quieras</span>
+        </span>
       </div>
     </div>
-    
-    <!-- Scroll indicator -->
-    
+
+    <a href="#planes" class="hero-scroll group absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 hover:text-white transition-colors" aria-label="Scroll to plans">
+      <span class="block text-[10px] font-semibold uppercase tracking-[0.42em] mb-2 text-center" data-t-es="Explorar" data-t-en="Explore">Explorar</span>
+      <span class="hero-scroll-arrow mx-auto block h-10 w-[2px] bg-gradient-to-b from-white/0 via-white/70 to-white/0"></span>
+    </a>
   </section>
 
-  <!-- Sección Elige tu Plan Perfecto (MOVIDA AQUÍ) -->
-  <section id="planes" class="py-20 bg-white text-black">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="relative text-center mb-16">
-        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full bg-[#F3A2A7]/15 blur-3xl"></div>
-        <div class="absolute -bottom-12 left-8 w-40 h-40 rounded-full bg-[#1DD1A1]/10 blur-2xl"></div>
-        <div class="relative inline-flex flex-col items-center gap-4 px-8 py-8 sm:px-10 sm:py-10 bg-white/90 backdrop-blur border border-[#F3A2A7]/30 rounded-3xl shadow-[0_20px_50px_rgba(243,162,167,0.25)]">
-          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.2em] text-[#B76B71] bg-[#F3A2A7]/15 uppercase" data-t-es="Membresías Signature" data-t-en="Signature Memberships">Membresías Signature</span>
-          <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 tracking-tight" data-t-es="Elige tu Membresía Signature" data-t-en="Choose Your Signature Membership">Elige tu Membresía Signature</h2>
-          <p class="text-lg md:text-xl text-black/70 max-w-3xl leading-relaxed" data-t-es="Beneficios exclusivos y precios preferenciales diseñados para mantener tu glow todo el año." data-t-en="Exclusive benefits and preferred pricing designed to keep your glow year‑round.">
-            Beneficios exclusivos y precios preferenciales diseñados para mantener tu glow todo el año.
-          </p>
-          <div class="flex items-center gap-3 text-sm text-black/60">
-            <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
-            <span data-t-es="Dos niveles, un solo glow" data-t-en="Two tiers, one glow">Dos niveles, un solo glow</span>
-            <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Mobile: Stack vertical con Glow al centro (order-2) -->
-      <!-- Desktop: Grid de 3 columnas con Glow destacado -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        <!-- Signature Glow -->
-        <div class="order-1 lg:order-1 plan-card">
-          <TierCard
-              title="Signature Glow Membership"
-              titleEn="Signature Glow Membership"
-              price="$99"
-              period="mes"
-              periodEn="month"
-              description="Precios exclusivos y beneficios wellness para mantener tu glow todo el año."
-              descriptionEn="Exclusive pricing and wellness perks to keep you glowing year‑round."
-              features={[
-                "Botox / Tox: $12 por unidad",
-                "15% OFF en faciales médicos",
-                "$60 OFF en dermal fillers",
-                "10% OFF en IV Therapy",
-                "10% OFF en tratamientos de péptidos",
-                "10% OFF Wellness Performance Shots",
-                "Priority booking y promociones exclusivas"
-              ]}
-              featuresEn={[
-                "Botox / Tox: $12 per unit",
-                "15% OFF medical facials",
-                "$60 OFF dermal fillers",
-                "10% OFF IV Therapy",
-                "10% OFF peptide treatments",
-                "10% OFF Wellness Performance Shots",
-                "Priority booking and exclusive promotions"
-              ]}
-              ctaText="Unirme a Signature Glow"
-              ctaTextEn="Join Signature Glow"
-              ctaHref="#contacto"
-              class="h-full min-h-[30rem] bg-white text-black border-2 border-[#1DD1A1] hover:ring-2 hover:ring-[#1DD1A1]"
-              variant="light"
-              ctaClass="bg-[#1DD1A1] text-white hover:opacity-90 border-2 border-[#1DD1A1] focus-visible:ring-[#1DD1A1] focus-visible:ring-offset-white"
-              titleClass="text-3xl md:text-4xl text-black"
-              hoverBorderColor="#1DD1A1"
-            />
-        </div>
+  <!-- Sección Elige tu Plan -->
+  <section id="planes" class="plans-section relative overflow-hidden bg-white py-20 text-black lg:py-28">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+      <div class="absolute -top-20 left-1/4 h-72 w-72 rounded-full bg-[#F3A2A7]/12 blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-[#1DD1A1]/10 blur-3xl"></div>
+    </div>
 
-        <!-- Signature Elite -->
-        <div class="order-2 lg:order-2 plan-card-featured">
-          <TierCard
-              title="Signature Elite Membership"
-              titleEn="Signature Elite Membership"
-              price="$189"
-              period="mes"
-              periodEn="month"
-              description="Membresía premium con resultados estéticos elevados y beneficios avanzados."
-              descriptionEn="Premium membership with elevated aesthetic results and advanced benefits."
-              features={[
-                "Botox / Tox: $10 por unidad",
-                "20% OFF en faciales médicos",
-                "$150 OFF en dermal fillers",
-                "20% OFF en IV Therapy",
-                "15% OFF en tratamientos de péptidos",
-                "20% OFF Wellness Performance Shots",
-                "Priority booking y promociones exclusivas",
-                "Evaluación médica cada 6 meses"
-              ]}
-              featuresEn={[
-                "Botox / Tox: $10 per unit",
-                "20% OFF medical facials",
-                "$150 OFF dermal fillers",
-                "20% OFF IV Therapy",
-                "15% OFF peptide treatments",
-                "20% OFF Wellness Performance Shots",
-                "Priority booking and exclusive promotions",
-                "Medical evaluation every 6 months"
-              ]}
-              ctaText="Unirme a Signature Elite"
-              ctaTextEn="Join Signature Elite"
-              ctaHref="#contacto"
-              highlight={false}
-              badgeImportance="primary"
-              class="h-full relative min-h-[30rem] bg-white text-black border-2 border-[#F3A2A7] hover:ring-2 hover:ring-[#F3A2A7]"
-              variant="light"
-              ctaClass="bg-[#F3A2A7] text-white hover:opacity-90 border-2 border-[#F3A2A7] focus-visible:ring-[#F3A2A7] focus-visible:ring-offset-white"
-              titleClass="text-3xl md:text-4xl text-black"
-              hoverBorderColor="#F3A2A7"
-              badgeText="Más Popular"
-              badgeTextEn="Most Popular"
-              badgeColor="#F3A2A7"
-            />
-        </div>
+    <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 text-center lg:mb-20">
+        <span class="reveal mb-6 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.42em] text-[#B76B71]">
+          <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
+          <span data-t-es="Tu plan a medida" data-t-en="Your plan, your way">Tu plan a medida</span>
+          <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
+        </span>
+        <h2 class="plans-headline">
+          <span
+            class="reveal headline-word headline-word-1 font-display font-bold tracking-tight text-black"
+            style="--reveal-delay: 80ms;"
+            data-t-es="Elige tu"
+            data-t-en="Choose your"
+          >Elige tu</span>
+          <span
+            class="reveal headline-word headline-word-2 font-hero-elmatia text-[#F3A2A7]"
+            style="--reveal-delay: 220ms;"
+            data-t-es="Membresía"
+            data-t-en="Membership"
+          >Membresía</span>
+        </h2>
+        <p
+          class="reveal mx-auto mt-7 max-w-xl text-sm text-black/65 sm:text-base lg:text-lg"
+          style="--reveal-delay: 360ms;"
+          data-t-es="Dos niveles diseñados para mantener tu glow todo el año."
+          data-t-en="Two tiers designed to keep your glow year-round."
+        >Dos niveles diseñados para mantener tu glow todo el año.</p>
+      </div>
+
+      <div class="tiers-grid mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+        <article
+          class="tier-card-v2 reveal"
+          style="--tier-color: #1DD1A1; --tier-color-soft: #1DD1A11f; --tier-color-bg: #1DD1A10d; --tier-shadow: rgba(29,209,161,0.3); --reveal-delay: 280ms;"
+        >
+          <div class="tier-glow"></div>
+          <div class="tier-card-inner">
+            <div class="tier-head">
+              <span class="tier-mark">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+                </svg>
+              </span>
+              <span class="tier-eyebrow" data-t-es="Para empezar tu rutina" data-t-en="To start your routine">Para empezar tu rutina</span>
+              <h3 class="tier-name">Signature <span class="tier-name-accent">Glow</span></h3>
+              <p class="tier-desc" data-t-es="Precios exclusivos y wellness para mantener tu glow todo el año." data-t-en="Exclusive pricing and wellness to keep glowing year-round.">
+                Precios exclusivos y wellness para mantener tu glow todo el año.
+              </p>
+            </div>
+
+            <div class="tier-price-block">
+              <span class="tier-price">$99</span>
+              <span class="tier-period" data-t-es="/mes" data-t-en="/mo">/mes</span>
+            </div>
+
+            <div class="tier-divider">
+              <span class="tier-divider-label" data-t-es="Incluye" data-t-en="Includes">Incluye</span>
+            </div>
+
+            <ul class="tier-features">
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="Botox / Tox por unidad" data-t-en="Botox / Tox per unit">Botox / Tox por unidad</span>
+                <span class="tier-feature-value">$12</span>
+              </li>
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="Faciales médicos" data-t-en="Medical facials">Faciales médicos</span>
+                <span class="tier-feature-value">15% OFF</span>
+              </li>
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="Dermal fillers" data-t-en="Dermal fillers">Dermal fillers</span>
+                <span class="tier-feature-value">$60 OFF</span>
+              </li>
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="IV Therapy" data-t-en="IV Therapy">IV Therapy</span>
+                <span class="tier-feature-value">10% OFF</span>
+              </li>
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="Péptidos" data-t-en="Peptides">Péptidos</span>
+                <span class="tier-feature-value">10% OFF</span>
+              </li>
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="Wellness Performance Shots" data-t-en="Wellness Performance Shots">Wellness Performance Shots</span>
+                <span class="tier-feature-value">10% OFF</span>
+              </li>
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="Priority booking & promociones" data-t-en="Priority booking & promotions">Priority booking & promociones</span>
+                <span class="tier-feature-value tier-feature-mark">
+                  <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+              </li>
+            </ul>
+
+            <a href="#contacto" class="tier-cta group">
+              <span data-t-es="Unirme a Signature Glow" data-t-en="Join Signature Glow">Unirme a Signature Glow</span>
+              <svg class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+
+            <p class="tier-foot" data-t-es="Sin permanencia · Cancela cuando quieras" data-t-en="No commitment · Cancel anytime">Sin permanencia · Cancela cuando quieras</p>
+          </div>
+        </article>
+
+        <article
+          class="tier-card-v2 is-featured reveal"
+          style="--tier-color: #F3A2A7; --tier-color-soft: #F3A2A726; --tier-color-bg: #F3A2A714; --tier-shadow: rgba(243,162,167,0.4); --reveal-delay: 420ms;"
+        >
+          <div class="tier-badge" data-t-es="Más Popular" data-t-en="Most Popular">Más Popular</div>
+          <div class="tier-glow"></div>
+          <div class="tier-card-inner">
+            <div class="tier-head">
+              <span class="tier-mark">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/>
+                </svg>
+              </span>
+              <span class="tier-eyebrow" data-t-es="Para resultados premium" data-t-en="For premium results">Para resultados premium</span>
+              <h3 class="tier-name">Signature <span class="tier-name-accent">Elite</span></h3>
+              <p class="tier-desc" data-t-es="Resultados estéticos elevados con beneficios avanzados." data-t-en="Elevated aesthetic results with advanced benefits.">
+                Resultados estéticos elevados con beneficios avanzados.
+              </p>
+            </div>
+
+            <div class="tier-price-block">
+              <span class="tier-price">$189</span>
+              <span class="tier-period" data-t-es="/mes" data-t-en="/mo">/mes</span>
+            </div>
+
+            <div class="tier-divider">
+              <span class="tier-divider-label" data-t-es="Incluye" data-t-en="Includes">Incluye</span>
+            </div>
+
+            <ul class="tier-features">
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="Botox / Tox por unidad" data-t-en="Botox / Tox per unit">Botox / Tox por unidad</span>
+                <span class="tier-feature-value">$10</span>
+              </li>
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="Faciales médicos" data-t-en="Medical facials">Faciales médicos</span>
+                <span class="tier-feature-value">20% OFF</span>
+              </li>
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="Dermal fillers" data-t-en="Dermal fillers">Dermal fillers</span>
+                <span class="tier-feature-value">$150 OFF</span>
+              </li>
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="IV Therapy" data-t-en="IV Therapy">IV Therapy</span>
+                <span class="tier-feature-value">20% OFF</span>
+              </li>
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="Péptidos" data-t-en="Peptides">Péptidos</span>
+                <span class="tier-feature-value">15% OFF</span>
+              </li>
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="Wellness Performance Shots" data-t-en="Wellness Performance Shots">Wellness Performance Shots</span>
+                <span class="tier-feature-value">20% OFF</span>
+              </li>
+              <li class="tier-feature">
+                <span class="tier-feature-label" data-t-es="Priority booking & promociones" data-t-en="Priority booking & promotions">Priority booking & promociones</span>
+                <span class="tier-feature-value tier-feature-mark">
+                  <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+              </li>
+              <li class="tier-feature tier-feature-bonus">
+                <span class="tier-feature-label" data-t-es="Evaluación médica cada 6 meses" data-t-en="Medical evaluation every 6 months">Evaluación médica cada 6 meses</span>
+                <span class="tier-feature-value tier-feature-bonus-value" data-t-es="Bonus" data-t-en="Bonus">Bonus</span>
+              </li>
+            </ul>
+
+            <a href="#contacto" class="tier-cta group">
+              <span data-t-es="Unirme a Signature Elite" data-t-en="Join Signature Elite">Unirme a Signature Elite</span>
+              <svg class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+
+            <p class="tier-foot" data-t-es="Sin permanencia · Cancela cuando quieras" data-t-en="No commitment · Cancel anytime">Sin permanencia · Cancela cuando quieras</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -197,68 +312,215 @@ import TransformCTA from '../components/TransformCTA.astro';
     .plan-card-featured .tier-card .text-graytxt{ color:#000 !important }
   </style>
 
-  <section class="py-16 bg-white text-black">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F3A2A7]/10 text-[#B76B71] text-xs font-semibold tracking-[0.2em] uppercase" data-t-es="Comparativa Signature" data-t-en="Signature Comparison">Comparativa Signature</div>
-        <h2 class="benefits-title font-display font-bold text-3xl md:text-4xl text-gray-900 mt-4 mb-4" data-t-es="Beneficios lado a lado" data-t-en="Benefits Side by Side">Beneficios lado a lado</h2>
-        <p class="text-lg text-black/70 max-w-3xl mx-auto" data-t-es="Visualiza rápido la diferencia entre Glow y Elite." data-t-en="See the Glow vs Elite difference at a glance.">
-          Visualiza rápido la diferencia entre Glow y Elite.
-        </p>
+  <!-- Comparativa Signature (editorial) -->
+  <section class="compare-section relative overflow-hidden bg-white py-20 text-black lg:py-24">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+      <div class="absolute -top-16 right-1/4 h-64 w-64 rounded-full bg-[#1DD1A1]/8 blur-3xl"></div>
+      <div class="absolute -bottom-20 left-1/4 h-72 w-72 rounded-full bg-[#F3A2A7]/12 blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center lg:mb-16">
+        <span class="reveal mb-6 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.42em] text-[#B76B71]">
+          <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
+          <span data-t-es="Compara tus beneficios" data-t-en="Compare your benefits">Compara tus beneficios</span>
+          <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
+        </span>
+        <h2 class="compare-headline">
+          <span
+            class="reveal headline-word headline-word-1 font-display font-bold tracking-tight text-black"
+            style="--reveal-delay: 80ms;"
+            data-t-es="Beneficios"
+            data-t-en="Benefits"
+          >Beneficios</span>
+          <span
+            class="reveal headline-word headline-word-2 font-hero-elmatia text-[#F3A2A7]"
+            style="--reveal-delay: 220ms;"
+            data-t-es="lado a lado"
+            data-t-en="side by side"
+          >lado a lado</span>
+        </h2>
+        <p
+          class="reveal mx-auto mt-6 max-w-xl text-sm text-black/60 sm:text-base"
+          style="--reveal-delay: 360ms;"
+          data-t-es="Visualiza rápido la diferencia entre Glow y Elite."
+          data-t-en="See the Glow vs Elite difference at a glance."
+        >Visualiza rápido la diferencia entre Glow y Elite.</p>
       </div>
-      <div class="overflow-x-auto border border-gray-200 rounded-2xl">
-        <table class="min-w-full text-sm md:text-base">
-          <thead class="bg-[#F3A2A7]/10">
-            <tr>
-              <th class="px-5 py-4 text-left font-semibold text-gray-900" data-t-es="Beneficio" data-t-en="Benefit">Beneficio</th>
-              <th class="px-5 py-4 text-left font-semibold text-gray-900">Signature Glow</th>
-              <th class="px-5 py-4 text-left font-semibold text-gray-900">Signature Elite</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr class="bg-white">
-              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Botox / Tox" data-t-en="Botox / Tox">Botox / Tox</td>
-              <td class="px-5 py-4 text-gray-700" data-t-es="$12 por unidad" data-t-en="$12 per unit">$12 por unidad</td>
-              <td class="px-5 py-4 text-gray-700" data-t-es="$10 por unidad" data-t-en="$10 per unit">$10 por unidad</td>
-            </tr>
-            <tr class="bg-white">
-              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Faciales médicos" data-t-en="Medical Facials">Faciales médicos</td>
-              <td class="px-5 py-4 text-gray-700">$80 OFF</td>
-              <td class="px-5 py-4 text-gray-700">20% OFF</td>
-            </tr>
-            <tr class="bg-white">
-              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Dermal Fillers" data-t-en="Dermal Fillers">Dermal Fillers</td>
-              <td class="px-5 py-4 text-gray-700">$60 OFF</td>
-              <td class="px-5 py-4 text-gray-700">$150 OFF</td>
-            </tr>
-            <tr class="bg-white">
-              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Wellness Performance Shots" data-t-en="Wellness Performance Shots">Wellness Performance Shots</td>
-              <td class="px-5 py-4 text-gray-700">10% OFF</td>
-              <td class="px-5 py-4 text-gray-700">20% OFF</td>
-            </tr>
-            <tr class="bg-white">
-              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="IV Therapy" data-t-en="IV Therapy">IV Therapy</td>
-              <td class="px-5 py-4 text-gray-700">10% OFF</td>
-              <td class="px-5 py-4 text-gray-700">20% OFF</td>
-            </tr>
-            <tr class="bg-white">
-              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Tratamientos de péptidos" data-t-en="Peptide Treatments">Tratamientos de péptidos</td>
-              <td class="px-5 py-4 text-gray-700">10% OFF</td>
-              <td class="px-5 py-4 text-gray-700">15% OFF</td>
-            </tr>
-            <tr class="bg-white">
-              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Evaluación médica" data-t-en="Medical Evaluation">Evaluación médica</td>
-              <td class="px-5 py-4 text-gray-700" data-t-es="—" data-t-en="—">—</td>
-              <td class="px-5 py-4 text-gray-700" data-t-es="Cada 6 meses" data-t-en="Every 6 months">Cada 6 meses</td>
-            </tr>
-            <tr class="bg-white">
-              <td class="px-5 py-4 font-semibold text-gray-900" data-t-es="Priority booking y promociones" data-t-en="Priority Booking & Promotions">Priority booking y promociones</td>
-              <td class="px-5 py-4 text-gray-700" data-t-es="Sí" data-t-en="Yes">Sí</td>
-              <td class="px-5 py-4 text-gray-700" data-t-es="Sí" data-t-en="Yes">Sí</td>
-            </tr>
-          </tbody>
-        </table>
+
+      <div class="reveal compare-table mx-auto" style="--reveal-delay: 420ms;">
+        <div class="compare-head" role="row">
+          <div class="compare-cell compare-cell-feature" role="columnheader">
+            <span class="compare-feature-eyebrow" data-t-es="Beneficio" data-t-en="Benefit">Beneficio</span>
+          </div>
+          <div class="compare-cell compare-cell-tier compare-glow" role="columnheader">
+            <span class="compare-tier-mark">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+              </svg>
+            </span>
+            <span class="compare-tier-name">Signature <strong>Glow</strong></span>
+            <span class="compare-tier-price">$99<small data-t-es="/mes" data-t-en="/mo">/mes</small></span>
+          </div>
+          <div class="compare-cell compare-cell-tier compare-elite" role="columnheader">
+            <span class="compare-tier-pop" data-t-es="Más Popular" data-t-en="Most Popular">Más Popular</span>
+            <span class="compare-tier-mark">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/>
+              </svg>
+            </span>
+            <span class="compare-tier-name">Signature <strong>Elite</strong></span>
+            <span class="compare-tier-price">$189<small data-t-es="/mes" data-t-en="/mo">/mes</small></span>
+          </div>
+        </div>
+
+        <div class="compare-body">
+          <div class="compare-row" role="row">
+            <div class="compare-cell compare-cell-feature">
+              <span class="compare-feature-icon">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 14.25l5.25-5.25m1.5 1.5l3-3-1.5-1.5-3 3M14.25 9L18 5.25l1.5 1.5L15.75 10.5M5.25 18.75l3.75-3.75m0 0l-1.5-1.5L3 17.25l1.5 1.5z"/></svg>
+              </span>
+              <span class="compare-feature-label" data-t-es="Botox / Tox" data-t-en="Botox / Tox">Botox / Tox</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-glow">
+              <span class="compare-value-mobile-label" data-t-es="Glow" data-t-en="Glow">Glow</span>
+              <span class="compare-value compare-value-glow" data-t-es="$12 / unidad" data-t-en="$12 / unit">$12 / unidad</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-elite">
+              <span class="compare-value-mobile-label" data-t-es="Elite" data-t-en="Elite">Elite</span>
+              <span class="compare-value compare-value-elite is-best" data-t-es="$10 / unidad" data-t-en="$10 / unit">$10 / unidad</span>
+            </div>
+          </div>
+
+          <div class="compare-row" role="row">
+            <div class="compare-cell compare-cell-feature">
+              <span class="compare-feature-icon">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
+              </span>
+              <span class="compare-feature-label" data-t-es="Faciales médicos" data-t-en="Medical facials">Faciales médicos</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-glow">
+              <span class="compare-value-mobile-label" data-t-es="Glow" data-t-en="Glow">Glow</span>
+              <span class="compare-value compare-value-glow">15% OFF</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-elite">
+              <span class="compare-value-mobile-label" data-t-es="Elite" data-t-en="Elite">Elite</span>
+              <span class="compare-value compare-value-elite is-best">20% OFF</span>
+            </div>
+          </div>
+
+          <div class="compare-row" role="row">
+            <div class="compare-cell compare-cell-feature">
+              <span class="compare-feature-icon">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 2.25c-2.429 5.778-7.5 8.111-7.5 12.75A7.5 7.5 0 0 0 12 22.5a7.5 7.5 0 0 0 7.5-7.5c0-4.639-5.071-6.972-7.5-12.75Z"/></svg>
+              </span>
+              <span class="compare-feature-label" data-t-es="Dermal Fillers" data-t-en="Dermal Fillers">Dermal Fillers</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-glow">
+              <span class="compare-value-mobile-label" data-t-es="Glow" data-t-en="Glow">Glow</span>
+              <span class="compare-value compare-value-glow">$60 OFF</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-elite">
+              <span class="compare-value-mobile-label" data-t-es="Elite" data-t-en="Elite">Elite</span>
+              <span class="compare-value compare-value-elite is-best">$150 OFF</span>
+            </div>
+          </div>
+
+          <div class="compare-row" role="row">
+            <div class="compare-cell compare-cell-feature">
+              <span class="compare-feature-icon">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+              </span>
+              <span class="compare-feature-label" data-t-es="Wellness Performance Shots" data-t-en="Wellness Performance Shots">Wellness Performance Shots</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-glow">
+              <span class="compare-value-mobile-label" data-t-es="Glow" data-t-en="Glow">Glow</span>
+              <span class="compare-value compare-value-glow">10% OFF</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-elite">
+              <span class="compare-value-mobile-label" data-t-es="Elite" data-t-en="Elite">Elite</span>
+              <span class="compare-value compare-value-elite is-best">20% OFF</span>
+            </div>
+          </div>
+
+          <div class="compare-row" role="row">
+            <div class="compare-cell compare-cell-feature">
+              <span class="compare-feature-icon">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 7.5a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Zm0 0v9m0 0a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Zm0-9-3 6m3-6 3 6"/></svg>
+              </span>
+              <span class="compare-feature-label" data-t-es="IV Therapy" data-t-en="IV Therapy">IV Therapy</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-glow">
+              <span class="compare-value-mobile-label" data-t-es="Glow" data-t-en="Glow">Glow</span>
+              <span class="compare-value compare-value-glow">10% OFF</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-elite">
+              <span class="compare-value-mobile-label" data-t-es="Elite" data-t-en="Elite">Elite</span>
+              <span class="compare-value compare-value-elite is-best">20% OFF</span>
+            </div>
+          </div>
+
+          <div class="compare-row" role="row">
+            <div class="compare-cell compare-cell-feature">
+              <span class="compare-feature-icon">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14.74 9 9 14.74M9.563 3.422a4.5 4.5 0 0 1 6.364 6.364l-7.07 7.07a4.5 4.5 0 0 1-6.364-6.363l7.07-7.07Z"/></svg>
+              </span>
+              <span class="compare-feature-label" data-t-es="Tratamientos de péptidos" data-t-en="Peptide treatments">Tratamientos de péptidos</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-glow">
+              <span class="compare-value-mobile-label" data-t-es="Glow" data-t-en="Glow">Glow</span>
+              <span class="compare-value compare-value-glow">10% OFF</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-elite">
+              <span class="compare-value-mobile-label" data-t-es="Elite" data-t-en="Elite">Elite</span>
+              <span class="compare-value compare-value-elite is-best">15% OFF</span>
+            </div>
+          </div>
+
+          <div class="compare-row" role="row">
+            <div class="compare-cell compare-cell-feature">
+              <span class="compare-feature-icon">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l5.63-4.652M14.586 11.586l5.296-5.296a2.652 2.652 0 0 0-3.751-3.751l-5.296 5.296M9.625 12.346l3.04-3.041"/></svg>
+              </span>
+              <span class="compare-feature-label" data-t-es="Evaluación médica" data-t-en="Medical evaluation">Evaluación médica</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-glow">
+              <span class="compare-value-mobile-label" data-t-es="Glow" data-t-en="Glow">Glow</span>
+              <span class="compare-value compare-value-empty" aria-hidden="true">—</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-elite">
+              <span class="compare-value-mobile-label" data-t-es="Elite" data-t-en="Elite">Elite</span>
+              <span class="compare-value compare-value-elite is-best" data-t-es="Cada 6 meses" data-t-en="Every 6 months">Cada 6 meses</span>
+            </div>
+          </div>
+
+          <div class="compare-row" role="row">
+            <div class="compare-cell compare-cell-feature">
+              <span class="compare-feature-icon">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"/></svg>
+              </span>
+              <span class="compare-feature-label" data-t-es="Priority booking & promociones" data-t-en="Priority booking & promotions">Priority booking & promociones</span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-glow">
+              <span class="compare-value-mobile-label" data-t-es="Glow" data-t-en="Glow">Glow</span>
+              <span class="compare-value-check compare-value-check-glow" aria-label="Incluido">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </span>
+            </div>
+            <div class="compare-cell compare-cell-value compare-elite">
+              <span class="compare-value-mobile-label" data-t-es="Elite" data-t-en="Elite">Elite</span>
+              <span class="compare-value-check compare-value-check-elite" aria-label="Incluido">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <p class="reveal mt-8 flex items-center justify-center gap-2 text-xs text-black/55 sm:text-sm" style="--reveal-delay: 540ms;">
+        <span class="inline-flex h-1.5 w-1.5 rounded-full bg-[#F3A2A7]"></span>
+        <span data-t-es="Mejor valor en cada beneficio · Sin permanencia" data-t-en="Best value on every benefit · No commitment">Mejor valor en cada beneficio · Sin permanencia</span>
+      </p>
     </div>
   </section>
   <TestimonialsSection />
@@ -582,6 +844,29 @@ import TransformCTA from '../components/TransformCTA.astro';
      });
    }
 
+  function initEditorialReveal() {
+    const targets = document.querySelectorAll('.membership-hero .reveal, .plans-section .reveal, .compare-section .reveal');
+    if (!targets.length) return;
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      targets.forEach((t) => t.classList.add('is-visible'));
+      return;
+    }
+    const heroTargets = document.querySelectorAll('.membership-hero .reveal');
+    heroTargets.forEach((t) => t.classList.add('is-visible'));
+    const scrollTargets = document.querySelectorAll('.plans-section .reveal, .compare-section .reveal');
+    if (!scrollTargets.length) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    scrollTargets.forEach((t) => io.observe(t));
+  }
+
   let membershipInitialized = false;
   const initMembershipPage = () => {
     if (membershipInitialized) return;
@@ -590,6 +875,7 @@ import TransformCTA from '../components/TransformCTA.astro';
     initCounters();
     initRippleEffect();
     initTypingEffect();
+    initEditorialReveal();
   };
   document.addEventListener('DOMContentLoaded', initMembershipPage);
   document.addEventListener('astro:page-load', initMembershipPage);
@@ -736,6 +1022,670 @@ import TransformCTA from '../components/TransformCTA.astro';
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* ===================================================================
+   * Editorial reveal motion shared by hero, plans heading and tier cards
+   * =================================================================== */
+  .membership-hero .reveal,
+  .plans-section .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 800ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
+      transform 800ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  .membership-hero .reveal.is-visible,
+  .plans-section .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ===================================================================
+   * Hero
+   * =================================================================== */
+  .membership-hero .hero-orb {
+    animation: hero-float 9s ease-in-out infinite;
+  }
+  .membership-hero .hero-orb-delayed {
+    animation: hero-float 9s ease-in-out infinite 2.5s;
+  }
+  @keyframes hero-float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-12px, -16px) scale(1.05); }
+  }
+
+  .membership-hero .hero-headline {
+    display: block;
+    line-height: 0.92;
+  }
+  .membership-hero .hero-word {
+    display: block;
+  }
+  .membership-hero .hero-word-1 {
+    font-size: clamp(2.75rem, 7.2vw, 5.5rem);
+    letter-spacing: -0.02em;
+  }
+  .membership-hero .hero-word-2 {
+    font-size: clamp(4rem, 10.5vw, 7.75rem);
+    line-height: 0.96;
+    margin-top: -0.06em;
+    letter-spacing: -0.005em;
+  }
+  .membership-hero .hero-word-3 {
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    margin-top: 0.5em;
+    letter-spacing: -0.01em;
+  }
+
+  .membership-hero .hero-trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .membership-hero .hero-scroll {
+    animation: hero-scroll-fade 2.4s ease-in-out infinite;
+  }
+  .membership-hero .hero-scroll-arrow {
+    animation: hero-scroll-line 2.4s ease-in-out infinite;
+  }
+  @keyframes hero-scroll-fade {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+  @keyframes hero-scroll-line {
+    0% { transform: scaleY(0.4); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0.4); transform-origin: bottom; }
+  }
+
+  /* ===================================================================
+   * Plans section heading
+   * =================================================================== */
+  .plans-section .plans-headline {
+    display: block;
+    line-height: 0.92;
+  }
+  .plans-section .plans-headline .headline-word {
+    display: block;
+  }
+  .plans-section .plans-headline .headline-word-1 {
+    font-size: clamp(2.25rem, 5.4vw, 4rem);
+    letter-spacing: -0.02em;
+  }
+  .plans-section .plans-headline .headline-word-2 {
+    font-size: clamp(4rem, 10vw, 7.5rem);
+    line-height: 0.9;
+    margin-top: -0.16em;
+    letter-spacing: -0.01em;
+  }
+
+  /* ===================================================================
+   * Tier cards (custom)
+   * =================================================================== */
+  .plans-section .tier-card-v2 {
+    --tier-color: #ccc;
+    position: relative;
+    background: #ffffff;
+    border-radius: 1.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 14px 36px -18px rgba(0, 0, 0, 0.18);
+    transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 500ms ease;
+    isolation: isolate;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .plans-section .tier-card-v2:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 48px -18px rgba(0, 0, 0, 0.22);
+  }
+  .plans-section .tier-card-v2.is-featured {
+    box-shadow:
+      0 0 0 2px var(--tier-color),
+      0 18px 40px -18px rgba(0, 0, 0, 0.18);
+  }
+  .plans-section .tier-card-v2.is-featured:hover {
+    box-shadow:
+      0 0 0 2px var(--tier-color),
+      0 28px 50px -18px rgba(0, 0, 0, 0.22);
+  }
+
+  .plans-section .tier-glow {
+    position: absolute;
+    inset: -10px;
+    border-radius: 2rem;
+    background: var(--tier-color);
+    filter: blur(40px);
+    opacity: 0;
+    transition: opacity 500ms ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .plans-section .tier-card-v2.is-featured .tier-glow {
+    opacity: 0.14;
+  }
+
+  .plans-section .tier-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 1.1rem;
+    background: var(--tier-color);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-radius: 9999px;
+    box-shadow: 0 10px 24px -8px var(--tier-shadow);
+  }
+
+  .plans-section .tier-card-inner {
+    padding: 2.25rem 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 640px) {
+    .plans-section .tier-card-inner { padding: 2.5rem 2.25rem 2.25rem; }
+  }
+
+  .plans-section .tier-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    background: var(--tier-color-bg);
+    color: var(--tier-color);
+    box-shadow: inset 0 0 0 1px var(--tier-color-soft);
+    margin-bottom: 1rem;
+    transition: transform 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .plans-section .tier-card-v2:hover .tier-mark {
+    transform: rotate(-8deg) scale(1.05);
+  }
+
+  .plans-section .tier-eyebrow {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--tier-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .plans-section .tier-name {
+    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    color: #111;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .plans-section .tier-name-accent {
+    color: var(--tier-color);
+  }
+
+  .plans-section .tier-desc {
+    margin-top: 0.65rem;
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.62);
+    line-height: 1.55;
+  }
+
+  .plans-section .tier-price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-top: 1.6rem;
+  }
+  .plans-section .tier-price {
+    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.75rem, 5.5vw, 3.75rem);
+    line-height: 1;
+    color: #111;
+    letter-spacing: -0.03em;
+  }
+  .plans-section .tier-period {
+    color: rgba(0, 0, 0, 0.48);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .plans-section .tier-divider {
+    position: relative;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.08);
+    margin: 1.75rem 0 1.25rem;
+  }
+  .plans-section .tier-divider-label {
+    position: absolute;
+    top: -0.55rem;
+    left: 0;
+    padding-right: 0.75rem;
+    background: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .plans-section .tier-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .plans-section .tier-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.07);
+    transition: padding-left 350ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .plans-section .tier-feature:last-child {
+    border-bottom: none;
+  }
+  .plans-section .tier-feature:hover {
+    padding-left: 0.35rem;
+  }
+  .plans-section .tier-feature-label {
+    flex: 1;
+    font-size: 0.92rem;
+    color: #1a1a1a;
+    line-height: 1.3;
+  }
+  .plans-section .tier-feature-value {
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: var(--tier-color);
+    background: var(--tier-color-bg);
+    box-shadow: inset 0 0 0 1px var(--tier-color-soft);
+    padding: 0.3rem 0.7rem;
+    border-radius: 9999px;
+    flex-shrink: 0;
+    letter-spacing: 0.01em;
+  }
+  .plans-section .tier-feature-mark {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .plans-section .tier-feature-bonus .tier-feature-bonus-value {
+    background: var(--tier-color);
+    color: #ffffff;
+    box-shadow: 0 6px 14px -4px var(--tier-shadow);
+  }
+
+  .plans-section .tier-cta {
+    margin-top: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 9999px;
+    background: var(--tier-color);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 14px 28px -10px var(--tier-shadow);
+    transition: opacity 300ms ease, gap 300ms ease, transform 300ms ease;
+  }
+  .plans-section .tier-card-inner {
+    height: 100%;
+  }
+  .plans-section .tier-features {
+    flex: 1 0 auto;
+  }
+  .plans-section .tier-cta:hover {
+    opacity: 0.94;
+    gap: 0.75rem;
+  }
+  .plans-section .tier-cta {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .plans-section .tier-cta:focus-visible {
+    outline: 2px solid rgba(0, 0, 0, 0.45);
+    outline-offset: 3px;
+  }
+
+  .plans-section .tier-foot {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.45);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .membership-hero .reveal,
+    .plans-section .reveal,
+    .compare-section .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .membership-hero .hero-orb,
+    .membership-hero .hero-orb-delayed,
+    .membership-hero .hero-scroll,
+    .membership-hero .hero-scroll-arrow { animation: none; }
+    .plans-section .tier-card-v2:hover { transform: none; }
+    .plans-section .tier-card-v2:hover .tier-mark { transform: none; }
+    .compare-section .compare-row:hover { background: transparent; }
+  }
+
+  /* ===================================================================
+   * Compare section
+   * =================================================================== */
+  .compare-section .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 800ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
+      transform 800ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  .compare-section .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .compare-section .compare-headline {
+    display: block;
+    line-height: 0.92;
+  }
+  .compare-section .compare-headline .headline-word {
+    display: block;
+  }
+  .compare-section .compare-headline .headline-word-1 {
+    font-size: clamp(2rem, 4.6vw, 3.25rem);
+    letter-spacing: -0.02em;
+  }
+  .compare-section .compare-headline .headline-word-2 {
+    font-size: clamp(3.5rem, 9vw, 6rem);
+    line-height: 0.9;
+    margin-top: -0.18em;
+    letter-spacing: -0.01em;
+  }
+
+  .compare-section .compare-table {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.18);
+  }
+
+  /* Desktop grid: feature | glow | elite */
+  .compare-section .compare-head,
+  .compare-section .compare-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    align-items: stretch;
+  }
+
+  .compare-section .compare-head {
+    background: linear-gradient(180deg, #FAFAF9 0%, #ffffff 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  }
+  .compare-section .compare-head .compare-cell {
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-start;
+    position: relative;
+  }
+  .compare-section .compare-head .compare-cell-tier {
+    align-items: center;
+    text-align: center;
+  }
+  .compare-section .compare-feature-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .compare-section .compare-tier-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 0.85rem;
+  }
+  .compare-section .compare-glow .compare-tier-mark {
+    background: rgba(29, 209, 161, 0.12);
+    color: #0E9F77;
+    box-shadow: inset 0 0 0 1px rgba(29, 209, 161, 0.25);
+  }
+  .compare-section .compare-elite .compare-tier-mark {
+    background: rgba(243, 162, 167, 0.18);
+    color: #B76B71;
+    box-shadow: inset 0 0 0 1px rgba(243, 162, 167, 0.32);
+  }
+
+  .compare-section .compare-tier-name {
+    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    letter-spacing: -0.005em;
+  }
+  .compare-section .compare-tier-name strong {
+    font-weight: 800;
+  }
+  .compare-section .compare-glow .compare-tier-name strong { color: #0E9F77; }
+  .compare-section .compare-elite .compare-tier-name strong { color: #B76B71; }
+
+  .compare-section .compare-tier-price {
+    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #111;
+    letter-spacing: -0.02em;
+  }
+  .compare-section .compare-tier-price small {
+    font-weight: 500;
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: 0.15rem;
+  }
+
+  .compare-section .compare-tier-pop {
+    position: absolute;
+    top: -0.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #F3A2A7;
+    color: #ffffff;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 9999px;
+    box-shadow: 0 6px 14px -4px rgba(243, 162, 167, 0.5);
+  }
+
+  .compare-section .compare-row {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background-color 300ms ease;
+  }
+  .compare-section .compare-row:last-child {
+    border-bottom: none;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    overflow: hidden;
+  }
+  .compare-section .compare-row:hover {
+    background: rgba(243, 162, 167, 0.04);
+  }
+  .compare-section .compare-row .compare-cell {
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    align-items: center;
+  }
+  .compare-section .compare-row .compare-cell-value {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .compare-section .compare-cell-feature {
+    gap: 0.75rem;
+    color: #111;
+  }
+  .compare-section .compare-feature-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.65rem;
+    background: rgba(243, 162, 167, 0.1);
+    color: #B76B71;
+  }
+  .compare-section .compare-feature-label {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #111;
+    line-height: 1.3;
+  }
+
+  .compare-section .compare-value {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .compare-section .compare-value-glow {
+    background: rgba(29, 209, 161, 0.1);
+    color: #0E9F77;
+    box-shadow: inset 0 0 0 1px rgba(29, 209, 161, 0.22);
+  }
+  .compare-section .compare-value-elite {
+    background: rgba(243, 162, 167, 0.12);
+    color: #B76B71;
+    box-shadow: inset 0 0 0 1px rgba(243, 162, 167, 0.28);
+  }
+  .compare-section .compare-value.is-best {
+    background: #F3A2A7;
+    color: #ffffff;
+    box-shadow: 0 6px 14px -4px rgba(243, 162, 167, 0.45);
+  }
+  .compare-section .compare-value-empty {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .compare-section .compare-value-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+  }
+  .compare-section .compare-value-check-glow {
+    background: rgba(29, 209, 161, 0.12);
+    color: #0E9F77;
+    box-shadow: inset 0 0 0 1px rgba(29, 209, 161, 0.25);
+  }
+  .compare-section .compare-value-check-elite {
+    background: #F3A2A7;
+    color: #ffffff;
+    box-shadow: 0 6px 14px -4px rgba(243, 162, 167, 0.45);
+  }
+
+  .compare-section .compare-value-mobile-label {
+    display: none;
+  }
+
+  /* Mobile: stack each row as a card with feature on top + 2 value cells side by side */
+  @media (max-width: 767px) {
+    .compare-section .compare-table {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      overflow: visible;
+    }
+    .compare-section .compare-head {
+      display: none;
+    }
+    .compare-section .compare-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "feature feature"
+        "glow elite";
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 1rem;
+      margin-bottom: 0.85rem;
+      padding: 0.5rem;
+      box-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.12);
+    }
+    .compare-section .compare-row:last-child { margin-bottom: 0; }
+    .compare-section .compare-row:hover { background: #ffffff; }
+    .compare-section .compare-row .compare-cell-feature {
+      grid-area: feature;
+      padding: 0.75rem 0.5rem 0.65rem;
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.07);
+    }
+    .compare-section .compare-row .compare-cell-value {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      padding: 0.65rem 0.5rem 0.5rem;
+      gap: 0.35rem;
+    }
+    .compare-section .compare-row .compare-glow {
+      grid-area: glow;
+      border-right: 1px dashed rgba(0, 0, 0, 0.07);
+    }
+    .compare-section .compare-row .compare-elite {
+      grid-area: elite;
+    }
+    .compare-section .compare-value-mobile-label {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.45);
+    }
+    .compare-section .compare-glow .compare-value-mobile-label { color: #0E9F77; }
+    .compare-section .compare-elite .compare-value-mobile-label { color: #B76B71; }
+    .compare-section .compare-value,
+    .compare-section .compare-value-check {
+      align-self: flex-start;
     }
   }
 </style>

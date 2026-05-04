@@ -1,273 +1,354 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CTAButton from '../components/CTAButton.astro';
 import TransformCTA from '../components/TransformCTA.astro';
+
+const stats = [
+  {
+    target: 15,
+    start: 12,
+    suffix: '+',
+    label: { es: 'Años de experiencia', en: 'Years of experience' },
+  },
+  {
+    target: 5000,
+    start: 4500,
+    suffix: '+',
+    label: { es: 'Pacientes felices', en: 'Happy patients' },
+  },
+  {
+    target: 98,
+    start: 90,
+    suffix: '%',
+    label: { es: 'Tasa de satisfacción', en: 'Satisfaction rate' },
+  },
+]
+
+const values = [
+  {
+    accent: 'pink',
+    title: { es: 'Excelencia', en: 'Excellence' },
+    text: {
+      es: 'Estándares clínicos altos en cada tratamiento, sin atajos ni concesiones.',
+      en: 'High clinical standards on every treatment — no shortcuts, no compromises.'
+    },
+    icon: 'sparkle',
+  },
+  {
+    accent: 'mint',
+    title: { es: 'Seguridad', en: 'Safety' },
+    text: {
+      es: 'Protocolos médicos rigurosos y tecnología certificada en cada paso.',
+      en: 'Rigorous medical protocols and certified technology at every step.'
+    },
+    icon: 'shield',
+  },
+  {
+    accent: 'tan',
+    title: { es: 'Personalización', en: 'Personalization' },
+    text: {
+      es: 'Planes únicos para tus objetivos y tu estilo, respetando tu esencia.',
+      en: 'Unique plans for your goals and style, honoring your essence.'
+    },
+    icon: 'user',
+  },
+]
+
+const method = [
+  {
+    accent: 'mint',
+    title: { es: 'Atención personalizada', en: 'Personalized care' },
+    text: {
+      es: 'Plan a tu medida tras una consulta detallada de tus objetivos.',
+      en: 'A plan tailored to you after a detailed consultation of your goals.'
+    },
+    icon: 'compass',
+  },
+  {
+    accent: 'tan',
+    title: { es: 'Seguridad médica', en: 'Medical safety' },
+    text: {
+      es: 'Protocolos clínicos verificados y seguimiento continuo para tu tranquilidad.',
+      en: 'Verified clinical protocols and ongoing follow-up for your peace of mind.'
+    },
+    icon: 'shield',
+  },
+  {
+    accent: 'pink',
+    title: { es: 'Tecnología avanzada', en: 'Advanced technology' },
+    text: {
+      es: 'Equipos y técnicas de última generación para resultados naturales.',
+      en: 'State-of-the-art equipment and techniques for natural results.'
+    },
+    icon: 'spark',
+  },
+]
+
+const iconPaths: Record<string, string> = {
+  sparkle: 'M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z',
+  shield: 'M9 12.75 11.25 15 15 9.75M9 4.5h6m-6 0a3 3 0 0 0-3 3v9.75a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25V7.5a3 3 0 0 0-3-3',
+  user: 'M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z',
+  compass: 'M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z',
+  spark: 'M3.75 13.5 10.5 4.5l3.75 5.25 3-3.75 3 9-3 4.5-13.5-6Z',
+}
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Sobre Nosotros - Renasci Medical Spa"
-  description="Conoce la historia de Renasci Medical Spa, nuestros valores y por qué somos la mejor opción para tu transformación estética en Salt Lake City."
+  description="Conoce la historia de Renasci Medical Spa, nuestros valores y el método que respalda cada tratamiento en Salt Lake City."
 >
-  <!-- Hero Section -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Imagen de fondo -->
-    <img 
-      src="/img/services/hero-index.jpeg?v=2"
+  <!-- HERO Editorial -->
+  <section class="about-hero relative flex min-h-[88vh] items-center justify-center overflow-hidden md:min-h-screen">
+    <img
+      src="/img/about.jpg"
       alt="Renasci Medical Spa"
-      class="absolute inset-0 w-full h-full object-cover"
+      class="absolute inset-0 h-full w-full object-cover"
+      style="object-position: center 25%;"
     />
-    
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70"></div>
-    
-    <!-- Contenido del Hero -->
-    <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-      <div class="hero-content animate-fade-in-up">
-        
-        <!-- Título Principal -->
-        <h1 class="font-display font-bold text-5xl md:text-7xl text-white mb-6 leading-tight">
-          <span data-t-es="Sobre" data-t-en="About">Sobre</span> <span class="text-[#F3A2A7]">Renasci</span>
-        </h1>
-        
-        <!-- Subtítulo -->
-        <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto" data-t-es="Tu transformación comienza aquí. Descubre nuestra historia, valores y compromiso con tu bienestar." data-t-en="Your transformation starts here. Discover our story, values, and commitment to your well-being.">
-          Tu transformación comienza aquí. Descubre nuestra historia, valores y compromiso con tu bienestar.
-        </p>
-        
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <CTAButton 
-            href="#nuestra-historia"
-            variant="primary"
-            className="px-8 py-4 text-lg font-semibold bg-[#F3A2A7] text-white hover:opacity-90 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
+    <div class="absolute inset-0 bg-gradient-to-b from-black/45 via-black/55 to-black/80"></div>
+
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+      <div class="hero-orb absolute -top-24 -left-16 h-80 w-80 rounded-full bg-[#F3A2A7]/15 blur-3xl"></div>
+      <div class="hero-orb-delayed absolute -bottom-24 right-1/4 h-96 w-96 rounded-full bg-[#AABFA8]/15 blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-4xl px-6 text-center text-white">
+      <span class="reveal mb-7 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.42em] text-white/85">
+        <span class="h-px w-10 bg-white/45"></span>
+        <span data-t-es="Sobre nosotros" data-t-en="About us">Sobre nosotros</span>
+        <span class="h-px w-10 bg-white/45"></span>
+      </span>
+
+      <h1 class="hero-headline">
+        <span
+          class="reveal hero-word hero-word-1 font-display font-bold tracking-tight"
+          style="--reveal-delay: 80ms;"
+          data-t-es="Sobre"
+          data-t-en="About"
+        >Sobre</span>
+        <span
+          class="reveal hero-word hero-word-2 font-hero-elmatia text-[#F3A2A7]"
+          style="--reveal-delay: 240ms;"
+          data-t-es="Renasci"
+          data-t-en="Renasci"
+        >Renasci</span>
+      </h1>
+
+      <p
+        class="reveal mx-auto mt-7 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg md:text-xl"
+        style="--reveal-delay: 380ms;"
+        data-t-es="Donde la medicina estética avanzada se encuentra con el cuidado personalizado y resultados que respetan tu esencia."
+        data-t-en="Where advanced aesthetic medicine meets personalized care and results that honor your essence."
+      >Donde la medicina estética avanzada se encuentra con el cuidado personalizado y resultados que respetan tu esencia.</p>
+
+      <div class="reveal mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4" style="--reveal-delay: 520ms;">
+        <a
+          href="#nuestra-historia"
+          class="hero-cta-primary group inline-flex items-center gap-2 rounded-full bg-[#F3A2A7] px-8 py-4 font-semibold text-white shadow-[0_18px_36px_-12px_rgba(243,162,167,0.7)] transition-all duration-300 hover:gap-3 hover:opacity-95"
+          style="-webkit-tap-highlight-color: transparent;"
+        >
+          <span data-t-es="Conoce nuestra historia" data-t-en="Read our story">Conoce nuestra historia</span>
+          <svg class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a
+          href="/contact"
+          class="hero-cta-secondary group inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/15"
+          style="-webkit-tap-highlight-color: transparent;"
+        >
+          <span data-t-es="Agenda tu consulta" data-t-en="Book a consultation">Agenda tu consulta</span>
+        </a>
+      </div>
+    </div>
+
+    <a href="#nuestra-historia" class="hero-scroll group absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 hover:text-white transition-colors" aria-label="Scroll">
+      <span class="block text-[10px] font-semibold uppercase tracking-[0.42em] mb-2 text-center" data-t-es="Explorar" data-t-en="Explore">Explorar</span>
+      <span class="hero-scroll-arrow mx-auto block h-10 w-[2px] bg-gradient-to-b from-white/0 via-white/70 to-white/0"></span>
+    </a>
+  </section>
+
+  <!-- HISTORIA -->
+  <section id="nuestra-historia" class="about-history relative overflow-hidden bg-white py-20 text-black lg:py-28">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+      <div class="absolute -top-16 left-1/4 h-72 w-72 rounded-full bg-[#F3A2A7]/10 blur-3xl"></div>
+      <div class="absolute -bottom-20 right-1/4 h-80 w-80 rounded-full bg-[#AABFA8]/10 blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 text-center lg:mb-16">
+        <span class="reveal mb-6 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.42em] text-[#B76B71]">
+          <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
+          <span data-t-es="Desde el día uno" data-t-en="From day one">Desde el día uno</span>
+          <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
+        </span>
+        <h2 class="section-headline">
+          <span
+            class="reveal headline-word headline-word-1 font-display font-bold tracking-tight text-black"
+            style="--reveal-delay: 80ms;"
+            data-t-es="Nuestra"
+            data-t-en="Our"
+          >Nuestra</span>
+          <span
+            class="reveal headline-word headline-word-2 font-hero-elmatia text-[#F3A2A7]"
+            style="--reveal-delay: 220ms;"
+            data-t-es="Historia"
+            data-t-en="Story"
+          >Historia</span>
+        </h2>
+      </div>
+
+      <div class="story-content mx-auto max-w-3xl space-y-6">
+        <p
+          class="reveal text-lg leading-relaxed text-black/80 md:text-xl"
+          style="--reveal-delay: 280ms;"
+          data-t-es="Renasci Medical Spa nació de una visión: crear un espacio donde la medicina estética de vanguardia se encuentra con el cuidado personalizado y la excelencia en el servicio."
+          data-t-en="Renasci Medical Spa was born from a vision: to create a space where cutting-edge aesthetic medicine meets personalized care and service excellence."
+        >Renasci Medical Spa nació de una visión: crear un espacio donde la medicina estética de vanguardia se encuentra con el cuidado personalizado y la excelencia en el servicio.</p>
+        <p
+          class="reveal text-lg leading-relaxed text-black/80 md:text-xl"
+          style="--reveal-delay: 380ms;"
+          data-t-es="Fundado por profesionales con más de 15 años de experiencia, somos el destino preferido para quienes buscan resultados excepcionales en un ambiente de confianza."
+          data-t-en="Founded by professionals with over 15 years of experience, we are the preferred destination for those seeking exceptional results in a trusted environment."
+        >Fundado por profesionales con más de 15 años de experiencia, somos el destino preferido para quienes buscan resultados excepcionales en un ambiente de confianza.</p>
+        <p
+          class="reveal text-lg leading-relaxed text-black/80 md:text-xl"
+          style="--reveal-delay: 480ms;"
+          data-t-es="Cada tratamiento está respaldado por tecnología de punta y técnicas avanzadas, con un enfoque que respeta tu belleza natural y realza lo que te hace única."
+          data-t-en="Every treatment is backed by cutting-edge technology and advanced techniques, with an approach that respects your natural beauty and enhances what makes you unique."
+        >Cada tratamiento está respaldado por tecnología de punta y técnicas avanzadas, con un enfoque que respeta tu belleza natural y realza lo que te hace única.</p>
+      </div>
+
+      <div class="stats-grid mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3 lg:mt-16 lg:gap-6">
+        {stats.map((stat, i) => (
+          <div class="reveal stat-card" style={`--reveal-delay: ${600 + i * 120}ms;`}>
+            <div class="stat-rule"></div>
+            <div class="stat-value">
+              <span class="counter" data-target={stat.target} data-start={stat.start}>{stat.target}</span><span class="stat-suffix">{stat.suffix}</span>
+            </div>
+            <div class="stat-label" data-t-es={stat.label.es} data-t-en={stat.label.en}>{stat.label.es}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section class="about-values relative overflow-hidden bg-white py-20 text-black lg:py-24">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+      <div class="absolute -top-12 right-1/4 h-72 w-72 rounded-full bg-[#1DD1A1]/8 blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 text-center lg:mb-16">
+        <span class="reveal mb-6 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.42em] text-[#B76B71]">
+          <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
+          <span data-t-es="Lo que nos define" data-t-en="What defines us">Lo que nos define</span>
+          <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
+        </span>
+        <h2 class="section-headline">
+          <span
+            class="reveal headline-word headline-word-1 font-display font-bold tracking-tight text-black"
+            style="--reveal-delay: 80ms;"
+            data-t-es="Nuestros"
+            data-t-en="Our"
+          >Nuestros</span>
+          <span
+            class="reveal headline-word headline-word-2 font-hero-elmatia text-[#F3A2A7]"
+            style="--reveal-delay: 220ms;"
+            data-t-es="Valores"
+            data-t-en="Values"
+          >Valores</span>
+        </h2>
+        <p
+          class="reveal mx-auto mt-6 max-w-xl text-sm text-black/60 sm:text-base"
+          style="--reveal-delay: 360ms;"
+          data-t-es="Los principios que guían cada decisión y cada tratamiento."
+          data-t-en="The principles that guide every decision and treatment."
+        >Los principios que guían cada decisión y cada tratamiento.</p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
+        {values.map((v, i) => (
+          <article
+            class:list={[
+              'about-card reveal group',
+              v.accent === 'pink' && 'accent-pink',
+              v.accent === 'mint' && 'accent-mint',
+              v.accent === 'tan' && 'accent-tan'
+            ]}
+            style={`--reveal-delay: ${280 + i * 130}ms;`}
           >
-            <span data-t-es="Conoce Nuestra Historia" data-t-en="Learn Our Story">Conoce Nuestra Historia</span>
-          </CTAButton>
-          
-          <CTAButton 
-            href="/contact"
-            variant="mint"
-            className="px-8 py-4 text-lg font-semibold transform transition-all duration-300 focus-visible:ring-[#AABFA8]/50"
+            <span class="about-card-mark">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d={iconPaths[v.icon]}/>
+              </svg>
+            </span>
+            <h3 class="about-card-title" data-t-es={v.title.es} data-t-en={v.title.en}>{v.title.es}</h3>
+            <p class="about-card-text" data-t-es={v.text.es} data-t-en={v.text.en}>{v.text.es}</p>
+            <span class="about-card-underline"></span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section class="about-method relative overflow-hidden bg-gradient-to-b from-white via-[#FDFAFA] to-white py-20 text-black lg:py-24">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+      <div class="absolute -top-12 left-1/4 h-72 w-72 rounded-full bg-[#F3A2A7]/8 blur-3xl"></div>
+      <div class="absolute -bottom-16 right-1/3 h-72 w-72 rounded-full bg-[#AABFA8]/8 blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 text-center lg:mb-16">
+        <span class="reveal mb-6 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.42em] text-[#B76B71]">
+          <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
+          <span data-t-es="Cómo trabajamos" data-t-en="How we work">Cómo trabajamos</span>
+          <span class="h-px w-10 bg-[#F3A2A7]/50"></span>
+        </span>
+        <h2 class="section-headline">
+          <span
+            class="reveal headline-word headline-word-1 font-display font-bold tracking-tight text-black"
+            style="--reveal-delay: 80ms;"
+            data-t-es="El Método"
+            data-t-en="The"
+          >El Método</span>
+          <span
+            class="reveal headline-word headline-word-2 font-hero-elmatia text-[#F3A2A7]"
+            style="--reveal-delay: 220ms;"
+            data-t-es="Renasci"
+            data-t-en="Renasci Method"
+          >Renasci</span>
+        </h2>
+        <p
+          class="reveal mx-auto mt-6 max-w-xl text-sm text-black/60 sm:text-base"
+          style="--reveal-delay: 360ms;"
+          data-t-es="Tres pilares que aseguran tu mejor versión en cada visita."
+          data-t-en="Three pillars that ensure your best self at every visit."
+        >Tres pilares que aseguran tu mejor versión en cada visita.</p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
+        {method.map((m, i) => (
+          <article
+            class:list={[
+              'about-card reveal group',
+              m.accent === 'pink' && 'accent-pink',
+              m.accent === 'mint' && 'accent-mint',
+              m.accent === 'tan' && 'accent-tan'
+            ]}
+            style={`--reveal-delay: ${280 + i * 130}ms;`}
           >
-            <span data-t-es="Agenda tu Consulta" data-t-en="Book Your Consultation">Agenda tu Consulta</span>
-          </CTAButton>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-      </svg>
-    </div>
-  </section>
-  <script>
-    const animateCounter = (el: HTMLElement) => {
-      const target = parseInt(el.getAttribute('data-target') || '0', 10);
-      const startAttr = el.getAttribute('data-start');
-      const start = startAttr ? parseInt(startAttr, 10) : Math.floor(target * 0.85);
-      const duration = 5000;
-      const startTime = performance.now();
-      const step = (now: number) => {
-        const progress = Math.min((now - startTime) / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        const value = Math.floor(start + (target - start) * ease);
-        el.textContent = value.toString();
-        if (progress < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    };
-    const counters = document.querySelectorAll('#nuestra-historia .counter') as NodeListOf<HTMLElement>;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          counters.forEach((c) => animateCounter(c));
-          io.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-    const section = document.querySelector('#nuestra-historia');
-    if (section) io.observe(section);
-  </script>
-
-  <!-- Nuestra Historia Section -->
-  <section id="nuestra-historia" class="py-20 bg-white text-black">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-10">
-          <div class="flex items-center justify-center mb-4">
-            <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-            <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8M8 12h8" />
+            <span class="about-card-mark">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d={iconPaths[m.icon]}/>
               </svg>
             </span>
-            <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-          </div>
-          <h2 class="font-display font-bold text-4xl md:text-5xl text-black mb-4">
-            <span data-t-es="Nuestra" data-t-en="Our">Nuestra</span> <span class="text-[#F3A2A7]" data-t-es="Historia" data-t-en="Story">Historia</span>
-          </h2>
-        </div>
-
-        <div class="space-y-6">
-          <p class="text-lg md:text-xl text-black/80 leading-relaxed motion-fade-in" style="animation-delay:0.1s" data-t-es="Renasci Medical Spa nació de una visión: crear un espacio donde la medicina estética de vanguardia se encuentra con el cuidado personalizado y la excelencia en el servicio." data-t-en="Renasci Medical Spa was born from a vision: to create a space where cutting-edge aesthetic medicine meets personalized care and service excellence.">
-            Renasci Medical Spa nació de una visión: crear un espacio donde la medicina estética de vanguardia se encuentra con el cuidado personalizado y la excelencia en el servicio.
-          </p>
-          <p class="text-lg md:text-xl text-black/80 leading-relaxed motion-fade-in" style="animation-delay:0.25s" data-t-es="Fundado por profesionales con más de 15 años de experiencia, somos el destino preferido para quienes buscan resultados excepcionales en un ambiente de lujo y confianza." data-t-en="Founded by professionals with over 15 years of experience, we are the preferred destination for those seeking exceptional results in a luxurious and trustworthy environment.">
-            Fundado por profesionales con más de 15 años de experiencia, somos el destino preferido para quienes buscan resultados excepcionales en un ambiente de lujo y confianza.
-          </p>
-          <p class="text-lg md:text-xl text-black/80 leading-relaxed motion-fade-in" style="animation-delay:0.4s" data-t-es="Cada tratamiento está respaldado por tecnología de punta y técnicas avanzadas, con un enfoque personalizado que respeta tu belleza natural." data-t-en="Each treatment is backed by cutting-edge technology and advanced techniques, with a personalized approach that respects your natural beauty.">
-            Cada tratamiento está respaldado por tecnología de punta y técnicas avanzadas, con un enfoque personalizado que respeta tu belleza natural.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-3 gap-6 pt-6 border-t border-black/10 motion-fade-in" style="animation-delay:0.55s">
-          <div class="text-center">
-          <div class="text-3xl font-bold text-[#F3A2A7] mb-1"><span class="counter" data-target="15" data-start="12">15</span>+</div>
-            <div class="text-sm text-black/70" data-t-es="Años de Experiencia" data-t-en="Years of Experience">Años de Experiencia</div>
-          </div>
-          <div class="text-center">
-          <div class="text-3xl font-bold text-[#F3A2A7] mb-1"><span class="counter" data-target="5000" data-start="4500">5000</span>+</div>
-            <div class="text-sm text-black/70" data-t-es="Pacientes Satisfechos" data-t-en="Satisfied Patients">Pacientes Satisfechos</div>
-          </div>
-          <div class="text-center">
-          <div class="text-3xl font-bold text-[#F3A2A7] mb-1"><span class="counter" data-target="98" data-start="90">98</span>%</div>
-            <div class="text-sm text-black/70" data-t-es="Tasa de Satisfacción" data-t-en="Satisfaction Rate">Tasa de Satisfacción</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <style>
-      @keyframes fadeUp { from { opacity:0; transform: translateY(12px);} to { opacity:1; transform: translateY(0);} }
-      .motion-fade-in { opacity:0; animation: fadeUp 600ms ease forwards; }
-      @keyframes shimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
-      .shimmer-text { background-image: linear-gradient(90deg, #ffffff, #E94594, #ffffff); background-clip: text; -webkit-background-clip: text; color: transparent; background-size: 200% auto; animation: shimmer 3s linear infinite; }
-    </style>
-  </section>
-
-  <!-- Valores Section -->
-  <section class="py-20 bg-white text-black">
-    <div class="container mx-auto px-4">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-          <div class="flex items-center justify-center mb-4">
-            <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-            <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
-              </svg>
-            </span>
-            <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-          </div>
-          <h2 class="font-display font-bold text-4xl md:text-5xl text-black mb-6">
-            <span data-t-es="Nuestros" data-t-en="Our">Nuestros</span> <span class="text-[#F3A2A7]" data-t-es="Valores" data-t-en="Values">Valores</span>
-          </h2>
-          <p class="text-xl text-black/80 max-w-3xl mx-auto" data-t-es="Los principios que guían cada decisión y cada tratamiento en Renasci Medical Spa." data-t-en="The principles that guide every decision and treatment at Renasci Medical Spa.">
-            Los principios que guían cada decisión y cada tratamiento en Renasci Medical Spa.
-          </p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Excelencia -->
-          <div class="text-center p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border-2 border-[#F3A2A7] hover:ring-2 hover:ring-[#F3A2A7]/60">
-            <div class="w-16 h-16 bg-[#F3A2A7]/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-[#F3A2A7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-              </svg>
-            </div>
-            <h3 class="font-bold text-2xl text-text mb-4" data-t-es="Excelencia" data-t-en="Excellence">Excelencia</h3>
-            <p class="text-graytxt" data-t-es="Nos comprometemos a ofrecer los más altos estándares de calidad en cada tratamiento y servicio." data-t-en="We are committed to offering the highest quality standards in every treatment and service.">
-              Nos comprometemos a ofrecer los más altos estándares de calidad en cada tratamiento y servicio.
-            </p>
-          </div>
-          
-          <!-- Seguridad -->
-          <div class="text-center p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border-2 border-call hover:ring-2 hover:ring-call/60">
-            <div class="w-16 h-16 bg-call/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-call" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-              </svg>
-            </div>
-            <h3 class="font-bold text-2xl text-text mb-4" data-t-es="Seguridad" data-t-en="Safety">Seguridad</h3>
-            <p class="text-graytxt" data-t-es="Tu seguridad es nuestra prioridad. Utilizamos protocolos médicos rigurosos y tecnología certificada." data-t-en="Your safety is our priority. We use rigorous medical protocols and certified technology.">
-              Tu seguridad es nuestra prioridad. Utilizamos protocolos médicos rigurosos y tecnología certificada.
-            </p>
-          </div>
-          
-          <!-- Personalización -->
-          <div class="text-center p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border-2 border-logo hover:ring-2 hover:ring-logo/60">
-            <div class="w-16 h-16 bg-logo/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-logo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-              </svg>
-            </div>
-            <h3 class="font-bold text-2xl text-text mb-4" data-t-es="Personalización" data-t-en="Personalization">Personalización</h3>
-            <p class="text-graytxt" data-t-es="Cada persona es única. Diseñamos planes de tratamiento personalizados para tus necesidades específicas." data-t-en="Each person is unique. We design personalized treatment plans for your specific needs.">
-              Cada persona es única. Diseñamos planes de tratamiento personalizados para tus necesidades específicas.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Equipo Section -->
-  <section class="py-20 bg-white text-black">
-    <div class="container mx-auto px-4">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-          <div class="flex items-center justify-center mb-4">
-            <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-            <span class="mx-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3A2A7] text-white">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            </span>
-            <div class="flex-1 h-[2px] bg-[#F3A2A7]"></div>
-          </div>
-          <h2 class="font-display font-bold text-4xl md:text-5xl text-black mb-6">
-            <span data-t-es="Nuestro" data-t-en="Our">Nuestro</span> <span class="text-[#F3A2A7]" data-t-es="Equipo" data-t-en="Team">Equipo</span>
-          </h2>
-          <p class="text-xl text-black/80 max-w-3xl mx-auto" data-t-es="Profesionales altamente capacitados y certificados, dedicados a tu bienestar y satisfacción." data-t-en="Highly trained and certified professionals, dedicated to your well-being and satisfaction.">
-            Profesionales altamente capacitados y certificados, dedicados a tu bienestar y satisfacción.
-          </p>
-        </div>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Miembro del equipo 1 -->
-          <div class="text-center group bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-primary">
-            <div class="mb-6">
-              <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-              </div>
-            </div>
-            <h3 class="font-bold text-xl text-text mb-2" data-t-es="Atención Personalizada" data-t-en="Personalized Attention">Atención Personalizada</h3>
-            <p class="text-graytxt" data-t-es="Plan hecho a tu medida, respetando tu estilo y objetivos." data-t-en="A plan tailored to you, respecting your style and goals.">Plan hecho a tu medida, respetando tu estilo y objetivos.</p>
-          </div>
-          
-          <!-- Miembro del equipo 2 -->
-          <div class="text-center group bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-call">
-            <div class="mb-6">
-              <div class="w-16 h-16 bg-call/10 rounded-2xl flex items-center justify-center mx-auto">
-                <svg class="w-8 h-8 text-call" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-              </div>
-            </div>
-            <h3 class="font-bold text-xl text-text mb-2" data-t-es="Seguridad Médica" data-t-en="Medical Safety">Seguridad Médica</h3>
-            <p class="text-graytxt" data-t-es="Protocolos clínicos y seguimiento para tu tranquilidad." data-t-en="Clinical protocols and follow-up for your peace of mind.">Protocolos clínicos y seguimiento para tu tranquilidad.</p>
-          </div>
-          
-          <!-- Miembro del equipo 3 -->
-          <div class="text-center group md:col-span-2 lg:col-span-1 bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-logo">
-            <div class="mb-6">
-              <div class="w-16 h-16 bg-logo/10 rounded-2xl flex items-center justify-center mx-auto">
-                <svg class="w-8 h-8 text-logo" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/></svg>
-              </div>
-            </div>
-            <h3 class="font-bold text-xl text-text mb-2" data-t-es="Tecnología Avanzada" data-t-en="Advanced Technology">Tecnología Avanzada</h3>
-            <p class="text-graytxt" data-t-es="Equipos y técnicas de última generación para mejores resultados." data-t-en="State-of-the-art equipment and techniques for better results.">Equipos y técnicas de última generación para mejores resultados.</p>
-          </div>
-        </div>
+            <h3 class="about-card-title" data-t-es={m.title.es} data-t-en={m.title.en}>{m.title.es}</h3>
+            <p class="about-card-text" data-t-es={m.text.es} data-t-en={m.text.en}>{m.text.es}</p>
+            <span class="about-card-underline"></span>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -276,50 +357,355 @@ import TransformCTA from '../components/TransformCTA.astro';
 </BaseLayout>
 
 <script>
-  function applyAboutLang(){
-    const params = new URLSearchParams(window.location.search)
-    const urlLang = params.get('lang')
-    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language')
-    const lang = urlLang === 'en' || urlLang === 'es' ? urlLang : (storedLang === 'en' ? 'en' : (window.i18nManager?.getCurrentLanguage?.() || document.documentElement.lang || 'es'))
-    const nodes = Array.from(document.querySelectorAll('[data-t-es]'))
-    nodes.forEach((n) => { const es = n.getAttribute('data-t-es')||''; const en = n.getAttribute('data-t-en')||es; n.textContent = (lang==='en')? en : es })
+  type Lang = 'es' | 'en';
+
+  function getAboutLang(): Lang {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') return urlLang as Lang;
+    const storedLang = localStorage.getItem('renasci-language') || localStorage.getItem('language');
+    if (storedLang === 'en' || storedLang === 'es') return storedLang as Lang;
+    const managerLang = (window as any).i18nManager?.getCurrentLanguage?.();
+    if (managerLang === 'en' || managerLang === 'es') return managerLang as Lang;
+    return document.documentElement.lang === 'en' ? 'en' : 'es';
   }
-  document.addEventListener('DOMContentLoaded', applyAboutLang)
-  window.addEventListener('languageChanged', (e) => { const lang = e.detail?.language || 'es'; const nodes = Array.from(document.querySelectorAll('[data-t-es]')); nodes.forEach((n) => { const es = n.getAttribute('data-t-es')||''; const en = n.getAttribute('data-t-en')||es; n.textContent = (lang==='en')? en : es }) })
+
+  function applyAboutLang() {
+    const lang = getAboutLang();
+    document.querySelectorAll('[data-t-es]').forEach((el) => {
+      const node = el as HTMLElement;
+      const es = node.getAttribute('data-t-es') || '';
+      const en = node.getAttribute('data-t-en') || es;
+      node.textContent = lang === 'en' ? en : es;
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', applyAboutLang);
+  document.addEventListener('astro:page-load', applyAboutLang);
+  window.addEventListener('languageChanged', applyAboutLang);
+
+  function initAboutReveal() {
+    const targets = document.querySelectorAll(
+      '.about-hero .reveal, .about-history .reveal, .about-values .reveal, .about-method .reveal'
+    );
+    if (!targets.length) return;
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      targets.forEach((t) => t.classList.add('is-visible'));
+      return;
+    }
+    document.querySelectorAll('.about-hero .reveal').forEach((t) => t.classList.add('is-visible'));
+    const scrollTargets = document.querySelectorAll('.about-history .reveal, .about-values .reveal, .about-method .reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    scrollTargets.forEach((t) => io.observe(t));
+  }
+  document.addEventListener('DOMContentLoaded', initAboutReveal);
+  document.addEventListener('astro:page-load', initAboutReveal);
+
+  function initAboutCounters() {
+    const counters = document.querySelectorAll('#nuestra-historia .counter');
+    if (!counters.length) return;
+    const animateCounter = (el: Element) => {
+      const node = el as HTMLElement;
+      const target = parseInt(node.getAttribute('data-target') || '0', 10);
+      const startAttr = node.getAttribute('data-start');
+      const start = startAttr ? parseInt(startAttr, 10) : Math.floor(target * 0.85);
+      const duration = 1800;
+      const startTime = performance.now();
+      const step = (now: number) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(start + (target - start) * ease);
+        node.textContent = value.toLocaleString();
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          counters.forEach((c) => animateCounter(c));
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    const section = document.querySelector('#nuestra-historia .stats-grid');
+    if (section) io.observe(section);
+  }
+  document.addEventListener('DOMContentLoaded', initAboutCounters);
+  document.addEventListener('astro:page-load', initAboutCounters);
 </script>
 
 <style>
-  .hero-content {
-    animation: fadeInUp 1s ease-out;
+  /* ===================================================================
+   * Shared editorial reveal motion
+   * =================================================================== */
+  .about-hero .reveal,
+  .about-history .reveal,
+  .about-values .reveal,
+  .about-method .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 800ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
+      transform 800ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
   }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
+  .about-hero .reveal.is-visible,
+  .about-history .reveal.is-visible,
+  .about-values .reveal.is-visible,
+  .about-method .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ===================================================================
+   * HERO
+   * =================================================================== */
+  .about-hero .hero-orb {
+    animation: about-hero-float 9s ease-in-out infinite;
+  }
+  .about-hero .hero-orb-delayed {
+    animation: about-hero-float 9s ease-in-out infinite 2.5s;
+  }
+  @keyframes about-hero-float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-12px, -16px) scale(1.05); }
+  }
+
+  .about-hero .hero-headline {
+    display: block;
+    line-height: 0.92;
+  }
+  .about-hero .hero-word {
+    display: block;
+  }
+  .about-hero .hero-word-1 {
+    font-size: clamp(2.75rem, 7.2vw, 5.5rem);
+    letter-spacing: -0.02em;
+  }
+  .about-hero .hero-word-2 {
+    font-size: clamp(4rem, 10.5vw, 7.75rem);
+    line-height: 0.96;
+    margin-top: -0.06em;
+    letter-spacing: -0.005em;
+  }
+
+  .about-hero .hero-scroll {
+    animation: about-hero-scroll-fade 2.4s ease-in-out infinite;
+  }
+  .about-hero .hero-scroll-arrow {
+    animation: about-hero-scroll-line 2.4s ease-in-out infinite;
+  }
+  @keyframes about-hero-scroll-fade {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+  @keyframes about-hero-scroll-line {
+    0% { transform: scaleY(0.4); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0.4); transform-origin: bottom; }
+  }
+
+  /* ===================================================================
+   * Section headlines (Historia, Valores, Método)
+   * =================================================================== */
+  .about-history .section-headline,
+  .about-values .section-headline,
+  .about-method .section-headline {
+    display: block;
+    line-height: 0.92;
+  }
+  .about-history .section-headline .headline-word,
+  .about-values .section-headline .headline-word,
+  .about-method .section-headline .headline-word {
+    display: block;
+  }
+  .about-history .section-headline .headline-word-1,
+  .about-values .section-headline .headline-word-1,
+  .about-method .section-headline .headline-word-1 {
+    font-size: clamp(2rem, 4.6vw, 3.25rem);
+    letter-spacing: -0.02em;
+  }
+  .about-history .section-headline .headline-word-2,
+  .about-values .section-headline .headline-word-2,
+  .about-method .section-headline .headline-word-2 {
+    font-size: clamp(3.5rem, 9vw, 6rem);
+    line-height: 0.9;
+    margin-top: -0.16em;
+    letter-spacing: -0.01em;
+  }
+
+  /* ===================================================================
+   * Stats cards
+   * =================================================================== */
+  .about-history .stat-card {
+    position: relative;
+    padding: 1.75rem 1.5rem 1.5rem;
+    background: #ffffff;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 400ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 400ms ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .about-history .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 40px -18px rgba(0, 0, 0, 0.18);
+  }
+  .about-history .stat-rule {
+    width: 2.25rem;
+    height: 2px;
+    background: #F3A2A7;
+    margin: 0 auto 1rem;
+    border-radius: 9999px;
+    transition: width 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .about-history .stat-card:hover .stat-rule {
+    width: 4rem;
+  }
+  .about-history .stat-value {
+    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    line-height: 1;
+    color: #111;
+    letter-spacing: -0.02em;
+  }
+  .about-history .stat-suffix {
+    color: #F3A2A7;
+    font-weight: 700;
+    margin-left: 0.1em;
+  }
+  .about-history .stat-label {
+    margin-top: 0.65rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+    letter-spacing: 0.01em;
+  }
+
+  /* ===================================================================
+   * About cards (values + method)
+   * =================================================================== */
+  .about-values .about-card,
+  .about-method .about-card {
+    --card-color: #F3A2A7;
+    --card-tint: rgba(243, 162, 167, 0.12);
+    --card-text: #B76B71;
+    position: relative;
+    padding: 2rem 1.75rem 2.25rem;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 14px 32px -18px rgba(0, 0, 0, 0.15);
+    transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 500ms ease;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+  }
+  .about-values .about-card:hover,
+  .about-method .about-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 48px -18px rgba(0, 0, 0, 0.2);
+  }
+
+  .about-values .about-card.accent-pink,
+  .about-method .about-card.accent-pink {
+    --card-color: #F3A2A7;
+    --card-tint: rgba(243, 162, 167, 0.12);
+    --card-text: #B76B71;
+  }
+  .about-values .about-card.accent-mint,
+  .about-method .about-card.accent-mint {
+    --card-color: #1DD1A1;
+    --card-tint: rgba(29, 209, 161, 0.12);
+    --card-text: #0E9F77;
+  }
+  .about-values .about-card.accent-tan,
+  .about-method .about-card.accent-tan {
+    --card-color: #C8A08C;
+    --card-tint: rgba(200, 160, 140, 0.16);
+    --card-text: #8C6F5C;
+  }
+
+  .about-values .about-card-mark,
+  .about-method .about-card-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    background: var(--card-tint);
+    color: var(--card-text);
+    box-shadow: inset 0 0 0 1px var(--card-tint);
+    margin-bottom: 1.25rem;
+    transition: transform 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .about-values .about-card:hover .about-card-mark,
+  .about-method .about-card:hover .about-card-mark {
+    transform: rotate(-8deg) scale(1.05);
+  }
+
+  .about-values .about-card-title,
+  .about-method .about-card-title {
+    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+    color: #111;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.65rem;
+  }
+  .about-values .about-card-text,
+  .about-method .about-card-text {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  .about-values .about-card-underline,
+  .about-method .about-card-underline {
+    display: block;
+    width: 2rem;
+    height: 2px;
+    background: var(--card-color);
+    margin-top: 1.5rem;
+    border-radius: 9999px;
+    transition: width 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .about-values .about-card:hover .about-card-underline,
+  .about-method .about-card:hover .about-card-underline {
+    width: 4rem;
+  }
+
+  /* ===================================================================
+   * Reduced motion
+   * =================================================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .about-hero .reveal,
+    .about-history .reveal,
+    .about-values .reveal,
+    .about-method .reveal {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
+      transition: none;
     }
-  }
-  
-  .animate-fade-in-up {
-    animation: fadeInUp 0.8s ease-out;
-  }
-  
-  .animate-pulse-soft {
-    animation: pulseSoft 2s ease-in-out infinite;
-  }
-  
-  @keyframes pulseSoft {
-    0%, 100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.8;
-      transform: scale(1.02);
-    }
+    .about-hero .hero-orb,
+    .about-hero .hero-orb-delayed,
+    .about-hero .hero-scroll,
+    .about-hero .hero-scroll-arrow { animation: none; }
+    .about-history .stat-card:hover { transform: none; }
+    .about-values .about-card:hover,
+    .about-method .about-card:hover { transform: none; }
+    .about-values .about-card:hover .about-card-mark,
+    .about-method .about-card:hover .about-card-mark { transform: none; }
   }
 </style>

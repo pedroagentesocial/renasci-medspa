@@ -1,49 +1,148 @@
 ---
 const serviceCards = [
-  { title: { es: 'Inyectables', en: 'Injectables' }, href: '/services/injectables-treatments', image: '/img/services/Injection-general.jpg' },
-  { title: { es: 'Corporal', en: 'Body' }, href: '/services/body-treatments', image: '/img/services/Body-intimo-general.jpg.avif' },
-  { title: { es: 'Facial', en: 'Face' }, href: '/services/facial-treatments', image: '/img/services/Cheekbone-lift.jpg' },
-  { title: { es: 'Terapia IV', en: 'IV Therapy' }, href: '/services/iv-therapy', image: '/img/services/Drips.jpeg' },
-  { title: { es: 'Láser', en: 'Laser' }, href: '/services/igniterf', image: '/img/ignateRF.png' },
+  {
+    title: { es: 'Inyectables', en: 'Injectables' },
+    description: {
+      es: 'Botox, fillers y bioestimuladores para refrescar tu rostro con resultados naturales.',
+      en: 'Botox, fillers and biostimulators to refresh your face with natural results.'
+    },
+    href: '/services/injectables-treatments',
+    image: '/img/services/Injection-general.jpg',
+    feature: true,
+  },
+  {
+    title: { es: 'Facial', en: 'Face' },
+    description: {
+      es: 'Tratamientos faciales que iluminan, rejuvenecen y reafirman tu piel.',
+      en: 'Facial treatments that illuminate, rejuvenate and firm your skin.'
+    },
+    href: '/services/facial-treatments',
+    image: '/img/services/Cheekbone-lift.jpg',
+  },
+  {
+    title: { es: 'Corporal', en: 'Body' },
+    description: {
+      es: 'Esculpe, tonifica y revitaliza tu cuerpo con tecnología avanzada.',
+      en: 'Sculpt, tone and revitalize your body with advanced technology.'
+    },
+    href: '/services/body-treatments',
+    image: '/img/services/Body-intimo-general.jpg.avif',
+  },
+  {
+    title: { es: 'Terapia IV', en: 'IV Therapy' },
+    description: {
+      es: 'Hidratación celular y energía con cócteles de vitaminas a medida.',
+      en: 'Cellular hydration and energy with tailored vitamin cocktails.'
+    },
+    href: '/services/iv-therapy',
+    image: '/img/services/Drips.jpeg',
+  },
+  {
+    title: { es: 'Láser', en: 'Laser' },
+    description: {
+      es: 'IgniteRF y radiofrecuencia para una piel firme, luminosa y uniforme.',
+      en: 'IgniteRF and radiofrequency for firm, luminous, even skin.'
+    },
+    href: '/services/igniterf',
+    image: '/img/ignateRF.png',
+  },
 ]
 ---
 
-<section class="py-12 lg:py-16 bg-white">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-8">
-      <div class="inline-flex flex-col items-center">
-        <div class="h-[2px] w-full bg-black mb-3"></div>
-        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-black" data-t-es="Nuestros Servicios" data-t-en="Our Services">Nuestros Servicios</h2>
-      </div>
+<section class="our-services-v2 relative overflow-hidden bg-white py-16 lg:py-24">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[#F3A2A7]/10 blur-3xl"></div>
+    <div class="absolute -bottom-32 -right-16 h-96 w-96 rounded-full bg-[#AABFA8]/10 blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="services-heading mb-14 text-center lg:mb-20">
+      <span class="reveal mb-6 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.42em] text-[#F3A2A7]">
+        <span class="h-px w-8 bg-[#F3A2A7]/50"></span>
+        <span data-t-es="Experiencia Renasci" data-t-en="The Renasci Experience">Experiencia Renasci</span>
+        <span class="h-px w-8 bg-[#F3A2A7]/50"></span>
+      </span>
+      <h2 class="services-headline">
+        <span
+          class="reveal headline-word headline-word-1 font-display font-bold tracking-tight text-black"
+          style="--reveal-delay: 80ms;"
+          data-t-es="Nuestros"
+          data-t-en="Our"
+        >Nuestros</span>
+        <span
+          class="reveal headline-word headline-word-2 font-hero-elmatia text-[#F3A2A7]"
+          style="--reveal-delay: 220ms;"
+          data-t-es="Servicios"
+          data-t-en="Services"
+        >Servicios</span>
+      </h2>
+      <p
+        class="reveal mx-auto mt-8 max-w-xl text-sm text-black/60 sm:text-base"
+        style="--reveal-delay: 360ms;"
+        data-t-es="Cinco mundos de bienestar diseñados para ti. Elige el tuyo."
+        data-t-en="Five worlds of wellness designed for you. Choose yours."
+      >Cinco mundos de bienestar diseñados para ti. Elige el tuyo.</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-      {serviceCards.map((card) => (
+
+    <div class="services-bento grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6">
+      {serviceCards.map((card, i) => (
         <a
           href={card.href}
-          class="group block rounded-2xl overflow-hidden bg-white"
+          class:list={[
+            'service-tile reveal group relative block overflow-hidden rounded-3xl bg-black focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F3A2A7] focus-visible:ring-offset-2',
+            card.feature ? 'sm:col-span-2 lg:col-span-2 lg:row-span-2' : ''
+          ]}
+          style={`--reveal-delay: ${280 + i * 90}ms;`}
           data-service-card
           data-title-es={card.title.es}
           data-title-en={card.title.en}
+          data-desc-es={card.description.es}
+          data-desc-en={card.description.en}
         >
-          <div class="h-40 sm:h-44 lg:h-40 w-full bg-gray-100">
+          <div class="tile-frame absolute inset-0">
             <img
               src={card.image}
               alt={card.title.es}
-              class={`w-full h-full object-cover ${card.title.es === 'Láser' ? 'laser-image' : ''}`}
+              class:list={[
+                'tile-image h-full w-full object-cover',
+                card.title.es === 'Láser' ? 'object-[center_10%]' : ''
+              ]}
               loading="lazy"
             />
           </div>
-          <div class="px-4 py-4 text-center">
-            <h3 class="text-sm sm:text-base font-semibold text-gray-900 transition-colors group-hover:text-[#E94594]" data-card-title>
-              {card.title.es}
-            </h3>
+
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/5"></div>
+          <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10 rounded-3xl"></div>
+
+          <span class="tile-arrow absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/40 backdrop-blur-sm sm:right-5 sm:top-5">
+            <svg class="h-4 w-4 text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H8M17 7V16"/>
+            </svg>
+          </span>
+
+          <div class="tile-content absolute inset-x-0 bottom-0 z-10 p-5 text-white sm:p-6 lg:p-7">
+            <h3
+              class="font-display text-xl font-bold leading-tight sm:text-2xl lg:text-3xl"
+              data-card-title
+            >{card.title.es}</h3>
+            <div class="tile-desc-wrap">
+              <p class="tile-desc mt-3 text-sm text-white/90 sm:text-base" data-card-desc>{card.description.es}</p>
+            </div>
+            <div class="tile-underline mt-3 h-[2px] w-10 bg-[#F3A2A7]"></div>
           </div>
         </a>
       ))}
     </div>
-    <div class="mt-10 text-center">
-      <a href="/services" class="inline-flex items-center justify-center rounded-full bg-[#F3A2A7] px-6 py-3 text-white font-semibold transition-opacity hover:opacity-90" data-t-es="Ver todos los servicios" data-t-en="View all services">
-        Ver todos los servicios
+
+    <div class="reveal mt-12 text-center" style="--reveal-delay: 900ms;">
+      <a
+        href="/services"
+        class="group inline-flex items-center gap-2 rounded-full bg-[#F3A2A7] px-7 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+      >
+        <span data-t-es="Ver todos los servicios" data-t-en="View all services">Ver todos los servicios</span>
+        <svg class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
       </a>
     </div>
   </div>
@@ -51,6 +150,7 @@ const serviceCards = [
 
 <script>
   type Lang = 'es' | 'en';
+
   const getOurServicesLang = (): Lang => {
     const params = new URLSearchParams(window.location.search);
     const urlLang = params.get('lang');
@@ -63,14 +163,21 @@ const serviceCards = [
   };
 
   const applyOurServicesLang = (lang: Lang) => {
-    document.querySelectorAll('[data-service-card]').forEach((card) => {
+    document.querySelectorAll('.our-services-v2 [data-service-card]').forEach((card) => {
       const el = card as HTMLElement;
       const titleEl = el.querySelector('[data-card-title]') as HTMLElement | null;
-      const es = el.getAttribute('data-title-es') || '';
-      const en = el.getAttribute('data-title-en') || es;
-      if (titleEl) titleEl.textContent = lang === 'en' ? en : es;
+      const descEl = el.querySelector('[data-card-desc]') as HTMLElement | null;
+      const titleEs = el.getAttribute('data-title-es') || '';
+      const titleEn = el.getAttribute('data-title-en') || titleEs;
+      const descEs = el.getAttribute('data-desc-es') || '';
+      const descEn = el.getAttribute('data-desc-en') || descEs;
+      if (titleEl) titleEl.textContent = lang === 'en' ? titleEn : titleEs;
+      if (descEl) descEl.textContent = lang === 'en' ? descEn : descEs;
+      const altText = lang === 'en' ? titleEn : titleEs;
+      const img = el.querySelector('img');
+      if (img) img.setAttribute('alt', altText);
     });
-    document.querySelectorAll('[data-t-es]').forEach((el) => {
+    document.querySelectorAll('.our-services-v2 [data-t-es]').forEach((el) => {
       const node = el as HTMLElement;
       const es = node.getAttribute('data-t-es') || '';
       const en = node.getAttribute('data-t-en') || es;
@@ -86,8 +193,175 @@ const serviceCards = [
     const lang = detail?.language === 'en' || detail?.language === 'es' ? detail.language : getOurServicesLang();
     applyOurServicesLang(lang);
   });
+
+  const initOurServicesReveal = () => {
+    const targets = document.querySelectorAll('.our-services-v2 .reveal, .our-services-v2 .reveal-line');
+    if (!targets.length) return;
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      targets.forEach((t) => t.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    targets.forEach((t) => io.observe(t));
+  };
+  document.addEventListener('DOMContentLoaded', initOurServicesReveal);
+  document.addEventListener('astro:page-load', initOurServicesReveal);
 </script>
 
 <style>
-  .laser-image { object-position: center 10%; }
+  .our-services-v2 .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 750ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
+      transform 750ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  .our-services-v2 .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .our-services-v2 .services-headline {
+    display: block;
+    line-height: 0.92;
+  }
+  .our-services-v2 .headline-word {
+    display: block;
+  }
+  .our-services-v2 .headline-word-1 {
+    font-size: clamp(2.25rem, 5.4vw, 4.25rem);
+    letter-spacing: -0.02em;
+  }
+  .our-services-v2 .headline-word-2 {
+    font-size: clamp(3.75rem, 9.5vw, 7rem);
+    line-height: 0.9;
+    margin-top: -0.18em;
+    letter-spacing: -0.01em;
+  }
+
+  .our-services-v2 .reveal-line {
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 850ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+    will-change: transform;
+  }
+  .our-services-v2 .reveal-line.is-visible {
+    transform: scaleX(1);
+  }
+
+  .our-services-v2 .service-tile {
+    isolation: isolate;
+    min-height: 280px;
+    box-shadow: 0 14px 32px -16px rgba(0, 0, 0, 0.4);
+    transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 500ms ease;
+  }
+  .our-services-v2 .service-tile:hover,
+  .our-services-v2 .service-tile:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.45);
+  }
+
+  @media (min-width: 640px) {
+    .our-services-v2 .service-tile { min-height: 300px; }
+    .our-services-v2 .service-tile.sm\:col-span-2 { min-height: 360px; }
+  }
+
+  @media (min-width: 1024px) {
+    .our-services-v2 .services-bento { grid-auto-rows: 248px; }
+    .our-services-v2 .service-tile { min-height: 0; }
+  }
+
+  .our-services-v2 .tile-image {
+    transform: scale(1.04);
+    transition: transform 1100ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    animation: tile-drift 22s ease-in-out infinite;
+    will-change: transform;
+  }
+  .our-services-v2 .service-tile:hover .tile-image,
+  .our-services-v2 .service-tile:focus-visible .tile-image {
+    transform: scale(1.12);
+    animation-play-state: paused;
+  }
+
+  @keyframes tile-drift {
+    0%, 100% { transform: scale(1.04) translate(0, 0); }
+    50% { transform: scale(1.08) translate(-1.2%, -1.2%); }
+  }
+
+  .our-services-v2 .tile-arrow {
+    transition: background-color 350ms ease, border-color 350ms ease, transform 350ms ease;
+  }
+  .our-services-v2 .service-tile:hover .tile-arrow,
+  .our-services-v2 .service-tile:focus-visible .tile-arrow {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    transform: rotate(-12deg);
+  }
+  .our-services-v2 .service-tile:hover .tile-arrow svg,
+  .our-services-v2 .service-tile:focus-visible .tile-arrow svg {
+    color: #000000;
+  }
+
+  .our-services-v2 .tile-underline {
+    transition: width 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .our-services-v2 .service-tile:hover .tile-underline,
+  .our-services-v2 .service-tile:focus-visible .tile-underline {
+    width: 5rem;
+  }
+
+  .our-services-v2 .tile-desc-wrap {
+    overflow: hidden;
+  }
+  .our-services-v2 .tile-desc {
+    transition: opacity 500ms ease, transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .our-services-v2 .tile-desc-wrap {
+      max-height: 0;
+      transition: max-height 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .our-services-v2 .service-tile:hover .tile-desc-wrap,
+    .our-services-v2 .service-tile:focus-visible .tile-desc-wrap {
+      max-height: 8rem;
+    }
+    .our-services-v2 .tile-desc {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    .our-services-v2 .service-tile:hover .tile-desc,
+    .our-services-v2 .service-tile:focus-visible .tile-desc {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (hover: none) {
+    .our-services-v2 .tile-desc-wrap { max-height: 9rem; }
+    .our-services-v2 .tile-desc { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .our-services-v2 .reveal,
+    .our-services-v2 .reveal-line {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .our-services-v2 .tile-image { animation: none; transform: none; }
+    .our-services-v2 .service-tile:hover,
+    .our-services-v2 .service-tile:focus-visible { transform: none; }
+    .our-services-v2 .service-tile:hover .tile-image,
+    .our-services-v2 .service-tile:focus-visible .tile-image { transform: none; }
+  }
 </style>
