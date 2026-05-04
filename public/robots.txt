@@ -2,16 +2,12 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://pedroagentesocial.github.io/sitemap.xml
+Sitemap: https://renascimedspa.com/sitemap-index.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Disallow admin or private areas (if any)
-# Disallow: /admin/
-# Disallow: /private/
-
-# Allow all major search engines
+# Allow all major search engines explicitly
 User-agent: Googlebot
 Allow: /
 
@@ -30,12 +26,31 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-# Block common bad bots
+# Block scrapers / SEO crawlers
 User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
 Disallow: /
 
 User-agent: MJ12bot
 Disallow: /
 
 User-agent: DotBot
+Disallow: /
+
+# Opt-out of AI training crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
 Disallow: /

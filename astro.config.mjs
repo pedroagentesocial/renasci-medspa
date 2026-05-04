@@ -16,7 +16,10 @@ export default defineConfig({
     react(),
     tailwind(),
     icon(),
-    sitemap()
+    sitemap({
+      filter: (page) => !page.includes('/404') && !page.includes('/500'),
+      changefreq: 'weekly',
+    })
   ],
   i18n: {
     defaultLocale: 'es',
