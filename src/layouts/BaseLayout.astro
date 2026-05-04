@@ -5695,6 +5695,64 @@ const {
       document.addEventListener('astro:page-load', bootI18n);
     </script>
     <SEO title={seoTitle} description={seoDescription} url={Astro.url.pathname} image={seoImage} locale={lang} keywords={seoKeywords} />
+
+    <!-- JSON-LD: MedicalBusiness schema for Google rich results -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "@id": "https://renascimedspa.com/#business",
+      "name": "Renasci Medical Spa",
+      "alternateName": "Renasci",
+      "description": "Medical spa in Salt Lake City offering aesthetic medical treatments: Botox, dermal fillers, Sculptra, IV therapy, IgniteRF, microneedling, PRP and more.",
+      "url": "https://renascimedspa.com",
+      "logo": "https://renascimedspa.com/logo/Renasci-logo.png",
+      "image": "https://renascimedspa.com/og-image.jpg",
+      "telephone": "+1-385-609-2840",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "6770 S 900 E",
+        "addressLocality": "Midvale",
+        "addressRegion": "UT",
+        "postalCode": "84047",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://www.instagram.com/renascimedicalspa/",
+        "https://www.facebook.com/profile.php?id=61580623082047"
+      ],
+      "medicalSpecialty": "CosmeticMedicine",
+      "areaServed": [
+        { "@type": "City", "name": "Salt Lake City" },
+        { "@type": "City", "name": "Midvale" },
+        { "@type": "City", "name": "Sandy" },
+        { "@type": "City", "name": "Murray" },
+        { "@type": "State", "name": "Utah" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Aesthetic & Wellness Treatments",
+        "itemListElement": [
+          { "@type": "OfferCatalog", "name": "Injectables", "url": "https://renascimedspa.com/services/injectables-treatments" },
+          { "@type": "OfferCatalog", "name": "Facial Treatments", "url": "https://renascimedspa.com/services/facial-treatments" },
+          { "@type": "OfferCatalog", "name": "Body Treatments", "url": "https://renascimedspa.com/services/body-treatments" },
+          { "@type": "OfferCatalog", "name": "IV Therapy", "url": "https://renascimedspa.com/services/iv-therapy" },
+          { "@type": "OfferCatalog", "name": "IgniteRF Skin Tightening", "url": "https://renascimedspa.com/services/igniterf" }
+        ]
+      }
+    })} />
+
+    <!-- JSON-LD: WebSite schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://renascimedspa.com/#website",
+      "name": "Renasci Medical Spa",
+      "url": "https://renascimedspa.com",
+      "publisher": { "@id": "https://renascimedspa.com/#business" },
+      "inLanguage": ["es", "en"]
+    })} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
