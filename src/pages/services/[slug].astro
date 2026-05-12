@@ -12,66 +12,23 @@ export async function getStaticPaths() {
     props: { servicio: any; categoria: any };
   }> = [];
   
+  // Slugs whose standalone .astro pages still exist — excluded so the catch-all
+  // route does not double-generate them. All other serviciosUnificados slugs are
+  // generated dynamically by this file.
   const staticSlugs = new Set([
-    'tox-neurotoxina',
-    'botox-no-sweat',
-    'botox-lip-flip',
-    'mini-aumento-labios',
-    'mega-aumento-labios',
-    'mini-lip-enhancement',
-    'full-lip-augmentation',
-    'mega-lip-augmentation',
-    'personalized-facial-contour',
-    'cheekbone-lift',
-    'no-more-bags-injection',
-    'rollbella',
-    'bananaroll',
-    'puppet-lines-injections',
-    'nefertiti-neck-lift',
-    'brazilian-butt-lift',
-    'chinbella',
-    'xeomin',
-    'dysport',
-    'botox-trap',
-    'migraine-botox',
-    'collagen-stimulation-sculptra',
-    'mega-collagen-stimulation-sculptra',
-    'mini-chin-reduction',
-    'renasci-prf-gel-therapy',
-    'b12-energy-injection',
-    'fat-blaster-injections',
-    'b12-fat-blaster-double-effect',
-    'alternative-medicine-consultation',
+    'iv-therapy',
+    'igniterf',
     'medically-supervised-weight-loss',
-    'ozempic-mounjaro',
-    'ozone-therapy',
-    'exosomes',
-    'hair-restoration-prp',
-    'hair-restoration-stem-cells',
-    'vaginal-rejuvenation-prp',
-    'vaginal-rejuvenation-stem-cells',
-    'cortisone-injection',
-    'cystic-acne',
-    'microneedling-face-neck',
-    'microneedling-face-neck-decollete',
-    'microneedling-stretch-marks',
-    'prp-face-neck',
-    'prp-face-neck-decollete',
-    'prp-stretch-marks',
-    'bhrt-setup-labs-consult',
-    'bhrt-monthly-support',
+    'biodentical-hormone-therapy',
     'hormone-replacement-therapy-him',
-    'lab-draw',
-    'peptides-bpc-157',
-    'peptides-cjc1295-ipamorelin',
-    'peptides-sermorelin',
-    'peptides-nad',
-    'peptides-ghku',
-    'peptides-vitamin-d',
-    'peptides-hair-growth',
-    'peptides-take-home',
-    'iv-drips',
-    'im-injections'
+    'stem-cells-treatment',
+    'therapy-peptide',
+    'microneedling',
+    'prp-injections',
+    'neurotoxin-injections',
+    'biostimulators',
+    'dermal-fillers',
+    'botox-lip-flip-especializado'
   ]);
 
   categoriasUnificadas.forEach(categoria => {
@@ -120,17 +77,21 @@ const numericPrice = priceMatch ? priceMatch[1].replace(/,/g, '') : null;
 
 const serviceSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Service',
+  '@type': 'MedicalProcedure',
   name: servicio.title.es,
   description: servicio.excerpt.es,
   image: serviceImage,
   url: serviceUrl,
-  serviceType: categoria.nombre.es,
+  procedureType: categoria.nombre.es,
   category: categoria.nombre.es,
   provider: { '@id': `${baseUrl}/#business` },
   areaServed: [
-    { '@type': 'City', name: 'Salt Lake City' },
+    { '@type': 'City', name: 'Salt Lake City', sameAs: 'https://en.wikipedia.org/wiki/Salt_Lake_City' },
     { '@type': 'City', name: 'Midvale' },
+    { '@type': 'City', name: 'Sandy' },
+    { '@type': 'City', name: 'Murray' },
+    { '@type': 'City', name: 'South Jordan' },
+    { '@type': 'City', name: 'Draper' },
     { '@type': 'State', name: 'Utah' }
   ],
   ...(numericPrice && {
@@ -145,20 +106,37 @@ const serviceSchema = {
   })
 };
 
+// FAQ schema from any servicio.faqs array, if present in data
+const faqSchema = Array.isArray((servicio as any).faqs) && (servicio as any).faqs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: (servicio as any).faqs.map((f: any) => ({
+    '@type': 'Question',
+    name: f.q || f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.a || f.answer }
+  }))
+} : null;
+
 const breadcrumbItems = [
   { nameEs: 'Inicio', nameEn: 'Home', name: 'Inicio', url: '/' },
   { nameEs: 'Servicios', nameEn: 'Services', name: 'Servicios', url: '/services' },
   { nameEs: categoria.nombre.es, nameEn: categoria.nombre.en || categoria.nombre.es, name: categoria.nombre.es, url: `/services/${categoria.slug}` },
   { nameEs: servicio.title.es, nameEn: servicio.title.en || servicio.title.es, name: servicio.title.es }
 ];
+
+const seoTitleEs = `${servicio.title.es} en Salt Lake City, Utah | Renasci Medical Spa`;
+const seoDescEs = `${servicio.excerpt.es} Desde ${servicio.precio} en Midvale, Utah — atendemos Salt Lake City, Sandy, Murray, South Jordan y Draper. Agenda tu consulta.`;
+const seoKeywordsEs = `${servicio.title.es}, ${servicio.title.es} Salt Lake City, ${servicio.title.es} Utah, ${servicio.title.es} Midvale, ${categoria.nombre.es}, medical spa Utah, medspa Salt Lake City, Renasci Medical Spa`;
 ---
 
 <BaseLayout
-  title={`${servicio.title.es} - Renasci Medical Spa`}
-  description={`${servicio.excerpt.es} Precio: ${servicio.precio}. Agenda tu cita en Renasci Medical Spa y descubre los beneficios de este tratamiento.`}
+  title={seoTitleEs}
+  description={seoDescEs}
+  seoKeywords={seoKeywordsEs}
   seoImage={servicio.image}
 >
   <JsonLd schema={serviceSchema} />
+  {faqSchema && <JsonLd schema={faqSchema} />}
   <Breadcrumbs items={breadcrumbItems} schemaOnly />
 
   <!-- Hero del Servicio -->

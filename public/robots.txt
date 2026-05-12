@@ -1,14 +1,17 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
-# Sitemap
 Sitemap: https://renascimedspa.com/sitemap-index.xml
+Sitemap: https://renascimedspa.com/sitemap.xml
 
-# Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Allow all major search engines explicitly
+# Major search engines (explicit allow)
 User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
@@ -26,7 +29,11 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-# Block scrapers / SEO crawlers
+# Allow Google's AI surfaces (AI Overviews, SGE) so we appear there too
+User-agent: Google-Extended
+Allow: /
+
+# Block third-party SEO scrapers
 User-agent: AhrefsBot
 Disallow: /
 
@@ -39,7 +46,7 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 
-# Opt-out of AI training crawlers
+# Opt out of general AI training crawlers
 User-agent: GPTBot
 Disallow: /
 
@@ -47,9 +54,6 @@ User-agent: CCBot
 Disallow: /
 
 User-agent: ClaudeBot
-Disallow: /
-
-User-agent: Google-Extended
 Disallow: /
 
 User-agent: anthropic-ai

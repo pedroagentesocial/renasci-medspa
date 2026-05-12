@@ -21,7 +21,7 @@ const {
   type = "website",
   siteName = "Renasci Medical Spa",
   author = "Renasci Medical Spa",
-  keywords = "medical spa, tratamientos estéticos, belleza, Utah",
+  keywords = "medical spa Utah, medspa Salt Lake City, botox Utah, rellenos dérmicos Utah, Renasci Medical Spa",
   canonicalUrl
 } = Astro.props;
 
@@ -30,6 +30,12 @@ const siteUrl = Astro.site?.toString() ?? import.meta.env.SITE ?? "https://renas
 const fullUrl = new URL(url, siteUrl).toString();
 const fullImageUrl = new URL(image, siteUrl).toString();
 const canonical = canonicalUrl ? new URL(canonicalUrl, siteUrl).toString() : fullUrl;
+
+// Strip lang query param to build clean alternates
+const cleanUrl = new URL(fullUrl);
+cleanUrl.searchParams.delete('lang');
+const baseUrl = cleanUrl.toString();
+const enUrl = `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}lang=en`;
 ---
 
 <!-- Primary Meta Tags -->
@@ -38,12 +44,21 @@ const canonical = canonicalUrl ? new URL(canonicalUrl, siteUrl).toString() : ful
 <meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
 <meta name="author" content={author} />
-<meta name="robots" content="index, follow" />
+<meta name="publisher" content={siteName} />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="bingbot" content="index, follow" />
 <meta name="language" content={locale} />
 <meta name="revisit-after" content="7 days" />
 
-<!-- Canonical URL -->
-<link rel="canonical" href={canonical} />
+<!-- Geo / Local SEO signals -->
+<meta name="geo.region" content="US-UT" />
+<meta name="geo.placename" content="Midvale, Utah" />
+<meta name="geo.position" content="40.6275;-111.8635" />
+<meta name="ICBM" content="40.6275, -111.8635" />
+
+<!-- Canonical URL (clean, no lang query) -->
+<link rel="canonical" href={baseUrl} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
@@ -80,6 +95,8 @@ const canonical = canonicalUrl ? new URL(canonicalUrl, siteUrl).toString() : ful
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
 <!-- Alternate languages: site serves both ES and EN from same URL via ?lang= query param -->
-<link rel="alternate" hreflang="es" href={fullUrl} />
-<link rel="alternate" hreflang="en" href={`${fullUrl}${fullUrl.includes('?') ? '&' : '?'}lang=en`} />
-<link rel="alternate" hreflang="x-default" href={fullUrl} />
+<link rel="alternate" hreflang="es-US" href={baseUrl} />
+<link rel="alternate" hreflang="es" href={baseUrl} />
+<link rel="alternate" hreflang="en-US" href={enUrl} />
+<link rel="alternate" hreflang="en" href={enUrl} />
+<link rel="alternate" hreflang="x-default" href={baseUrl} />

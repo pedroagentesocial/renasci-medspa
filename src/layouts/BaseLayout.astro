@@ -3,6 +3,7 @@ import HeaderNav from '../components/HeaderNav.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
 import LanguageToggle from '../components/LanguageToggle.astro';
+import Analytics from '../components/Analytics.astro';
 import { getLocaleFromUrl } from '../i18n/config';
 
 export interface Props {
@@ -18,14 +19,14 @@ export interface Props {
 
 const currentLocale = getLocaleFromUrl(Astro.url);
 const {
-  title = 'Renasci Medical Spa - Renueva tu piel',
-  description = 'Tratamientos estéticos avanzados en Renasci Medical Spa. Botox, rellenos, sculptra y más. Renueva tu piel con los mejores especialistas.',
+  title = 'Renasci Medical Spa Utah | Botox, Rellenos y Tratamientos Estéticos en Salt Lake City',
+  description = 'Medical Spa en Midvale, Utah atendiendo Salt Lake City, Sandy, Murray, South Jordan y Draper. Botox, rellenos dérmicos, Sculptra, IV Therapy, IgniteRF, PRP, microneedling, BHRT y pérdida de peso. Consulta gratuita.',
   lang = currentLocale,
   currentPath = Astro.url.pathname,
   seoTitle = title,
   seoDescription = description,
   seoImage = '/og-image.jpg',
-  seoKeywords = 'medical spa, tratamientos estéticos, belleza, Utah, botox, rellenos'
+  seoKeywords = 'medical spa Utah, medspa Salt Lake City, botox Utah, botox Salt Lake City, rellenos dérmicos Utah, sculptra Utah, medical spa Midvale, medical spa Sandy Utah, IV therapy Utah, IgniteRF, PRP Utah, microneedling Utah, BHRT Utah, pérdida de peso Utah, Renasci Medical Spa'
 } = Astro.props;
 ---
 
@@ -5699,58 +5700,141 @@ const {
     <!-- JSON-LD: MedicalBusiness schema for Google rich results -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
+      "@type": ["MedicalBusiness", "MedicalClinic", "LocalBusiness"],
       "@id": "https://renascimedspa.com/#business",
       "name": "Renasci Medical Spa",
-      "alternateName": "Renasci",
-      "description": "Medical spa in Salt Lake City offering aesthetic medical treatments: Botox, dermal fillers, Sculptra, IV therapy, IgniteRF, microneedling, PRP and more.",
+      "alternateName": ["Renasci", "Renasci Medspa", "Renasci Medical Spa Utah"],
+      "description": "Medical spa in Midvale, Utah serving Salt Lake City, Sandy, Murray, South Jordan and Draper. Aesthetic medical treatments: Botox, dermal fillers, Sculptra, IV therapy, IgniteRF, microneedling, PRP, weight loss, hormone replacement therapy and more.",
+      "slogan": "Renueva tu Piel — Renew Your Skin",
       "url": "https://renascimedspa.com",
       "logo": "https://renascimedspa.com/logo/Renasci-logo.png",
-      "image": "https://renascimedspa.com/og-image.jpg",
+      "image": [
+        "https://renascimedspa.com/og-image.jpg",
+        "https://renascimedspa.com/logo/Renasci-logo.png"
+      ],
       "telephone": "+1-385-609-2840",
+      "email": "orders@renascimedspa.com",
       "priceRange": "$$",
+      "currenciesAccepted": "USD",
+      "paymentAccepted": "Cash, Credit Card, Debit Card",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "6770 S 900 E",
+        "streetAddress": "6770 S 900 E, Suite 100",
         "addressLocality": "Midvale",
         "addressRegion": "UT",
         "postalCode": "84047",
         "addressCountry": "US"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.6275,
+        "longitude": -111.8635
+      },
+      "hasMap": "https://maps.google.com/?q=6770+S+900+E,+Midvale,+UT+84047",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "19:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "17:00" }
+      ],
       "sameAs": [
         "https://www.instagram.com/renascimedicalspa/",
         "https://www.facebook.com/profile.php?id=61580623082047"
       ],
-      "medicalSpecialty": "CosmeticMedicine",
+      "medicalSpecialty": ["CosmeticMedicine", "Dermatology", "PlasticSurgery"],
+      "knowsLanguage": ["en", "es"],
       "areaServed": [
-        { "@type": "City", "name": "Salt Lake City" },
-        { "@type": "City", "name": "Midvale" },
-        { "@type": "City", "name": "Sandy" },
-        { "@type": "City", "name": "Murray" },
-        { "@type": "State", "name": "Utah" }
+        { "@type": "City", "name": "Salt Lake City", "sameAs": "https://en.wikipedia.org/wiki/Salt_Lake_City" },
+        { "@type": "City", "name": "Midvale", "sameAs": "https://en.wikipedia.org/wiki/Midvale,_Utah" },
+        { "@type": "City", "name": "Sandy", "sameAs": "https://en.wikipedia.org/wiki/Sandy,_Utah" },
+        { "@type": "City", "name": "Murray", "sameAs": "https://en.wikipedia.org/wiki/Murray,_Utah" },
+        { "@type": "City", "name": "South Jordan", "sameAs": "https://en.wikipedia.org/wiki/South_Jordan,_Utah" },
+        { "@type": "City", "name": "Draper", "sameAs": "https://en.wikipedia.org/wiki/Draper,_Utah" },
+        { "@type": "City", "name": "West Jordan" },
+        { "@type": "City", "name": "Cottonwood Heights" },
+        { "@type": "City", "name": "Holladay" },
+        { "@type": "City", "name": "Taylorsville" },
+        { "@type": "State", "name": "Utah", "sameAs": "https://en.wikipedia.org/wiki/Utah" }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Aesthetic & Wellness Treatments",
         "itemListElement": [
-          { "@type": "OfferCatalog", "name": "Injectables", "url": "https://renascimedspa.com/services/injectables-treatments" },
+          { "@type": "OfferCatalog", "name": "Injectables & Neurotoxins", "url": "https://renascimedspa.com/services/injectables-treatments" },
+          { "@type": "OfferCatalog", "name": "Dermal Fillers", "url": "https://renascimedspa.com/services/dermal-fillers" },
+          { "@type": "OfferCatalog", "name": "Biostimulators (Sculptra)", "url": "https://renascimedspa.com/services/biostimulators" },
           { "@type": "OfferCatalog", "name": "Facial Treatments", "url": "https://renascimedspa.com/services/facial-treatments" },
-          { "@type": "OfferCatalog", "name": "Body Treatments", "url": "https://renascimedspa.com/services/body-treatments" },
+          { "@type": "OfferCatalog", "name": "Body Contouring Treatments", "url": "https://renascimedspa.com/services/body-contouring-treatments" },
+          { "@type": "OfferCatalog", "name": "Microneedling & PRP", "url": "https://renascimedspa.com/services/microneedling" },
           { "@type": "OfferCatalog", "name": "IV Therapy", "url": "https://renascimedspa.com/services/iv-therapy" },
-          { "@type": "OfferCatalog", "name": "IgniteRF Skin Tightening", "url": "https://renascimedspa.com/services/igniterf" }
+          { "@type": "OfferCatalog", "name": "IgniteRF Skin Tightening", "url": "https://renascimedspa.com/services/igniterf" },
+          { "@type": "OfferCatalog", "name": "Bioidentical Hormone Replacement Therapy (BHRT)", "url": "https://renascimedspa.com/services/biodentical-hormone-therapy" },
+          { "@type": "OfferCatalog", "name": "Peptide Therapy", "url": "https://renascimedspa.com/services/therapy-peptide" },
+          { "@type": "OfferCatalog", "name": "Medically Supervised Weight Loss", "url": "https://renascimedspa.com/services/medically-supervised-weight-loss" },
+          { "@type": "OfferCatalog", "name": "Stem Cells & Regenerative Treatments", "url": "https://renascimedspa.com/services/stem-cells-treatment" }
         ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "27",
+        "bestRating": "5",
+        "worstRating": "1"
       }
     })} />
 
-    <!-- JSON-LD: WebSite schema -->
+    {currentPath === '/' && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Dónde está ubicado Renasci Medical Spa en Utah?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Renasci Medical Spa está en 6770 S 900 E, Suite 100, Midvale, UT 84047. Atendemos clientes de Salt Lake City, Sandy, Murray, South Jordan, Draper y todo el valle de Salt Lake." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es el horario de atención?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Lunes a viernes de 9:00 AM a 7:00 PM, sábados de 9:00 AM a 5:00 PM. Domingos cerrado." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo agendo una cita en Renasci Medical Spa?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Puedes agendar llamando al (385) 609-2840, escribiendo a orders@renascimedspa.com, o reservando online en nuestra página de contacto. Confirmamos tu cita en menos de 24 horas." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué tratamientos ofrecen?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ofrecemos Botox, Dysport, Xeomin, rellenos dérmicos, Sculptra, Microneedling, PRP, IV Therapy, IgniteRF, terapia hormonal bioidéntica (BHRT), terapia con péptidos y programas médicamente supervisados de pérdida de peso." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿La consulta inicial es gratuita?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Ofrecemos una consulta inicial gratuita para evaluar tus objetivos y diseñar un plan personalizado de tratamiento." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Atienden en español e inglés?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestro equipo te atiende en español e inglés con la misma calidad y atención profesional." }
+          }
+        ]
+      })} />
+    )}
+
+    <!-- JSON-LD: WebSite schema with SearchAction -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
       "@id": "https://renascimedspa.com/#website",
       "name": "Renasci Medical Spa",
+      "alternateName": "Renasci Medspa Utah",
       "url": "https://renascimedspa.com",
       "publisher": { "@id": "https://renascimedspa.com/#business" },
-      "inLanguage": ["es", "en"]
+      "inLanguage": ["es-US", "en-US"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://renascimedspa.com/services?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     })} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -5760,6 +5844,7 @@ const {
     <link rel="icon" type="image/svg+xml" sizes="any" href="/icons/flor-renasci.svg?v=3" />
     <link rel="shortcut icon" href="/icons/flor-renasci.svg?v=3" type="image/svg+xml" />
     <link rel="mask-icon" href="/icons/flor-renasci.svg?v=3" color="#F3A2A7" />
+    <Analytics />
   </head>
   <body data-path={currentPath}>
     <HeaderNav />

@@ -4,41 +4,98 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "astro",
-  "rewrites": [
-    {
-      "source": "/en/(.*)",
-      "destination": "/en/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/services/botox", "destination": "/services/tox-neurotoxina", "permanent": true },
+    { "source": "/services/neurotoxin", "destination": "/services/tox-neurotoxina", "permanent": true },
+    { "source": "/services/migraine-botox", "destination": "/services/botox-migranas", "permanent": true },
+    { "source": "/services/baby-botox", "destination": "/services/tox-neurotoxina", "permanent": true },
+    { "source": "/services/botox-trap", "destination": "/services/botox-hombros", "permanent": true },
+    { "source": "/services/lifting-nefertiti", "destination": "/services/nefertiti-neck-lift", "permanent": true },
+    { "source": "/services/nefertiti-neck-lift", "destination": "/services/lifting-nefertiti", "permanent": false },
+    { "source": "/services/kybella", "destination": "/services/no-more-bags-injection", "permanent": true },
+    { "source": "/services/ozempic", "destination": "/services/semaglutide", "permanent": true },
+    { "source": "/services/ozempic-mounjaro", "destination": "/services/semaglutide", "permanent": true },
+    { "source": "/services/ozone-therapy", "destination": "/services/ozonoterapia", "permanent": true },
+    { "source": "/services/ozonoterapia", "destination": "/services/ozonoterapia", "permanent": false },
+    { "source": "/services/exosomes", "destination": "/services/exosomas", "permanent": true },
+    { "source": "/services/cortisone-injection", "destination": "/services/cortisona-acne-quistico", "permanent": true },
+    { "source": "/services/cystic-acne", "destination": "/services/cortisona-acne-quistico", "permanent": true },
+    { "source": "/services/microneedling-face-neck", "destination": "/services/microneedling", "permanent": true },
+    { "source": "/services/microneedling-face-neck-decollete", "destination": "/services/microneedling", "permanent": true },
+    { "source": "/services/microneedling-stretch-marks", "destination": "/services/microneedling", "permanent": true },
+    { "source": "/services/microneedling-prp", "destination": "/services/microneedling", "permanent": true },
+    { "source": "/services/prp-face-neck", "destination": "/services/prp-injections", "permanent": true },
+    { "source": "/services/prp-face-neck-decollete", "destination": "/services/prp-injections", "permanent": true },
+    { "source": "/services/prp-stretch-marks", "destination": "/services/prp-injections", "permanent": true },
+    { "source": "/services/inyecciones-prp", "destination": "/services/prp-injections", "permanent": true },
+    { "source": "/services/hair-restoration-prp", "destination": "/services/restauracion-capilar-prp", "permanent": true },
+    { "source": "/services/hair-restoration-stem-cells", "destination": "/services/stem-cells-treatment", "permanent": true },
+    { "source": "/services/vaginal-rejuvenation-prp", "destination": "/services/rejuvenecimiento-vaginal-prp", "permanent": true },
+    { "source": "/services/vaginal-rejuvenation-stem-cells", "destination": "/services/rejuvenecimiento-vaginal-celulas-madre", "permanent": true },
+    { "source": "/services/lab-draw", "destination": "/services/bhrt-monthly-support", "permanent": true },
+    { "source": "/services/peptides-bpc-157", "destination": "/services/therapy-peptide", "permanent": true },
+    { "source": "/services/peptides-cjc1295-ipamorelin", "destination": "/services/therapy-peptide", "permanent": true },
+    { "source": "/services/peptides-sermorelin", "destination": "/services/therapy-peptide", "permanent": true },
+    { "source": "/services/peptides-nad", "destination": "/services/therapy-peptide", "permanent": true },
+    { "source": "/services/peptides-ghku", "destination": "/services/therapy-peptide", "permanent": true },
+    { "source": "/services/peptides-vitamin-d", "destination": "/services/therapy-peptide", "permanent": true },
+    { "source": "/services/peptides-hair-growth", "destination": "/services/therapy-peptide", "permanent": true },
+    { "source": "/services/peptides-take-home", "destination": "/services/therapy-peptide", "permanent": true },
+    { "source": "/services/iv-drips", "destination": "/services/iv-therapy", "permanent": true },
+    { "source": "/services/im-injections", "destination": "/services/inyeccion-energia-b12", "permanent": true },
+    { "source": "/services/b12-energy-injection", "destination": "/services/inyeccion-energia-b12", "permanent": true },
+    { "source": "/services/fat-blaster-injections", "destination": "/services/inyecciones-fat-blaster", "permanent": true },
+    { "source": "/services/b12-fat-blaster-double-effect", "destination": "/services/b12-fat-blaster", "permanent": true },
+    { "source": "/services/alternative-medicine-consultation", "destination": "/services/consulta-medicina-alternativa", "permanent": true },
+    { "source": "/services/medically-supervised-weight-loss-program", "destination": "/services/medically-supervised-weight-loss", "permanent": true },
+    { "source": "/services/personalized-facial-contour", "destination": "/services/contorno-facial-personalizado", "permanent": true },
+    { "source": "/services/cheekbone-lift", "destination": "/services/cheekbone-pop", "permanent": true },
+    { "source": "/services/mini-chin-reduction", "destination": "/services/mini-chin-up", "permanent": true },
+    { "source": "/services/mini-lip-enhancement", "destination": "/services/mini-aumento-labios", "permanent": true },
+    { "source": "/services/full-lip-augmentation", "destination": "/services/relleno-labios", "permanent": true },
+    { "source": "/services/mega-lip-augmentation", "destination": "/services/mega-aumento-labios", "permanent": true },
+    { "source": "/services/collagen-stimulation-sculptra", "destination": "/services/sculptra-colageno", "permanent": true },
+    { "source": "/services/renasci-prf-gel-therapy", "destination": "/services/ez-gel-prf", "permanent": true },
+    { "source": "/services/bhrt-setup-labs-consult", "destination": "/services/bhrt-setup-labs-consult", "permanent": false },
+    { "source": "/sitemap-index.xml", "destination": "/sitemap.xml", "permanent": false }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(self)" }
       ]
     },
     {
       "source": "/_astro/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(jpg|jpeg|png|gif|webp|avif|svg|ico|woff|woff2|ttf)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
       ]
     }
   ]
