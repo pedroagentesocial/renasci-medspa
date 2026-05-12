@@ -3,6 +3,7 @@ import { t } from '../i18n/config';
 import { dict } from '../i18n/dict';
 import { getLocaleFromUrl } from '../i18n/config';
 import ServiceAreas from './ServiceAreas.astro';
+import ReviewCTA from './ReviewCTA.astro';
 
 const currentLocale = getLocaleFromUrl(Astro.url);
 ---
@@ -145,9 +146,15 @@ const currentLocale = getLocaleFromUrl(Astro.url);
       </div>
     </div>
 
-    <!-- Service Areas: inline city links for local SEO -->
-    <div class="mt-8 pt-6 border-t border-white/20">
+    <!-- Service Areas + Review CTA: inline links for local SEO -->
+    <div class="mt-8 pt-6 border-t border-white/20 space-y-3">
       <ServiceAreas variant="inline" />
+      <div class="flex items-center gap-3 text-xs">
+        <span class="text-white/70"
+              data-t-es="¿Te atendimos? "
+              data-t-en="Were you a patient? ">¿Te atendimos? </span>
+        <ReviewCTA variant="inline" />
+      </div>
     </div>
 
     <!-- Bottom Bar -->

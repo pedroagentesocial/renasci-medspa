@@ -50,7 +50,7 @@ const analyticsEnabled = Boolean(GA4_ID || ADS_ID || GTM_ID || META_PIXEL_ID);
         ${GA4_ID ? `gtag('config', '${GA4_ID}', { 'anonymize_ip': true, 'send_page_view': true });` : ''}
         ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ''}
 
-        // Auto-tracking: phone, email, whatsapp, booking and form submission clicks
+        // Auto-tracking: phone, email, whatsapp, booking, review and form submission clicks
         document.addEventListener('DOMContentLoaded', function () {
           document.addEventListener('click', function (e) {
             var t = e.target;
@@ -62,6 +62,11 @@ const analyticsEnabled = Boolean(GA4_ID || ADS_ID || GTM_ID || META_PIXEL_ID);
             if (booking) {
               gtag('event', 'book_click', { event_category: 'engagement', value: 1 });
               ${ADS_ID ? `gtag('event', 'conversion', { send_to: '${ADS_ID}/BOOK_LABEL' });` : ''}
+              return;
+            }
+            var review = a.getAttribute('data-review-trigger') === 'google' || href.indexOf('g.page') !== -1;
+            if (review) {
+              gtag('event', 'review_click', { event_category: 'engagement', destination: 'google_review', value: 1 });
               return;
             }
             if (href.indexOf('tel:') === 0) {
