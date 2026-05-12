@@ -1,0 +1,89 @@
+---
+export interface Props {
+  variant?: 'section' | 'inline';
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  variant = 'section',
+  title = 'Atendemos en todo el valle de Salt Lake',
+  subtitle = 'Nuestra clínica está en Midvale, Utah, y recibimos pacientes de todo el área metropolitana.'
+} = Astro.props;
+
+const cities = [
+  { name: 'Salt Lake City', href: '/medical-spa-salt-lake-city', tag: 'Downtown · 15 min' },
+  { name: 'Midvale', href: '/medical-spa-midvale', tag: 'Ubicación principal' },
+  { name: 'Sandy', href: '/medical-spa-sandy-utah', tag: '10 min · I-15' },
+  { name: 'Murray', href: '/medical-spa-murray-utah', tag: '5 min' },
+  { name: 'South Jordan', href: '/medical-spa-south-jordan-utah', tag: '15 min · Bangerter' },
+  { name: 'Draper', href: '/medical-spa-draper-utah', tag: '15 min · I-15' }
+];
+---
+
+{variant === 'section' && (
+  <section class="py-16 lg:py-20 bg-gradient-to-br from-[#F3A2A7]/5 via-white to-[#AABFA8]/5">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12 max-w-3xl mx-auto">
+        <p class="text-xs uppercase tracking-[0.22em] text-[#F3A2A7] font-semibold mb-3"
+           data-t-es="Áreas de servicio"
+           data-t-en="Service Areas">Áreas de servicio</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 mb-4"
+            data-t-es={title}
+            data-t-en="We serve the entire Salt Lake Valley">{title}</h2>
+        <p class="text-gray-600 text-base md:text-lg"
+           data-t-es={subtitle}
+           data-t-en="Our clinic is in Midvale, Utah, and we welcome patients from across the metropolitan area.">{subtitle}</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 max-w-5xl mx-auto">
+        {cities.map((city) => (
+          <a
+            href={city.href}
+            class="group rounded-2xl border border-gray-200 bg-white p-4 hover:border-[#F3A2A7] hover:shadow-card-hover transition-all duration-300"
+            aria-label={`Medical Spa en ${city.name}, Utah`}
+          >
+            <div class="flex items-start justify-between mb-2">
+              <svg class="w-5 h-5 text-[#F3A2A7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <svg class="w-4 h-4 text-gray-300 group-hover:text-[#F3A2A7] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+            <h3 class="font-display font-semibold text-base text-gray-900 group-hover:text-[#F3A2A7] transition">{city.name}</h3>
+            <p class="text-xs text-gray-500 mt-1">{city.tag}</p>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 text-sm font-semibold text-[#F3A2A7] hover:text-[#AABFA8] transition"
+          data-t-es="¿Vienes desde otra ciudad? Contáctanos →"
+          data-t-en="Coming from another city? Contact us →"
+        >¿Vienes desde otra ciudad? Contáctanos →</a>
+      </div>
+    </div>
+  </section>
+)}
+
+{variant === 'inline' && (
+  <div class="flex flex-wrap gap-2 text-xs">
+    <span class="text-white/70 mr-1"
+          data-t-es="Áreas:"
+          data-t-en="Areas:">Áreas:</span>
+    {cities.map((city, i) => (
+      <>
+        <a
+          href={city.href}
+          class="text-white/85 hover:text-white underline-offset-2 hover:underline transition"
+          aria-label={`Medical Spa en ${city.name}, Utah`}
+        >{city.name}</a>
+        {i < cities.length - 1 && <span class="text-white/40">·</span>}
+      </>
+    ))}
+  </div>
+)}

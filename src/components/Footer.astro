@@ -2,6 +2,7 @@
 import { t } from '../i18n/config';
 import { dict } from '../i18n/dict';
 import { getLocaleFromUrl } from '../i18n/config';
+import ServiceAreas from './ServiceAreas.astro';
 
 const currentLocale = getLocaleFromUrl(Astro.url);
 ---
@@ -142,6 +143,11 @@ const currentLocale = getLocaleFromUrl(Astro.url);
           
         </div>
       </div>
+    </div>
+
+    <!-- Service Areas: inline city links for local SEO -->
+    <div class="mt-8 pt-6 border-t border-white/20">
+      <ServiceAreas variant="inline" />
     </div>
 
     <!-- Bottom Bar -->
