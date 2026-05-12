@@ -10,7 +10,8 @@
     "deploy:hostinger": "node scripts/deploy-ftp.mjs",
     "deploy:hostinger:clean": "CLEAN=true node scripts/deploy-ftp.mjs",
     "deploy": "npm run build && npm run deploy:hostinger",
-    "deploy:clean": "npm run build && npm run deploy:hostinger:clean"
+    "deploy:clean": "npm run build && npm run deploy:hostinger:clean",
+    "indexnow": "node scripts/indexnow-ping.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.5",
