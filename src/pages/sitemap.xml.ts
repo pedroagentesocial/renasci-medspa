@@ -19,16 +19,6 @@ export const GET: APIRoute = async ({ url }) => {
     { path: '/terms', priority: '0.3', changefreq: 'yearly' }
   ];
 
-  // City landing pages for local SEO
-  const cityPages: Page[] = [
-    { path: '/medical-spa-salt-lake-city', priority: '0.9', changefreq: 'monthly' },
-    { path: '/medical-spa-midvale', priority: '0.9', changefreq: 'monthly' },
-    { path: '/medical-spa-sandy-utah', priority: '0.8', changefreq: 'monthly' },
-    { path: '/medical-spa-murray-utah', priority: '0.8', changefreq: 'monthly' },
-    { path: '/medical-spa-south-jordan-utah', priority: '0.8', changefreq: 'monthly' },
-    { path: '/medical-spa-draper-utah', priority: '0.8', changefreq: 'monthly' }
-  ];
-
   // Service category pages
   const categoryHrefs = new Set<string>();
   categoriasUnificadas.forEach((cat: any) => {
@@ -54,7 +44,6 @@ export const GET: APIRoute = async ({ url }) => {
 
   const allPages: Page[] = [
     ...staticPages,
-    ...cityPages,
     ...categoryPages,
     ...servicePages
   ];

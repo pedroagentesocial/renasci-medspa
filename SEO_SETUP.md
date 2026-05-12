@@ -125,7 +125,6 @@ Una vez deployado:
 ### Sitemap
 - `/sitemap.xml` dinámico (regenerado en cada build) con:
   - Páginas estáticas, categorías, todos los servicios
-  - Las 6 city landing pages
   - Hreflang `xhtml:link` alternates ES/EN para cada URL
 
 ### Robots.txt
@@ -136,15 +135,6 @@ Una vez deployado:
 ### Redirects 301 (vercel.json)
 - 50+ redirects para que las URLs viejas de servicios apunten a las nuevas
 - Preserva el SEO acumulado en links externos hacia las URLs antiguas
-
-### City landing pages (nuevas)
-Cada una con su propio LocalBusiness sub-schema, mapa, breadcrumb, listado de tratamientos top:
-- `/medical-spa-salt-lake-city`
-- `/medical-spa-midvale`
-- `/medical-spa-sandy-utah`
-- `/medical-spa-murray-utah`
-- `/medical-spa-south-jordan-utah`
-- `/medical-spa-draper-utah`
 
 ### Analytics ([src/components/Analytics.astro](src/components/Analytics.astro))
 - Carga condicional según variables de entorno

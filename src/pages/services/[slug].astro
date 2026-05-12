@@ -75,15 +75,6 @@ const serviciosRelacionados = _pool.length <= 3
   ? _pool
   : [..._pool.slice(_start), ..._pool.slice(0, _start)].slice(0, 3);
 
-// Ciudades atendidas para internal linking desde cada service page
-const ciudadesAtendidas = [
-  { name: 'Salt Lake City', href: '/medical-spa-salt-lake-city' },
-  { name: 'Midvale', href: '/medical-spa-midvale' },
-  { name: 'Sandy', href: '/medical-spa-sandy-utah' },
-  { name: 'Murray', href: '/medical-spa-murray-utah' },
-  { name: 'South Jordan', href: '/medical-spa-south-jordan-utah' },
-  { name: 'Draper', href: '/medical-spa-draper-utah' }
-];
 
 // Schema.org Service + price extraction
 const baseUrl = 'https://renascimedspa.com';
@@ -570,31 +561,6 @@ const seoKeywordsEs = `${servicio.title.es}, ${servicio.title.es} Salt Lake City
           </svg>
           Profesionales certificados
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Disponible en (city internal links for local SEO) -->
-  <section class="py-12 bg-white border-t border-gray-100">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-xs uppercase tracking-[0.22em] text-[#F3A2A7] font-semibold mb-3">Disponible en</p>
-      <h2 class="font-display font-bold text-2xl md:text-3xl text-gray-900 mb-6">
-        {servicio.title.es} en todo el valle de Salt Lake
-      </h2>
-      <div class="flex flex-wrap justify-center gap-2 md:gap-3">
-        {ciudadesAtendidas.map((c) => (
-          <a
-            href={c.href}
-            class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-sm font-medium hover:border-[#F3A2A7] hover:text-[#F3A2A7] transition"
-            aria-label={`${servicio.title.es} en ${c.name}, Utah`}
-          >
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            {servicio.title.es} {c.name}
-          </a>
-        ))}
       </div>
     </div>
   </section>

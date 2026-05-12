@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PageSchema from '../components/PageSchema.astro'
-import ServiceAreas from '../components/ServiceAreas.astro'
 import { getLocaleFromUrl } from '../i18n/config'
 const langParam = Astro.url.searchParams.get('lang')
 const pathLocale = getLocaleFromUrl(Astro.url)
@@ -81,11 +80,6 @@ const serviceCards = [
       </div>
     </div>
   </section>
-
-  <ServiceAreas
-    title="Servicios estéticos en todo el valle de Salt Lake"
-    subtitle="Renasci Medical Spa atiende pacientes de Salt Lake City, Midvale, Sandy, Murray, South Jordan y Draper desde nuestra clínica en Midvale, Utah."
-  />
 
 <style is:global>
   .hero-services{ background:#000; color:#fff; min-height:40vh; display:flex; align-items:center; justify-content:center; padding-top:64px; padding-bottom:48px; position:relative; background-image:url('/img/services/hero-services.jpg'); background-size:cover; background-position:center }

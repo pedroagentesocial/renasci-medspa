@@ -59,7 +59,13 @@
     { "source": "/services/collagen-stimulation-sculptra", "destination": "/services/sculptra-colageno", "permanent": true },
     { "source": "/services/renasci-prf-gel-therapy", "destination": "/services/ez-gel-prf", "permanent": true },
     { "source": "/services/bhrt-setup-labs-consult", "destination": "/services/bhrt-setup-labs-consult", "permanent": false },
-    { "source": "/sitemap-index.xml", "destination": "/sitemap.xml", "permanent": false }
+    { "source": "/sitemap-index.xml", "destination": "/sitemap.xml", "permanent": false },
+    { "source": "/medical-spa-salt-lake-city", "destination": "/services", "permanent": true },
+    { "source": "/medical-spa-midvale", "destination": "/contact", "permanent": true },
+    { "source": "/medical-spa-sandy-utah", "destination": "/services", "permanent": true },
+    { "source": "/medical-spa-murray-utah", "destination": "/services", "permanent": true },
+    { "source": "/medical-spa-south-jordan-utah", "destination": "/services", "permanent": true },
+    { "source": "/medical-spa-draper-utah", "destination": "/services", "permanent": true }
   ],
   "headers": [
     {

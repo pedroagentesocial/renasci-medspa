@@ -51,15 +51,15 @@ Para cada URL:
 | 1 | `https://renascimedspa.com/` | Home — la primera que debe rankear |
 | 2 | `https://renascimedspa.com/contact` | Con FAQ schema → rich snippets |
 | 3 | `https://renascimedspa.com/services` | Indice de tratamientos |
-| 4 | `https://renascimedspa.com/medical-spa-salt-lake-city` | Local SEO core |
-| 5 | `https://renascimedspa.com/medical-spa-midvale` | Local SEO core |
-| 6 | `https://renascimedspa.com/medical-spa-sandy-utah` | Local SEO core |
-| 7 | `https://renascimedspa.com/medical-spa-murray-utah` | Local SEO core |
-| 8 | `https://renascimedspa.com/medical-spa-south-jordan-utah` | Local SEO core |
-| 9 | `https://renascimedspa.com/medical-spa-draper-utah` | Local SEO core |
-| 10 | `https://renascimedspa.com/services/tox-neurotoxina` | Botox — alta búsqueda |
-| 11 | `https://renascimedspa.com/services/relleno-labios` | Lip filler — alta búsqueda |
-| 12 | `https://renascimedspa.com/services/iv-therapy` | Búsqueda creciente |
+| 4 | `https://renascimedspa.com/membership` | Conversion driver |
+| 5 | `https://renascimedspa.com/about` | E-E-A-T signal |
+| 6 | `https://renascimedspa.com/services/tox-neurotoxina` | Botox — alta búsqueda |
+| 7 | `https://renascimedspa.com/services/relleno-labios` | Lip filler — alta búsqueda |
+| 8 | `https://renascimedspa.com/services/iv-therapy` | Búsqueda creciente |
+| 9 | `https://renascimedspa.com/services/sculptra-colageno` | Sculptra — alto ticket |
+| 10 | `https://renascimedspa.com/services/igniterf` | IgniteRF — diferenciador |
+| 11 | `https://renascimedspa.com/services/medically-supervised-weight-loss` | Weight loss demand |
+| 12 | `https://renascimedspa.com/services/biodentical-hormone-therapy` | BHRT — alto ticket |
 
 ---
 
@@ -203,13 +203,13 @@ Métricas realistas para una clínica medspa nueva en Utah:
 https://renascimedspa.com/
 https://renascimedspa.com/contact
 https://renascimedspa.com/services
-https://renascimedspa.com/medical-spa-salt-lake-city
-https://renascimedspa.com/medical-spa-midvale
-https://renascimedspa.com/medical-spa-sandy-utah
-https://renascimedspa.com/medical-spa-murray-utah
-https://renascimedspa.com/medical-spa-south-jordan-utah
-https://renascimedspa.com/medical-spa-draper-utah
+https://renascimedspa.com/membership
+https://renascimedspa.com/about
 https://renascimedspa.com/services/tox-neurotoxina
 https://renascimedspa.com/services/relleno-labios
 https://renascimedspa.com/services/iv-therapy
+https://renascimedspa.com/services/sculptra-colageno
+https://renascimedspa.com/services/igniterf
+https://renascimedspa.com/services/medically-supervised-weight-loss
+https://renascimedspa.com/services/biodentical-hormone-therapy
 ```
