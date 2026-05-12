@@ -1,11 +1,78 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  '@id': 'https://renascimedspa.com/contact#contactpage',
+  url: 'https://renascimedspa.com/contact',
+  name: 'Contacto Renasci Medical Spa — Midvale, Utah',
+  description: 'Agenda tu consulta gratuita en Renasci Medical Spa, ubicado en Midvale, Utah, atendiendo Salt Lake City, Sandy, Murray, South Jordan y Draper.',
+  about: { '@id': 'https://renascimedspa.com/#business' },
+  mainEntity: { '@id': 'https://renascimedspa.com/#business' }
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://renascimedspa.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Contacto', item: 'https://renascimedspa.com/contact' }
+  ]
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Dónde está ubicado Renasci Medical Spa?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Nuestra clínica está en 6770 S 900 E, Suite 100, Midvale, UT 84047. Atendemos pacientes de Salt Lake City, Sandy, Murray, South Jordan, Draper y todo el Salt Lake Valley.' }
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cómo agendo una cita?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Puedes agendar de tres formas: llamando al (385) 609-2840, completando el formulario de contacto, o reservando online desde Boulevard. Respondemos en menos de 24 horas.' }
+    },
+    {
+      '@type': 'Question',
+      name: '¿La consulta inicial tiene costo?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No. La consulta inicial es completamente gratuita. Evaluamos tus objetivos, anatomía y diseñamos un plan personalizado sin compromiso.' }
+    },
+    {
+      '@type': 'Question',
+      name: '¿Hay estacionamiento gratuito?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Sí. Tenemos estacionamiento gratuito en sitio y acceso fácil desde la I-15 e I-215, además de parada UTA cercana.' }
+    },
+    {
+      '@type': 'Question',
+      name: '¿Atienden en español e inglés?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Sí. Todo nuestro equipo es bilingüe y te atendemos con la misma calidad profesional en español o inglés.' }
+    },
+    {
+      '@type': 'Question',
+      name: '¿Aceptan tarjetas de crédito y financiamiento?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Aceptamos efectivo, tarjetas de crédito y débito. Para tratamientos más extensos ofrecemos planes de pago y nuestra membresía con descuentos exclusivos.' }
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuál es su política de cancelación?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Te pedimos avisar con al menos 24 horas de anticipación para reagendar o cancelar sin cargo. Esto nos ayuda a atender mejor a todos nuestros pacientes.' }
+    }
+  ]
+};
 ---
 
 <BaseLayout
-  title="Contacto - Renasci Medical Spa"
-  description="Contáctanos para agendar tu consulta gratuita. Estamos aquí para ayudarte en tu transformación de belleza y bienestar."
+  title="Contacto Renasci Medical Spa | Salt Lake City, Midvale Utah"
+  description="Agenda tu consulta gratuita en Renasci Medical Spa, Midvale Utah. Atendemos Salt Lake City, Sandy, Murray, South Jordan y Draper. (385) 609-2840 · orders@renascimedspa.com"
+  seoKeywords="contacto medical spa Utah, agendar cita medspa Salt Lake City, Renasci Medical Spa Midvale, consulta gratuita medspa, medical spa Salt Lake Valley"
 >
+  <JsonLd schema={contactSchema} />
+  <JsonLd schema={breadcrumbSchema} />
+  <JsonLd schema={faqSchema} />
   <section class="relative min-h-[68vh] flex items-center overflow-hidden">
     <img
       src="/img/about.jpg"

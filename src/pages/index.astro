@@ -11,9 +11,10 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
 import ServiceAreas from '../components/ServiceAreas.astro';
 ---
 
-<BaseLayout 
-  title="Renasci Medical Spa - Renueva tu piel"
-  description="Tratamientos estéticos avanzados en Renasci Medical Spa. Botox, rellenos, sculptra y más. Renueva tu piel con los mejores especialistas."
+<BaseLayout
+  title="Renasci Medical Spa Utah | Botox, Rellenos y Tratamientos Estéticos en Salt Lake City"
+  description="Medical spa en Midvale, Utah atendiendo Salt Lake City, Sandy, Murray, South Jordan y Draper. Botox, rellenos dérmicos, Sculptra, IV Therapy, IgniteRF, PRP, microneedling, BHRT y pérdida de peso. Consulta gratuita y atención bilingüe."
+  seoKeywords="medical spa Utah, medspa Salt Lake City, botox Utah, rellenos dérmicos Salt Lake City, sculptra Utah, IV therapy Utah, IgniteRF, PRP Utah, microneedling Utah, BHRT Utah, pérdida de peso médica Utah, Renasci Medical Spa Midvale"
 >
   <!-- Hero Section with Slider -->
   <section class="relative min-h-[85vh] md:min-h-screen flex items-center overflow-hidden">
@@ -147,11 +148,18 @@ import ServiceAreas from '../components/ServiceAreas.astro';
 
     <!-- Título del hero (solo visible en slide 0) -->
     <div id="heroTitle" class="relative z-10 px-6 max-w-4xl mx-auto sm:ml-8 lg:ml-16">
+      <p class="text-[#F3A2A7] uppercase tracking-[0.2em] text-xs md:text-sm font-semibold mb-3 text-center md:text-left"
+         data-t-es="Medical Spa · Midvale, Utah · Salt Lake Valley"
+         data-t-en="Medical Spa · Midvale, Utah · Salt Lake Valley">
+        Medical Spa · Midvale, Utah · Salt Lake Valley
+      </p>
       <h1 class="font-rougescript text-white text-4xl md:text-6xl lg:text-7xl font-normal tracking-normal leading-tight mb-6 text-center md:text-left" id="heroTitleText">
         <span data-i18n="hero.renew_prefix">Renueva tu</span> <span data-i18n="hero.renew_highlight">Piel</span>
       </h1>
-      <p class="text-white/80 text-base md:text-xl leading-relaxed mb-6 text-left max-w-md md:max-w-lg" style="text-align: justify;">
-        Belleza que se tranforma contigo, guiada por medicina regenerativa y resultados que respetan tu esencia.
+      <p class="text-white/80 text-base md:text-xl leading-relaxed mb-6 text-left max-w-md md:max-w-lg" style="text-align: justify;"
+         data-t-es="Belleza que se transforma contigo, guiada por medicina regenerativa y resultados que respetan tu esencia. Atendemos Salt Lake City, Midvale, Sandy, Murray, South Jordan y Draper."
+         data-t-en="Beauty that transforms with you, guided by regenerative medicine and results that honor your essence. Serving Salt Lake City, Midvale, Sandy, Murray, South Jordan and Draper.">
+        Belleza que se transforma contigo, guiada por medicina regenerativa y resultados que respetan tu esencia. Atendemos Salt Lake City, Midvale, Sandy, Murray, South Jordan y Draper.
       </p>
       <div class="flex justify-center md:justify-start">
         <a 

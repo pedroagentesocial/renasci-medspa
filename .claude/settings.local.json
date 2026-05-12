@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"http://localhost:4323/services/prp-injections\" -o /tmp/prp.html -w \"HTTP %{http_code}\\\\n\")",
+      "Read(//tmp/**)"
+    ]
+  }
+}
