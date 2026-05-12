@@ -41,3 +41,10 @@ ehthumbs.db
 .vscode/
 !.vscode/extensions.json
 !.vscode/launch.json
+
+# Claude Code local config (never commit)
+.claude/
+
+# Legacy deploy probe / workflow trigger files
+.workflow-trigger
+public/deploy-probe.txt
